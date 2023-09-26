@@ -1,0 +1,1 @@
+This project contains the backend of MenuMasters.
