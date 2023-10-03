@@ -1,9 +1,9 @@
 ﻿using System;
 namespace MenuMasters_API.Services
 {
-	public class Menu
+	internal sealed class MenuItemService
 	{
-		public Menu()
+		public MenuItemService()
 		{
 		}
 	}

@@ -5,6 +5,8 @@ VisualStudioVersion = 25.0.1706.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuMasters API", "MenuMasters API.csproj", "{64E43BF7-E483-4BE5-818C-E64778D311FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "..\DataAccess\DataAccess.csproj", "{F2EF9AED-8CBF-408F-B207-A29A3C97FCEF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{64E43BF7-E483-4BE5-818C-E64778D311FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64E43BF7-E483-4BE5-818C-E64778D311FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64E43BF7-E483-4BE5-818C-E64778D311FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2EF9AED-8CBF-408F-B207-A29A3C97FCEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2EF9AED-8CBF-408F-B207-A29A3C97FCEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2EF9AED-8CBF-408F-B207-A29A3C97FCEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2EF9AED-8CBF-408F-B207-A29A3C97FCEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
