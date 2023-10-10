@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace MenuMasters_API.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class MenuItemController : ControllerBase
 {
     private readonly ILogger<MenuItemController> _logger;
@@ -16,12 +16,20 @@ public class MenuItemController : ControllerBase
         _logger = logger;
     }
 
-    [HttpGet(Name = "GetMenuItem")]
+    [HttpGet(Name = "GetAllMenuItems")]
     public async Task<IEnumerable<MenuItem>> Get()
     {
         MenuMastersDbContext dbContext = new MenuMastersDbContext();
         MenuItemRepository repo = new MenuItemRepository(dbContext);
         return await repo.GetAllMenuItemsAsync();
+    }
+
+    [HttpGet("{id}", Name = "GetMenuItemById")]
+    public async Task<MenuItem?> Get(int id)
+    {
+        MenuMastersDbContext dbContext = new MenuMastersDbContext();
+        MenuItemRepository repo = new MenuItemRepository(dbContext);
+        return await repo.GetMenuItemByIdAsync(id);
     }
 }
 
