@@ -7,7 +7,7 @@ namespace Contract_API_Bussiness.Interfaces
 	{
         public Task<IEnumerable<Category>> GetAllCategoriesAsync();
 
-        public Task<Category> GetCategoryByIdAsync(int id);
+        public Task<Category?> GetCategoryByIdAsync(int id);
 
         public bool CreateCategoryAsync(Category category);
 
