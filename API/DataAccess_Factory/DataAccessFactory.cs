@@ -4,7 +4,7 @@ using Contract_Data_Bussiness.Interfaces;
 
 namespace DataAccess_Factory
 {
-    public class DataAccess_Factory
+    public class DataAccessFactory
     {
         private static readonly MenuMastersDbContext dbContext = new MenuMastersDbContext();
 

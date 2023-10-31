@@ -1,6 +1,7 @@
 ﻿using System;
 using Contract_API_Bussiness.Interfaces;
 using Contract_Data_Bussiness.Interfaces;
+using DataAccess_Factory;
 using Models;
 
 namespace Bussiness
@@ -11,8 +12,7 @@ namespace Bussiness
 
 		public CategoryComponent()
 		{
-            MenuMastersDbContext dbContext = new MenuMastersDbContext();
-            _repo = new CategoryRepository(dbContext);
+            _repo = DataAccessFactory.GetCategoryRepository();
         }
 
         public async Task<IEnumerable<Category>> GetAllCategoriesAsync()
