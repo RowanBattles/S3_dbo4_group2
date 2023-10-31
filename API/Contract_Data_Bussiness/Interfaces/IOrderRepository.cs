@@ -5,9 +5,9 @@ namespace Contract_Data_Bussiness.Interfaces
 {
 	public interface IOrderRepository
 	{
-        Task<IEnumerable<Role>> GetAllRolesAsync();
+        Task<IEnumerable<Order>> GetAllOrdersAsync();
 
-        Task<Role?> GetRoleByIdAsync(int id);
+        Task<Order?> GetOrderByIdAsync(int id);
     }
 }
 
