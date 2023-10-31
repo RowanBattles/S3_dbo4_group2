@@ -5,15 +5,15 @@ namespace Contract_API_Bussiness.Interfaces
 {
 	public interface ICategoryComponent
 	{
-        Task<List<Category>> GetCategories();
+        public Task<IEnumerable<Category>> GetAllCategoriesAsync();
 
-        Task<Category> GetCategory();
+        public Task<Category> GetCategoryByIdAsync(int id);
 
-        Task<bool> CreateCategory();
+        public bool CreateCategoryAsync();
 
-        Task<bool> UpdateCategory();
+        public bool UpdateCategoryAsync();
 
-        Task<bool> DeleteCategory();
+        public bool DeleteCategoryAsync();
     }
 }
 
