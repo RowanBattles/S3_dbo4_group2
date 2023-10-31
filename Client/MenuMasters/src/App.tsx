@@ -4,6 +4,7 @@ import ItemDetails from "./pages/Users/ItemDetails";
 import { Route, Routes } from "react-router-dom";
 import TransactionPage from "./pages/Users/TransactionPage";
 import SalesTab from "./pages/Staff/SalesTab";
+import ReservationPage from "./pages/Users/ReservationPage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Route path="/TransactionPage" element={<TransactionPage />} />
       <Route path="/Menu" element={<Home />} />
       <Route path="/SalesTab" element={<SalesTab />} />
+      <Route path="/Reservation" element={<ReservationPage />} />
     </Routes>
   );
 }
