@@ -26,17 +26,54 @@ namespace DataAccess.Repositories
 
 		public async Task<bool> CreateCategoryAsync(Category category)
 		{
-			throw new NotImplementedException();
+			try
+			{
+				await dbContext.Categories.AddAsync(category);
+				await dbContext.SaveChangesAsync();
+
+				return true;
+			}
+            catch
+			{
+				return false;
+			}
 		}
 
 		public async Task<bool> UpdateCategoryAsync(Category category)
 		{
-            throw new NotImplementedException();
+            try
+            {
+                Category? original = await GetCategoryByIdAsync(category.CategoryId);
+
+                if (original == null) return false;
+
+                dbContext.Entry(original).CurrentValues.SetValues(category);
+                await dbContext.SaveChangesAsync();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
 		public async Task<bool> DeleteCategoryAsync(int id)
 		{
-            throw new NotImplementedException();
+            try
+            {
+                Category category = new Category { CategoryId = id };
+
+                dbContext.Categories.Attach(category);
+                dbContext.Categories.Remove(category);
+                await dbContext.SaveChangesAsync();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }
