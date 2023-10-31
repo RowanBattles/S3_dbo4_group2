@@ -1,36 +1,37 @@
 ﻿using System;
 using Contract_API_Bussiness.Interfaces;
 using DataAccess.Models;
+using Models;
 
 namespace Bussiness
 {
 	public class TabComponent : ITabComponent
-	{
+    {
 		public TabComponent()
 		{
 		}
 
-        public bool CreateTab()
+        public Task<bool> CreateTabAsync(Tab tab)
         {
             throw new NotImplementedException();
         }
 
-        public bool DeleteTab()
+        public Task<bool> DeleteTabAsync(int id)
         {
             throw new NotImplementedException();
         }
 
-        public MenuItem GetTab()
+        public Task<Tab> GetTabByIdAsync(int id)
         {
             throw new NotImplementedException();
         }
 
-        public List<MenuItem> GetTabs()
+        public Task<IEnumerable<Tab>> GetTabsAsync()
         {
             throw new NotImplementedException();
         }
 
-        public bool UpdateTab()
+        public Task<bool> UpdateTabAsync(Tab tab)
         {
             throw new NotImplementedException();
         }

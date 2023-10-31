@@ -9,11 +9,11 @@ namespace Contract_API_Bussiness.Interfaces
 
         public Task<Category> GetCategoryByIdAsync(int id);
 
-        public bool CreateCategoryAsync();
+        public bool CreateCategoryAsync(Category category);
 
-        public bool UpdateCategoryAsync();
+        public bool UpdateCategoryAsync(Category category);
 
-        public bool DeleteCategoryAsync();
+        public bool DeleteCategoryAsync(int id);
     }
 }
 

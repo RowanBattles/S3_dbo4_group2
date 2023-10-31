@@ -1,6 +1,7 @@
 ﻿using System;
 using Contract_API_Bussiness.Interfaces;
 using DataAccess.Models;
+using Models;
 
 namespace Bussiness
 {
@@ -10,27 +11,27 @@ namespace Bussiness
 		{
 		}
 
-        public bool CreateOrderItem()
+        public Task<bool> CreateOrderItemAsync(OrderItem orderItem)
         {
             throw new NotImplementedException();
         }
 
-        public bool DeleteOrderItem()
+        public Task<bool> DeleteOrderItemAsync(int id)
         {
             throw new NotImplementedException();
         }
 
-        public MenuItem GetOrderItem()
+        public Task<OrderItem> GetOrderItemByIdAsync(int id)
         {
             throw new NotImplementedException();
         }
 
-        public List<MenuItem> GetOrderItems()
+        public Task<IEnumerable<OrderItem>> GetOrderItemsAsync()
         {
             throw new NotImplementedException();
         }
 
-        public bool UpdateOrderItem()
+        public Task<bool> UpdateOrderItemAsync(OrderItem orderItem)
         {
             throw new NotImplementedException();
         }

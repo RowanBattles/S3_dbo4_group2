@@ -5,15 +5,15 @@ namespace Contract_API_Bussiness.Interfaces
 {
 	public interface ITabComponent
 	{
-        Task<List<MenuItem>> GetTabs();
+        Task<IEnumerable<Tab>> GetTabsAsync();
 
-        Task<MenuItem> GetTab();
+        Task<Tab> GetTabByIdAsync(int id);
 
-        Task<bool> CreateTab();
+        Task<bool> CreateTabAsync(Tab tab);
 
-        Task<bool> UpdateTab();
+        Task<bool> UpdateTabAsync(Tab tab);
 
-        Task<bool> DeleteTab();
+        Task<bool> DeleteTabAsync(int id);
     }
 }
 

@@ -15,9 +15,19 @@ namespace Bussiness
             _repo = DataAccessFactory.GetCategoryRepository();
         }
 
+        public bool CreateCategoryAsync(Category category)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DeleteCategoryAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<IEnumerable<Category>> GetAllCategoriesAsync()
         {
-            return await _repo.GetAllCategoriesAsync();
+            return (IEnumerable<Category>)await _repo.GetAllCategoriesAsync();
         }
 
         public async Task<Category> GetCategoryByIdAsync(int id)
@@ -25,27 +35,7 @@ namespace Bussiness
             return await _repo.GetCategoryByIdAsync(id);
         }
 
-        public bool CreateCategoryAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool UpdateCategoryAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool DeleteCategoryAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        List<Category> ICategoryComponent.GetCategories()
-        {
-            throw new NotImplementedException();
-        }
-
-        Category ICategoryComponent.GetCategory()
+        public bool UpdateCategoryAsync(Category category)
         {
             throw new NotImplementedException();
         }

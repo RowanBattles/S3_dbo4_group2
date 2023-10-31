@@ -5,15 +5,15 @@ namespace Contract_API_Bussiness.Interfaces
 {
 	public interface IMenuComponent
 	{
-		Task<List<MenuItem>> GetMenuItems();
+		Task<IEnumerable<MenuItem>> GetMenuItemsAsync();
 
-		Task<MenuItem> GetMenuItem();
+		Task<MenuItem> GetMenuItemByIdAsync(int id);
 
-		Task<bool> CreateMenuItem();
+		Task<bool> CreateMenuItemAsync(MenuItem menuItem);
 
-		Task<bool> UpdateMenuItem();
+		Task<bool> UpdateMenuItemAsync(MenuItem menuItem);
 
-		Task<bool> DeleteMenuItem();
+		Task<bool> DeleteMenuItemAsync(MenuItem menuItem);
 	}
 }
 
