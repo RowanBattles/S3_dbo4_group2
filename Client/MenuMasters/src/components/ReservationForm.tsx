@@ -39,7 +39,7 @@ function ReservationForm() {
       </div>
       <div className="w-full mb-5">
         <p className="font-semibold">Comments (optional)</p>
-        <textarea className="border-black border-solid border rounded-md px-4 py-2 focus:outline-red w-full" />
+        <textarea className="border-black border-solid border rounded-md px-4 py-24 focus:outline-red w-full" />
       </div>
       <button className="red text-white w-full py-5 rounded-lg">
         Book a table
