@@ -26,17 +26,17 @@ namespace Bussiness
 
         public async Task<bool> CreateTabAsync(Tab tab)
         {
-            throw new NotImplementedException();
+            return await _repo.CreateTabAsync(tab);
         }
 
         public async Task<bool> UpdateTabAsync(Tab tab)
         {
-            throw new NotImplementedException();
+            return await _repo.UpdateTabAsync(tab);
         }
 
         public async Task<bool> DeleteTabAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _repo.DeleteTabAsync(id);
         }
     }
 }
