@@ -19,24 +19,24 @@ namespace Bussiness
             return await _repo.GetAllOrdersAsync();
         }
 
-        public async Task<Order> GetOrderByIdAsync(int id)
+        public async Task<Order?> GetOrderByIdAsync(int id)
         {
             return await _repo.GetOrderByIdAsync(id);
         }
 
         public async Task<bool> CreateOrderAsync(Order order)
         {
-            throw new NotImplementedException();
+            return await _repo.CreateOrderAsync(order);
         }
 
         public async Task<bool> UpdateOrderAsync(Order order)
         {
-            throw new NotImplementedException();
+            return await _repo.UpdateOrderAsync(order);
         }
 
         public async Task<bool> DeleteOrderAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _repo.DeleteOrderAsync(id);
         }
     }
 }

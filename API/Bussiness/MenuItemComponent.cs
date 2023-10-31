@@ -18,23 +18,23 @@ public class MenuItemComponent : IMenuItemComponent
         return await _repo.GetAllMenuItemsAsync();
     }
 
-    public async Task<MenuItem> GetMenuItemByIdAsync(int id)
+    public async Task<MenuItem?> GetMenuItemByIdAsync(int id)
     {
         return await _repo.GetMenuItemByIdAsync(id);
     }
 
     public async Task<bool> CreateMenuItemAsync(MenuItem menuItem)
     {
-        throw new NotImplementedException();
+        return await _repo.CreateMenuItemAsync(menuItem);
     }
 
     public async Task<bool> UpdateMenuItemAsync(MenuItem menuItem)
     {
-        throw new NotImplementedException();
+        return await _repo.UpdateMenuItemAsync(menuItem);
     }
 
     public async Task<bool> DeleteMenuItemAsync(int id)
     {
-        throw new NotImplementedException();
+        return await _repo.DeleteMenuItemAsync(id);
     }
 }

@@ -23,6 +23,21 @@ namespace DataAccess.Repositories
         {
             return await dbContext.Tabs.FindAsync(id);
         }
+
+        public async Task<bool> CreateTabAsync(Tab tab)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<bool> UpdateTabAsync(Tab Tab)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<bool> DeleteTabAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

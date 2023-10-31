@@ -30,5 +30,26 @@ public class TabController : ControllerBase
     {
         return await _tabComponent.GetTabByIdAsync(id);
     }
+
+    [HttpPost(Name = "PostTab")]
+    public async Task<IActionResult> Post(Tab tab)
+    {
+        bool success = await _tabComponent.CreateTabAsync(tab);
+        return success ? Ok() : BadRequest();
+    }
+
+    [HttpPatch(Name = "PatchTab")]
+    public async Task<IActionResult> Patch(Tab tab)
+    {
+        bool success = await _tabComponent.UpdateTabAsync(tab);
+        return success ? Ok() : BadRequest();
+    }
+
+    [HttpDelete(Name = "DeleteTab")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        bool success = await _tabComponent.DeleteTabAsync(id);
+        return success ? Ok() : BadRequest();
+    }
 }
 

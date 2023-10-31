@@ -7,7 +7,7 @@ namespace Contract_API_Bussiness.Interfaces
 	{
         Task<IEnumerable<Tab>> GetAllTabsAsync();
 
-        Task<Tab> GetTabByIdAsync(int id);
+        Task<Tab?> GetTabByIdAsync(int id);
 
         Task<bool> CreateTabAsync(Tab tab);
 

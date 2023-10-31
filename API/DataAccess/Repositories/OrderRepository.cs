@@ -23,6 +23,21 @@ namespace DataAccess.Repositories
         {
             return await dbContext.Orders.FindAsync(id);
         }
+
+        public async Task<bool> CreateOrderAsync(Order order)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<bool> UpdateOrderAsync(Order order)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<bool> DeleteOrderAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

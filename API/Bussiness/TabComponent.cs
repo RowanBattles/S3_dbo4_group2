@@ -19,7 +19,7 @@ namespace Bussiness
             return await _repo.GetAllTabsAsync();
         }
 
-        public async Task<Tab> GetTabByIdAsync(int id)
+        public async Task<Tab?> GetTabByIdAsync(int id)
         {
             return await _repo.GetTabByIdAsync(id);
         }

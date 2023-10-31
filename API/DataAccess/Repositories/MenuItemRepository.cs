@@ -23,6 +23,21 @@ namespace DataAccess.Repositories
         {
             return await dbContext.MenuItems.FindAsync(id);
         }
+
+        public async Task<bool> CreateMenuItemAsync(MenuItem menuItem)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<bool> UpdateMenuItemAsync(MenuItem menuItem)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<bool> DeleteMenuItemAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

@@ -26,17 +26,17 @@ namespace Bussiness
 
         public async Task<bool> CreateCategoryAsync(Category category)
         {
-            throw new NotImplementedException();
+            return await _repo.CreateCategoryAsync(category);
         }
 
         public async Task<bool> UpdateCategoryAsync(Category category)
         {
-            throw new NotImplementedException();
+            return await _repo.UpdateCategoryAsync(category);
         }
 
         public async Task<bool> DeleteCategoryAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _repo.DeleteCategoryAsync(id);
         }
     }
 }

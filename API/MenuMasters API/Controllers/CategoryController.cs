@@ -29,5 +29,26 @@ public class CategoryController : ControllerBase
     {
         return await _categoryComponent.GetCategoryByIdAsync(id);
     }
+
+    [HttpPost(Name = "PostCategory")]
+    public async Task<IActionResult> Post(Category category)
+    {
+        bool success = await _categoryComponent.CreateCategoryAsync(category);
+        return success ? Ok() : BadRequest();
+    }
+
+    [HttpPatch(Name = "PatchCategory")]
+    public async Task<IActionResult> Patch(Category category)
+    {
+        bool success = await _categoryComponent.UpdateCategoryAsync(category);
+        return success ? Ok() : BadRequest();
+    }
+
+    [HttpDelete(Name = "DeleteCategory")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        bool success = await _categoryComponent.DeleteCategoryAsync(id);
+        return success ? Ok() : BadRequest();
+    }
 }
 

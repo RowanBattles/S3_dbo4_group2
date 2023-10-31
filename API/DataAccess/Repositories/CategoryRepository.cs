@@ -23,6 +23,21 @@ namespace DataAccess.Repositories
         {
             return await dbContext.Categories.FindAsync(id);
         }
+
+		public async Task<bool> CreateCategoryAsync(Category category)
+		{
+			throw new NotImplementedException();
+		}
+
+		public async Task<bool> UpdateCategoryAsync(Category category)
+		{
+            throw new NotImplementedException();
+        }
+
+		public async Task<bool> DeleteCategoryAsync(int id)
+		{
+            throw new NotImplementedException();
+        }
     }
 }
 
