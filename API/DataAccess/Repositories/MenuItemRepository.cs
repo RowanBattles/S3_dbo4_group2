@@ -1,11 +1,12 @@
 ﻿using System;
-using DataAccess.Models;
+using Models;
 using Microsoft.EntityFrameworkCore;
+using Contract_Data_Bussiness.Interfaces;
 
 namespace DataAccess.Repositories
 {
-	public class MenuItemRepository
-	{
+	public class MenuItemRepository : IMenuItemRepository
+    {
 		private readonly MenuMastersDbContext dbContext;
 
         public MenuItemRepository(MenuMastersDbContext _dbContext)

@@ -1,11 +1,12 @@
 ﻿using System;
-using DataAccess.Models;
+using Models;
 using Microsoft.EntityFrameworkCore;
+using Contract_Data_Bussiness.Interfaces;
 
 namespace DataAccess.Repositories
 {
-	public class OrderRepository
-	{
+	public class OrderRepository : IOrderRepository
+    {
 		private readonly MenuMastersDbContext dbContext;
 
         public OrderRepository(MenuMastersDbContext _dbContext)
