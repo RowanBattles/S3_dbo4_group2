@@ -1,6 +1,5 @@
 ﻿using DataAccess;
-using DataAccess.Models;
-using DataAccess.Repositories;
+using Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MenuMasters_API.Controllers;

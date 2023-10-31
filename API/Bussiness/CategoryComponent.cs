@@ -1,36 +1,41 @@
 ﻿using System;
 using Contract_API_Bussiness.Interfaces;
-using DataAccess.Models;
+using Contract_Data_Bussiness.Interfaces;
+using Models;
 
 namespace Bussiness
 {
     public class CategoryComponent : ICategoryComponent
 	{
+        private readonly ICategoryRepository _repo;
+
 		public CategoryComponent()
 		{
-		}
+            MenuMastersDbContext dbContext = new MenuMastersDbContext();
+            CategoryRepository repo = new CategoryRepository(dbContext);
+        }
 
-        public bool CreateCategory()
+        public async Task<IEnumerable<Category>> GetAllCategoriesAsync()
+        {
+            return await _repo.GetAllCategoriesAsync();
+        }
+
+        public async Task<Category> GetCategoryByIdAsync(int id)
+        {
+            return await _repo.GetCategoryByIdAsync(id);
+        }
+
+        public bool CreateCategoryAsync()
         {
             throw new NotImplementedException();
         }
 
-        public bool DeleteCategory()
+        public bool UpdateCategoryAsync()
         {
             throw new NotImplementedException();
         }
 
-        public List<MenuItem> GetCategories()
-        {
-            throw new NotImplementedException();
-        }
-
-        public MenuItem GetCategory()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool UpdateCategory()
+        public bool DeleteCategoryAsync()
         {
             throw new NotImplementedException();
         }
