@@ -18,17 +18,19 @@ public class AccountController : ControllerBase
     [HttpGet(Name = "GetAllAccounts")]
     public async Task<IEnumerable<Account>> Get()
     {
-        MenuMastersDbContext dbContext = new MenuMastersDbContext();
-        AccountRepository repo = new AccountRepository(dbContext);
-        return await repo.GetAllAccountsAsync();
+        //MenuMastersDbContext dbContext = new MenuMastersDbContext();
+        //AccountRepository repo = new AccountRepository(dbContext);
+        //return await repo.GetAllAccountsAsync();
+        throw new NotImplementedException();
     }
 
     [HttpGet("{id}", Name = "GetAccountById")]
     public async Task<Account?> Get(int id)
     {
-        MenuMastersDbContext dbContext = new MenuMastersDbContext();
-        AccountRepository repo = new AccountRepository(dbContext);
-        return await repo.GetAccountByIdAsync(id);
+        //MenuMastersDbContext dbContext = new MenuMastersDbContext();
+        //AccountRepository repo = new AccountRepository(dbContext);
+        //return await repo.GetAccountByIdAsync(id);
+        throw new NotImplementedException();
     }
 }
 
