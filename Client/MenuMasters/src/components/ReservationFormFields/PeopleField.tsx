@@ -11,7 +11,7 @@ const PeopleField = () => {
 
   return (
     <div>
-      <select className="border-black border-solid border rounded-md px-4 py-2 cursor-pointer focus:outline-red caret-transparent w-full">
+      <select className="border-black bg-white border-solid border rounded-md px-4 py-2 cursor-pointer focus:outline-red caret-transparent w-full">
         <option disabled selected value="">
           Select number of people
         </option>

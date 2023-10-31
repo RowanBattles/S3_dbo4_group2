@@ -29,7 +29,7 @@ const TimeField = () => {
       <select
         value={selectedTime}
         onChange={handleTimeChange}
-        className="border-black border-solid border rounded-md px-4 py-2 cursor-pointer focus:outline-red caret-transparent w-full"
+        className="border-black border-solid border rounded-md px-4 py-2 cursor-pointer focus:outline-red caret-transparent bg-white w-full"
       >
         {timeOptions.map((time) => (
           <option key={time} value={time}>

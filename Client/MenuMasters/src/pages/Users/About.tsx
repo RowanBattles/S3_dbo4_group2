@@ -76,9 +76,11 @@ const About = () => {
               Lorem ipsum dolor sit amet, <br />
               adipiscing elit. Quisque placerat{" "}
             </div>
-            <button className=" bg-zinc-300 my-4 text-white w-48 h-12 bg-opacity-0 rounded-[10px] border border-white transform transition duration-300 hover:scale-105">
-              BOOK NOW
-            </button>
+            <Link to="/Reservation">
+              <button className=" bg-zinc-300 my-4 text-white w-48 h-12 bg-opacity-0 rounded-[10px] border border-white transform transition duration-300 hover:scale-105">
+                BOOK NOW
+              </button>
+            </Link>
           </div>
         </div>
         <img src={Salmon} className="w-1/3 h-auto" />
