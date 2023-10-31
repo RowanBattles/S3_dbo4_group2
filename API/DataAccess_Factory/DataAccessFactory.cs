@@ -23,11 +23,6 @@ namespace DataAccess_Factory
             return new OrderRepository(dbContext);
         }
 
-        public static IRoleRepository GetRoleRepository()
-        {
-            return new RoleRepository(dbContext);
-        }
-
         public static ITabRepository GetTabRepository()
         {
             return new TabRepository(dbContext);

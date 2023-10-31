@@ -3,17 +3,17 @@ using Models;
 
 namespace Contract_API_Bussiness.Interfaces
 {
-	public interface IMenuComponent
+	public interface IMenuItemComponent
 	{
-		Task<IEnumerable<MenuItem>> GetMenuItemsAsync();
+		Task<IEnumerable<MenuItem>> GetAllMenuItemsAsync();
 
-		Task<MenuItem> GetMenuItemByIdAsync(int id);
+		Task<MenuItem?> GetMenuItemByIdAsync(int id);
 
 		Task<bool> CreateMenuItemAsync(MenuItem menuItem);
 
 		Task<bool> UpdateMenuItemAsync(MenuItem menuItem);
 
-		Task<bool> DeleteMenuItemAsync(MenuItem menuItem);
+		Task<bool> DeleteMenuItemAsync(int id);
 	}
 }
 

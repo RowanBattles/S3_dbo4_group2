@@ -5,9 +5,9 @@ namespace Contract_API_Bussiness.Interfaces
 {
 	public interface IOrderComponent
 	{
-        Task<IEnumerable<Order>> GetOrdersAsync();
+        Task<IEnumerable<Order>> GetAllOrdersAsync();
 
-        Task<Order> GetOrderByIdAsync(int id);
+        Task<Order?> GetOrderByIdAsync(int id);
 
         Task<bool> CreateOrderAsync(Order order);
 

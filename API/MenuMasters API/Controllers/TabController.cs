@@ -1,7 +1,8 @@
-﻿using DataAccess;
-using DataAccess.Models;
-using DataAccess.Repositories;
+﻿using Bussiness;
+using Bussiness_Factory;
+using Contract_API_Bussiness.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Models;
 
 namespace MenuMasters_API.Controllers;
 
@@ -10,26 +11,24 @@ namespace MenuMasters_API.Controllers;
 public class TabController : ControllerBase
 {
     private readonly ILogger<TabController> _logger;
+    private readonly ITabComponent _tabComponent;
 
     public TabController(ILogger<TabController> logger)
     {
         _logger = logger;
+        _tabComponent = BussinessFactory.GetTabComponent();
     }
 
     [HttpGet(Name = "GetAllTabs")]
     public async Task<IEnumerable<Tab>> Get()
     {
-        MenuMastersDbContext dbContext = new MenuMastersDbContext();
-        TabRepository repo = new TabRepository(dbContext);
-        return await repo.GetAllTabsAsync();
+        return await _tabComponent.GetAllTabsAsync();
     }
 
     [HttpGet("{id}", Name = "GetTabById")]
     public async Task<Tab?> Get(int id)
     {
-        MenuMastersDbContext dbContext = new MenuMastersDbContext();
-        TabRepository repo = new TabRepository(dbContext);
-        return await repo.GetTabByIdAsync(id);
+        return await _tabComponent.GetTabByIdAsync(id);
     }
 }
 

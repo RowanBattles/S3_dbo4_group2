@@ -1,7 +1,7 @@
-﻿using DataAccess;
-using DataAccess.Models;
-using DataAccess.Repositories;
+﻿using Bussiness_Factory;
+using Contract_API_Bussiness.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Models;
 
 namespace MenuMasters_API.Controllers;
 
@@ -10,26 +10,24 @@ namespace MenuMasters_API.Controllers;
 public class MenuItemController : ControllerBase
 {
     private readonly ILogger<MenuItemController> _logger;
+    private readonly IMenuItemComponent _menuItemComponent;
 
     public MenuItemController(ILogger<MenuItemController> logger)
     {
         _logger = logger;
+        _menuItemComponent = BussinessFactory.GetMenuItemComponent();
     }
 
     [HttpGet(Name = "GetAllMenuItems")]
     public async Task<IEnumerable<MenuItem>> Get()
     {
-        MenuMastersDbContext dbContext = new MenuMastersDbContext();
-        MenuItemRepository repo = new MenuItemRepository(dbContext);
-        return await repo.GetAllMenuItemsAsync();
+        return await _menuItemComponent.GetAllMenuItemsAsync();
     }
 
     [HttpGet("{id}", Name = "GetMenuItemById")]
     public async Task<MenuItem?> Get(int id)
     {
-        MenuMastersDbContext dbContext = new MenuMastersDbContext();
-        MenuItemRepository repo = new MenuItemRepository(dbContext);
-        return await repo.GetMenuItemByIdAsync(id);
+        return await _menuItemComponent.GetMenuItemByIdAsync(id);
     }
 }
 

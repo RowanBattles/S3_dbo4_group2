@@ -1,7 +1,7 @@
-﻿using DataAccess;
-using DataAccess.Models;
-using DataAccess.Repositories;
+﻿using Bussiness_Factory;
+using Contract_API_Bussiness.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Models;
 
 namespace MenuMasters_API.Controllers;
 
@@ -19,17 +19,19 @@ public class RoleController : ControllerBase
     [HttpGet(Name = "GetAllRoles")]
     public async Task<IEnumerable<Role>> Get()
     {
-        MenuMastersDbContext dbContext = new MenuMastersDbContext();
-        RoleRepository repo = new RoleRepository(dbContext);
-        return await repo.GetAllRolesAsync();
+        //MenuMastersDbContext dbContext = new MenuMastersDbContext();
+        //RoleRepository repo = new RoleRepository(dbContext);
+        //return await repo.GetAllRolesAsync();
+        throw new NotImplementedException();
     }
 
     [HttpGet("{id}", Name = "GetRoleById")]
     public async Task<Role?> Get(int id)
     {
-        MenuMastersDbContext dbContext = new MenuMastersDbContext();
-        RoleRepository repo = new RoleRepository(dbContext);
-        return await repo.GetRoleByIdAsync(id);
+        //MenuMastersDbContext dbContext = new MenuMastersDbContext();
+        //RoleRepository repo = new RoleRepository(dbContext);
+        //return await repo.GetRoleByIdAsync(id);
+        throw new NotImplementedException();
     }
 }
 

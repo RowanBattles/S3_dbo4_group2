@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Models;
 using Contract_API_Bussiness.Interfaces;
-using Bussiness;
+using Bussiness_Factory;
 
 namespace MenuMasters_API.Controllers;
 
@@ -15,6 +15,7 @@ public class CategoryController : ControllerBase
     public CategoryController(ILogger<CategoryController> logger)
     {
         _logger = logger;
+        _categoryComponent = BussinessFactory.GetCategoryComponent();
     }
 
     [HttpGet(Name = "GetAllCategories")]
