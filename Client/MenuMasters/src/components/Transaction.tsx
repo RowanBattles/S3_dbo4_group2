@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Plus_Min_Button from "./Plus_Min_Button";
 
 const Transaction = () => {
+  // Remove when backend is ready
+  const [isVisible, setIsVisible] = useState(true);
+  const handleRemoveClick = () => {
+    setIsVisible(false);
+  };
+
+  if (!isVisible) {
+    return null; // If isVisible is false, component will not be rendered
+  }
+
   return (
     <div className="">
       <div className="flex flex-row justify-between items-center">
@@ -15,7 +25,10 @@ const Transaction = () => {
         </div>
 
         <h2 className="text-gray-900 poppins text-3xl font-semibold">$9.99</h2>
-        <button className="text-3xl font-semibold transform transition duration-300 hover:scale-105">
+        <button
+          className="text-3xl font-semibold transform transition duration-300 hover:scale-105"
+          onClick={handleRemoveClick}
+        >
           X
         </button>
       </div>
