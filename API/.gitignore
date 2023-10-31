@@ -4,7 +4,7 @@
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
 # DbContext Connectionstring
-API/DataAccess/MenuMastersDbContext.cs
+DataAccess/MenuMastersDbContext.cs
 
 # User-specific files
 *.rsuser
