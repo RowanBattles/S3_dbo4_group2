@@ -12,7 +12,7 @@ namespace Bussiness
 		public CategoryComponent()
 		{
             MenuMastersDbContext dbContext = new MenuMastersDbContext();
-            CategoryRepository repo = new CategoryRepository(dbContext);
+            _repo = new CategoryRepository(dbContext);
         }
 
         public async Task<IEnumerable<Category>> GetAllCategoriesAsync()
