@@ -1,19 +1,19 @@
 ﻿using System;
-using DataAccess.Models;
+using Models;
 
 namespace Contract_API_Bussiness.Interfaces
 {
 	public interface IOrderComponent
 	{
-        public List<MenuItem> GetOrders();
+        Task<List<Order>> GetOrders();
 
-        public MenuItem GetOrder();
+        Task<Order> GetOrder();
 
-        public bool CreateOrder();
+        Task<bool> CreateOrder();
 
-        public bool UpdateOrder();
+        Task<bool> UpdateOrder();
 
-        public bool DeleteOrder();
+        Task<bool> DeleteOrder();
     }
 }
 

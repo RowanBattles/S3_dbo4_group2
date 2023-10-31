@@ -1,19 +1,19 @@
 ﻿using System;
-using DataAccess.Models;
+using Models;
 
 namespace Contract_API_Bussiness.Interfaces
 {
 	public interface ICategoryComponent
 	{
-        public List<MenuItem> GetCategories();
+        Task<List<Category>> GetCategories();
 
-        public MenuItem GetCategory();
+        Task<Category> GetCategory();
 
-        public bool CreateCategory();
+        Task<bool> CreateCategory();
 
-        public bool UpdateCategory();
+        Task<bool> UpdateCategory();
 
-        public bool DeleteCategory();
+        Task<bool> DeleteCategory();
     }
 }
 

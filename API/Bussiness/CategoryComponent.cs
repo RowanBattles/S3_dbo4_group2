@@ -1,6 +1,6 @@
 ﻿using System;
 using Contract_API_Bussiness.Interfaces;
-using DataAccess.Models;
+using Models;
 
 namespace Bussiness
 {
@@ -19,18 +19,17 @@ namespace Bussiness
         {
             throw new NotImplementedException();
         }
-
-        public List<MenuItem> GetCategories()
-        {
-            throw new NotImplementedException();
-        }
-
-        public MenuItem GetCategory()
-        {
-            throw new NotImplementedException();
-        }
-
         public bool UpdateCategory()
+        {
+            throw new NotImplementedException();
+        }
+
+        List<Category> ICategoryComponent.GetCategories()
+        {
+            throw new NotImplementedException();
+        }
+
+        Category ICategoryComponent.GetCategory()
         {
             throw new NotImplementedException();
         }

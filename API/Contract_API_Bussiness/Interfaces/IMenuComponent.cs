@@ -1,19 +1,19 @@
 ﻿using System;
-using DataAccess.Models;
+using Models;
 
 namespace Contract_API_Bussiness.Interfaces
 {
 	public interface IMenuComponent
 	{
-		public List<MenuItem> GetMenuItems();
+		Task<List<MenuItem>> GetMenuItems();
 
-		public MenuItem GetMenuItem();
+		Task<MenuItem> GetMenuItem();
 
-		public bool CreateMenuItem();
+		Task<bool> CreateMenuItem();
 
-		public bool UpdateMenuItem();
+		Task<bool> UpdateMenuItem();
 
-		public bool DeleteMenuItem();
+		Task<bool> DeleteMenuItem();
 	}
 }
 

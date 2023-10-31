@@ -1,19 +1,19 @@
 ﻿using System;
-using DataAccess.Models;
+using Models;
 
 namespace Contract_API_Bussiness.Interfaces
 {
 	public interface ITabComponent
 	{
-        public List<MenuItem> GetTabs();
+        Task<List<MenuItem>> GetTabs();
 
-        public MenuItem GetTab();
+        Task<MenuItem> GetTab();
 
-        public bool CreateTab();
+        Task<bool> CreateTab();
 
-        public bool UpdateTab();
+        Task<bool> UpdateTab();
 
-        public bool DeleteTab();
+        Task<bool> DeleteTab();
     }
 }
 
