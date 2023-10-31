@@ -1,5 +1,5 @@
 ﻿using System;
-using DataAccess.Models;
+using Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Repositories
