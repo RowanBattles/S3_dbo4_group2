@@ -1,7 +1,7 @@
-﻿using DataAccess;
-using DataAccess.Models;
-using DataAccess.Repositories;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Models;
+using Contract_API_Bussiness.Interfaces;
+using Bussiness;
 
 namespace MenuMasters_API.Controllers;
 
@@ -10,6 +10,7 @@ namespace MenuMasters_API.Controllers;
 public class CategoryController : ControllerBase
 {
     private readonly ILogger<CategoryController> _logger;
+    private readonly ICategoryComponent _categoryComponent;
 
     public CategoryController(ILogger<CategoryController> logger)
     {
@@ -19,17 +20,13 @@ public class CategoryController : ControllerBase
     [HttpGet(Name = "GetAllCategories")]
     public async Task<IEnumerable<Category>> Get()
     {
-        MenuMastersDbContext dbContext = new MenuMastersDbContext();
-        CategoryRepository repo = new CategoryRepository(dbContext);
-        return await repo.GetAllCategoriesAsync();
+        return await _categoryComponent.GetAllCategoriesAsync();
     }
 
     [HttpGet("{id}", Name = "GetCategoryById")]
     public async Task<Category?> Get(int id)
     {
-        MenuMastersDbContext dbContext = new MenuMastersDbContext();
-        CategoryRepository repo = new CategoryRepository(dbContext);
-        return await repo.GetCategoryByIdAsync(id);
+        return await _categoryComponent.GetCategoryByIdAsync(id);
     }
 }
 
