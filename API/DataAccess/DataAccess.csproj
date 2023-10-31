@@ -22,5 +22,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Models\Models.csproj" />
+    <ProjectReference Include="..\Contract_Data_Bussiness\Contract_Data_Bussiness.csproj" />
   </ItemGroup>
 </Project>
