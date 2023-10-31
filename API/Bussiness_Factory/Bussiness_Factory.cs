@@ -12,21 +12,18 @@ public class Bussiness_Factory
     {
         return new OrderComponent();
     }
-    static public IMenuComponent GetContact()
+    static public IOrderItemComponent GetOrderItemComponent()
     {
-        return new MenuComponent();
+        return new OrderItemComponent();
     }
-    static public IMenuComponent GetContact()
+    static public ITabComponent GetTabComponent()
     {
-        return new MenuComponent();
+        return new TabComponent();
     }
-    static public IMenuComponent GetContact()
+    static public ICategoryComponent GetCategoryComponent()
     {
-        return new MenuComponent();
-    }
-    static public IMenuComponent GetContact()
-    {
-        return new MenuComponent();
+        return new CategoryComponent();
     }
 }
 
+ 
