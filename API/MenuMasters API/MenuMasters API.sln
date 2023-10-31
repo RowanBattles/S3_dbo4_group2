@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuMasters API", "MenuMast
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "..\DataAccess\DataAccess.csproj", "{F2EF9AED-8CBF-408F-B207-A29A3C97FCEF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contract_Data_Bussiness", "..\Contract_Data_Bussiness\Contract_Data_Bussiness.csproj", "{785E54DF-6835-4939-A78F-3F089A4C77BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F2EF9AED-8CBF-408F-B207-A29A3C97FCEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2EF9AED-8CBF-408F-B207-A29A3C97FCEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2EF9AED-8CBF-408F-B207-A29A3C97FCEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{785E54DF-6835-4939-A78F-3F089A4C77BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{785E54DF-6835-4939-A78F-3F089A4C77BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{785E54DF-6835-4939-A78F-3F089A4C77BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{785E54DF-6835-4939-A78F-3F089A4C77BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
