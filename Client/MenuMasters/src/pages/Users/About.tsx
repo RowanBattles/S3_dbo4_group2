@@ -69,12 +69,11 @@ const About = () => {
         <img src={Salad} className="w-1/3" />
         <div className="w-1/3 bg-[url('src/assets/About/Beef.jpg')] bg-cover bg-center">
           <div className="w-full h-full flex justify-center flex-col gap-y-4 items-center backdrop-brightness-[.25]">
-            <span className="text-white text-4xl w-1/2 text-center">
+            <span className="text-white lg:text-4xl w-1/2 text-center mt-3 sm:text-2xl">
               ART OF FOOD!
             </span>
             <div className="text-center text-white text-base font-normal font-['Poppins']">
-              Lorem ipsum dolor sit amet, <br />
-              adipiscing elit. Quisque placerat{" "}
+              Get a real taste of food
             </div>
             <Link to="/Reservation">
               <button className=" bg-zinc-300 my-4 text-white w-48 h-12 bg-opacity-0 rounded-[10px] border border-white transform transition duration-300 hover:scale-105">
