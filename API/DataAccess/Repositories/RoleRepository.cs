@@ -1,11 +1,12 @@
 ﻿using System;
 using Models;
 using Microsoft.EntityFrameworkCore;
+using Contract_Data_Bussiness.Interfaces;
 
 namespace DataAccess.Repositories
 {
-	public class RoleRepository
-	{
+	public class RoleRepository : IRoleRepository
+    {
 		private readonly MenuMastersDbContext dbContext;
 
         public RoleRepository(MenuMastersDbContext _dbContext)

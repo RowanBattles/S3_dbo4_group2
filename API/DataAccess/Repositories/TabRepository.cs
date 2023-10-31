@@ -1,11 +1,12 @@
 ﻿using System;
 using Models;
 using Microsoft.EntityFrameworkCore;
+using Contract_Data_Bussiness.Interfaces;
 
 namespace DataAccess.Repositories
 {
-	public class TabRepository
-	{
+	public class TabRepository : ITabRepository
+    {
 		private readonly MenuMastersDbContext dbContext;
 
         public TabRepository(MenuMastersDbContext _dbContext)

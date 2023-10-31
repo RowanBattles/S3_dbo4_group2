@@ -1,10 +1,11 @@
 ﻿using System;
 using Models;
 using Microsoft.EntityFrameworkCore;
+using Contract_Data_Bussiness.Interfaces;
 
 namespace DataAccess.Repositories
 {
-	public class AccountRepository
+	public class AccountRepository : IAccountRepository
 	{
 		private readonly MenuMastersDbContext dbContext;
 
