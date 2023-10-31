@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "../assets/Menu_Masters_Logo.png";
 import { Link } from "react-router-dom";
+import { LANGUAGES } from "../constants/Languages";
 
 const Header = () => {
   return (
@@ -13,8 +14,17 @@ const Header = () => {
         <div className="flex flex-row gap-x-5 px-6 ">
           <h1>Tafel 1</h1>
 
-          <div>ShoppingCart</div>
-          <div>Taal</div>
+          <Link to="/TransactionPage">
+            <div>ShoppingCart</div>
+          </Link>
+
+          <select defaultValue={"es"} className="bg-white">
+            {LANGUAGES.map(({ code, label }) => (
+              <option key={code} value={code}>
+                {label}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
     </nav>

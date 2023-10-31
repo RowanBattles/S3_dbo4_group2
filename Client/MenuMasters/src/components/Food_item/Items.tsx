@@ -7,14 +7,6 @@ const Items = () => {
   const [loading, setLoading] = useState(false);
   //const [foods] = useFetch();
 
-  //loading
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-  }, []);
-
   const handleMenuTabs = (type: any) => {
     setMenuTab(type);
   };
