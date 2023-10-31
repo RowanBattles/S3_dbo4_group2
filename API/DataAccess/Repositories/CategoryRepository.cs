@@ -62,10 +62,11 @@ namespace DataAccess.Repositories
 		{
             try
             {
-                Category category = new Category { CategoryId = id };
+                Category? original = await GetCategoryByIdAsync(id);
 
-                dbContext.Categories.Attach(category);
-                dbContext.Categories.Remove(category);
+                if (original == null) return false;
+
+                dbContext.Categories.Remove(original);
                 await dbContext.SaveChangesAsync();
 
                 return true;

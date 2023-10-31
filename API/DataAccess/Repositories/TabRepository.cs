@@ -26,17 +26,55 @@ namespace DataAccess.Repositories
 
         public async Task<bool> CreateTabAsync(Tab tab)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await dbContext.Tabs.AddAsync(tab);
+                await dbContext.SaveChangesAsync();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        public async Task<bool> UpdateTabAsync(Tab Tab)
+        public async Task<bool> UpdateTabAsync(Tab tab)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Tab? original = await GetTabByIdAsync(tab.TabId);
+
+                if (original == null) return false;
+
+                dbContext.Entry(original).CurrentValues.SetValues(tab);
+                await dbContext.SaveChangesAsync();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public async Task<bool> DeleteTabAsync(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Tab? original = await GetTabByIdAsync(id);
+
+                if (original == null) return false;
+
+                dbContext.Tabs.Remove(original);
+                await dbContext.SaveChangesAsync();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

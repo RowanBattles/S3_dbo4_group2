@@ -26,17 +26,55 @@ namespace DataAccess.Repositories
 
         public async Task<bool> CreateMenuItemAsync(MenuItem menuItem)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await dbContext.MenuItems.AddAsync(menuItem);
+                await dbContext.SaveChangesAsync();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public async Task<bool> UpdateMenuItemAsync(MenuItem menuItem)
         {
-            throw new NotImplementedException();
+            try
+            {
+                MenuItem? original = await GetMenuItemByIdAsync(menuItem.MenuItemId);
+
+                if (original == null) return false;
+
+                dbContext.Entry(original).CurrentValues.SetValues(menuItem);
+                await dbContext.SaveChangesAsync();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public async Task<bool> DeleteMenuItemAsync(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                MenuItem? original = await GetMenuItemByIdAsync(id);
+
+                if (original == null) return false;
+
+                dbContext.MenuItems.Remove(original);
+                await dbContext.SaveChangesAsync();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

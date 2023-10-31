@@ -26,17 +26,55 @@ namespace DataAccess.Repositories
 
         public async Task<bool> CreateOrderAsync(Order order)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await dbContext.Orders.AddAsync(order);
+                await dbContext.SaveChangesAsync();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public async Task<bool> UpdateOrderAsync(Order order)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Order? original = await GetOrderByIdAsync(order.OrderId);
+
+                if (original == null) return false;
+
+                dbContext.Entry(original).CurrentValues.SetValues(order);
+                await dbContext.SaveChangesAsync();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public async Task<bool> DeleteOrderAsync(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Order? original = await GetOrderByIdAsync(id);
+
+                if (original == null) return false;
+
+                dbContext.Orders.Remove(original);
+                await dbContext.SaveChangesAsync();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }
