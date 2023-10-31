@@ -24,7 +24,6 @@ namespace DataAccess
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server=localhost; Database=menumaster; User=sa; Password=Admin123; Encrypt=False");
-            string test = "test4";
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
