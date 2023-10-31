@@ -29,7 +29,6 @@ const FrontPage = () => {
           </div>
         </div>
       </div>
-      <About />
     </>
   );
 };
