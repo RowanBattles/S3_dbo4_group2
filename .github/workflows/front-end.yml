@@ -21,14 +21,14 @@ jobs:
 
       - name: Restore dependencies 💉
         run: yarn install
-        working-directory: Client/MenuMasters
+        working-directory: Client/MenuMasters/src
 
       - name: Build project 👷‍♂️🧱
         run: yarn build
-        working-directory: Client/MenuMasters
+        working-directory: Client/MenuMasters/src
 
       - name: Upload production-ready build files 🔼🚀
         uses: actions/upload-artifact@v2
         with:
           name: production-files
-          path: Client/MenuMasters
+          path: Client/MenuMasters/src
