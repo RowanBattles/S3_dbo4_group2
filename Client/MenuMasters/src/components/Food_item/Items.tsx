@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import Item from "./Item";
-import Item_Skeleton from "./Item_Skeleton";
 
 const Items = () => {
   const [menuTab, setMenuTab] = useState("Breakfast");
-  const [loading, setLoading] = useState(false);
-  //const [foods] = useFetch();
+  // const [loading, setLoading] = useState(false);
+  // const [foods] = useFetch();
 
   const handleMenuTabs = (type: any) => {
     setMenuTab(type);

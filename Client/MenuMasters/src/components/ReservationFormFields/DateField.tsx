@@ -3,10 +3,10 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 const DateField = () => {
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const currentDate = new Date();
-  const [selectedDate, setSelectedDate] = useState(currentDate);
 
-  const handleDateChange = (date) => {
+  const handleDateChange = (date: Date | null) => {
     setSelectedDate(date);
   };
 

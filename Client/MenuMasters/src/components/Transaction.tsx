@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Plus_Min_Button from "./Plus_Min_Button";
 
 const Transaction = () => {

@@ -1,4 +1,3 @@
-import React from "react";
 import Plus_Min_Button from "../../components/Plus_Min_Button";
 import { Link } from "react-router-dom";
 import Header from "../../components/Header";

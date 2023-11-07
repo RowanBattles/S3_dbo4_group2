@@ -1,6 +1,6 @@
 import Tab from "../../components/Tab";
 
-const SalesTab = () => {
+const SalesPage = () => {
   return (
     <>
       <div className="gray h-screen">
@@ -18,4 +18,4 @@ const SalesTab = () => {
   );
 };
 
-export default SalesTab;
+export default SalesPage;

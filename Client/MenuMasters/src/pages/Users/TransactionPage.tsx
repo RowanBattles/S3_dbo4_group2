@@ -1,4 +1,3 @@
-import React from "react";
 import Transaction from "../../components/Transaction";
 import Header from "../../components/Header";
 

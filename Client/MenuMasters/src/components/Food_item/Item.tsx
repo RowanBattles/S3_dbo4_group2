@@ -1,5 +1,3 @@
-import React from "react";
-import Item_Skeleton from "./Item_Skeleton";
 import { Link } from "react-router-dom";
 
 interface ItemProps {

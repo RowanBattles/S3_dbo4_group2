@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { SetStateAction, useState } from "react";
 
 const TimeField = () => {
   const [selectedTime, setSelectedTime] = useState("16:00");
@@ -20,7 +20,9 @@ const TimeField = () => {
     }
   }
 
-  const handleTimeChange = (e) => {
+  const handleTimeChange = (e: {
+    target: { value: SetStateAction<string> };
+  }) => {
     setSelectedTime(e.target.value);
   };
 
