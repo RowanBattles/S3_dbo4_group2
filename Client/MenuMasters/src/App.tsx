@@ -6,6 +6,7 @@ import TransactionPage from "./pages/Users/TransactionPage";
 import ReservationPage from "./pages/Users/ReservationPage";
 import SalesPage from "./pages/Staff/SalesPage";
 import KitchenPage from "./pages/Staff/KitchenPage";
+import FetchPage from "./pages/FetchPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path="/SalesPage" element={<SalesPage />} />
       <Route path="/Reservation" element={<ReservationPage />} />
       <Route path="/KitchenPage" element={<KitchenPage />} />
+      <Route path="/FetchPage" element={<FetchPage />} />
     </Routes>
   );
 }
