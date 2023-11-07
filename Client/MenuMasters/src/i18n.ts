@@ -4,7 +4,7 @@ import { initReactI18next } from "react-i18next";
 
 const getCurrentHost =
   import.meta.env.MODE === "development"
-    ? "http://localhost:5174"
+    ? "http://localhost:5173"
     : "LINK TO PROD";
 
 i18n
