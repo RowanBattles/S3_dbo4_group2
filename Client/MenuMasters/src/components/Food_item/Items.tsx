@@ -1,10 +1,32 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Item from "./Item";
+import { getItems } from "../../utils/api";
+
+interface Item {
+  menuItemId: number;
+  itemName: string;
+  itemDescription: string;
+  itemPrice: number;
+}
 
 const Items = () => {
+  const [items, setItems] = useState([]);
   const [menuTab, setMenuTab] = useState("Breakfast");
   // const [loading, setLoading] = useState(false);
   // const [foods] = useFetch();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getItems();
+        setItems(data);
+      } catch (error) {
+        console.error("Error fetching items:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const handleMenuTabs = (type: any) => {
     setMenuTab(type);
@@ -45,69 +67,15 @@ const Items = () => {
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12">
-        <Item
-          image="https://joflow.nl/cdn/shop/products/Voorfoto_3bc2c4c8-01a8-4565-98f9-dadbbbea9e41_1200x1200.jpg?v=1657801731"
-          title="Borrel Plaat"
-          description="A lovely Borrelplaat to share with friends"
-          price={9.99}
-          foodType="Lunch"
-        />
-        <Item
-          image="https://joflow.nl/cdn/shop/products/Voorfoto_3bc2c4c8-01a8-4565-98f9-dadbbbea9e41_1200x1200.jpg?v=1657801731"
-          title="Borrel Plaat"
-          description="A lovely Borrelplaat to share with friends"
-          price={9.99}
-          foodType="Lunch"
-        />
-        <Item
-          image="https://joflow.nl/cdn/shop/products/Voorfoto_3bc2c4c8-01a8-4565-98f9-dadbbbea9e41_1200x1200.jpg?v=1657801731"
-          title="Borrel Plaat"
-          description="A lovely Borrelplaat to share with friends"
-          price={9.99}
-          foodType="Lunch"
-        />
-        <Item
-          image="https://joflow.nl/cdn/shop/products/Voorfoto_3bc2c4c8-01a8-4565-98f9-dadbbbea9e41_1200x1200.jpg?v=1657801731"
-          title="Borrel Plaat"
-          description="A lovely Borrelplaat to share with friends"
-          price={9.99}
-          foodType="Lunch"
-        />
-        <Item
-          image="https://joflow.nl/cdn/shop/products/Voorfoto_3bc2c4c8-01a8-4565-98f9-dadbbbea9e41_1200x1200.jpg?v=1657801731"
-          title="Borrel Plaat"
-          description="A lovely Borrelplaat to share with friends"
-          price={9.99}
-          foodType="Lunch"
-        />
-        <Item
-          image="https://joflow.nl/cdn/shop/products/Voorfoto_3bc2c4c8-01a8-4565-98f9-dadbbbea9e41_1200x1200.jpg?v=1657801731"
-          title="Borrel Plaat"
-          description="A lovely Borrelplaat to share with friends"
-          price={9.99}
-          foodType="Lunch"
-        />
-        <Item
-          image="https://joflow.nl/cdn/shop/products/Voorfoto_3bc2c4c8-01a8-4565-98f9-dadbbbea9e41_1200x1200.jpg?v=1657801731"
-          title="Borrel Plaat"
-          description="A lovely Borrelplaat to share with friends"
-          price={9.99}
-          foodType="Lunch"
-        />
-        <Item
-          image="https://joflow.nl/cdn/shop/products/Voorfoto_3bc2c4c8-01a8-4565-98f9-dadbbbea9e41_1200x1200.jpg?v=1657801731"
-          title="Borrel Plaat"
-          description="A lovely Borrelplaat to share with friends"
-          price={9.99}
-          foodType="Lunch"
-        />
-        <Item
-          image="https://joflow.nl/cdn/shop/products/Voorfoto_3bc2c4c8-01a8-4565-98f9-dadbbbea9e41_1200x1200.jpg?v=1657801731"
-          title="Borrel Plaat"
-          description="A lovely Borrelplaat to share with friends"
-          price={9.99}
-          foodType="Lunch"
-        />
+        {items.map((item: Item) => (
+          <Item
+            image="https://joflow.nl/cdn/shop/products/Voorfoto_3bc2c4c8-01a8-4565-98f9-dadbbbea9e41_1200x1200.jpg?v=1657801731"
+            title={item.itemName}
+            description={item.itemDescription}
+            price={item.itemPrice}
+            foodType="Lunch"
+          />
+        ))}
       </div>
     </section>
   );
