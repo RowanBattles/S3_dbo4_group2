@@ -147,6 +147,10 @@ namespace DataAccess
                         j.Property(e => e.MenuItemId)
                             .IsRequired()
                             .HasColumnName("item_id");
+
+                        j.Property(e => e.Quantity)
+                            .IsRequired()
+                            .HasColumnName("quantity");
                     });
             });
 
