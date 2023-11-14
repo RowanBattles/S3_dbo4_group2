@@ -30,25 +30,8 @@ namespace Bussiness
             {
                 Tab? tab = await DataAccessFactory.GetTabRepository().GetTabByIdAsync(order.TabId);
 
-                List<KitchenOrderItem> kitchenOrderItems = new List<KitchenOrderItem>();
-                foreach (OrderItem orderItem in order.OrderItems)
-                {
-                    KitchenOrderItem kitchenOrderItem = new KitchenOrderItem();
-                    kitchenOrderItem.MenuItemId = orderItem.MenuItemId;
-                    kitchenOrderItem.ItemName = orderItem.MenuItem.ItemName;
-                    kitchenOrderItem.Quantity = orderItem.Quantity;
-
-                    kitchenOrderItems.Add(kitchenOrderItem);
-                }
-
-                KitchenOrder kitchenOrder = new KitchenOrder();
-                kitchenOrder.OrderId = order.OrderId;
-                kitchenOrder.TabId = order.TabId;
+                KitchenOrder kitchenOrder = new KitchenOrder(order);
                 kitchenOrder.TableNumber = tab != null ? tab.TableNumber : -1;
-                kitchenOrder.Status = order.Status;
-                kitchenOrder.Notes = order.Notes;
-                kitchenOrder.DateTime = order.DateTime;
-                kitchenOrder.OrderItems = kitchenOrderItems;
 
                 kitchenOrders.Add(kitchenOrder);
             }
@@ -66,25 +49,8 @@ namespace Bussiness
             {
                 Tab? tab = await DataAccessFactory.GetTabRepository().GetTabByIdAsync(order.TabId);
 
-                List<KitchenOrderItem> barOrderItems = new List<KitchenOrderItem>();
-                foreach (OrderItem orderItem in order.OrderItems)
-                {
-                    KitchenOrderItem barOrderItem = new KitchenOrderItem();
-                    barOrderItem.MenuItemId = orderItem.MenuItemId;
-                    barOrderItem.ItemName = orderItem.MenuItem.ItemName;
-                    barOrderItem.Quantity = orderItem.Quantity;
-
-                    barOrderItems.Add(barOrderItem);
-                }
-
-                KitchenOrder barOrder = new KitchenOrder();
-                barOrder.OrderId = order.OrderId;
-                barOrder.TabId = order.TabId;
+                KitchenOrder barOrder = new KitchenOrder(order);
                 barOrder.TableNumber = tab != null ? tab.TableNumber : -1;
-                barOrder.Status = order.Status;
-                barOrder.Notes = order.Notes;
-                barOrder.DateTime = order.DateTime;
-                barOrder.OrderItems = barOrderItems;
 
                 barOrders.Add(barOrder);
             }
@@ -101,27 +67,9 @@ namespace Bussiness
             {
                 Tab? tab = await DataAccessFactory.GetTabRepository().GetTabByIdAsync(order.TabId);
 
-                List<SalesOrderItem> salesOrderItems = new List<SalesOrderItem>();
-                foreach (OrderItem orderItem in order.OrderItems)
-                {
-                    SalesOrderItem salesOrderItem = new SalesOrderItem();
-                    salesOrderItem.MenuItemId = orderItem.MenuItemId;
-                    salesOrderItem.ItemName = orderItem.MenuItem.ItemName;
-                    salesOrderItem.ItemPrice = orderItem.MenuItem.ItemPrice;
-                    salesOrderItem.Quantity = orderItem.Quantity;
-
-                    salesOrderItems.Add(salesOrderItem);
-                }
-
-                SalesOrder salesOrder = new SalesOrder();
-                salesOrder.OrderId = order.OrderId;
-                salesOrder.TabId = order.TabId;
+                SalesOrder salesOrder = new SalesOrder(order);
                 salesOrder.TableNumber = tab != null ? tab.TableNumber : -1;
                 salesOrder.TabTotal = tab != null ? tab.TabTotal : -1;
-                salesOrder.Status = order.Status;
-                salesOrder.Notes = order.Notes;
-                salesOrder.DateTime = order.DateTime;
-                salesOrder.OrderItems = salesOrderItems;
 
                 salesOrders.Add(salesOrder);
             }
