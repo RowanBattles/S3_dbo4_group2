@@ -18,6 +18,7 @@ namespace DataAccess
         public DbSet<Category> Categories { get; set; }
         public DbSet<MenuItem> MenuItems { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Tab> Tabs { get; set; }
 
@@ -131,27 +132,33 @@ namespace DataAccess
                     .HasColumnName("notes")
                     .HasMaxLength(512);
 
-                entity.HasMany(e => e.MenuItems)
+                entity.HasMany(e => e.OrderItems)
+                    .WithOne()
+                    .HasForeignKey(e => e.OrderId);
+            });
+
+            modelBuilder.Entity<OrderItem>(entity =>
+            {
+                entity.ToTable("orderitem");
+
+                entity.Property(e => e.OrderItemId)
+                    .HasColumnName("orderitem_id");
+
+                entity.Property(e => e.OrderId)
+                    .IsRequired()
+                    .HasColumnName("order_id");
+
+                entity.Property(e => e.MenuItemId)
+                    .IsRequired()
+                    .HasColumnName("item_id");
+
+                entity.Property(e => e.Quantity)
+                    .IsRequired()
+                    .HasColumnName("quantity");
+
+                entity.HasOne(e => e.MenuItem)
                     .WithMany()
-                    .UsingEntity<OrderItem>(j =>
-                    {
-                        j.ToTable("orderitem");
-
-                        j.Property(e => e.OrderItemId)
-                            .HasColumnName("orderitem_id");
-
-                        j.Property(e => e.OrderId)
-                            .IsRequired()
-                            .HasColumnName("order_id");
-
-                        j.Property(e => e.MenuItemId)
-                            .IsRequired()
-                            .HasColumnName("item_id");
-
-                        j.Property(e => e.Quantity)
-                            .IsRequired()
-                            .HasColumnName("quantity");
-                    });
+                    .HasForeignKey(e => e.MenuItemId);
             });
 
             modelBuilder.Entity<Role>(entity =>

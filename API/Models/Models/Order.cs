@@ -12,7 +12,7 @@ namespace Models
 
 		public string Notes { get; set; }
 
-		public ICollection<MenuItem> MenuItems { get; } = new List<MenuItem>();
+		public ICollection<OrderItem> OrderItems { get; } = new List<OrderItem>();
 	}
 }
 
