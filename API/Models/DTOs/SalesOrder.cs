@@ -20,7 +20,7 @@ namespace Models.DTOs
 
         public DateTime DateTime { get; set; }
 
-        public ICollection<SalesOrderItem> OrderItems { get; } = new List<SalesOrderItem>();
+        public ICollection<SalesOrderItem> OrderItems { get; set; } = new List<SalesOrderItem>();
     }
 }
 

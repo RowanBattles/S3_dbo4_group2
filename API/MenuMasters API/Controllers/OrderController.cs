@@ -1,8 +1,8 @@
-﻿using Bussiness;
-using Bussiness_Factory;
+﻿using Bussiness_Factory;
 using Contract_API_Bussiness.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Models;
+using Models.DTOs;
 
 namespace MenuMasters_API.Controllers;
 
@@ -23,6 +23,24 @@ public class OrderController : ControllerBase
     public async Task<IEnumerable<Order>> Get()
     {
         return await _orderComponent.GetAllOrdersAsync();
+    }
+
+    [HttpGet("Kitchen", Name = "GetAllKitchenOrders")]
+    public async Task<IEnumerable<KitchenOrder>> GetKitchen()
+    {
+        return await _orderComponent.GetAllKitchenOrdersAsync();
+    }
+
+    [HttpGet("Bar", Name = "GetAllBarOrders")]
+    public async Task<IEnumerable<KitchenOrder>> GetBar()
+    {
+        return await _orderComponent.GetAllBarOrdersAsync();
+    }
+
+    [HttpGet("Sales", Name = "GetAllSalesOrders")]
+    public async Task<IEnumerable<SalesOrder>> GetSales()
+    {
+        return await _orderComponent.GetAllSalesOrdersAsync();
     }
 
     [HttpGet("{id}", Name = "GetOrderById")]

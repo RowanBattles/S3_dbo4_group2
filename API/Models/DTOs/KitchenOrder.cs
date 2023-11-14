@@ -17,7 +17,7 @@ namespace Models.DTOs
 
         public DateTime DateTime { get; set; }
 
-        public ICollection<KitchenOrderItem> OrderItems { get; } = new List<KitchenOrderItem>();
+        public ICollection<KitchenOrderItem> OrderItems { get; set; } = new List<KitchenOrderItem>();
     }
 }
 
