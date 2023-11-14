@@ -16,7 +16,7 @@ namespace DataAccess.Repositories
 
 		public async Task<IEnumerable<Order>> GetAllOrdersAsync()
 		{
-			return await dbContext.Orders.Include(e => e.MenuItems).ToListAsync();
+			return await dbContext.Orders.Include(e => e.OrderItems).ThenInclude(e => e.MenuItem).ToListAsync();
 		}
 
         public async Task<Order?> GetOrderByIdAsync(int id)
