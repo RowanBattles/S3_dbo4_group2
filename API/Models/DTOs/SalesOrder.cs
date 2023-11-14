@@ -4,6 +4,8 @@ namespace Models.DTOs
 {
 	public class SalesOrder
 	{
+        public SalesOrder() { }
+
         public SalesOrder(Order order)
         {
             List<SalesOrderItem> salesOrderItems = new List<SalesOrderItem>();

@@ -4,6 +4,8 @@ namespace Models.DTOs
 {
 	public class KitchenOrder
 	{
+        public KitchenOrder() { }
+
         public KitchenOrder(Order order)
         {
             List<KitchenOrderItem> kitchenOrderItems = new List<KitchenOrderItem>();
