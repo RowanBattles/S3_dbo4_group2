@@ -1,14 +1,12 @@
 ﻿using System;
 
-namespace MenuMasters_API.DTOs
+namespace Models.DTOs
 {
-	public class SalesOrderItem
+	public class KitchenOrderItem
 	{
         public int MenuItemId { get; set; }
 
         public string ItemName { get; set; }
-
-        public decimal ItemPrice { get; set; }
 
         public int Quantity { get; set; }
     }

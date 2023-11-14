@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace MenuMasters_API.DTOs
+namespace Models.DTOs
 {
-	public class KitchenOrder
+	public class SalesOrder
 	{
         public int OrderId { get; set; }
 
@@ -11,13 +11,16 @@ namespace MenuMasters_API.DTOs
         // TODO: get from tab id
         public int TableNumber { get; set; }
 
+        // TODO: get from tab id
+        public decimal TabTotal { get; set; }
+
         public string Status { get; set; }
 
         public string Notes { get; set; }
 
         public DateTime DateTime { get; set; }
 
-        public ICollection<KitchenOrderItem> OrderItems { get; } = new List<KitchenOrderItem>();
+        public ICollection<SalesOrderItem> OrderItems { get; } = new List<SalesOrderItem>();
     }
 }
 
