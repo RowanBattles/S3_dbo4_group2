@@ -8,9 +8,9 @@ namespace Models
 
 		public int TabId { get; set; }
 
-		public int ItemCount { get; set; }
-
 		public string Status { get; set; }
+
+		public string Notes { get; set; }
 
 		public ICollection<MenuItem> MenuItems { get; } = new List<MenuItem>();
 	}

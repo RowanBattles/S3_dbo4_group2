@@ -122,14 +122,14 @@ namespace DataAccess
                     .IsRequired()
                     .HasColumnName("tab_id");
 
-                entity.Property(e => e.ItemCount)
-                    .IsRequired()
-                    .HasColumnName("item_count");
-
                 entity.Property(e => e.Status)
                     .IsRequired()
                     .HasColumnName("status")
                     .HasMaxLength(255);
+
+                entity.Property(e => e.Notes)
+                    .HasColumnName("notes")
+                    .HasMaxLength(512);
 
                 entity.HasMany(e => e.MenuItems)
                     .WithMany()
