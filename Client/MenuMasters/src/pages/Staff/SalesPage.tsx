@@ -3,12 +3,8 @@ import Tab from "../../components/Tab";
 const SalesPage = () => {
   return (
     <>
-      <div className="gray h-screen">
-        <div className="grid grid-cols-5">
-          <Tab />
-          <Tab />
-          <Tab />
-          <Tab />
+      <div className="gray h-screen p-10">
+        <div className="grid gray gap-10 grid-cols-3">
           <Tab />
           <Tab />
           <Tab />

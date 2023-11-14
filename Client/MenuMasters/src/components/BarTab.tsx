@@ -1,13 +1,11 @@
 import { useState } from "react";
 
-const KitchenTab = () => {
+const BarTab = () => {
   const [selectedItems, setSelectedItems] = useState(["red", "red", "red"]);
 
   const handleItemClick = (index: number) => {
     const updatedSelectedItems = [...selectedItems];
     if (updatedSelectedItems[index] === "red") {
-      updatedSelectedItems[index] = "yellow";
-    } else if (updatedSelectedItems[index] === "yellow") {
       updatedSelectedItems[index] = "green";
     }
     setSelectedItems(updatedSelectedItems);
@@ -16,8 +14,6 @@ const KitchenTab = () => {
   const handleItemClickReverse = (index: number) => {
     const updatedSelectedItems = [...selectedItems];
     if (updatedSelectedItems[index] === "green") {
-      updatedSelectedItems[index] = "yellow";
-    } else if (updatedSelectedItems[index] === "yellow") {
       updatedSelectedItems[index] = "red";
     }
     setSelectedItems(updatedSelectedItems);
@@ -134,4 +130,4 @@ const KitchenTab = () => {
   );
 };
 
-export default KitchenTab;
+export default BarTab;

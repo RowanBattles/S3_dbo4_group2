@@ -10,7 +10,7 @@ namespace Models
 
 		public string Status { get; set; }
 
-		public string Notes { get; set; }
+		public string? Notes { get; set; }
 
 		public DateTime DateTime { get; set; }
 

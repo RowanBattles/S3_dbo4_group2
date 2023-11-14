@@ -16,14 +16,14 @@ const Item = ({ image, title, description, price, foodType }: ItemProps) => {
           {foodType}
         </span>
         <img
-          className="w-64 mx-auto transform transition duration-300 hover:scale-105"
+          className="h-64 mx-auto transform transition duration-300 hover:scale-105"
           src={image}
           alt=""
         />
         <div className="flex flex-col items-center my-3 space-y-2">
           <h1 className="text-gray-900 poppins text-lg">{title}</h1>
           <p className="text-gray-500 poppins text-sm text-center">
-            {description.slice(0, 50)}
+            {description}
           </p>
           <h2 className="text-gray-900 poppins text-2xl font-semibold">
             ${price}

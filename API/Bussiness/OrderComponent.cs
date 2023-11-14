@@ -28,7 +28,7 @@ namespace Bussiness
 
             foreach (Order order in orders)
             {
-                Tab? tab = await DataAccessFactory.GetTabRepository().GetTabByIdAsync(order.TabId);
+                //Tab? tab = await DataAccessFactory.GetTabRepository().GetTabByIdAsync(order.TabId);
 
                 List<KitchenOrderItem> kitchenOrderItems = new List<KitchenOrderItem>();
                 foreach (OrderItem orderItem in order.OrderItems)
@@ -44,7 +44,7 @@ namespace Bussiness
                 KitchenOrder kitchenOrder = new KitchenOrder();
                 kitchenOrder.OrderId = order.OrderId;
                 kitchenOrder.TabId = order.TabId;
-                kitchenOrder.TableNumber = tab != null ? tab.TableNumber : -1;
+                kitchenOrder.TableNumber = null;
                 kitchenOrder.Status = order.Status;
                 kitchenOrder.Notes = order.Notes;
                 kitchenOrder.DateTime = order.DateTime;
