@@ -7,6 +7,7 @@ interface Item {
   itemName: string;
   itemDescription: string;
   itemPrice: number;
+  imageURL: string;
 }
 
 const Items = () => {
@@ -70,7 +71,7 @@ const Items = () => {
         {items.map((item: Item) => (
           <Item
             key={item.menuItemId}
-            image="https://joflow.nl/cdn/shop/products/Voorfoto_3bc2c4c8-01a8-4565-98f9-dadbbbea9e41_1200x1200.jpg?v=1657801731"
+            image={item.imageURL}
             title={item.itemName}
             description={item.itemDescription}
             price={item.itemPrice}
