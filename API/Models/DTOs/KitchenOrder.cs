@@ -6,15 +6,15 @@ namespace Models.DTOs
 	{
         public KitchenOrder(Order order)
         {
-            List<KitchenOrderItem> barOrderItems = new List<KitchenOrderItem>();
+            List<KitchenOrderItem> kitchenOrderItems = new List<KitchenOrderItem>();
             foreach (OrderItem orderItem in order.OrderItems)
             {
-                KitchenOrderItem barOrderItem = new KitchenOrderItem();
-                barOrderItem.MenuItemId = orderItem.MenuItemId;
-                barOrderItem.ItemName = orderItem.MenuItem.ItemName;
-                barOrderItem.Quantity = orderItem.Quantity;
+                KitchenOrderItem kitchenOrderItem = new KitchenOrderItem();
+                kitchenOrderItem.MenuItemId = orderItem.MenuItemId;
+                kitchenOrderItem.ItemName = orderItem.MenuItem.ItemName;
+                kitchenOrderItem.Quantity = orderItem.Quantity;
 
-                barOrderItems.Add(barOrderItem);
+                kitchenOrderItems.Add(kitchenOrderItem);
             }
 
             this.OrderId = order.OrderId;
@@ -22,7 +22,7 @@ namespace Models.DTOs
             this.Status = order.Status;
             this.Notes = order.Notes;
             this.DateTime = order.DateTime;
-            this.OrderItems = barOrderItems;
+            this.OrderItems = kitchenOrderItems;
         }
 
         public int OrderId { get; set; }
