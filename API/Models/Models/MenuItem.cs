@@ -16,7 +16,11 @@ namespace Models
 
 		public int CategoryId { get; set; }
 
-        //public byte[] Photo { get; set; }
+        public string ImageURL { get; set; }
+
+		public string DietaryInfo { get; set; }
+
+		public string Ingredients { get; set; }
     }
 }
 
