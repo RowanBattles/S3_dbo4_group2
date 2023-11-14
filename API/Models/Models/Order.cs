@@ -12,6 +12,8 @@ namespace Models
 
 		public string Notes { get; set; }
 
+		public DateTime DateTime { get; set; }
+
 		public ICollection<OrderItem> OrderItems { get; } = new List<OrderItem>();
 	}
 }

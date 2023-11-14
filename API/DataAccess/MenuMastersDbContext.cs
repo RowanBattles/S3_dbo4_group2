@@ -132,6 +132,10 @@ namespace DataAccess
                     .HasColumnName("notes")
                     .HasMaxLength(512);
 
+                entity.Property(e => e.DateTime)
+                    .IsRequired()
+                    .HasColumnName("datetime");
+
                 entity.HasMany(e => e.OrderItems)
                     .WithOne()
                     .HasForeignKey(e => e.OrderId);
