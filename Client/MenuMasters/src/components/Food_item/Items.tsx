@@ -69,6 +69,7 @@ const Items = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12">
         {items.map((item: Item) => (
           <Item
+            key={item.menuItemId}
             image="https://joflow.nl/cdn/shop/products/Voorfoto_3bc2c4c8-01a8-4565-98f9-dadbbbea9e41_1200x1200.jpg?v=1657801731"
             title={item.itemName}
             description={item.itemDescription}
