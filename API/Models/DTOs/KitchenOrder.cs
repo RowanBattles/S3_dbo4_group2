@@ -8,7 +8,6 @@ namespace Models.DTOs
 
         public int TabId { get; set; }
 
-        // TODO: get from tab id
         public int TableNumber { get; set; }
 
         public string Status { get; set; }
