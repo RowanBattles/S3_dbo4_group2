@@ -1,11 +1,18 @@
 ﻿using System;
 using Models;
+using Models.DTOs;
 
 namespace Contract_API_Bussiness.Interfaces
 {
 	public interface IOrderComponent
 	{
         Task<IEnumerable<Order>> GetAllOrdersAsync();
+
+        Task<IEnumerable<KitchenOrder>> GetAllKitchenOrdersAsync();
+
+        Task<IEnumerable<KitchenOrder>> GetAllBarOrdersAsync();
+
+        Task<IEnumerable<SalesOrder>> GetAllSalesOrdersAsync();
 
         Task<Order?> GetOrderByIdAsync(int id);
 
