@@ -1,38 +1,38 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Plus_Min_Button from "./Plus_Min_Button";
 
-const Transaction = () => {
-  // Remove when backend is ready
-  const [isVisible, setIsVisible] = useState(true);
-  const handleRemoveClick = () => {
-    setIsVisible(false);
-  };
+// ... (import statements)
 
-  if (!isVisible) {
-    return null; // If isVisible is false, component will not be rendered
-  }
+const Transaction = ({ item, onQuantityChange }) => {
+  const [quantity, setQuantity] = useState(item.quantity);
 
+  // Notify the parent component when the quantity changes
+  useEffect(() => {
+    onQuantityChange(quantity);
+  }, [quantity, onQuantityChange]);
   return (
-    <div className="">
-      <div className="flex flex-row justify-between items-center">
-        <img
-          src="https://joflow.nl/cdn/shop/products/Voorfoto_3bc2c4c8-01a8-4565-98f9-dadbbbea9e41_1200x1200.jpg?v=1657801731"
-          className="h-40 w-40"
-        />
-        <h1 className="text-3xl">Borrel Plaat</h1>
-        <div className="transform scale-150">
-          <Plus_Min_Button />
-        </div>
-
-        <h2 className="text-gray-900 poppins text-3xl font-semibold">$9.99</h2>
-        <button
-          className="text-3xl font-semibold transform transition duration-300 hover:scale-105"
-          onClick={handleRemoveClick}
-        >
-          X
-        </button>
+    <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 items-center">
+      <img
+        src={item.image}
+        className="col-span-1 h-auto w-full "
+        alt={item.itemName}
+      />
+      <h1 className="col-span-1 text-3xl text-center hidden md:hidden lg:inline">
+        {item.itemName}
+      </h1>
+      <div className="col-span-1 flex justify-center items-center ">
+        <Plus_Min_Button quantity={quantity} setQuantity={setQuantity} />
       </div>
-      <hr className="h-px bg-[#F3F4F6] border-0  my-8"></hr>
+
+      <h2 className="col-span-1 text-gray-900 poppins text-3xl font-medium text-center hidden md:inline lg:inline">
+        ${(item.price * quantity).toFixed(2)}
+      </h2>
+
+      <button className="col-span-1 text-3xl font-medium transform transition duration-300 hover:scale-105 text-center">
+        X
+      </button>
+
+      <hr className="col-span-5 h-px bg-[#F3F4F6] border-0 my-8"></hr>
     </div>
   );
 };

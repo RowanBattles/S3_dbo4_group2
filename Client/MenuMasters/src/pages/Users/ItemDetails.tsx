@@ -56,6 +56,32 @@ const ItemDetails = () => {
     fetchFoodInfo();
   }, [id, quantity, Item]);
 
+  const addToCart = () => {
+    // Check if Item is not null and quantity is greater than 0
+    if (Item && quantity > 0) {
+      // Get the existing cart items from localStorage or initialize an empty array
+      const existingCartItems = JSON.parse(
+        localStorage.getItem("cartItems") || "[]"
+      ) as MenuItem[];
+
+      // Create a new cart item object
+      const newCartItem = {
+        itemId: Item.menuItemId,
+        itemName: Item.itemName,
+        quantity: quantity,
+        price: Item.itemPrice,
+        image: Item.imageURL,
+
+        // Add any other properties you want to store in the cart item
+      };
+
+      // Add the new cart item to the existing cart items
+      const updatedCartItems = [...existingCartItems, newCartItem];
+
+      // Update the localStorage with the updated cart items
+      localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+    }
+  };
   return (
     <>
       <Header />
@@ -117,9 +143,12 @@ const ItemDetails = () => {
                 </button>
               </div>
 
-              <Link to="/Cart">
+              <Link to="/TransactionPage">
                 <div className="mt-8 flex items-center justify-center md:justify-start lg:justify-start gap-x-4">
-                  <button className="bg-primary text-white px-8 py-3 focus:outline-none poppins rounded-full transform transition duration-300 hover:scale-105 flex flex-row">
+                  <button
+                    onClick={addToCart}
+                    className="bg-primary text-white px-8 py-3 focus:outline-none poppins rounded-full transform transition duration-300 hover:scale-105 flex flex-row"
+                  >
                     <div className="mr-2">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
