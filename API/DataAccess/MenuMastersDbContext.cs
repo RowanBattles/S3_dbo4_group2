@@ -24,7 +24,7 @@ namespace DataAccess
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=PC-Bas;Database=menumaster;Integrated Security=True;TrustServerCertificate=True");
+            optionsBuilder.UseSqlServer("Server=LAPTOP-BATTLES\\SQLEXPRESS05;Database=menumaster;Integrated Security=True;TrustServerCertificate=True");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
