@@ -44,8 +44,17 @@ const ItemDetails = () => {
       }
     };
 
+    const calculateTotalPrice = () => {
+      if (Item) {
+        const newTotalPrice = quantity * Item.itemPrice;
+        setTotalPrice(newTotalPrice);
+      }
+    };
+
+    calculateTotalPrice();
+
     fetchFoodInfo();
-  }, [id]);
+  }, [id, quantity, Item]);
 
   return (
     <>
@@ -92,8 +101,8 @@ const ItemDetails = () => {
                 ></textarea>
               )}
               <div className="flex ml-10 md:ml-0 lg:ml-0 items-center justify-center md:justify-start lg:justify-start space-x-6 pt-8">
-                <h2 className="text-3xl font-medium text-black poppins select-none">
-                  ${Item?.itemPrice}
+                <h2 className="text-3xl w-20 font-medium text-black poppins select-none">
+                  ${totalPrice} {/* Display the calculated total price */}
                 </h2>
                 <Plus_Min_Button
                   quantity={quantity}
