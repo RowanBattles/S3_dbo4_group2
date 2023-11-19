@@ -18,6 +18,12 @@ const TransactionPage = () => {
     setCartItems(updatedCartItems);
   };
 
+  const handleRemoveItem = (itemToRemove) => {
+    const updatedCartItems = cartItems.filter((item) => item !== itemToRemove);
+    setCartItems(updatedCartItems);
+    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+  };
+
   // Calculate total based on cart items
   const totalPrice = cartItems.reduce((total, item) => {
     return total + item.price * item.quantity;
@@ -31,6 +37,7 @@ const TransactionPage = () => {
           <Transaction
             key={index}
             item={item}
+            onRemove={handleRemoveItem}
             onQuantityChange={(newQuantity) =>
               handleQuantityChange(index, newQuantity)
             }

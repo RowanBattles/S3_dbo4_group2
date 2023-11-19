@@ -3,7 +3,7 @@ import Plus_Min_Button from "./Plus_Min_Button";
 
 // ... (import statements)
 
-const Transaction = ({ item, onQuantityChange }) => {
+const Transaction = ({ item, onQuantityChange, onRemove }) => {
   const [quantity, setQuantity] = useState(item.quantity);
 
   // Notify the parent component when the quantity changes
@@ -28,7 +28,10 @@ const Transaction = ({ item, onQuantityChange }) => {
         ${(item.price * quantity).toFixed(2)}
       </h2>
 
-      <button className="col-span-1 text-3xl font-medium transform transition duration-300 hover:scale-105 text-center">
+      <button
+        className="col-span-1 text-3xl font-medium transform transition duration-300 hover:scale-105 text-center"
+        onClick={() => onRemove(item)}
+      >
         X
       </button>
 
