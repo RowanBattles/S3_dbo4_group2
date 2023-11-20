@@ -19,3 +19,14 @@ export async function getCategoryById(id: number) {
   const response = await axios.get(url);
   return response.data;
 }
+
+export async function getOrdersKichen() {
+  const url = EndPoints.GetAllItems;
+
+  try {
+    const response = await axios.get(url);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+}
