@@ -27,6 +27,42 @@ interface MenuItem {
   ingredients: string;
 }
 
+// orderStaff
+interface OrderSales {
+  orderId: number;
+  tabId: number;
+  tableNumber: number;
+  tabTotal: number;
+  dateTime: string;
+  orderItems: OrderItemSales[];
+}
+
+// orderStaff
+interface OrderItemSales {
+  menuItemId: number;
+  itemName: string;
+  itemPrice: number;
+  quantity: number;
+}
+
+// orderStaff
+interface OrderStaff {
+  orderId: number;
+  tabId: number;
+  tableNumber: number;
+  status: string;
+  notes: string;
+  dateTime: string;
+  orderItems: OrderItemStaff[];
+}
+
+// orderStaff
+interface OrderItemStaff {
+  menuItemId: number;
+  itemName: string;
+  quantity: number;
+}
+
 // orderTypes.ts
 interface Order {
   order_id: number;
@@ -58,4 +94,14 @@ interface Tab {
   tab_total: number | null;
 }
 
-export type { Account, Category, MenuItem, OrderItem, Order, Role, Tab };
+export type {
+  Account,
+  Category,
+  MenuItem,
+  OrderItem,
+  Order,
+  OrderStaff,
+  OrderSales,
+  Role,
+  Tab,
+};
