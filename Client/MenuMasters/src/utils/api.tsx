@@ -11,3 +11,14 @@ export async function getItems() {
     throw error;
   }
 }
+
+export async function getOrdersKichen() {
+  const url = EndPoints.GetAllItems;
+
+  try {
+    const response = await axios.get(url);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+}
