@@ -18,7 +18,6 @@ export async function getCategoryById(id: number) {
   const url = EndPoints.GetCategoryById(id);
   const response = await axios.get(url);
   return response.data;
-}
 
 export async function getOrdersSales() {
   const url = EndPoints.GetAllOrdersSales;
