@@ -22,8 +22,6 @@ namespace Models.DTOs
 
             this.OrderId = order.OrderId;
             this.TabId = order.TabId;
-            this.Status = order.Status;
-            this.Notes = order.Notes;
             this.DateTime = order.DateTime;
             this.OrderItems = salesOrderItems;
         }
@@ -35,10 +33,6 @@ namespace Models.DTOs
         public int TableNumber { get; set; }
 
         public decimal TabTotal { get; set; }
-
-        public string Status { get; set; }
-
-        public string Notes { get; set; }
 
         public DateTime DateTime { get; set; }
 
