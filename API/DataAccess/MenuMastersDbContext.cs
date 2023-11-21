@@ -200,6 +200,9 @@ namespace DataAccess
 
                 entity.Property(e => e.TabTotal)
                     .HasColumnName("tab_total");
+
+                entity.Property(e => e.Paid)
+                    .HasColumnName("paid");
             });
         }
     }
