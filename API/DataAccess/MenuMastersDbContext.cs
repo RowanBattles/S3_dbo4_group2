@@ -131,10 +131,6 @@ namespace DataAccess
                     .IsRequired()
                     .HasColumnName("status");
 
-                entity.Property(e => e.Notes)
-                    .HasColumnName("notes")
-                    .HasMaxLength(512);
-
                 entity.Property(e => e.DateTime)
                     .IsRequired()
                     .HasColumnName("datetime");
@@ -158,6 +154,10 @@ namespace DataAccess
                 entity.Property(e => e.MenuItemId)
                     .IsRequired()
                     .HasColumnName("item_id");
+
+                entity.Property(e => e.Notes)
+                    .HasColumnName("notes")
+                    .HasMaxLength(512);
 
                 entity.Property(e => e.Quantity)
                     .IsRequired()

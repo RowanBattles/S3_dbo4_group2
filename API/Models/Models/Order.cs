@@ -11,8 +11,6 @@ namespace Models
 
 		public OrderStatus Status { get; set; }
 
-		public string Notes { get; set; }
-
 		public DateTime DateTime { get; set; }
 
 		public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
