@@ -16,6 +16,8 @@ namespace Models
 
 		public int CategoryId { get; set; }
 
+		public Category? Category { get; set; } = null!;
+
         public string ImageURL { get; set; }
 
 		public string DietaryInfo { get; set; }

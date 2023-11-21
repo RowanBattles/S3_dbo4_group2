@@ -2,6 +2,7 @@
 using Models;
 using Microsoft.EntityFrameworkCore;
 using Contract_Data_Bussiness.Interfaces;
+using Models.Enums;
 
 namespace DataAccess.Repositories
 {
@@ -16,8 +17,22 @@ namespace DataAccess.Repositories
 
 		public async Task<IEnumerable<Order>> GetAllOrdersAsync()
 		{
-			return await dbContext.Orders.Include(e => e.OrderItems).ThenInclude(e => e.MenuItem).ToListAsync();
+			return await dbContext.Orders.Include(e => e.OrderItems).ThenInclude(e => e.MenuItem).ThenInclude(e => e.Category).ToListAsync();
 		}
+
+        public async Task<IEnumerable<Order>> GetAllOrdersByTypeAsync(OrderType type)
+        {
+            return await dbContext.Orders.Include(e => e.OrderItems).ThenInclude(e => e.MenuItem).ThenInclude(e => e.Category)
+                .Select(order => new Order
+                {
+                    OrderId = order.OrderId,
+                    TabId = order.TabId,
+                    Status = order.Status,
+                    Notes = order.Notes,
+                    DateTime = order.DateTime,
+                    OrderItems = order.OrderItems.Where(orderItem => orderItem.MenuItem.Category.Type == (int)type).ToList()
+                }).ToListAsync();
+        }
 
         public async Task<Order?> GetOrderByIdAsync(int id)
         {
@@ -39,6 +54,21 @@ namespace DataAccess.Repositories
             }
         }
 
+        public async Task<bool> AddItemToOrderAsync(OrderItem orderItem)
+        {
+            try
+            {
+                await dbContext.OrderItems.AddAsync(orderItem);
+                await dbContext.SaveChangesAsync();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public async Task<bool> UpdateOrderAsync(Order order)
         {
             try
@@ -48,6 +78,25 @@ namespace DataAccess.Repositories
                 if (original == null) return false;
 
                 dbContext.Entry(original).CurrentValues.SetValues(order);
+                await dbContext.SaveChangesAsync();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> RemoveItemFromOrderAsync(int id)
+        {
+            try
+            {
+                OrderItem? original = await dbContext.OrderItems.FindAsync(id);
+
+                if (original == null) return false;
+
+                dbContext.OrderItems.Remove(original);
                 await dbContext.SaveChangesAsync();
 
                 return true;

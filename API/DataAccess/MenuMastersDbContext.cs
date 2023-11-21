@@ -110,6 +110,10 @@ namespace DataAccess
                 entity.Property(e => e.Ingredients)
                     .HasColumnName("ingredients")
                     .HasMaxLength(512);
+
+                entity.HasOne(e => e.Category)
+                    .WithMany()
+                    .HasForeignKey(e => e.CategoryId);
             });
 
             modelBuilder.Entity<Order>(entity =>
