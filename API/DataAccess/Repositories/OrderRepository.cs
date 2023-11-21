@@ -30,7 +30,7 @@ namespace DataAccess.Repositories
                     Status = order.Status,
                     Notes = order.Notes,
                     DateTime = order.DateTime,
-                    OrderItems = order.OrderItems.Where(orderItem => orderItem.MenuItem.Category.Type == (int)type).ToList()
+                    OrderItems = order.OrderItems.Where(orderItem => orderItem.MenuItem.Category.Type == type).ToList()
                 }).ToListAsync();
         }
 

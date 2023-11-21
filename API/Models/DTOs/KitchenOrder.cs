@@ -1,4 +1,5 @@
 ﻿using System;
+using Models.Enums;
 
 namespace Models.DTOs
 {
@@ -33,7 +34,7 @@ namespace Models.DTOs
 
         public int TableNumber { get; set; }
 
-        public string Status { get; set; }
+        public OrderStatus Status { get; set; }
 
         public string Notes { get; set; }
 

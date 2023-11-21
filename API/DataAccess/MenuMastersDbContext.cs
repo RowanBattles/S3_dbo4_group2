@@ -129,8 +129,7 @@ namespace DataAccess
 
                 entity.Property(e => e.Status)
                     .IsRequired()
-                    .HasColumnName("status")
-                    .HasMaxLength(255);
+                    .HasColumnName("status");
 
                 entity.Property(e => e.Notes)
                     .HasColumnName("notes")
