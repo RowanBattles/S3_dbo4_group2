@@ -37,7 +37,7 @@ function KitchenTab({ order }: { order: OrderStaff }) {
   };
 
   return (
-    <div className="select-none">
+    <div className="select-none relative flex flex-col h-full">
       <div
         className={`${headerColor()} rounded-t-3xl p-4 border-x border-t border-slate-300`}
       >
@@ -58,9 +58,7 @@ function KitchenTab({ order }: { order: OrderStaff }) {
         </div>
       </div>
       <div
-        className={`white p-5 border-x border-slate-300 ${
-          headerColor() === "green" ? "pb-0" : "pb-8"
-        } border-b rounded-b-3xl rounded`}
+        className={`flex-1 white p-5 border-x border-slate-300 border-b rounded-b-3xl rounded pb-12`}
       >
         <div>
           <div className="mb-2 ml-7">
@@ -100,12 +98,12 @@ function KitchenTab({ order }: { order: OrderStaff }) {
             </div>
           </div>
         </div>
-        {headerColor() === "green" && (
-          <div className="white p-5 flex justify-end text-white gap-4">
-            <button className="green px-5 py-1 rounded-full">Confirm</button>
-          </div>
-        )}
       </div>
+      {headerColor() === "green" && (
+        <div className="absolute bottom-0 right-0 p-5 text-white">
+          <button className="green px-5 py-1 rounded-full">Confirm</button>
+        </div>
+      )}
     </div>
   );
 }

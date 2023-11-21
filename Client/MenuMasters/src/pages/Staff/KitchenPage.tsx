@@ -23,9 +23,11 @@ function KitchenPage() {
   return (
     <div className="gray h-screen p-10">
       <div className="grid gray gap-10 grid-cols-3">
-        {orderData.map((order) => (
-          <Tab key={order.orderId} order={order} />
-        ))}
+        {orderData
+          .sort((a, b) => a.tableNumber - b.tableNumber)
+          .map((order) => (
+            <Tab key={order.orderId} order={order} />
+          ))}
       </div>
     </div>
   );
