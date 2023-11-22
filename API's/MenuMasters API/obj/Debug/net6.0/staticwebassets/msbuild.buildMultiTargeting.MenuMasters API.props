@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/MenuMasters API.props" />
+</Project>
