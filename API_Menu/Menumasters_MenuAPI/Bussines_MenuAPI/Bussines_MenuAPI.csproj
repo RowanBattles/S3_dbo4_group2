@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DateLayer_Bussiness_Contract\DateLayer_Bussiness_Contract.csproj" />
+    <ProjectReference Include="..\DataLayer_Factory\DataLayer_Factory.csproj" />
+    <ProjectReference Include="..\Bussiness_API_Contract\Bussiness_API_Contract.csproj" />
+  </ItemGroup>
+</Project>
