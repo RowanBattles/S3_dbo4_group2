@@ -1,4 +1,5 @@
 ﻿using System;
+using Models.Enums;
 
 namespace Models.DTOs
 {
@@ -14,6 +15,7 @@ namespace Models.DTOs
                 KitchenOrderItem kitchenOrderItem = new KitchenOrderItem();
                 kitchenOrderItem.MenuItemId = orderItem.MenuItemId;
                 kitchenOrderItem.ItemName = orderItem.MenuItem.ItemName;
+                kitchenOrderItem.Notes = orderItem.Notes;
                 kitchenOrderItem.Quantity = orderItem.Quantity;
 
                 kitchenOrderItems.Add(kitchenOrderItem);
@@ -22,7 +24,6 @@ namespace Models.DTOs
             this.OrderId = order.OrderId;
             this.TabId = order.TabId;
             this.Status = order.Status;
-            this.Notes = order.Notes;
             this.DateTime = order.DateTime;
             this.OrderItems = kitchenOrderItems;
         }
@@ -33,9 +34,7 @@ namespace Models.DTOs
 
         public int TableNumber { get; set; }
 
-        public string Status { get; set; }
-
-        public string Notes { get; set; }
+        public OrderStatus Status { get; set; }
 
         public DateTime DateTime { get; set; }
 

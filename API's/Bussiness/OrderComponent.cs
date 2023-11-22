@@ -3,6 +3,7 @@ using Contract_Data_Bussiness.Interfaces;
 using DataAccess_Factory;
 using Models;
 using Models.DTOs;
+using Models.Enums;
 
 namespace Bussiness
 {
@@ -22,8 +23,7 @@ namespace Bussiness
 
         public async Task<IEnumerable<KitchenOrder>> GetAllKitchenOrdersAsync()
         {
-            // TODO: filter based on type (kitchen) here first
-            IEnumerable<Order> orders = await _repo.GetAllOrdersAsync();
+            IEnumerable<Order> orders = await _repo.GetAllOrdersByTypeAsync(OrderType.Kitchen);
             List<KitchenOrder> kitchenOrders = new List<KitchenOrder>();
 
             foreach (Order order in orders)
@@ -41,8 +41,7 @@ namespace Bussiness
 
         public async Task<IEnumerable<KitchenOrder>> GetAllBarOrdersAsync()
         {
-            // TODO: filter based on type (bar) here first
-            IEnumerable<Order> orders = await _repo.GetAllOrdersAsync();
+            IEnumerable<Order> orders = await _repo.GetAllOrdersByTypeAsync(OrderType.Bar);
             List<KitchenOrder> barOrders = new List<KitchenOrder>();
 
             foreach (Order order in orders)
@@ -87,9 +86,19 @@ namespace Bussiness
             return await _repo.CreateOrderAsync(order);
         }
 
+        public async Task<bool> AddItemToOrderAsync(OrderItem orderItem)
+        {
+            return await _repo.AddItemToOrderAsync(orderItem);
+        }
+
         public async Task<bool> UpdateOrderAsync(Order order)
         {
             return await _repo.UpdateOrderAsync(order);
+        }
+
+        public async Task<bool> RemoveItemFromOrderAsync(int id)
+        {
+            return await _repo.RemoveItemFromOrderAsync(id);
         }
 
         public async Task<bool> DeleteOrderAsync(int id)

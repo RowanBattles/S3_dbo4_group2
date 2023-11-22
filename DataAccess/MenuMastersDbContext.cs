@@ -110,6 +110,10 @@ namespace DataAccess
                 entity.Property(e => e.Ingredients)
                     .HasColumnName("ingredients")
                     .HasMaxLength(512);
+
+                entity.HasOne(e => e.Category)
+                    .WithMany()
+                    .HasForeignKey(e => e.CategoryId);
             });
 
             modelBuilder.Entity<Order>(entity =>
@@ -125,12 +129,7 @@ namespace DataAccess
 
                 entity.Property(e => e.Status)
                     .IsRequired()
-                    .HasColumnName("status")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Notes)
-                    .HasColumnName("notes")
-                    .HasMaxLength(512);
+                    .HasColumnName("status");
 
                 entity.Property(e => e.DateTime)
                     .IsRequired()
@@ -155,6 +154,10 @@ namespace DataAccess
                 entity.Property(e => e.MenuItemId)
                     .IsRequired()
                     .HasColumnName("item_id");
+
+                entity.Property(e => e.Notes)
+                    .HasColumnName("notes")
+                    .HasMaxLength(512);
 
                 entity.Property(e => e.Quantity)
                     .IsRequired()
@@ -196,6 +199,9 @@ namespace DataAccess
 
                 entity.Property(e => e.TabTotal)
                     .HasColumnName("tab_total");
+
+                entity.Property(e => e.Paid)
+                    .HasColumnName("paid");
             });
         }
     }
