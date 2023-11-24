@@ -1,6 +1,8 @@
-﻿using Bussiness_Factory;
+﻿using Bussiness;
+using Bussiness_Factory;
 using Contract_API_Bussiness.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Models;
 using Models.DTOs;
 
@@ -50,9 +52,30 @@ public class OrderController : ControllerBase
     }
 
     [HttpPost(Name = "PostOrder")]
-    public async Task<IActionResult> Post(Order order)
+    public async Task<IActionResult> Post(PostOrder postOrder)
     {
+
+        Order order = new Order()
+        {
+            TabId = postOrder.TabId,
+            Status = Models.Enums.OrderStatus.Pending,
+            DateTime = DateTime.Now,
+            OrderItems = new List<OrderItem>()
+        };
+
+        foreach (PostOrderItem postOrderItem in postOrder.orderItems)
+        {
+            OrderItem orderItem = new OrderItem()
+            {
+                MenuItemId = postOrderItem.MenuItemId,
+                Notes = postOrderItem.Notes,
+                Quantity = postOrderItem.Quantity
+            };
+            order.OrderItems.Add(orderItem);
+        }
+
         bool success = await _orderComponent.CreateOrderAsync(order);
+
         return success ? Ok() : BadRequest();
     }
 
