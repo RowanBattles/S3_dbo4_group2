@@ -23,32 +23,20 @@ export async function getCategoryById(id: number) {
 export async function getOrdersSales() {
   const url = EndPoints.GetAllOrdersSales;
 
-  try {
-    const response = await axios.get(url);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+  const response = await axios.get(url);
+  return response.data;
 }
 
 export async function getOrdersKitchen() {
   const url = EndPoints.GetAllOrdersKitchen;
 
-  try {
-    const response = await axios.get(url);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+  const response = await axios.get(url);
+  return response.data;
 }
 
 export async function getOrdersBar() {
   const url = EndPoints.GetAllOrdersKitchen;
 
-  try {
-    const response = await axios.get(url);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+  const response = await axios.get(url);
+  return response.data;
 }
