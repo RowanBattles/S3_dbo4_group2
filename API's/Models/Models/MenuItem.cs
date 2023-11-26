@@ -8,7 +8,7 @@ namespace Models
 
 		public string ItemName { get; set; }
 
-		public string ItemDescription_Short { get; set;
+		public string ItemDescription_Short { get; set; }
 
         public string ItemDescription_Long { get; set; }
 

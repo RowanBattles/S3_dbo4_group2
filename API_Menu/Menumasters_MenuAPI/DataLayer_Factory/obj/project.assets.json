@@ -1962,39 +1962,38 @@
     ]
   },
   "packageFolders": {
-    "/Users/nielsvanschaijk/.nuget/packages/": {}
+    "/Users/sascha-fontys/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DataLayer_Factory/DataLayer_Factory.csproj",
+      "projectUniqueName": "/Users/sascha-fontys/Documents/FHICT/S3/Group/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DataLayer_Factory/DataLayer_Factory.csproj",
       "projectName": "DataLayer_Factory",
-      "projectPath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DataLayer_Factory/DataLayer_Factory.csproj",
-      "packagesPath": "/Users/nielsvanschaijk/.nuget/packages/",
-      "outputPath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DataLayer_Factory/obj/",
+      "projectPath": "/Users/sascha-fontys/Documents/FHICT/S3/Group/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DataLayer_Factory/DataLayer_Factory.csproj",
+      "packagesPath": "/Users/sascha-fontys/.nuget/packages/",
+      "outputPath": "/Users/sascha-fontys/Documents/FHICT/S3/Group/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DataLayer_Factory/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/nielsvanschaijk/.nuget/NuGet/NuGet.Config"
+        "/Users/sascha-fontys/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "/usr/local/share/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DataLayer_MenuAPI/DataLayer_MenuAPI.csproj": {
-              "projectPath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DataLayer_MenuAPI/DataLayer_MenuAPI.csproj"
+            "/Users/sascha-fontys/Documents/FHICT/S3/Group/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DataLayer_MenuAPI/DataLayer_MenuAPI.csproj": {
+              "projectPath": "/Users/sascha-fontys/Documents/FHICT/S3/Group/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DataLayer_MenuAPI/DataLayer_MenuAPI.csproj"
             },
-            "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/DateLayer_Bussiness_Contract.csproj": {
-              "projectPath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/DateLayer_Bussiness_Contract.csproj"
+            "/Users/sascha-fontys/Documents/FHICT/S3/Group/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/DateLayer_Bussiness_Contract.csproj": {
+              "projectPath": "/Users/sascha-fontys/Documents/FHICT/S3/Group/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/DateLayer_Bussiness_Contract.csproj"
             },
-            "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/MenuAPI_Models.csproj": {
-              "projectPath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/MenuAPI_Models.csproj"
+            "/Users/sascha-fontys/Documents/FHICT/S3/Group/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/MenuAPI_Models.csproj": {
+              "projectPath": "/Users/sascha-fontys/Documents/FHICT/S3/Group/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/MenuAPI_Models.csproj"
             }
           }
         }

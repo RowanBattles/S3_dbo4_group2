@@ -8,9 +8,9 @@ namespace Contract_API_Bussiness.Interfaces
 	{
         Task<IEnumerable<Order>> GetAllOrdersAsync();
 
-        //Task<IEnumerable<KitchenOrder>> GetAllKitchenOrdersAsync();
+        Task<IEnumerable<KitchenOrder>> GetAllKitchenOrdersAsync();
 
-        //Task<IEnumerable<KitchenOrder>> GetAllBarOrdersAsync();
+        Task<IEnumerable<KitchenOrder>> GetAllBarOrdersAsync();
 
         Task<IEnumerable<SalesOrder>> GetAllSalesOrdersAsync();
 

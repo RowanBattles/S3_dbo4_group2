@@ -1,34 +1,33 @@
 {
   "format": 1,
   "restore": {
-    "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/DateLayer_Bussiness_Contract.csproj": {}
+    "/Users/sascha-fontys/Documents/FHICT/S3/Group/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/DateLayer_Bussiness_Contract.csproj": {}
   },
   "projects": {
-    "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/DateLayer_Bussiness_Contract.csproj": {
+    "/Users/sascha-fontys/Documents/FHICT/S3/Group/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/DateLayer_Bussiness_Contract.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/DateLayer_Bussiness_Contract.csproj",
+        "projectUniqueName": "/Users/sascha-fontys/Documents/FHICT/S3/Group/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/DateLayer_Bussiness_Contract.csproj",
         "projectName": "DateLayer_Bussiness_Contract",
-        "projectPath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/DateLayer_Bussiness_Contract.csproj",
-        "packagesPath": "/Users/nielsvanschaijk/.nuget/packages/",
-        "outputPath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/obj/",
+        "projectPath": "/Users/sascha-fontys/Documents/FHICT/S3/Group/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/DateLayer_Bussiness_Contract.csproj",
+        "packagesPath": "/Users/sascha-fontys/.nuget/packages/",
+        "outputPath": "/Users/sascha-fontys/Documents/FHICT/S3/Group/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/nielsvanschaijk/.nuget/NuGet/NuGet.Config"
+          "/Users/sascha-fontys/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/MenuAPI_Models.csproj": {
-                "projectPath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/MenuAPI_Models.csproj"
+              "/Users/sascha-fontys/Documents/FHICT/S3/Group/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/MenuAPI_Models.csproj": {
+                "projectPath": "/Users/sascha-fontys/Documents/FHICT/S3/Group/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/MenuAPI_Models.csproj"
               }
             }
           }
@@ -62,23 +61,22 @@
         }
       }
     },
-    "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/MenuAPI_Models.csproj": {
+    "/Users/sascha-fontys/Documents/FHICT/S3/Group/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/MenuAPI_Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/MenuAPI_Models.csproj",
+        "projectUniqueName": "/Users/sascha-fontys/Documents/FHICT/S3/Group/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/MenuAPI_Models.csproj",
         "projectName": "MenuAPI_Models",
-        "projectPath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/MenuAPI_Models.csproj",
-        "packagesPath": "/Users/nielsvanschaijk/.nuget/packages/",
-        "outputPath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/obj/",
+        "projectPath": "/Users/sascha-fontys/Documents/FHICT/S3/Group/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/MenuAPI_Models.csproj",
+        "packagesPath": "/Users/sascha-fontys/.nuget/packages/",
+        "outputPath": "/Users/sascha-fontys/Documents/FHICT/S3/Group/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/nielsvanschaijk/.nuget/NuGet/NuGet.Config"
+          "/Users/sascha-fontys/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
