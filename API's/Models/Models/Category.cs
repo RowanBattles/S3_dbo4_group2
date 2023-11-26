@@ -1,5 +1,4 @@
 ﻿using System;
-using Models.Enums;
 
 namespace Models
 {
@@ -9,7 +8,7 @@ namespace Models
 
 		public string CategoryName { get; set; }
 
-		public OrderType Type { get; set; }
+		public int Type { get; set; }
 	}
 }
 

@@ -24,7 +24,7 @@ namespace DataAccess
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=localhost; Database=menumaster; User=sa; Password=Admin123; Encrypt=False");
+            optionsBuilder.UseSqlServer("Server=localhost; Database=menumasters; User=sa; Password=; Encrypt=False");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -84,8 +84,12 @@ namespace DataAccess
                     .HasColumnName("item_name")
                     .HasMaxLength(255);
 
-                entity.Property(e => e.ItemDescription)
-                    .HasColumnName("item_description")
+                entity.Property(e => e.ItemDescription_Short)
+                    .HasColumnName("item_description_short")
+                    .HasMaxLength(512);
+
+                entity.Property(e => e.ItemDescription_Long)
+                    .HasColumnName("item_description_long")
                     .HasMaxLength(512);
 
                 entity.Property(e => e.ItemPrice)
@@ -128,10 +132,6 @@ namespace DataAccess
                     .HasColumnName("status")
                     .HasMaxLength(255);
 
-                entity.Property(e => e.Notes)
-                    .HasColumnName("notes")
-                    .HasMaxLength(512);
-
                 entity.Property(e => e.DateTime)
                     .IsRequired()
                     .HasColumnName("datetime");
@@ -156,13 +156,19 @@ namespace DataAccess
                     .IsRequired()
                     .HasColumnName("item_id");
 
+                entity.HasOne(e => e.MenuItem)
+                    .WithMany()
+                    .HasForeignKey(e => e.MenuItemId);
+
                 entity.Property(e => e.Quantity)
                     .IsRequired()
                     .HasColumnName("quantity");
 
-                entity.HasOne(e => e.MenuItem)
-                    .WithMany()
-                    .HasForeignKey(e => e.MenuItemId);
+                entity.Property(e => e.Notes)
+                    .IsRequired()
+                    .HasColumnName("notes");
+
+                
             });
 
             modelBuilder.Entity<Role>(entity =>

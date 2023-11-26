@@ -7,6 +7,8 @@ namespace Contract_Data_Bussiness.Interfaces
 	{
         Task<IEnumerable<Order>> GetAllOrdersAsync();
 
+        Task<IEnumerable<OrderItem>> GetOrderItemsAsync()
+
         Task<Order?> GetOrderByIdAsync(int id);
 
         Task<bool> CreateOrderAsync(Order order);

@@ -8,9 +8,11 @@ namespace Models
 
 		public string ItemName { get; set; }
 
-		public string ItemDescription { get; set; }
+		public string ItemDescription_Short { get; set;
 
-		public decimal ItemPrice { get; set; }
+        public string ItemDescription_Long { get; set; }
+
+        public decimal ItemPrice { get; set; }
 
 		public int ItemStock { get; set; }
 
