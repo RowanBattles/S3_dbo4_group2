@@ -68,7 +68,7 @@ namespace Bussiness
 
                 SalesOrder salesOrder = new SalesOrder(order);
                 salesOrder.TableNumber = tab != null ? tab.TableNumber : -1;
-                salesOrder.TabTotal = tab != null ? tab.TabTotal : -1;
+                salesOrder.TabTotal = tab != null ? tab.TabTotal : null;
 
                 salesOrders.Add(salesOrder);
             }
