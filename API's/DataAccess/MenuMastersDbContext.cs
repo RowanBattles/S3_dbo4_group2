@@ -86,7 +86,7 @@ namespace DataAccess
 
                 entity.Property(e => e.ItemDescription_Short)
                     .HasColumnName("item_description_short")
-                    .HasMaxLength(512);
+                    .HasMaxLength(255);
 
                 entity.Property(e => e.ItemDescription_Long)
                     .HasColumnName("item_description_long")

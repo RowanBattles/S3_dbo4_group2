@@ -32,7 +32,7 @@ namespace Models.DTOs
 
         public int TableNumber { get; set; }
 
-        public decimal TabTotal { get; set; }
+        public decimal? TabTotal { get; set; }
 
         public DateTime DateTime { get; set; }
 
