@@ -51,7 +51,6 @@ interface OrderStaff {
   tabId: number;
   tableNumber: number;
   status: string;
-  notes: string;
   dateTime: string;
   orderItems: OrderItemStaff[];
 }
@@ -60,6 +59,7 @@ interface OrderStaff {
 interface OrderItemStaff {
   menuItemId: number;
   itemName: string;
+  notes: string;
   quantity: number;
 }
 

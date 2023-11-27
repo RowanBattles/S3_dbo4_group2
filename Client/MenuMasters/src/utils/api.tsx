@@ -35,7 +35,7 @@ export async function getOrdersKitchen() {
 }
 
 export async function getOrdersBar() {
-  const url = EndPoints.GetAllOrdersKitchen;
+  const url = EndPoints.GetAllOrdersBar;
 
   const response = await axios.get(url);
   return response.data;

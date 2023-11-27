@@ -24,7 +24,7 @@ function SalesPage() {
 
   return (
     <div className="gray h-screen p-10">
-      {errorMessage != null ? (
+      {errorMessage != "" ? (
         <>{errorMessage}</>
       ) : (
         <>
