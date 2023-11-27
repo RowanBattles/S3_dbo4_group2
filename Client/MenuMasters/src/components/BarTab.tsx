@@ -29,7 +29,7 @@ function BarTab({ order }: { order: OrderStaff }) {
   };
 
   return (
-    <div className="select-none">
+    <div className="select-none relative flex flex-col h-full">
       <div
         className={`${headerColor()} rounded-t-3xl p-4 border-x border-t border-slate-300`}
       >
@@ -50,9 +50,7 @@ function BarTab({ order }: { order: OrderStaff }) {
         </div>
       </div>
       <div
-        className={`white p-5 border-x border-slate-300 ${
-          headerColor() === "green" ? "pb-0" : "pb-8"
-        } border-b rounded-b-3xl rounded`}
+        className={`flex-1 white p-5 border-x border-slate-300 border-b rounded-b-3xl rounded pb-12`}
       >
         <div>
           <div className="mb-2 ml-7">
@@ -61,20 +59,25 @@ function BarTab({ order }: { order: OrderStaff }) {
           <ul>
             {order.orderItems.map((item, index) => (
               <li className="mb-2" key={index}>
-                <div className="flex justify-between">
+                <div className="flex justify-between items-center">
                   <div
                     className="flex items-center cursor-pointer"
                     onClick={() => handleItemClick(index)}
                   >
                     <hr
-                      className={`w-2 mr-5 ${selectedItems[index]} border-0 h-8`}
+                      className={`w-2 ${selectedItems[index]} border-0 h-8 mr-5 min-w-fit`}
                     />
-                    <p>
-                      {item.quantity} x {item.itemName}
-                    </p>
+                    <div className="w-full break-word">
+                      <p>
+                        {item.quantity} x {item.itemName}
+                      </p>
+                      <span className="text-red-500 text-xs italic">
+                        {item.notes}
+                      </span>
+                    </div>
                   </div>
                   <div
-                    className="flex items-center cursor-pointer"
+                    className="flex items-center cursor-pointer min-w-fit"
                     onClick={() => handleItemClickReverse(index)}
                   >
                     <img
@@ -86,14 +89,10 @@ function BarTab({ order }: { order: OrderStaff }) {
               </li>
             ))}
           </ul>
-          <div>
-            <div className="ml-7 text-red-500 italic text-xs">
-              {order.notes}
-            </div>
-          </div>
+          <div></div>
         </div>
         {headerColor() === "green" && (
-          <div className="white p-5 flex justify-end text-white gap-4">
+          <div className="absolute bottom-0 right-0 p-5 text-white">
             <button className="green px-5 py-1 rounded-full">Confirm</button>
           </div>
         )}
