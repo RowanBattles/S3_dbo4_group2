@@ -18,13 +18,22 @@ interface Category {
 interface MenuItem {
   menuItemId: number;
   itemName: string;
-  itemDescription: string;
+  itemDescription_Short: string;
+  itemDescription_Long: string;
   itemPrice: number;
   itemStock: number;
   categoryId: string;
   imageURL: string;
   dietaryInfo: string;
   ingredients: string;
+  price: number;
+}
+
+interface CartItem {
+  id: string;
+  food: MenuItem;
+  quantity: number;
+  notes?: string; // Optional
 }
 
 // orderStaff
@@ -104,4 +113,5 @@ export type {
   OrderSales,
   Role,
   Tab,
+  CartItem,
 };

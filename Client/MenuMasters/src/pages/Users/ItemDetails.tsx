@@ -5,6 +5,7 @@ import Header from "../../components/Header";
 import { getItembyId } from "../../utils/api";
 
 import { MenuItem } from "../../types/types";
+import ItemDetails_Skeleton from "../../components/Skeletons/ItemDetails_Skeleton";
 
 const ItemDetails = () => {
   const [Item, setItem] = useState<MenuItem | null>(null);
@@ -82,6 +83,16 @@ const ItemDetails = () => {
       localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
     }
   };
+
+  if (loading) {
+    return (
+      <>
+        <Header />
+        <ItemDetails_Skeleton />
+      </>
+    );
+  }
+
   return (
     <>
       <Header />
@@ -104,7 +115,7 @@ const ItemDetails = () => {
               </div>
 
               <p className="text-center md:text-left lg:text-left text-sm poppins text-gray-500 leading-relaxed select-none">
-                {Item?.itemDescription}
+                {Item?.itemDescription_Long}
               </p>
               {/* 
               {Item?.ingredients && Item.ingredients.length > 0 && (

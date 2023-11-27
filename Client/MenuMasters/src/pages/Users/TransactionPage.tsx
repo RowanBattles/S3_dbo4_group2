@@ -2,23 +2,28 @@ import React, { useState, useEffect } from "react";
 import Transaction from "../../components/Transaction";
 import Header from "../../components/Header";
 
+import { CartItem } from "../../types/types";
+
 const TransactionPage = () => {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
   // Get the cart items from localStorage on component mount
   useEffect(() => {
-    const storedCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-    setCartItems(storedCartItems);
+    const storedCartItemsString = localStorage.getItem("cartItems");
+    if (storedCartItemsString) {
+      const storedCartItems = JSON.parse(storedCartItemsString);
+      setCartItems(storedCartItems);
+    }
   }, []);
 
   // Update the quantity of an item in the cart
-  const handleQuantityChange = (index, newQuantity) => {
+  const handleQuantityChange = (index: number, newQuantity: number) => {
     const updatedCartItems = [...cartItems];
     updatedCartItems[index].quantity = newQuantity;
     setCartItems(updatedCartItems);
   };
 
-  const handleRemoveItem = (itemToRemove) => {
+  const handleRemoveItem = (itemToRemove: CartItem) => {
     const updatedCartItems = cartItems.filter((item) => item !== itemToRemove);
     setCartItems(updatedCartItems);
     localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
@@ -43,7 +48,7 @@ const TransactionPage = () => {
             key={index}
             item={item}
             onRemove={handleRemoveItem}
-            onQuantityChange={(newQuantity) =>
+            onQuantityChange={(newQuantity: number) =>
               handleQuantityChange(index, newQuantity)
             }
           />
