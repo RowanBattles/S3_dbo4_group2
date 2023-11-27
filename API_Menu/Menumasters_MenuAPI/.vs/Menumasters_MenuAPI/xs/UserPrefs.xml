@@ -1,0 +1,45 @@
+﻿<Properties StartupConfiguration="{34B5ED29-DC6A-4897-9438-0EB81C1F61D3}|Default">
+  <MonoDevelop.Ide.ItemProperties.DataLayer__Factory FirstBuild="True" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Menumasters_MenuAPI/Program.cs">
+    <Files>
+      <File FileName="Menumasters_MenuAPI/Controllers/MenuController.cs" />
+      <File FileName="MenuAPI_Models/Category.cs" />
+      <File FileName="MenuAPI_Models/MenuItem.cs" />
+      <File FileName="DataLayer_Factory/DateLayerFactory.cs" />
+      <File FileName="Bussines_MenuAPI/CategoryComponent.cs" />
+      <File FileName="Bussines_MenuAPI/MenuItemComponent.cs" />
+      <File FileName="Bussines_MenuAPI/TabComponent.cs" Line="11" Column="40" />
+      <File FileName="Bussiness_API_Factory/BussinessFactory.cs" />
+      <File FileName="Bussines_MenuAPI/OrderComponent.cs" />
+      <File FileName="Menumasters_MenuAPI/Program.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Menumasters_MenuAPI">
+            <Node name="Bussines_MenuAPI" expanded="True" />
+            <Node name="Menumasters_MenuAPI" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Menumasters__MenuAPI FirstBuild="True" PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.ItemProperties.DataLayer__MenuAPI FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.MenuAPI__Models FirstBuild="True" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.DateLayer__Bussiness__Contract FirstBuild="True" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Bussines__MenuAPI FirstBuild="True" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <DisabledProjects>
+    <String>Bussiness_API_Contract/Bussiness_API_Contract.csproj</String>
+    <String>Bussiness_API_Factory/Bussiness_API_Factory.csproj</String>
+  </DisabledProjects>
+</Properties>
