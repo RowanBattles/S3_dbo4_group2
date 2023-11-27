@@ -1,1 +1,0 @@
-This project contains the frontend of MenuMasters.
