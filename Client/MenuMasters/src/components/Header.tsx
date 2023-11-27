@@ -17,7 +17,7 @@ const Header = () => {
             <div>ShoppingCart</div>
           </Link>
 
-          <select defaultValue={"es"} className="bg-white">
+          <select defaultValue={"en"} className="bg-white">
             {LANGUAGES.map(({ code, label }) => (
               <option key={code} value={code}>
                 {label}

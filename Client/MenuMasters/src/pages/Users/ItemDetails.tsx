@@ -23,28 +23,28 @@ const ItemDetails = () => {
         const itemId = parseInt(id as string, 10);
 
         if (isNaN(itemId)) {
-          // Handle the case where id is not a valid number
           setError("Invalid item ID");
           setLoading(false);
           return;
         }
 
         const data = await getItembyId(itemId);
-        console.log(data);
         setItem(data);
         setLoading(false);
       } catch (e) {
-        // Check if the error is an instance of Error and use its 'message' property
         if (e instanceof Error) {
           setError(e.message);
         } else {
-          // If it's not an Error instance or doesn't have a message property, use a generic message
           setError("An error occurred");
         }
         setLoading(false);
       }
     };
 
+    fetchFoodInfo();
+  }, [id]);
+
+  useEffect(() => {
     const calculateTotalPrice = () => {
       if (Item) {
         const newTotalPrice = quantity * Item.itemPrice;
@@ -53,9 +53,7 @@ const ItemDetails = () => {
     };
 
     calculateTotalPrice();
-
-    fetchFoodInfo();
-  }, [id, quantity, Item]);
+  }, [Item, quantity]);
 
   const addToCart = () => {
     // Check if Item is not null and quantity is greater than 0
