@@ -22,7 +22,7 @@ const Items = () => {
         setItems(itemsData as MenuItem[]);
 
         // Fetch categories for each item
-        const categoryPromises = itemsData.map(async (item: MenuItem) => {
+        const categoryPromises = itemsData.map(async (item) => {
           const categoryData = await getCategoryById(item.categoryId);
           setCategories((prevCategories) => ({
             ...prevCategories,
