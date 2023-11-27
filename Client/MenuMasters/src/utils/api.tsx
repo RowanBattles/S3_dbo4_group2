@@ -40,3 +40,9 @@ export async function getOrdersBar() {
   const response = await axios.get(url);
   return response.data;
 }
+
+export async function createOrder(orderData) {
+  const url = EndPoints.CreateOrder; // Assuming you have a CreateOrder endpoint in your ENDPOINTS file
+  const response = await axios.post(url, orderData);
+  return response.data;
+}
