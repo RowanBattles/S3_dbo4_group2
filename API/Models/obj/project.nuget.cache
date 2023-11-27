@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "m1v1s9bx16OKpbxg/Brp7IFTnS50m2n4psHC8GQi9BT6FfR04aNH35udHF3mQm8+L29oql+fj119TfWNrfoAJA==",
+  "success": true,
+  "projectFilePath": "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API\\Models\\Models.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\bassm\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.25\\microsoft.netcore.app.ref.6.0.25.nupkg.sha512",
+    "C:\\Users\\bassm\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.25\\microsoft.windowsdesktop.app.ref.6.0.25.nupkg.sha512",
+    "C:\\Users\\bassm\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.25\\microsoft.aspnetcore.app.ref.6.0.25.nupkg.sha512"
+  ],
+  "logs": []
+}

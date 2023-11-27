@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "Ttx+16/WzNHG8u8pSqyNAM+YKDcUshFajWFT0ctvSYTti0rkRq4prW71XVwFrcou6yS91zzEsSEhFNh3HTT4TA==",
+  "success": true,
+  "projectFilePath": "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API\\Contract_Data_Bussiness\\Contract_Data_Bussiness.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\bassm\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.25\\microsoft.netcore.app.ref.6.0.25.nupkg.sha512",
+    "C:\\Users\\bassm\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.25\\microsoft.windowsdesktop.app.ref.6.0.25.nupkg.sha512",
+    "C:\\Users\\bassm\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.25\\microsoft.aspnetcore.app.ref.6.0.25.nupkg.sha512"
+  ],
+  "logs": []
+}
