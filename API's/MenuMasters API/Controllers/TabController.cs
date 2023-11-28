@@ -1,5 +1,4 @@
-﻿using Bussiness_Factory;
-using Contract_API_Bussiness.Interfaces;
+﻿using Contract_API_Bussiness.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 
@@ -12,10 +11,10 @@ public class TabController : ControllerBase
     private readonly ILogger<TabController> _logger;
     private readonly ITabComponent _tabComponent;
 
-    public TabController(ILogger<TabController> logger)
+    public TabController(ILogger<TabController> logger, ITabComponent tabComponent)
     {
         _logger = logger;
-        _tabComponent = BussinessFactory.GetTabComponent();
+        _tabComponent = tabComponent;
     }
 
     [HttpGet(Name = "GetAllTabs")]

@@ -1,5 +1,4 @@
-﻿using Bussiness_Factory;
-using Contract_API_Bussiness.Interfaces;
+﻿using Contract_API_Bussiness.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 
@@ -12,10 +11,10 @@ public class MenuItemController : ControllerBase
     private readonly ILogger<MenuItemController> _logger;
     private readonly IMenuItemComponent _menuItemComponent;
 
-    public MenuItemController(ILogger<MenuItemController> logger)
+    public MenuItemController(ILogger<MenuItemController> logger, IMenuItemComponent menuItemComponent)
     {
         _logger = logger;
-        _menuItemComponent = BussinessFactory.GetMenuItemComponent();
+        _menuItemComponent = menuItemComponent;
     }
 
     [HttpGet(Name = "GetAllMenuItems")]
