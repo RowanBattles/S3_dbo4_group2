@@ -22,11 +22,6 @@ namespace DataAccess
         public DbSet<Role> Roles { get; set; }
         public DbSet<Tab> Tabs { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=localhost; Database=menumasters; User=sa; Password=Admin123; Encrypt=False");
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Account>(entity =>

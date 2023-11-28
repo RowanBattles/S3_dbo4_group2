@@ -1,8 +1,5 @@
-﻿using Bussiness;
-using Bussiness_Factory;
-using Contract_API_Bussiness.Interfaces;
+﻿using Contract_API_Bussiness.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Data.SqlClient;
 using Models;
 using Models.DTOs;
 
@@ -15,10 +12,10 @@ public class OrderController : ControllerBase
     private readonly ILogger<OrderController> _logger;
     private readonly IOrderComponent _orderComponent;
 
-    public OrderController(ILogger<OrderController> logger)
+    public OrderController(ILogger<OrderController> logger, IOrderComponent orderComponent)
     {
         _logger = logger;
-        _orderComponent = BussinessFactory.GetOrderComponent();
+        _orderComponent = orderComponent;
     }
 
     [HttpGet(Name = "GetAllOrders")]
