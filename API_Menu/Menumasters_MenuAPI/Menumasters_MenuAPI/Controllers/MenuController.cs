@@ -14,11 +14,10 @@ namespace Menumasters_MenuAPI.Controllers
         private readonly IMenuItemComponent _menuItemComponent;
 
         public MenuController(ILogger<MenuController> logger)
-		{
+        {
             _logger = logger;
             _menuItemComponent = BussinessFactory.GetMenuItemComponent();
-
-		}
+        }
 
         [HttpGet(Name = "GetAllMenuItems")]
         public async Task<IEnumerable<MenuItem>> Get()

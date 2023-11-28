@@ -735,6 +735,19 @@
           }
         }
       },
+      "Bussiness_API_Contract/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "MenuAPI_Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Bussiness_API_Contract.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Bussiness_API_Contract.dll": {}
+        }
+      },
       "DataLayer_Factory/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -1953,6 +1966,11 @@
         "version.txt"
       ]
     },
+    "Bussiness_API_Contract/1.0.0": {
+      "type": "project",
+      "path": "../Bussiness_API_Contract/Bussiness_API_Contract.csproj",
+      "msbuildProject": "../Bussiness_API_Contract/Bussiness_API_Contract.csproj"
+    },
     "DataLayer_Factory/1.0.0": {
       "type": "project",
       "path": "../DataLayer_Factory/DataLayer_Factory.csproj",
@@ -1976,44 +1994,45 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "/Users/sascha-fontys/Documents/FHICT/S3/Group/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussiness_API_Contract/Bussiness_API_Contract.csproj",
+      "Bussiness_API_Contract >= 1.0.0",
       "DataLayer_Factory >= 1.0.0",
       "DateLayer_Bussiness_Contract >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "/Users/sascha-fontys/.nuget/packages/": {}
+    "/Users/nielsvanschaijk/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/sascha-fontys/Documents/FHICT/S3/Group/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussines_MenuAPI/Bussines_MenuAPI.csproj",
+      "projectUniqueName": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussines_MenuAPI/Bussines_MenuAPI.csproj",
       "projectName": "Bussines_MenuAPI",
-      "projectPath": "/Users/sascha-fontys/Documents/FHICT/S3/Group/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussines_MenuAPI/Bussines_MenuAPI.csproj",
-      "packagesPath": "/Users/sascha-fontys/.nuget/packages/",
-      "outputPath": "/Users/sascha-fontys/Documents/FHICT/S3/Group/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussines_MenuAPI/obj/",
+      "projectPath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussines_MenuAPI/Bussines_MenuAPI.csproj",
+      "packagesPath": "/Users/nielsvanschaijk/.nuget/packages/",
+      "outputPath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussines_MenuAPI/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/sascha-fontys/.nuget/NuGet/NuGet.Config"
+        "/Users/nielsvanschaijk/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "/usr/local/share/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/Users/sascha-fontys/Documents/FHICT/S3/Group/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussiness_API_Contract/Bussiness_API_Contract.csproj": {
-              "projectPath": "/Users/sascha-fontys/Documents/FHICT/S3/Group/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussiness_API_Contract/Bussiness_API_Contract.csproj"
+            "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussiness_API_Contract/Bussiness_API_Contract.csproj": {
+              "projectPath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussiness_API_Contract/Bussiness_API_Contract.csproj"
             },
-            "/Users/sascha-fontys/Documents/FHICT/S3/Group/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DataLayer_Factory/DataLayer_Factory.csproj": {
-              "projectPath": "/Users/sascha-fontys/Documents/FHICT/S3/Group/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DataLayer_Factory/DataLayer_Factory.csproj"
+            "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DataLayer_Factory/DataLayer_Factory.csproj": {
+              "projectPath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DataLayer_Factory/DataLayer_Factory.csproj"
             },
-            "/Users/sascha-fontys/Documents/FHICT/S3/Group/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/DateLayer_Bussiness_Contract.csproj": {
-              "projectPath": "/Users/sascha-fontys/Documents/FHICT/S3/Group/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/DateLayer_Bussiness_Contract.csproj"
+            "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/DateLayer_Bussiness_Contract.csproj": {
+              "projectPath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/DateLayer_Bussiness_Contract.csproj"
             }
           }
         }
@@ -2046,16 +2065,5 @@
         "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.310/RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1105",
-      "level": "Error",
-      "message": "Unable to find project information for '/Users/sascha-fontys/Documents/FHICT/S3/Group/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussiness_API_Contract/Bussiness_API_Contract.csproj'. If you are using Visual Studio, this may be because the project is unloaded or not part of the current solution so run a restore from the command-line. Otherwise, the project file may be invalid or missing targets required for restore.",
-      "libraryId": "/Users/sascha-fontys/Documents/FHICT/S3/Group/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussiness_API_Contract/Bussiness_API_Contract.csproj",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  }
 }

@@ -7,7 +7,7 @@ namespace MenuAPI_Models
 
         public string CategoryName { get; set; }
 
-        public int Type { get; set; }
-	}
+        public OrderType Type { get; set; }
+    }
 }
 
