@@ -67,11 +67,14 @@ namespace Bussiness.Components
             {
                 Tab? tab = await _tabRepo.GetTabByIdAsync(order.TabId);
 
-                SalesOrder salesOrder = new SalesOrder(order);
-                salesOrder.TableNumber = tab != null ? tab.TableNumber : -1;
-                salesOrder.TabTotal = tab != null ? tab.TabTotal : null;
+                if (tab != null && !tab.Paid && order.OrderItems.Count > 0)
+                {
+                    SalesOrder salesOrder = new SalesOrder(order);
+                    salesOrder.TableNumber = tab != null ? tab.TableNumber : -1;
+                    salesOrder.TabTotal = tab != null ? tab.TabTotal : null;
 
-                salesOrders.Add(salesOrder);
+                    salesOrders.Add(salesOrder);
+                }
             }
 
             return salesOrders;
