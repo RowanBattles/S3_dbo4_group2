@@ -1,4 +1,5 @@
-﻿using Contract_API_Bussiness.Interfaces;
+﻿using System.Threading;
+using Contract_API_Bussiness.Interfaces;
 using Contract_Data_Bussiness.Interfaces;
 using Models;
 using Models.DTOs;
@@ -29,12 +30,15 @@ namespace Bussiness.Components
 
             foreach (Order order in orders)
             {
-                Tab? tab = await _tabRepo.GetTabByIdAsync(order.TabId);
+                if (order.OrderItems.Count > 0)
+                {
+                    Tab? tab = await _tabRepo.GetTabByIdAsync(order.TabId);
 
-                KitchenOrder kitchenOrder = new KitchenOrder(order);
-                kitchenOrder.TableNumber = tab != null ? tab.TableNumber : -1;
+                    KitchenOrder kitchenOrder = new KitchenOrder(order);
+                    kitchenOrder.TableNumber = tab != null ? tab.TableNumber : -1;
 
-                kitchenOrders.Add(kitchenOrder);
+                    kitchenOrders.Add(kitchenOrder);
+                }
             }
 
             return kitchenOrders;
@@ -47,12 +51,15 @@ namespace Bussiness.Components
 
             foreach (Order order in orders)
             {
-                Tab? tab = await _tabRepo.GetTabByIdAsync(order.TabId);
+                if (order.OrderItems.Count > 0)
+                {
+                    Tab? tab = await _tabRepo.GetTabByIdAsync(order.TabId);
 
-                KitchenOrder barOrder = new KitchenOrder(order);
-                barOrder.TableNumber = tab != null ? tab.TableNumber : -1;
+                    KitchenOrder barOrder = new KitchenOrder(order);
+                    barOrder.TableNumber = tab != null ? tab.TableNumber : -1;
 
-                barOrders.Add(barOrder);
+                    barOrders.Add(barOrder);
+                }
             }
 
             return barOrders;
