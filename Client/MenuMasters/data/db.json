@@ -1,0 +1,31 @@
+{
+  "tabs": [
+    {
+      "TabId": 1,
+      "tablenumber": 5,
+      "tabitems": [
+        {
+          "itemname": "Coca cola",
+          "quantity": 2,
+          "price": 3.25
+        },
+        {
+          "itemname": "Frikandel",
+          "quantity": 1,
+          "price": 4.35
+        }
+      ]
+    },
+    {
+      "TabId": 2,
+      "tablenumber": 6,
+      "tabitems": [
+        {
+          "itemname": "Borrelplank",
+          "quantity": 1,
+          "price": 13.99
+        }
+      ]
+    }
+  ]
+}
