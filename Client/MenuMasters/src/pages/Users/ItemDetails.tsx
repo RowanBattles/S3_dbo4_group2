@@ -6,6 +6,7 @@ import { getItembyId } from "../../utils/api";
 
 import { MenuItem } from "../../types/types";
 import ItemDetails_Skeleton from "../../components/Skeletons/ItemDetails_Skeleton";
+import useCustomToast from "../../utils/useToast";
 
 const ItemDetails = () => {
   const [Item, setItem] = useState<MenuItem | null>(null);
@@ -16,6 +17,7 @@ const ItemDetails = () => {
   const { id } = useParams<{ id: string }>();
   const [showNotes, setShowNotes] = useState(false);
   const [notes, setNotes] = useState<string>("");
+  const { showSuccessToast, showErrorToast } = useCustomToast();
 
   useEffect(() => {
     const fetchFoodInfo = async () => {
@@ -79,6 +81,7 @@ const ItemDetails = () => {
 
       // Update the localStorage with the updated cart items
       localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+      showSuccessToast("Item added to the cart successfully.");
     }
   };
 
@@ -90,7 +93,6 @@ const ItemDetails = () => {
       </>
     );
   }
-
   return (
     <>
       <Header />

@@ -7,19 +7,24 @@ import ReservationPage from "./pages/Users/ReservationPage";
 import SalesPage from "./pages/Staff/SalesPage";
 import KitchenPage from "./pages/Staff/KitchenPage";
 import BarPage from "./pages/Staff/BarPage";
+import { Suspense } from "react";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<FrontPage />} />
-      <Route path="/details/:id" element={<ItemDetails />} />
-      <Route path="/TransactionPage" element={<TransactionPage />} />
-      <Route path="/Menu" element={<Home />} />
-      <Route path="/SalesPage" element={<SalesPage />} />
-      <Route path="/Reservation" element={<ReservationPage />} />
-      <Route path="/KitchenPage" element={<KitchenPage />} />
-      <Route path="/BarPage" element={<BarPage />} />
-    </Routes>
+    <Suspense fallback="loading">
+      <Routes>
+        <Route path="/" element={<FrontPage />} />
+        <Route path="/details/:id" element={<ItemDetails />} />
+        <Route path="/TransactionPage" element={<TransactionPage />} />
+        <Route path="/Menu" element={<Home />} />
+        <Route path="/SalesPage" element={<SalesPage />} />
+        <Route path="/Reservation" element={<ReservationPage />} />
+        <Route path="/KitchenPage" element={<KitchenPage />} />
+        <Route path="/BarPage" element={<BarPage />} />
+      </Routes>
+      <ToastContainer />
+    </Suspense>
   );
 }
 

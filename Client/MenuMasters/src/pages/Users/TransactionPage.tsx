@@ -4,9 +4,13 @@ import Header from "../../components/Header";
 
 import { CartItem } from "../../types/types";
 import { createOrder } from "../../utils/api";
+import useCustomToast from "../../utils/useToast";
+import LoadingSpinner from "../../utils/useLoadingSpinner";
 
 const TransactionPage = () => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const { showSuccessToast, showErrorToast } = useCustomToast();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const storedCartItemsString = localStorage.getItem("cartItems");
@@ -36,6 +40,7 @@ const TransactionPage = () => {
   const handleOrderNow = async () => {
     // Create an order using the /api/Order endpoint
     try {
+      setLoading(true);
       await createOrder({
         tabId: 0,
         orderItems: cartItems.map((item) => ({
@@ -48,9 +53,14 @@ const TransactionPage = () => {
       // Clear the cart after successfully placing the order
       setCartItems([]);
       localStorage.removeItem("cartItems");
+      showSuccessToast("Order created successfully");
     } catch (error) {
+      setLoading(true);
       console.error("Error creating order:", error);
+      showErrorToast("Something went wrong while creating your order");
       // Handle the error gracefully
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -87,9 +97,14 @@ const TransactionPage = () => {
         <div className="flex flex-row justify-between items-center">
           <button
             onClick={handleOrderNow}
+            disabled={loading}
             className="bg-primary text-white px-9 py-3 text-xl focus:outline-none poppins rounded-full transform transition duration-300 hover:scale-105"
           >
-            Order Now
+            {loading ? (
+              <LoadingSpinner size={20} color="#ffffff" />
+            ) : (
+              "Order now"
+            )}
           </button>
           <h2 className="text-gray-900 poppins text-4xl font-medium">
             Total: ${totalPrice.toFixed(2)}

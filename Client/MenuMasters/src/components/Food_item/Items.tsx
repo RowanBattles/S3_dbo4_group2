@@ -11,7 +11,7 @@ interface CategoryData {
 
 const Items = () => {
   const [items, setItems] = useState<MenuItem[]>([]);
-  const [categories, setCategories] = useState<CategoryData>({});
+  const [categories, setCategories] = useState<CategoryData[]>([]);
   const [menuTab, setMenuTab] = useState<string>("Appetizers");
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -91,6 +91,16 @@ const Items = () => {
           onClick={() => handleMenuTabs("Desserts")}
         >
           Desserts
+        </p>
+        <p
+          className={
+            menuTab === "Cold drinks"
+              ? "active_menu_tab poppins bg-primary px-10"
+              : "menu_tab poppins border px-10 border-gray-100 rounded-full py-2"
+          }
+          onClick={() => handleMenuTabs("Cold drinks")}
+        >
+          Cold drinks
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12">
