@@ -6,10 +6,10 @@ import Plus_Min_Button from "./Plus_Min_Button";
 const Transaction = ({ item, onQuantityChange, onRemove }) => {
   const [quantity, setQuantity] = useState(item.quantity);
 
-  // Notify the parent component when the quantity changes
-  useEffect(() => {
-    onQuantityChange(quantity);
-  }, [quantity, onQuantityChange]);
+  const handleQuantityChange = (newQuantity) => {
+    setQuantity(newQuantity);
+    onQuantityChange(newQuantity);
+  };
   return (
     <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 items-center">
       <img
@@ -21,7 +21,10 @@ const Transaction = ({ item, onQuantityChange, onRemove }) => {
         {item.itemName}
       </h1>
       <div className="col-span-1 flex justify-center items-center ">
-        <Plus_Min_Button quantity={quantity} setQuantity={setQuantity} />
+        <Plus_Min_Button
+          quantity={quantity}
+          setQuantity={handleQuantityChange}
+        />
       </div>
 
       <h2 className="col-span-1 text-gray-900 poppins text-3xl font-medium text-center hidden md:inline lg:inline">

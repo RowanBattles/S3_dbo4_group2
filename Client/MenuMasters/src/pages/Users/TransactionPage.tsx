@@ -21,14 +21,17 @@ const TransactionPage = () => {
     }
   }, []);
 
-  const handleQuantityChange = (index) => (newQuantity) => {
-    setCartItems((prevCartItems) => {
-      const updatedCartItems = [...prevCartItems];
-      updatedCartItems[index].quantity = newQuantity;
-      localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
-      return updatedCartItems;
-    });
-  };
+  const handleQuantityChange = React.useCallback(
+    (index) => (newQuantity) => {
+      setCartItems((prevCartItems) => {
+        const updatedCartItems = [...prevCartItems];
+        updatedCartItems[index].quantity = newQuantity;
+        localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+        return updatedCartItems;
+      });
+    },
+    []
+  );
 
   const handleOrderNow = async () => {
     // Create an order using the /api/Order endpoint
