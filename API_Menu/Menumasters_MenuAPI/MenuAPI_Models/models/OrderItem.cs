@@ -8,7 +8,10 @@ namespace MenuAPI_Models
         public int OrderId { get; set; }
 
         public int MenuItemId { get; set; }
-        public MenuItem MenuItem { get; set; }
+
+        public MenuItem? MenuItem { get; set; } = null!;
+
+        public string? Notes { get; set; }
 
         public int Quantity { get; set; }
     }

@@ -7,7 +7,9 @@ namespace MenuAPI_Models
 
         public int TableNumber { get; set; }
 
-        public decimal TabTotal { get; set; }
+        public decimal? TabTotal { get; set; }
+
+        public bool Paid { get; set; }
     }
 }
 
