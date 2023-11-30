@@ -38,16 +38,17 @@ const TransactionPage = () => {
   );
 
   const handleOrderNow = async () => {
-    // Create an order using the /api/Order endpoint
     try {
       setLoading(true);
+      const orderItems = cartItems.map((item: CartItem) => ({
+        menuItemId: item.itemId,
+        notes: item.notes || "", // You might want to update this based on where notes are stored
+        quantity: item.quantity,
+      }));
+
       await createOrder({
         tabId: 1,
-        orderItems: cartItems.map((item) => ({
-          menuItemId: item.id, // Assuming your CartItem has an 'id' property
-          notes: "test", // Add any notes if needed
-          quantity: item.quantity,
-        })),
+        orderItems: orderItems,
       });
 
       // Clear the cart after successfully placing the order
@@ -55,7 +56,7 @@ const TransactionPage = () => {
       localStorage.removeItem("cartItems");
       showSuccessToast("Order created successfully");
     } catch (error) {
-      setLoading(true);
+      setLoading(false);
       console.error("Error creating order:", error);
       showErrorToast("Something went wrong while creating your order");
       // Handle the error gracefully
@@ -97,7 +98,7 @@ const TransactionPage = () => {
         <div className="flex flex-row justify-between items-center">
           <button
             onClick={handleOrderNow}
-            disabled={loading}
+            disabled={loading || cartItems.length === 0} // Disable if the cart is empty
             className="bg-primary text-white px-9 py-3 text-xl focus:outline-none poppins rounded-full transform transition duration-300 hover:scale-105"
           >
             {loading ? (

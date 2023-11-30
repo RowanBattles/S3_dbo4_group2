@@ -72,6 +72,7 @@ const ItemDetails = () => {
         quantity: quantity,
         price: Item.itemPrice,
         image: Item.imageURL,
+        notes: notes,
 
         // Add any other properties you want to store in the cart item
       };
