@@ -42,10 +42,10 @@ const TransactionPage = () => {
     try {
       setLoading(true);
       await createOrder({
-        tabId: 0,
+        tabId: 1,
         orderItems: cartItems.map((item) => ({
           menuItemId: item.id, // Assuming your CartItem has an 'id' property
-          notes: "", // Add any notes if needed
+          notes: "test", // Add any notes if needed
           quantity: item.quantity,
         })),
       });
