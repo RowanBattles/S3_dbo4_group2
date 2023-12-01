@@ -25,7 +25,7 @@ const options = [
           src="https://static.thenounproject.com/png/2272416-200.png"
           alt="Pin"
         />
-        <span>Cash</span>
+        <span>Pin</span>
       </div>
     ),
   },
@@ -37,17 +37,28 @@ interface PayModalProps {
 }
 
 const PayModal: React.FC<PayModalProps> = ({ tab, onClose }) => {
+  const [visible, setVisible] = useState(true);
   const [inputValue, setInputValue] = useState("");
+
+  const handleCloseClick = () => {
+    setVisible(false);
+    setTimeout(() => {
+      onClose();
+    }, 350);
+  };
 
   const handleDigitClick = (digit: string) => {
     setInputValue((prevValue) => prevValue + digit);
   };
 
   const handleDotClick = () => {
-    // Ensure there's only one dot in the input
     if (!inputValue.includes(".")) {
       setInputValue((prevValue) => prevValue + ".");
     }
+  };
+
+  const handleBackClick = () => {
+    setInputValue((prevValue) => prevValue.slice(0, -1));
   };
 
   const handleClearClick = () => {
@@ -56,27 +67,31 @@ const PayModal: React.FC<PayModalProps> = ({ tab, onClose }) => {
 
   return (
     <>
-      <div className="absolute left-1/4 w-1/2 h-4/5 z-50 bg-yellow-500 rounded-3xl p-5">
+      <div
+        className={`absolute left-1/4 top-[10%] w-1/2 z-50 bg-yellow-500 rounded-3xl p-5 ${
+          visible ? "animate-swoop-in" : "animate-swoop-out"
+        }`}
+      >
         <div
           className="flex justify-end text-white text-3xl font-bold cursor-pointer mb-5"
-          onClick={onClose}
+          onClick={handleCloseClick}
         >
           x
         </div>
-        <div className="flex justify-between items-center font-bold text-lg mb-1">
-          <div className="text-white">Amount to pay</div>
-          <div className="text-blue-500">{tab.tabTotal}</div>
+        <div className="flex justify-between items-center font-bold text-3xl mb-1">
+          <div>Amount to pay</div>
+          <div>{tab.tabTotal.toFixed(2)}</div>
         </div>
         <hr />
-        <div className="mt-5 text-xs">payment method:</div>
+        <div className="mt-5 text-xl">payment method:</div>
         <Select
           id="PaymentMethod"
           options={options}
           defaultValue={options.find((option) => option.value === "cash")}
-          className="py-2 text-xs font-bold"
+          className="py-2 text-xl font-bold"
           isSearchable={false}
         />
-        <div className="grid grid-cols-2 gap-2 text-s">
+        <div className="grid grid-cols-2 gap-2 text-xl">
           <div className="">
             <p>Tendered</p>
             <input
@@ -97,28 +112,45 @@ const PayModal: React.FC<PayModalProps> = ({ tab, onClose }) => {
             />
           </div>
         </div>
-        <div className="grid grid-cols-3 gap-2 mt-5">
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((digit) => (
-            <button
-              key={digit}
-              onClick={() => handleDigitClick(digit.toString())}
-              className="py-2 text-xs font-bold bg-white rounded-md"
-            >
-              {digit}
+        <div className="flex py-4 font-bold text-6xl">
+          <div className="grid grid-cols-3 gap-2 bg-gray-700 p-2 w-2/3">
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((digit) => (
+              <button
+                key={digit}
+                onClick={() => handleDigitClick(digit.toString())}
+                className="py-5 font-bold bg-white rounded-md"
+              >
+                {digit}
+              </button>
+            ))}
+            <button className=" bg-white rounded-md" onClick={handleDotClick}>
+              .
             </button>
-          ))}
-          <button
-            className="py-2 text-xs font-bold bg-white rounded-md"
-            onClick={handleDotClick}
-          >
-            .
-          </button>
-          <button
-            onClick={handleClearClick}
-            className="py-2 text-xs font-bold bg-white rounded-md"
-          >
-            C
-          </button>
+            <button onClick={handleClearClick} className="bg-white rounded-md">
+              C
+            </button>
+          </div>
+          <div className="w-1/3">
+            <div className="h-full bg-gray-700 p-2">
+              <div className="h-1/2 pb-1">
+                <button
+                  className="bg-white rounded-md flex items-center justify-center h-full w-full p-2"
+                  onClick={handleBackClick}
+                >
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/0/340.png"
+                    className="object-contain max-h-full"
+                    alt="Icon"
+                  />
+                </button>
+              </div>
+              <div className="h-1/2 pt-1">
+                <button className="bg-lime-400 rounded-md flex items-center justify-center h-full w-full">
+                  PAY
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>

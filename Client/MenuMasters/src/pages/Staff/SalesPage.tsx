@@ -47,7 +47,11 @@ function SalesPage() {
           {orderData.length == null ? (
             <>No tabs</>
           ) : (
-            <div className="grid gray gap-10 grid-cols-3">
+            <div
+              className={`grid gray gap-10 grid-cols-3 ${
+                isModalOpen ? "opacity-50 pointer-events-none" : ""
+              } `}
+            >
               {orderData
                 .sort((a, b) => a.tableNumber - b.tableNumber)
                 .map((tab) => (

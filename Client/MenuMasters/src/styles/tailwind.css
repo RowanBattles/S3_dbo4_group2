@@ -34,3 +34,29 @@
     background-color: #ffffff;
   }
 }
+
+@keyframes swoopIn {
+  0% {
+    transform: translateY(-150%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes swoopOut {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-150%);
+  }
+}
+
+.animate-swoop-in {
+  animation: swoopIn 0.4s ease-in-out;
+}
+
+.animate-swoop-out {
+  animation: swoopOut 0.4s ease-in-out;
+}
