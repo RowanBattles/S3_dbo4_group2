@@ -43,7 +43,7 @@ const Item = ({
           <p className="text-gray-500 poppins text-sm text-center h-14">
             {description}
           </p>
-          <h2 className="text-gray-900 poppins text-2xl font-medium">
+          <h2 className="text-gray-900 poppins text-2xl font-medium pt-5">
             ${price}
           </h2>
 
