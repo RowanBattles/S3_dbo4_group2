@@ -1,28 +1,20 @@
 import { useState } from "react";
-import { OrderStaff } from "../types/types";
+import { OrderStaff } from "../../../types/types";
 
-function KitchenTab({ order }: { order: OrderStaff }) {
+function BarTab({ order }: { order: OrderStaff }) {
   const [selectedItems, setSelectedItems] = useState<Array<string>>(
     new Array(order.orderItems.length).fill("red")
   );
 
   const handleItemClick = (index: number) => {
     const updatedSelectedItems = [...selectedItems];
-    if (updatedSelectedItems[index] === "red") {
-      updatedSelectedItems[index] = "yellow";
-    } else if (updatedSelectedItems[index] === "yellow") {
-      updatedSelectedItems[index] = "green";
-    }
+    updatedSelectedItems[index] = "green";
     setSelectedItems(updatedSelectedItems);
   };
 
   const handleItemClickReverse = (index: number) => {
     const updatedSelectedItems = [...selectedItems];
-    if (updatedSelectedItems[index] === "green") {
-      updatedSelectedItems[index] = "yellow";
-    } else if (updatedSelectedItems[index] === "yellow") {
-      updatedSelectedItems[index] = "red";
-    }
+    updatedSelectedItems[index] = "red";
     setSelectedItems(updatedSelectedItems);
   };
 
@@ -57,9 +49,7 @@ function KitchenTab({ order }: { order: OrderStaff }) {
           </div>
         </div>
       </div>
-      <div
-        className={`flex-1 white p-5 border-x border-slate-300 border-b rounded-b-3xl rounded pb-12`}
-      >
+      <div className="flex-1 white p-5 border-x border-slate-300 border-b rounded-b-3xl rounded pb-12">
         <div>
           <div className="mb-2 ml-7">
             <div className="text-xs">Itemcount: {order.orderItems.length}</div>
@@ -99,14 +89,14 @@ function KitchenTab({ order }: { order: OrderStaff }) {
           </ul>
           <div></div>
         </div>
+        {headerColor() === "green" && (
+          <div className="absolute bottom-0 right-0 p-5 text-white">
+            <button className="green px-5 py-1 rounded-full">Confirm</button>
+          </div>
+        )}
       </div>
-      {headerColor() === "green" && (
-        <div className="absolute bottom-0 right-0 p-5 text-white">
-          <button className="green px-5 py-1 rounded-full">Confirm</button>
-        </div>
-      )}
     </div>
   );
 }
 
-export default KitchenTab;
+export default BarTab;

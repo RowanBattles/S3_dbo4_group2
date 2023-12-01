@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Plus_Min_Button from "./Plus_Min_Button";
+import Plus_Min_Button from "../Plus_Min_Button";
 
 // ... (import statements)
 
