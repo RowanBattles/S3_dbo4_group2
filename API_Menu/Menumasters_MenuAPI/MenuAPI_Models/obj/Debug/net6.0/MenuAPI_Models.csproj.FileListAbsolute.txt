@@ -1,5 +1,0 @@
-/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/obj/Debug/net6.0/MenuAPI_Models.csproj.AssemblyReference.cache
-/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/obj/Debug/net6.0/MenuAPI_Models.GeneratedMSBuildEditorConfig.editorconfig
-/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/obj/Debug/net6.0/MenuAPI_Models.AssemblyInfoInputs.cache
-/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/obj/Debug/net6.0/MenuAPI_Models.AssemblyInfo.cs
-/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/obj/Debug/net6.0/MenuAPI_Models.csproj.CoreCompileInputs.cache
