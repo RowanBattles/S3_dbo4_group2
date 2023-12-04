@@ -1,6 +1,6 @@
-import DateField from "./ReservationFormFields/DateField";
-import TimeField from "./ReservationFormFields/TimeField";
-import PeopleField from "./ReservationFormFields/PeopleField";
+import DateField from "../Users/Skeletons/ReservationFormFields/DateField";
+import TimeField from "../Users/Skeletons/ReservationFormFields/TimeField";
+import PeopleField from "../Users/Skeletons/ReservationFormFields/PeopleField";
 
 function ReservationForm() {
   return (

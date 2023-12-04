@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useMemo } from "react";
-import Transaction from "../../components/Transaction";
-import Header from "../../components/Header";
+import { useState, useEffect, useMemo } from "react";
+import Transaction from "../../components/Users/Transaction";
+import Header from "../../components/Users/Header";
 
 import { CartItem } from "../../types/types";
 import { createOrder } from "../../utils/api";

@@ -1,12 +1,12 @@
 import Plus_Min_Button from "../../components/Plus_Min_Button";
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import Header from "../../components/Header";
+import Header from "../../components/Users/Header";
 import { getItembyId } from "../../utils/api";
 
 import { MenuItem } from "../../types/types";
-import ItemDetails_Skeleton from "../../components/Skeletons/ItemDetails_Skeleton";
 import useCustomToast from "../../utils/useToast";
+import ItemDetails_Skeleton from "../../components/Users/Skeletons/ItemDetails_Skeleton";
 
 const ItemDetails = () => {
   const [Item, setItem] = useState<MenuItem | null>(null);
