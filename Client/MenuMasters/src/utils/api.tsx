@@ -20,10 +20,11 @@ export async function getCategoryById(id: number) {
   return response.data;
 }
 
-export async function getOrdersSales() {
-  const url = EndPoints.GetAllOrdersSales;
+export async function getTabs() {
+  const url = EndPoints.GetAllTabs;
 
   const response = await axios.get(url);
+  console.log("response:", response);
   return response.data;
 }
 
@@ -41,7 +42,7 @@ export async function getOrdersBar() {
   return response.data;
 }
 
-export async function createOrder(orderData) {
+export async function createOrder(orderData: any) {
   const url = EndPoints.CreateOrder; // Assuming you have a CreateOrder endpoint in your ENDPOINTS file
   const response = await axios.post(url, orderData);
   return response.data;

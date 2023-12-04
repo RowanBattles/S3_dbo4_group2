@@ -38,15 +38,6 @@ interface CartItem {
 }
 
 // orderStaff
-interface OrderSales {
-  tabId: number;
-  tableNumber: number;
-  tabTotal: number;
-  dateTime: string;
-  orderItems: OrderItemSales[];
-}
-
-// orderStaff
 interface OrderItemSales {
   menuItemId: number;
   itemName: string;
@@ -97,10 +88,12 @@ interface Role {
 }
 
 // tabTypes.ts
-interface Tab {
-  tab_id: number;
-  table_number: number;
-  tab_total: number | null;
+interface TabEntity {
+  tabId: number;
+  tableNumber: number;
+  tabTotal: number;
+  dateTime: string;
+  orderItems: OrderItemSales[];
 }
 
 export type {
@@ -110,8 +103,7 @@ export type {
   OrderItem,
   Order,
   OrderStaff,
-  OrderSales,
   Role,
-  Tab,
+  TabEntity,
   CartItem,
 };
