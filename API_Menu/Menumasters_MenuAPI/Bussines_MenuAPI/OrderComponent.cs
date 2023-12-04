@@ -10,6 +10,11 @@ namespace Bussines_MenuAPI
     {
         private readonly IOrdersDAL _repo;
 
+        public OrderComponent()
+        {
+            _repo = DateLayerFactory.GetOrdersDAL();
+        }
+
         public async Task<Order?> GetOrderByIdAsync(int id)
         {
             return await _repo.GetOrderByIdAsync(id);
