@@ -75,7 +75,7 @@ public class OrderController : ControllerBase
     public async Task<IActionResult> PatchOrderState(int id)
     {
         OrderStatus? result = await _orderComponent.UpdateOrderStateAsync(id);
-        return result != null ? Ok(result) : BadRequest(result);
+        return result != null ? Ok(result.ToString()) : BadRequest(result);
     }
 
     [HttpDelete(Name = "DeleteOrder")]

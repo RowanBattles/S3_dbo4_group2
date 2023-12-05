@@ -56,6 +56,13 @@ public class TabController : ControllerBase
         return result != null ? Ok(result) : BadRequest(result);
     }
 
+    [HttpPatch("Pay", Name = "PatchTabPaidCash")]
+    public async Task<IActionResult> PatchPay(PayTab payTab)
+    {
+        SalesTab? result = await _tabComponent.PayTab(payTab);
+        return result != null ? Ok(result) : BadRequest(result);
+    }
+
     [HttpDelete(Name = "DeleteTab")]
     public async Task<IActionResult> Delete(int id)
     {

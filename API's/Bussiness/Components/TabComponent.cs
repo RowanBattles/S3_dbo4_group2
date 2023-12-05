@@ -5,18 +5,18 @@ using Models.DTOs;
 
 namespace Bussiness.Components
 {
-	public class TabComponent : ITabComponent
+    public class TabComponent : ITabComponent
     {
         private readonly ITabRepository _tabRepo;
         private readonly IOrderRepository _orderRepo;
 
-		public TabComponent(ITabRepository tabRepository, IOrderRepository orderRepository)
-		{
+        public TabComponent(ITabRepository tabRepository, IOrderRepository orderRepository)
+        {
             _tabRepo = tabRepository;
             _orderRepo = orderRepository;
         }
 
-        private async Task<SalesTab> GetSalesTabAsync(Tab tab)
+        private async Task<SalesTab> ConvertToSalesTabAsync(Tab tab)
         {
             SalesTab salesTab = new SalesTab(tab);
 
@@ -46,7 +46,7 @@ namespace Bussiness.Components
             {
                 if (!tab.Paid)
                 {
-                    salesTabs.Add(await GetSalesTabAsync(tab));
+                    salesTabs.Add(await ConvertToSalesTabAsync(tab));
                 }
             }
 
@@ -64,7 +64,7 @@ namespace Bussiness.Components
 
             if (tab != null)
             {
-                return await GetSalesTabAsync(tab);
+                return await ConvertToSalesTabAsync(tab);
             }
 
             return null;
@@ -78,6 +78,43 @@ namespace Bussiness.Components
         public async Task<Tab?> UpdateTabAsync(Tab tab)
         {
             return await _tabRepo.UpdateTabAsync(tab);
+        }
+
+        public async Task<SalesTab?> PayTab(PayTab payTab)
+        {
+            Tab? tab = await this.GetTabByIdAsync(payTab.TabId);
+
+            if (tab == null) return null;
+
+            if(payTab.PaidCash != null)
+            {
+                if (tab.PaidCash == null)
+                {
+                    tab.PaidCash = 0;
+                }
+
+                tab.PaidCash += payTab.PaidCash;
+            }
+
+            if(payTab.PaidPIN != null)
+            {
+                if(tab.PaidPIN == null)
+                {
+                    tab.PaidPIN = 0;
+                }
+
+                tab.PaidPIN += payTab.PaidPIN;
+            }
+
+            tab = await this.UpdateTabAsync(tab);
+
+            if (tab != null)
+            {
+                return await ConvertToSalesTabAsync(tab);
+            } else
+            {
+                return null;
+            }
         }
 
         public async Task<bool> DeleteTabAsync(int id)

@@ -18,6 +18,8 @@ namespace Contract_API_Bussiness.Interfaces
 
         Task<Tab?> UpdateTabAsync(Tab tab);
 
+        Task<SalesTab?> PayTab(PayTab payTab);
+
         Task<bool> DeleteTabAsync(int id);
     }
 }
