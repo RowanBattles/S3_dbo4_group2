@@ -35,7 +35,7 @@ const Tab: React.FC<TabProps> = ({
       <div className="white p-5 border-x border-slate-300 h-full">
         <ul>
           {tab.orderItems.map((item) => (
-            <li>
+            <li key={item.menuItemId}>
               <div className="flex justify-between items-center mb-2">
                 <p>
                   {item.quantity} x {item.itemName}

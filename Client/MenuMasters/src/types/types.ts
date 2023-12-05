@@ -9,8 +9,8 @@ interface Account {
 
 // categoryTypes.ts
 interface Category {
-  category_id: number;
-  category_name: string;
+  categoryId: number;
+  categoryName: string;
   type: number;
 }
 
@@ -22,7 +22,7 @@ interface MenuItem {
   itemDescription_Long: string;
   itemPrice: number;
   itemStock: number;
-  categoryId: string;
+  categoryId: number;
   imageURL: string;
   dietaryInfo: string;
   ingredients: string;

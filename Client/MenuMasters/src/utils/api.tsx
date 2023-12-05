@@ -8,6 +8,13 @@ export async function getItems() {
   return response.data;
 }
 
+export async function getCategories() {
+  const url = EndPoints.GetAllCategories;
+
+  const response = await axios.get(url);
+  return response.data;
+}
+
 export async function getItembyId(id: number) {
   const url = EndPoints.GetItemById(id);
   const response = await axios.get(url);
@@ -24,7 +31,6 @@ export async function getTabs() {
   const url = EndPoints.GetAllTabs;
 
   const response = await axios.get(url);
-  console.log("response:", response);
   return response.data;
 }
 

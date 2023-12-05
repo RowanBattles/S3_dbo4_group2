@@ -19,7 +19,6 @@ function SalesPage() {
       try {
         const data = await getTabs();
         setOrderData(data);
-        console.log(data);
       } catch (error) {
         console.error("Error fetching orders:", error);
         setErrorMessage("Error with server");
