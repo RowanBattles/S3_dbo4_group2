@@ -2,7 +2,7 @@ const URL = "https://localhost:7244";
 
 const ENDPOINTS = {
   GetAllItems: `${URL}/api/menuitem`,
-  GetAllTabs: `${URL}/api/order/sales`,
+  GetAllTabs: `${URL}/api/tab/sales`,
   GetAllOrdersKitchen: `${URL}/api/order/kitchen`,
   GetAllOrdersBar: `${URL}/api/order/bar`,
   GetAllCategories: `${URL}/api/Category`,

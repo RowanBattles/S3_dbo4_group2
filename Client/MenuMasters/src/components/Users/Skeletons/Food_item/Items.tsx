@@ -5,13 +5,9 @@ import { getItems, getCategoryById } from "../../../../utils/api";
 import { MenuItem } from "../../../../types/types";
 import Item_Skeleton from "./Item_Skeleton";
 
-interface CategoryData {
-  [key: string]: string;
-}
-
 const Items = () => {
   const [items, setItems] = useState<MenuItem[]>([]);
-  const [categories, setCategories] = useState<CategoryData[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
   const [menuTab, setMenuTab] = useState<string>("Appetizers");
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -51,7 +47,7 @@ const Items = () => {
 
   const filteredItems = items.filter((item) => {
     const category = categories[item.categoryId];
-    setMenuTab(category.categoryName);
+    return category === menuTab;
   });
 
   return (
