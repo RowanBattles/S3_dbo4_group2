@@ -19,15 +19,27 @@ public class TabController : ControllerBase
     }
 
     [HttpGet(Name = "GetAllTabs")]
-    public async Task<IEnumerable<SalesTab>> Get()
+    public async Task<IEnumerable<Tab>> Get()
     {
         return await _tabComponent.GetAllTabsAsync();
     }
 
+    [HttpGet("Sales", Name = "GetAllSalesTabs")]
+    public async Task<IEnumerable<SalesTab>> GetSales()
+    {
+        return await _tabComponent.GetAllSalesTabsAsync();
+    }
+
     [HttpGet("{id}", Name = "GetTabById")]
-    public async Task<SalesTab?> Get(int id)
+    public async Task<Tab?> Get(int id)
     {
         return await _tabComponent.GetTabByIdAsync(id);
+    }
+
+    [HttpGet("Sales/{id}", Name = "GetSalesTabById")]
+    public async Task<SalesTab?> GetSales(int id)
+    {
+        return await _tabComponent.GetSalesTabByIdAsync(id);
     }
 
     [HttpPost(Name = "PostTab")]

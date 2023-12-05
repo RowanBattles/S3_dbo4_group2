@@ -6,9 +6,13 @@ namespace Contract_API_Bussiness.Interfaces
 {
 	public interface ITabComponent
 	{
-        Task<IEnumerable<SalesTab>> GetAllTabsAsync();
+        Task<IEnumerable<Tab>> GetAllTabsAsync();
 
-        Task<SalesTab?> GetTabByIdAsync(int id);
+        Task<IEnumerable<SalesTab>> GetAllSalesTabsAsync();
+
+        Task<Tab?> GetTabByIdAsync(int id);
+
+        Task<SalesTab?> GetSalesTabByIdAsync(int id);
 
         Task<Tab?> CreateTabAsync(Tab tab);
 

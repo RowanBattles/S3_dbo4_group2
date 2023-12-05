@@ -32,20 +32,33 @@ namespace Bussiness.Components
             return salesTab;
         }
 
-        public async Task<IEnumerable<SalesTab>> GetAllTabsAsync()
+        public async Task<IEnumerable<Tab>> GetAllTabsAsync()
+        {
+            return await _tabRepo.GetAllTabsAsync();
+        }
+
+        public async Task<IEnumerable<SalesTab>> GetAllSalesTabsAsync()
         {
             IEnumerable<Tab> tabs = await _tabRepo.GetAllTabsAsync();
             List<SalesTab> salesTabs = new List<SalesTab>();
 
             foreach (Tab tab in tabs)
             {
-                salesTabs.Add(await GetSalesTabAsync(tab));
+                if (!tab.Paid)
+                {
+                    salesTabs.Add(await GetSalesTabAsync(tab));
+                }
             }
 
             return salesTabs;
         }
 
-        public async Task<SalesTab?> GetTabByIdAsync(int id)
+        public async Task<Tab?> GetTabByIdAsync(int id)
+        {
+            return await _tabRepo.GetTabByIdAsync(id);
+        }
+
+        public async Task<SalesTab?> GetSalesTabByIdAsync(int id)
         {
             Tab? tab = await _tabRepo.GetTabByIdAsync(id);
 
