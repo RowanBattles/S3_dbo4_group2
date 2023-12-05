@@ -39,7 +39,6 @@ interface CartItem {
 
 // orderStaff
 interface OrderSales {
-  orderId: number;
   tabId: number;
   tableNumber: number;
   tabTotal: number;

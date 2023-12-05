@@ -1,20 +1,28 @@
 import { useState } from "react";
-import { OrderStaff } from "../types/types";
+import { OrderStaff } from "../../../types/types";
 
-function BarTab({ order }: { order: OrderStaff }) {
+function KitchenTab({ order }: { order: OrderStaff }) {
   const [selectedItems, setSelectedItems] = useState<Array<string>>(
     new Array(order.orderItems.length).fill("red")
   );
 
   const handleItemClick = (index: number) => {
     const updatedSelectedItems = [...selectedItems];
-    updatedSelectedItems[index] = "green";
+    if (updatedSelectedItems[index] === "red") {
+      updatedSelectedItems[index] = "yellow";
+    } else if (updatedSelectedItems[index] === "yellow") {
+      updatedSelectedItems[index] = "green";
+    }
     setSelectedItems(updatedSelectedItems);
   };
 
   const handleItemClickReverse = (index: number) => {
     const updatedSelectedItems = [...selectedItems];
-    updatedSelectedItems[index] = "red";
+    if (updatedSelectedItems[index] === "green") {
+      updatedSelectedItems[index] = "yellow";
+    } else if (updatedSelectedItems[index] === "yellow") {
+      updatedSelectedItems[index] = "red";
+    }
     setSelectedItems(updatedSelectedItems);
   };
 
@@ -91,14 +99,14 @@ function BarTab({ order }: { order: OrderStaff }) {
           </ul>
           <div></div>
         </div>
-        {headerColor() === "green" && (
-          <div className="absolute bottom-0 right-0 p-5 text-white">
-            <button className="green px-5 py-1 rounded-full">Confirm</button>
-          </div>
-        )}
       </div>
+      {headerColor() === "green" && (
+        <div className="absolute bottom-0 right-0 p-5 text-white">
+          <button className="green px-5 py-1 rounded-full">Confirm</button>
+        </div>
+      )}
     </div>
   );
 }
 
-export default BarTab;
+export default KitchenTab;

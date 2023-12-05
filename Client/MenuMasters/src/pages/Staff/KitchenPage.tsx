@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Tab from "../../components/KitchenTab";
+import Tab from "../../components/Staff/Tabs/KitchenTab";
 import { getOrdersKitchen } from "../../utils/api";
 import { OrderStaff } from "../../types/types";
 
