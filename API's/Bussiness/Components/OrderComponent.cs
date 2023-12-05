@@ -115,14 +115,19 @@ namespace Bussiness.Components
             return await _orderRepo.UpdateOrderAsync(order);
         }
 
-        public async Task<bool> RemoveItemFromOrderAsync(int id)
+        public async Task<OrderItem?> UpdateItemFromOrderAsync(PatchOrderItem orderItem)
         {
-            return await _orderRepo.RemoveItemFromOrderAsync(id);
+            return await _orderRepo.UpdateItemFromOrderAsync(orderItem.OrderItemId, orderItem.Notes, orderItem.Quantity);
         }
 
         public async Task<bool> DeleteOrderAsync(int id)
         {
             return await _orderRepo.DeleteOrderAsync(id);
+        }
+
+        public async Task<bool> RemoveItemFromOrderAsync(int id)
+        {
+            return await _orderRepo.RemoveItemFromOrderAsync(id);
         }
     }
 }

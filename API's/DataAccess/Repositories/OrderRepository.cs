@@ -87,22 +87,23 @@ namespace DataAccess.Repositories
             }
         }
 
-        public async Task<bool> RemoveItemFromOrderAsync(int id)
+        public async Task<OrderItem?> UpdateItemFromOrderAsync(int orderItemId, string? notes, int quantity)
         {
             try
             {
-                OrderItem? original = await dbContext.OrderItems.FindAsync(id);
+                OrderItem? original = await dbContext.OrderItems.FindAsync(orderItemId);
 
-                if (original == null) return false;
+                if (original == null) return null;
 
-                dbContext.OrderItems.Remove(original);
+                original.Notes = notes;
+                original.Quantity = quantity;
                 await dbContext.SaveChangesAsync();
 
-                return true;
+                return original;
             }
             catch
             {
-                return false;
+                return null;
             }
         }
 
@@ -115,6 +116,25 @@ namespace DataAccess.Repositories
                 if (original == null) return false;
 
                 dbContext.Orders.Remove(original);
+                await dbContext.SaveChangesAsync();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> RemoveItemFromOrderAsync(int id)
+        {
+            try
+            {
+                OrderItem? original = await dbContext.OrderItems.FindAsync(id);
+
+                if (original == null) return false;
+
+                dbContext.OrderItems.Remove(original);
                 await dbContext.SaveChangesAsync();
 
                 return true;

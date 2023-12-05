@@ -63,17 +63,24 @@ public class OrderController : ControllerBase
         return result != null ? Ok(result) : BadRequest(result);
     }
 
-    [HttpDelete("Item", Name = "DeleteOrderItem")]
-    public async Task<IActionResult> DeleteOrderItem(int id)
+    [HttpPatch("Item", Name = "PatchOrderItem")]
+    public async Task<IActionResult> PatchOrderItem(PatchOrderItem orderItem)
     {
-        bool success = await _orderComponent.RemoveItemFromOrderAsync(id);
-        return success ? Ok() : BadRequest();
+        OrderItem? result = await _orderComponent.UpdateItemFromOrderAsync(orderItem);
+        return result != null ? Ok(result) : BadRequest(result);
     }
 
     [HttpDelete(Name = "DeleteOrder")]
     public async Task<IActionResult> Delete(int id)
     {
         bool success = await _orderComponent.DeleteOrderAsync(id);
+        return success ? Ok() : BadRequest();
+    }
+
+    [HttpDelete("Item", Name = "DeleteOrderItem")]
+    public async Task<IActionResult> DeleteOrderItem(int id)
+    {
+        bool success = await _orderComponent.RemoveItemFromOrderAsync(id);
         return success ? Ok() : BadRequest();
     }
 }

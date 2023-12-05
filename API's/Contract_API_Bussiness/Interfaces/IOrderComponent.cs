@@ -20,9 +20,11 @@ namespace Contract_API_Bussiness.Interfaces
 
         Task<Order?> UpdateOrderAsync(Order order);
 
-        Task<bool> RemoveItemFromOrderAsync(int id);
+        Task<OrderItem?> UpdateItemFromOrderAsync(PatchOrderItem orderItem);
 
         Task<bool> DeleteOrderAsync(int id);
+
+        Task<bool> RemoveItemFromOrderAsync(int id);
     }
 }
 
