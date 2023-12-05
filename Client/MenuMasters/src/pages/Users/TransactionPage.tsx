@@ -6,6 +6,7 @@ import { CartItem } from "../../types/types";
 import { createOrder } from "../../utils/api";
 import useCustomToast from "../../utils/useToast";
 import LoadingSpinner from "../../utils/useLoadingSpinner";
+import React from "react";
 
 const TransactionPage = () => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
@@ -26,7 +27,7 @@ const TransactionPage = () => {
   }, []);
 
   const handleQuantityChange = React.useCallback(
-    (index) => (newQuantity) => {
+    (index: any) => (newQuantity: any) => {
       setCartItems((prevCartItems) => {
         const updatedCartItems = [...prevCartItems];
         updatedCartItems[index].quantity = newQuantity;

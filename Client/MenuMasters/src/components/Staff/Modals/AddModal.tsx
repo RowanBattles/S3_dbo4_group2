@@ -7,7 +7,7 @@ interface PayModalProps {
   onClose: () => void;
 }
 
-const AddModal: React.FC<PayModalProps> = ({ tab, onClose }) => {
+const AddModal: React.FC<PayModalProps> = ({ onClose }) => {
   const [visible, setVisible] = useState(true);
   const [categories, setCategories] = useState<Category[]>([]);
   const [items, setItems] = useState<MenuItem[]>([]);
