@@ -19,6 +19,7 @@ namespace Bussiness.Components
         private async Task<SalesTab> GetSalesTabAsync(Tab tab)
         {
             IEnumerable<Order> orders = await _orderRepo.GetAllOrdersAsync();
+            SalesTab salesTab = new SalesTab(tab);
 
             foreach (Order order in orders)
             {
@@ -27,25 +28,25 @@ namespace Bussiness.Components
                     foreach (OrderItem orderItem in order.OrderItems)
                     {
                         SalesOrderItem salesOrderItem = new SalesOrderItem(orderItem);
-                        tab.OrderItems.Add(salesOrderItem);
+                        salesTab.OrderItems.Add(salesOrderItem);
                     }
                 }
             }
 
-            return tab;
+            return salesTab;
         }
 
         public async Task<IEnumerable<SalesTab>> GetAllTabsAsync()
         {
-            IEnumerable<Tab> _tabs = await _tabRepo.GetAllTabsAsync();
-            List<Tab> tabs = new List<Tab>();
+            IEnumerable<Tab> tabs = await _tabRepo.GetAllTabsAsync();
+            List<SalesTab> salesTabs = new List<SalesTab>();
 
-            foreach (Tab _tab in _tabs)
+            foreach (Tab tab in tabs)
             {
-                tabs.Add(await GetTabWithOrderItemsAsync(_tab));
+                salesTabs.Add(await GetSalesTabAsync(tab));
             }
 
-            return tabs;
+            return salesTabs;
         }
 
         public async Task<SalesTab?> GetTabByIdAsync(int id)
@@ -54,7 +55,7 @@ namespace Bussiness.Components
 
             if (tab != null)
             {
-                tab = await GetTabWithOrderItemsAsync(tab);
+                return await GetSalesTabAsync(tab);
             }
 
             return null;

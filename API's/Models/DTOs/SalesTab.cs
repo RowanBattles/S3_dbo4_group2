@@ -4,6 +4,16 @@ namespace Models.DTOs
 {
 	public class SalesTab
 	{
+        public SalesTab(Tab tab)
+        {
+            this.TabId = tab.TabId;
+            this.TableNumber = tab.TableNumber;
+            this.TabTotal = tab.TabTotal;
+            this.PaidCash = tab.PaidCash;
+            this.PaidPIN = tab.PaidPIN;
+            this.Paid = tab.Paid;
+        }
+
         public int TabId { get; set; }
 
         public int TableNumber { get; set; }

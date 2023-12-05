@@ -14,7 +14,7 @@ namespace Models
 
 		public decimal? PaidPIN { get; set; }
 
-		public bool Paid { get { return (this.PaidCash + this.PaidPIN) >= this.TabTotal; } }
+		public bool Paid { get { return (this.PaidCash + this.PaidPIN) >= this.TabTotal; } set { } }
 	}
 }
 

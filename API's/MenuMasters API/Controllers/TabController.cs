@@ -1,6 +1,7 @@
 ﻿using Contract_API_Bussiness.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Models;
+using Models.DTOs;
 
 namespace MenuMasters_API.Controllers;
 
@@ -18,13 +19,13 @@ public class TabController : ControllerBase
     }
 
     [HttpGet(Name = "GetAllTabs")]
-    public async Task<IEnumerable<Tab>> Get()
+    public async Task<IEnumerable<SalesTab>> Get()
     {
         return await _tabComponent.GetAllTabsAsync();
     }
 
     [HttpGet("{id}", Name = "GetTabById")]
-    public async Task<Tab?> Get(int id)
+    public async Task<SalesTab?> Get(int id)
     {
         return await _tabComponent.GetTabByIdAsync(id);
     }
