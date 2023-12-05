@@ -30,6 +30,7 @@ interface MenuItem {
 }
 
 interface CartItem {
+  itemId: any;
   price: number;
   id: string;
   food: MenuItem;

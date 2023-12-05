@@ -22,7 +22,7 @@ const Items = () => {
         setItems(itemsData as MenuItem[]);
 
         // Fetch categories for each item
-        const categoryPromises = itemsData.map(async (item) => {
+        const categoryPromises = itemsData.map(async (item: MenuItem) => {
           const categoryData = await getCategoryById(item.categoryId);
           setCategories((prevCategories) => ({
             ...prevCategories,
@@ -51,7 +51,7 @@ const Items = () => {
 
   const filteredItems = items.filter((item) => {
     const category = categories[item.categoryId];
-    return category === menuTab;
+    setMenuTab(category.categoryName);
   });
 
   return (
