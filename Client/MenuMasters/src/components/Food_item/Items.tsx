@@ -102,6 +102,36 @@ const Items = () => {
         >
           Cold drinks
         </p>
+        <p
+          className={
+            menuTab === "Warm drinks"
+              ? "active_menu_tab poppins bg-primary px-10"
+              : "menu_tab poppins border px-10 border-gray-100 rounded-full py-2"
+          }
+          onClick={() => handleMenuTabs("Warm drinks")}
+        >
+          Warm drinks
+        </p>
+        <p
+          className={
+            menuTab === "Alcohol"
+              ? "active_menu_tab poppins bg-primary px-10"
+              : "menu_tab poppins border px-10 border-gray-100 rounded-full py-2"
+          }
+          onClick={() => handleMenuTabs("Alcohol")}
+        >
+          Alcohol
+        </p>
+        <p
+          className={
+            menuTab === "Cocktails"
+              ? "active_menu_tab poppins bg-primary px-10"
+              : "menu_tab poppins border px-10 border-gray-100 rounded-full py-2"
+          }
+          onClick={() => handleMenuTabs("Cocktails")}
+        >
+          Cocktails
+        </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12">
         {loading ? (
