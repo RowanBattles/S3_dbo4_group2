@@ -1,7 +1,5 @@
 ﻿using System;
 using Bussiness_API_Contract;
-using DataLayer_Factory;
-using DataLayer_MenuAPI.Repos;
 using DateLayer_Bussiness_Contract;
 using MenuAPI_Models;
 
@@ -11,9 +9,9 @@ namespace Bussines_MenuAPI
 	{
         private readonly ICategoryDAL _repo;
 
-        public CategoryComponent()
+        public CategoryComponent(ICategoryDAL repo)
         {
-            _repo = DateLayerFactory.GetCategoryDAL();
+            _repo = repo;
         }
 
         public async Task<IEnumerable<Category>> GetAllCategoriesAsync()
