@@ -9,8 +9,8 @@ interface Account {
 
 // categoryTypes.ts
 interface Category {
-  category_id: number;
-  category_name: string;
+  categoryId: number;
+  categoryName: string;
   type: number;
 }
 
@@ -22,7 +22,7 @@ interface MenuItem {
   itemDescription_Long: string;
   itemPrice: number;
   itemStock: number;
-  categoryId: string;
+  categoryId: number;
   imageURL: string;
   dietaryInfo: string;
   ingredients: string;
@@ -35,15 +35,6 @@ interface CartItem {
   food: MenuItem;
   quantity: number;
   notes?: string; // Optional
-}
-
-// orderStaff
-interface OrderSales {
-  tabId: number;
-  tableNumber: number;
-  tabTotal: number;
-  dateTime: string;
-  orderItems: OrderItemSales[];
 }
 
 // orderStaff
@@ -97,10 +88,12 @@ interface Role {
 }
 
 // tabTypes.ts
-interface Tab {
-  tab_id: number;
-  table_number: number;
-  tab_total: number | null;
+interface TabEntity {
+  tabId: number;
+  tableNumber: number;
+  tabTotal: number;
+  dateTime: string;
+  orderItems: OrderItemSales[];
 }
 
 export type {
@@ -110,8 +103,7 @@ export type {
   OrderItem,
   Order,
   OrderStaff,
-  OrderSales,
   Role,
-  Tab,
+  TabEntity,
   CartItem,
 };

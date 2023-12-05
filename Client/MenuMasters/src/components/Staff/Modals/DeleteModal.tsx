@@ -89,7 +89,7 @@ const PayModal: React.FC<PayModalProps> = ({ tab, onClose }) => {
           isSearchable={false}
         />
         <div className="grid grid-cols-2 gap-2 text-xl">
-          <div>
+          <div className="">
             <p>Tendered</p>
             <input
               type="number"
@@ -110,7 +110,7 @@ const PayModal: React.FC<PayModalProps> = ({ tab, onClose }) => {
           </div>
         </div>
         <div className="flex py-4 font-bold text-6xl">
-          <div className="grid grid-cols-3 gap-2 bg-gray-700 p-2 w-2/3 rounded-l-lg">
+          <div className="grid grid-cols-3 gap-2 bg-gray-700 p-2 w-2/3">
             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((digit) => (
               <button
                 key={digit}
@@ -128,7 +128,7 @@ const PayModal: React.FC<PayModalProps> = ({ tab, onClose }) => {
             </button>
           </div>
           <div className="w-1/3">
-            <div className="h-full bg-gray-700 p-2 rounded-r-lg">
+            <div className="h-full bg-gray-700 p-2">
               <div className="h-1/2 pb-1">
                 <button
                   className="bg-white rounded-md flex items-center justify-center h-full w-full p-2"
@@ -142,7 +142,7 @@ const PayModal: React.FC<PayModalProps> = ({ tab, onClose }) => {
                 </button>
               </div>
               <div className="h-1/2 pt-1">
-                <button className="green rounded-md flex items-center justify-center h-full w-full">
+                <button className="bg-lime-400 rounded-md flex items-center justify-center h-full w-full">
                   PAY
                 </button>
               </div>

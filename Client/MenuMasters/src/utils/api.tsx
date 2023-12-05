@@ -8,6 +8,13 @@ export async function getItems() {
   return response.data;
 }
 
+export async function getCategories() {
+  const url = EndPoints.GetAllCategories;
+
+  const response = await axios.get(url);
+  return response.data;
+}
+
 export async function getItembyId(id: number) {
   const url = EndPoints.GetItemById(id);
   const response = await axios.get(url);
@@ -20,8 +27,8 @@ export async function getCategoryById(id: number) {
   return response.data;
 }
 
-export async function getOrdersSales() {
-  const url = EndPoints.GetAllOrdersSales;
+export async function getTabs() {
+  const url = EndPoints.GetAllTabs;
 
   const response = await axios.get(url);
   return response.data;
@@ -41,7 +48,7 @@ export async function getOrdersBar() {
   return response.data;
 }
 
-export async function createOrder(orderData) {
+export async function createOrder(orderData: any) {
   const url = EndPoints.CreateOrder; // Assuming you have a CreateOrder endpoint in your ENDPOINTS file
   const response = await axios.post(url, orderData);
   return response.data;
