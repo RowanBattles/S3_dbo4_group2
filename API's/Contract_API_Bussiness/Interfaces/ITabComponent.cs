@@ -10,9 +10,9 @@ namespace Contract_API_Bussiness.Interfaces
 
         Task<SalesTab?> GetTabByIdAsync(int id);
 
-        Task<bool> CreateTabAsync(Tab tab);
+        Task<Tab?> CreateTabAsync(Tab tab);
 
-        Task<bool> UpdateTabAsync(Tab tab);
+        Task<Tab?> UpdateTabAsync(Tab tab);
 
         Task<bool> DeleteTabAsync(int id);
     }

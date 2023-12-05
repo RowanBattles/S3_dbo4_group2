@@ -32,15 +32,15 @@ public class CategoryController : ControllerBase
     [HttpPost(Name = "PostCategory")]
     public async Task<IActionResult> Post(Category category)
     {
-        bool success = await _categoryComponent.CreateCategoryAsync(category);
-        return success ? Ok() : BadRequest();
+        Category result = await _categoryComponent.CreateCategoryAsync(category);
+        return result != null ? Ok(result) : BadRequest(result);
     }
 
     [HttpPatch(Name = "PatchCategory")]
     public async Task<IActionResult> Patch(Category category)
     {
-        bool success = await _categoryComponent.UpdateCategoryAsync(category);
-        return success ? Ok() : BadRequest();
+        Category? result = await _categoryComponent.UpdateCategoryAsync(category);
+        return result != null ? Ok(result) : BadRequest(result);
     }
 
     [HttpDelete(Name = "DeleteCategory")]

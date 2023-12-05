@@ -38,52 +38,52 @@ namespace DataAccess.Repositories
             return await dbContext.Orders.FindAsync(id);
         }
 
-        public async Task<bool> CreateOrderAsync(Order order)
+        public async Task<Order?> CreateOrderAsync(Order order)
         {
             try
             {
                 await dbContext.Orders.AddAsync(order);
                 await dbContext.SaveChangesAsync();
 
-                return true;
+                return order;
             }
             catch
             {
-                return false;
+                return null;
             }
         }
 
-        public async Task<bool> AddItemToOrderAsync(OrderItem orderItem)
+        public async Task<OrderItem?> AddItemToOrderAsync(OrderItem orderItem)
         {
             try
             {
                 await dbContext.OrderItems.AddAsync(orderItem);
                 await dbContext.SaveChangesAsync();
 
-                return true;
+                return orderItem;
             }
             catch
             {
-                return false;
+                return null;
             }
         }
 
-        public async Task<bool> UpdateOrderAsync(Order order)
+        public async Task<Order?> UpdateOrderAsync(Order order)
         {
             try
             {
                 Order? original = await GetOrderByIdAsync(order.OrderId);
 
-                if (original == null) return false;
+                if (original == null) return null;
 
                 dbContext.Entry(original).CurrentValues.SetValues(order);
                 await dbContext.SaveChangesAsync();
 
-                return true;
+                return order;
             }
             catch
             {
-                return false;
+                return null;
             }
         }
 

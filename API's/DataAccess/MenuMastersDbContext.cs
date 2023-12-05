@@ -162,8 +162,6 @@ namespace DataAccess
                 entity.Property(e => e.Notes)
                     .IsRequired()
                     .HasColumnName("notes");
-
-                
             });
 
             modelBuilder.Entity<Role>(entity =>
@@ -206,6 +204,10 @@ namespace DataAccess
 
                 entity.Property(e => e.Paid)
                     .HasColumnName("paid");
+
+                entity.HasMany(e => e.Orders)
+                    .WithOne()
+                    .HasForeignKey(e => e.TabId);
             });
         }
     }

@@ -9,9 +9,9 @@ namespace Contract_API_Bussiness.Interfaces
 
         Task<Category?> GetCategoryByIdAsync(int id);
 
-        Task<bool> CreateCategoryAsync(Category category);
+        Task<Category?> CreateCategoryAsync(Category category);
 
-        Task<bool> UpdateCategoryAsync(Category category);
+        Task<Category?> UpdateCategoryAsync(Category category);
 
         Task<bool> DeleteCategoryAsync(int id);
     }

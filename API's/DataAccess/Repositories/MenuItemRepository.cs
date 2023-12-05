@@ -24,37 +24,37 @@ namespace DataAccess.Repositories
             return await dbContext.MenuItems.FindAsync(id);
         }
 
-        public async Task<bool> CreateMenuItemAsync(MenuItem menuItem)
+        public async Task<MenuItem?> CreateMenuItemAsync(MenuItem menuItem)
         {
             try
             {
                 await dbContext.MenuItems.AddAsync(menuItem);
                 await dbContext.SaveChangesAsync();
 
-                return true;
+                return menuItem;
             }
             catch
             {
-                return false;
+                return null;
             }
         }
 
-        public async Task<bool> UpdateMenuItemAsync(MenuItem menuItem)
+        public async Task<MenuItem?> UpdateMenuItemAsync(MenuItem menuItem)
         {
             try
             {
                 MenuItem? original = await GetMenuItemByIdAsync(menuItem.MenuItemId);
 
-                if (original == null) return false;
+                if (original == null) return null;
 
                 dbContext.Entry(original).CurrentValues.SetValues(menuItem);
                 await dbContext.SaveChangesAsync();
 
-                return true;
+                return menuItem;
             }
             catch
             {
-                return false;
+                return null;
             }
         }
 

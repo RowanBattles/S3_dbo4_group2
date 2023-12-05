@@ -70,17 +70,47 @@ namespace Bussiness.Components
             return await _orderRepo.GetOrderByIdAsync(id);
         }
 
-        public async Task<bool> CreateOrderAsync(Order order)
+        public async Task<Order?> CreateOrderAsync(PostOrder postOrder)
         {
+            // First lets try to get an open tab with the given tablenumber
+            Tab? tab = await _tabRepo.GetOpenTabWithTableNumberAsync(postOrder.TableNumber);
+
+            // If it doesnt exist, make a new one
+            if(tab == null)
+            {
+                tab = await _tabRepo.CreateTabAsync(new Tab() { TableNumber = postOrder.TableNumber });
+                // If something went wrong with creating, well return null
+                if (tab == null) { return null; }
+            }
+
+            Order order = new Order()
+            {
+                TabId = tab.TabId,
+                Status = OrderStatus.Pending,
+                DateTime = DateTime.Now,
+                OrderItems = new List<OrderItem>()
+            };
+
+            foreach (PostOrderItem postOrderItem in postOrder.orderItems)
+            {
+                OrderItem orderItem = new OrderItem()
+                {
+                    MenuItemId = postOrderItem.MenuItemId,
+                    Notes = postOrderItem.Notes,
+                    Quantity = postOrderItem.Quantity
+                };
+                order.OrderItems.Add(orderItem);
+            }
+
             return await _orderRepo.CreateOrderAsync(order);
         }
 
-        public async Task<bool> AddItemToOrderAsync(OrderItem orderItem)
+        public async Task<OrderItem?> AddItemToOrderAsync(OrderItem orderItem)
         {
             return await _orderRepo.AddItemToOrderAsync(orderItem);
         }
 
-        public async Task<bool> UpdateOrderAsync(Order order)
+        public async Task<Order?> UpdateOrderAsync(Order order)
         {
             return await _orderRepo.UpdateOrderAsync(order);
         }

@@ -18,18 +18,14 @@ namespace Bussiness.Components
 
         private async Task<SalesTab> GetSalesTabAsync(Tab tab)
         {
-            IEnumerable<Order> orders = await _orderRepo.GetAllOrdersAsync();
             SalesTab salesTab = new SalesTab(tab);
 
-            foreach (Order order in orders)
+            foreach (Order order in tab.Orders)
             {
-                if (order.TabId == tab.TabId)
+                foreach (OrderItem orderItem in order.OrderItems)
                 {
-                    foreach (OrderItem orderItem in order.OrderItems)
-                    {
-                        SalesOrderItem salesOrderItem = new SalesOrderItem(orderItem);
-                        salesTab.OrderItems.Add(salesOrderItem);
-                    }
+                    SalesOrderItem salesOrderItem = new SalesOrderItem(orderItem);
+                    salesTab.OrderItems.Add(salesOrderItem);
                 }
             }
 
@@ -61,12 +57,12 @@ namespace Bussiness.Components
             return null;
         }
 
-        public async Task<bool> CreateTabAsync(Tab tab)
+        public async Task<Tab?> CreateTabAsync(Tab tab)
         {
             return await _tabRepo.CreateTabAsync(tab);
         }
 
-        public async Task<bool> UpdateTabAsync(Tab tab)
+        public async Task<Tab?> UpdateTabAsync(Tab tab)
         {
             return await _tabRepo.UpdateTabAsync(tab);
         }

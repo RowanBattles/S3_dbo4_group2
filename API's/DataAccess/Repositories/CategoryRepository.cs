@@ -24,37 +24,37 @@ namespace DataAccess.Repositories
             return await dbContext.Categories.FindAsync(id);
         }
 
-		public async Task<bool> CreateCategoryAsync(Category category)
+		public async Task<Category?> CreateCategoryAsync(Category category)
 		{
 			try
 			{
 				await dbContext.Categories.AddAsync(category);
 				await dbContext.SaveChangesAsync();
 
-				return true;
+				return category;
 			}
             catch
 			{
-				return false;
+				return null;
 			}
 		}
 
-		public async Task<bool> UpdateCategoryAsync(Category category)
+		public async Task<Category?> UpdateCategoryAsync(Category category)
 		{
             try
             {
                 Category? original = await GetCategoryByIdAsync(category.CategoryId);
 
-                if (original == null) return false;
+                if (original == null) return null;
 
                 dbContext.Entry(original).CurrentValues.SetValues(category);
                 await dbContext.SaveChangesAsync();
 
-                return true;
+                return category;
             }
             catch
             {
-                return false;
+                return null;
             }
         }
 

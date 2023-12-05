@@ -14,11 +14,11 @@ namespace Contract_API_Bussiness.Interfaces
 
         Task<Order?> GetOrderByIdAsync(int id);
 
-        Task<bool> CreateOrderAsync(Order order);
+        Task<Order?> CreateOrderAsync(PostOrder order);
 
-        Task<bool> AddItemToOrderAsync(OrderItem orderItem);
+        Task<OrderItem?> AddItemToOrderAsync(OrderItem orderItem);
 
-        Task<bool> UpdateOrderAsync(Order order);
+        Task<Order?> UpdateOrderAsync(Order order);
 
         Task<bool> RemoveItemFromOrderAsync(int id);
 
