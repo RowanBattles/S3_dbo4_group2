@@ -12,8 +12,6 @@ namespace Contract_API_Bussiness.Interfaces
 
         Task<IEnumerable<KitchenOrder>> GetAllBarOrdersAsync();
 
-        Task<IEnumerable<SalesOrder>> GetAllSalesOrdersAsync();
-
         Task<Order?> GetOrderByIdAsync(int id);
 
         Task<bool> CreateOrderAsync(Order order);

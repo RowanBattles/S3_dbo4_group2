@@ -65,28 +65,6 @@ namespace Bussiness.Components
             return barOrders;
         }
 
-        public async Task<IEnumerable<SalesOrder>> GetAllSalesOrdersAsync()
-        {
-            IEnumerable<Order> orders = await _orderRepo.GetAllOrdersAsync();
-            List<SalesOrder> salesOrders = new List<SalesOrder>();
-
-            foreach (Order order in orders)
-            {
-                Tab? tab = await _tabRepo.GetTabByIdAsync(order.TabId);
-
-                if (tab != null && !tab.Paid && order.OrderItems.Count > 0)
-                {
-                    SalesOrder salesOrder = new SalesOrder(order);
-                    salesOrder.TableNumber = tab != null ? tab.TableNumber : -1;
-                    salesOrder.TabTotal = tab != null ? tab.TabTotal : null;
-
-                    salesOrders.Add(salesOrder);
-                }
-            }
-
-            return salesOrders;
-        }
-
         public async Task<Order?> GetOrderByIdAsync(int id)
         {
             return await _orderRepo.GetOrderByIdAsync(id);

@@ -36,12 +36,6 @@ public class OrderController : ControllerBase
         return await _orderComponent.GetAllBarOrdersAsync();
     }
 
-    [HttpGet("Sales", Name = "GetAllSalesOrders")]
-    public async Task<IEnumerable<SalesOrder>> GetSales()
-    {
-        return await _orderComponent.GetAllSalesOrdersAsync();
-    }
-
     [HttpGet("{id}", Name = "GetOrderById")]
     public async Task<Order?> Get(int id)
     {
