@@ -18,6 +18,8 @@ namespace Models.DTOs
 
         public int TableNumber { get; set; }
 
+        public DateTime Date { get; set; }
+
         public decimal? TabTotal { get; set; }
 
         public decimal? PaidCash { get; set; }

@@ -29,6 +29,8 @@ namespace Bussiness.Components
                 }
             }
 
+            salesTab.Date = tab.Orders.OrderBy(x => x.DateTime).First().DateTime;
+
             return salesTab;
         }
 
