@@ -18,18 +18,27 @@ interface Category {
 interface MenuItem {
   menuItemId: number;
   itemName: string;
-  itemDescription: string;
+  itemDescription_Short: string;
+  itemDescription_Long: string;
   itemPrice: number;
   itemStock: number;
   categoryId: string;
   imageURL: string;
   dietaryInfo: string;
   ingredients: string;
+  price: number;
+}
+
+interface CartItem {
+  price: number;
+  id: string;
+  food: MenuItem;
+  quantity: number;
+  notes?: string; // Optional
 }
 
 // orderStaff
 interface OrderSales {
-  orderId: number;
   tabId: number;
   tableNumber: number;
   tabTotal: number;
@@ -51,7 +60,6 @@ interface OrderStaff {
   tabId: number;
   tableNumber: number;
   status: string;
-  notes: string;
   dateTime: string;
   orderItems: OrderItemStaff[];
 }
@@ -60,6 +68,7 @@ interface OrderStaff {
 interface OrderItemStaff {
   menuItemId: number;
   itemName: string;
+  notes: string;
   quantity: number;
 }
 
@@ -104,4 +113,5 @@ export type {
   OrderSales,
   Role,
   Tab,
+  CartItem,
 };

@@ -1,10 +1,12 @@
 import Plus_Min_Button from "../../components/Plus_Min_Button";
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import Header from "../../components/Header";
+import Header from "../../components/Users/Header";
 import { getItembyId } from "../../utils/api";
 
 import { MenuItem } from "../../types/types";
+import useCustomToast from "../../utils/useToast";
+import ItemDetails_Skeleton from "../../components/Users/Skeletons/ItemDetails_Skeleton";
 
 const ItemDetails = () => {
   const [Item, setItem] = useState<MenuItem | null>(null);
@@ -15,6 +17,7 @@ const ItemDetails = () => {
   const { id } = useParams<{ id: string }>();
   const [showNotes, setShowNotes] = useState(false);
   const [notes, setNotes] = useState<string>("");
+  const { showSuccessToast, showErrorToast } = useCustomToast();
 
   useEffect(() => {
     const fetchFoodInfo = async () => {
@@ -22,28 +25,28 @@ const ItemDetails = () => {
         const itemId = parseInt(id as string, 10);
 
         if (isNaN(itemId)) {
-          // Handle the case where id is not a valid number
           setError("Invalid item ID");
           setLoading(false);
           return;
         }
 
         const data = await getItembyId(itemId);
-        console.log(data);
         setItem(data);
         setLoading(false);
       } catch (e) {
-        // Check if the error is an instance of Error and use its 'message' property
         if (e instanceof Error) {
           setError(e.message);
         } else {
-          // If it's not an Error instance or doesn't have a message property, use a generic message
           setError("An error occurred");
         }
         setLoading(false);
       }
     };
 
+    fetchFoodInfo();
+  }, [id]);
+
+  useEffect(() => {
     const calculateTotalPrice = () => {
       if (Item) {
         const newTotalPrice = quantity * Item.itemPrice;
@@ -52,9 +55,7 @@ const ItemDetails = () => {
     };
 
     calculateTotalPrice();
-
-    fetchFoodInfo();
-  }, [id, quantity, Item]);
+  }, [Item, quantity]);
 
   const addToCart = () => {
     // Check if Item is not null and quantity is greater than 0
@@ -71,6 +72,7 @@ const ItemDetails = () => {
         quantity: quantity,
         price: Item.itemPrice,
         image: Item.imageURL,
+        notes: notes,
 
         // Add any other properties you want to store in the cart item
       };
@@ -80,8 +82,18 @@ const ItemDetails = () => {
 
       // Update the localStorage with the updated cart items
       localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+      showSuccessToast("Item added to the cart successfully.");
     }
   };
+
+  if (loading) {
+    return (
+      <>
+        <Header />
+        <ItemDetails_Skeleton />
+      </>
+    );
+  }
   return (
     <>
       <Header />
@@ -104,7 +116,7 @@ const ItemDetails = () => {
               </div>
 
               <p className="text-center md:text-left lg:text-left text-sm poppins text-gray-500 leading-relaxed select-none">
-                {Item?.itemDescription}
+                {Item?.itemDescription_Long}
               </p>
               {/* 
               {Item?.ingredients && Item.ingredients.length > 0 && (

@@ -5,8 +5,9 @@ const ENDPOINTS = {
   GetAllOrdersSales: `${URL}/api/order/sales`,
   GetAllOrdersKitchen: `${URL}/api/order/kitchen`,
   GetAllOrdersBar: `${URL}/api/order/bar`,
-  GetItemById: (id: number) => `${URL}/api/menuitem/${id}`,
+  GetItemById: (id: number) => `${URL}/api/Menuitem/${id}`,
   GetCategoryById: (id: number) => `${URL}/api/Category/${id}`,
+  CreateOrder: `${URL}/api/Order`,
 };
 
 export default ENDPOINTS;

@@ -1,33 +1,81 @@
-import React, { useState, useEffect } from "react";
-import Transaction from "../../components/Transaction";
-import Header from "../../components/Header";
+import { useState, useEffect, useMemo } from "react";
+import Transaction from "../../components/Users/Transaction";
+import Header from "../../components/Users/Header";
+
+import { CartItem } from "../../types/types";
+import { createOrder } from "../../utils/api";
+import useCustomToast from "../../utils/useToast";
+import LoadingSpinner from "../../utils/useLoadingSpinner";
 
 const TransactionPage = () => {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const { showSuccessToast, showErrorToast } = useCustomToast();
+  const [loading, setLoading] = useState(false);
 
-  // Get the cart items from localStorage on component mount
   useEffect(() => {
-    const storedCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-    setCartItems(storedCartItems);
+    const storedCartItemsString = localStorage.getItem("cartItems");
+    if (storedCartItemsString) {
+      try {
+        const storedCartItems = JSON.parse(storedCartItemsString);
+        setCartItems(storedCartItems);
+      } catch (error) {
+        console.error("Error parsing cart items:", error);
+        // Handle the error gracefully, e.g. show an error message to the user or provide a fallback
+      }
+    }
   }, []);
 
-  // Update the quantity of an item in the cart
-  const handleQuantityChange = (index, newQuantity) => {
-    const updatedCartItems = [...cartItems];
-    updatedCartItems[index].quantity = newQuantity;
-    setCartItems(updatedCartItems);
+  const handleQuantityChange = React.useCallback(
+    (index) => (newQuantity) => {
+      setCartItems((prevCartItems) => {
+        const updatedCartItems = [...prevCartItems];
+        updatedCartItems[index].quantity = newQuantity;
+        localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+        return updatedCartItems;
+      });
+    },
+    []
+  );
+
+  const handleOrderNow = async () => {
+    try {
+      setLoading(true);
+      const orderItems = cartItems.map((item: CartItem) => ({
+        menuItemId: item.itemId,
+        notes: item.notes || "", // You might want to update this based on where notes are stored
+        quantity: item.quantity,
+      }));
+
+      await createOrder({
+        tabId: 1,
+        orderItems: orderItems,
+      });
+
+      // Clear the cart after successfully placing the order
+      setCartItems([]);
+      localStorage.removeItem("cartItems");
+      showSuccessToast("Order created successfully");
+    } catch (error) {
+      setLoading(false);
+      console.error("Error creating order:", error);
+      showErrorToast("Something went wrong while creating your order");
+      // Handle the error gracefully
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const handleRemoveItem = (itemToRemove) => {
+  const handleRemoveItem = (itemToRemove: CartItem) => {
     const updatedCartItems = cartItems.filter((item) => item !== itemToRemove);
     setCartItems(updatedCartItems);
     localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
   };
 
-  // Calculate total based on cart items
-  const totalPrice = cartItems.reduce((total, item) => {
-    return total + item.price * item.quantity;
-  }, 0);
+  const totalPrice = useMemo(() => {
+    return cartItems.reduce((total, item) => {
+      return total + item.price * item.quantity;
+    }, 0);
+  }, [cartItems]);
 
   return (
     <>
@@ -43,15 +91,21 @@ const TransactionPage = () => {
             key={index}
             item={item}
             onRemove={handleRemoveItem}
-            onQuantityChange={(newQuantity) =>
-              handleQuantityChange(index, newQuantity)
-            }
+            onQuantityChange={handleQuantityChange(index)}
           />
         ))}
 
         <div className="flex flex-row justify-between items-center">
-          <button className="bg-primary text-white px-9 py-3 text-xl focus:outline-none poppins rounded-full transform transition duration-300 hover:scale-105">
-            Order Now
+          <button
+            onClick={handleOrderNow}
+            disabled={loading || cartItems.length === 0} // Disable if the cart is empty
+            className="bg-primary text-white px-9 py-3 text-xl focus:outline-none poppins rounded-full transform transition duration-300 hover:scale-105"
+          >
+            {loading ? (
+              <LoadingSpinner size={20} color="#ffffff" />
+            ) : (
+              "Order now"
+            )}
           </button>
           <h2 className="text-gray-900 poppins text-4xl font-medium">
             Total: ${totalPrice.toFixed(2)}
