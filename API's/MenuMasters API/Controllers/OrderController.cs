@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using Models.DTOs;
+using Models.Enums;
 
 namespace MenuMasters_API.Controllers;
 
@@ -67,6 +68,13 @@ public class OrderController : ControllerBase
     public async Task<IActionResult> PatchOrderItem(PatchOrderItem orderItem)
     {
         OrderItem? result = await _orderComponent.UpdateItemFromOrderAsync(orderItem);
+        return result != null ? Ok(result) : BadRequest(result);
+    }
+
+    [HttpPatch("Status", Name = "PatchOrderStatus")]
+    public async Task<IActionResult> PatchOrderState(int id)
+    {
+        OrderStatus? result = await _orderComponent.UpdateOrderStateAsync(id);
         return result != null ? Ok(result) : BadRequest(result);
     }
 

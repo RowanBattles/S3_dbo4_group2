@@ -1,6 +1,7 @@
 ﻿using System;
 using Models;
 using Models.DTOs;
+using Models.Enums;
 
 namespace Contract_API_Bussiness.Interfaces
 {
@@ -21,6 +22,8 @@ namespace Contract_API_Bussiness.Interfaces
         Task<Order?> UpdateOrderAsync(Order order);
 
         Task<OrderItem?> UpdateItemFromOrderAsync(PatchOrderItem orderItem);
+
+        Task<OrderStatus?> UpdateOrderStateAsync(int id);
 
         Task<bool> DeleteOrderAsync(int id);
 

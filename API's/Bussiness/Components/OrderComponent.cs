@@ -120,6 +120,27 @@ namespace Bussiness.Components
             return await _orderRepo.UpdateItemFromOrderAsync(orderItem.OrderItemId, orderItem.Notes, orderItem.Quantity);
         }
 
+        public async Task<OrderStatus?> UpdateOrderStateAsync(int id)
+        {
+            Order? order = await this.GetOrderByIdAsync(id);
+
+            if (order == null) return null;
+
+            // If its completed, cycle back to pending for the next state
+            if(order.Status == OrderStatus.Completed)
+            {
+                order.Status = OrderStatus.Pending;
+            } else
+            {
+                // Otherwise go to the next state
+                order.Status = (OrderStatus)((int)order.Status + 1);
+            }
+
+            order = await this.UpdateOrderAsync(order);
+
+            return order != null ? order.Status : null;
+        }
+
         public async Task<bool> DeleteOrderAsync(int id)
         {
             return await _orderRepo.DeleteOrderAsync(id);
