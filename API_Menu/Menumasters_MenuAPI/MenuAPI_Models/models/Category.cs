@@ -1,4 +1,6 @@
 ﻿using System;
+using MenuAPI_Models.enums;
+
 namespace MenuAPI_Models
 {
 	public class Category

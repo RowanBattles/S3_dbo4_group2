@@ -6,14 +6,14 @@ using MenuAPI_Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataLayer_MenuAPI;
-public class MenuAPIDBContext : DbContext
+public class MenuAPIDbContext : DbContext
 {
-    public MenuAPIDBContext()
+    public MenuAPIDbContext()
     {
-
     }
-    public MenuAPIDBContext(DbContextOptions<MenuAPIDBContext> options)
-            : base(options)
+
+    public MenuAPIDbContext(DbContextOptions<MenuAPIDbContext> options)
+        : base(options)
     {
     }
     public DbSet<Category> Categories { get; set; }
@@ -21,11 +21,6 @@ public class MenuAPIDBContext : DbContext
     public DbSet<Order> Orders { get; set; }
     public DbSet<OrderItem> OrderItems { get; set; }
     public DbSet<Tab> Tabs { get; set; }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseSqlServer("Server=localhost; Database=menumaster; User=sa; Password=Nientendo2003; Encrypt=False");
-    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -1,35 +1,18 @@
 ﻿using System;
 using DateLayer_Bussiness_Contract;
 using MenuAPI_Models;
+using MenuAPI_Models.enums;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataLayer_MenuAPI.Repos
 {
-	public class OrderRepository : IOrdersDAL
+	public class OrderDAL : IOrderDAL
 	{
-        private readonly MenuAPIDBContext dbContext;
+        private readonly MenuAPIDbContext dbContext;
 
-        public OrderRepository(MenuAPIDBContext _dbContext)
+        public OrderDAL(MenuAPIDbContext _dbContext)
         {
             this.dbContext = _dbContext;
-        }
-
-        public async Task<IEnumerable<Order>> GetAllOrdersAsync()
-        {
-            return await dbContext.Orders.Include(e => e.OrderItems).ThenInclude(e => e.MenuItem).ToListAsync();
-        }
-
-        public async Task<IEnumerable<Order>> GetAllOrdersByTypeAsync(OrderType type)
-        {
-            return await dbContext.Orders.Include(e => e.OrderItems).ThenInclude(e => e.MenuItem).ThenInclude(e => e.Category)
-                .Select(order => new Order
-                {
-                    OrderId = order.OrderId,
-                    TabId = order.TabId,
-                    Status = order.Status,
-                    DateTime = order.DateTime,
-                    OrderItems = order.OrderItems.Where(orderItem => orderItem.MenuItem.Category.Type == type).ToList()
-                }).ToListAsync();
         }
 
         public async Task<Order?> GetOrderByIdAsync(int id)
@@ -125,6 +108,5 @@ namespace DataLayer_MenuAPI.Repos
         }
     }
 
-}
 }
 

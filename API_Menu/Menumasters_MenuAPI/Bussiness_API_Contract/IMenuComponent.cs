@@ -3,7 +3,7 @@ using MenuAPI_Models;
 
 namespace Bussiness_API_Contract
 {
-	public interface IMenuItemComponent
+	public interface IMenuComponent
 	{
         Task<IEnumerable<MenuItem>> GetAllMenuItemsAsync();
 

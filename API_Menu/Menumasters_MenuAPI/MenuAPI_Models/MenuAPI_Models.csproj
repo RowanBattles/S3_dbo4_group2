@@ -8,12 +8,12 @@
 
   <ItemGroup>
     <None Remove="models\" />
-    <None Remove="enums\" />
     <None Remove="DTO%27s\" />
+    <None Remove="enums\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="models\" />
-    <Folder Include="enums\" />
     <Folder Include="DTO%27s\" />
+    <Folder Include="enums\" />
   </ItemGroup>
 </Project>

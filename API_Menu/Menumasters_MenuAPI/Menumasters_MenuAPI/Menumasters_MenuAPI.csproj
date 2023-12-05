@@ -23,7 +23,13 @@
     <ProjectReference Include="..\MenuAPI_Models\MenuAPI_Models.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
-    <ProjectReference Include="..\Bussiness_API_Factory\Bussiness_API_Factory.csproj">
+    <ProjectReference Include="..\Bussines_MenuAPI\Bussines_MenuAPI.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+    <ProjectReference Include="..\DateLayer_Bussiness_Contract\DateLayer_Bussiness_Contract.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+    <ProjectReference Include="..\DataLayer_MenuAPI\DataLayer_MenuAPI.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
   </ItemGroup>
