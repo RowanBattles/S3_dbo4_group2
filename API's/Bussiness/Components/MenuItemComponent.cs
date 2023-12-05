@@ -23,12 +23,12 @@ namespace Bussiness.Components
             return await _menuItemRepo.GetMenuItemByIdAsync(id);
         }
 
-        public async Task<bool> CreateMenuItemAsync(MenuItem menuItem)
+        public async Task<MenuItem?> CreateMenuItemAsync(MenuItem menuItem)
         {
             return await _menuItemRepo.CreateMenuItemAsync(menuItem);
         }
 
-        public async Task<bool> UpdateMenuItemAsync(MenuItem menuItem)
+        public async Task<MenuItem?> UpdateMenuItemAsync(MenuItem menuItem)
         {
             return await _menuItemRepo.UpdateMenuItemAsync(menuItem);
         }

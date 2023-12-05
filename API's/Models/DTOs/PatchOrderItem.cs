@@ -1,10 +1,9 @@
 ﻿using System;
-
 namespace Models.DTOs
 {
-	public class PostOrderItem
+	public class PatchOrderItem
 	{
-        public int MenuItemId { get; set; }
+        public int OrderItemId { get; set; }
 
         public string? Notes { get; set; }
 

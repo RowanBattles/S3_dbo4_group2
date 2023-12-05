@@ -65,56 +65,90 @@ namespace Bussiness.Components
             return barOrders;
         }
 
-        public async Task<IEnumerable<SalesOrder>> GetAllSalesOrdersAsync()
-        {
-            IEnumerable<Order> orders = await _orderRepo.GetAllOrdersAsync();
-            List<SalesOrder> salesOrders = new List<SalesOrder>();
-
-            foreach (Order order in orders)
-            {
-                Tab? tab = await _tabRepo.GetTabByIdAsync(order.TabId);
-
-                if (tab != null && !tab.Paid && order.OrderItems.Count > 0)
-                {
-                    SalesOrder salesOrder = new SalesOrder(order);
-                    salesOrder.TableNumber = tab != null ? tab.TableNumber : -1;
-                    salesOrder.TabTotal = tab != null ? tab.TabTotal : null;
-
-                    salesOrders.Add(salesOrder);
-                }
-            }
-
-            return salesOrders;
-        }
-
         public async Task<Order?> GetOrderByIdAsync(int id)
         {
             return await _orderRepo.GetOrderByIdAsync(id);
         }
 
-        public async Task<bool> CreateOrderAsync(Order order)
+        public async Task<Order?> CreateOrderAsync(PostOrder postOrder)
         {
+            // First lets try to get an open tab with the given tablenumber
+            Tab? tab = await _tabRepo.GetOpenTabWithTableNumberAsync(postOrder.TableNumber);
+
+            // If it doesnt exist, make a new one
+            if(tab == null)
+            {
+                tab = await _tabRepo.CreateTabAsync(new Tab() { TableNumber = postOrder.TableNumber });
+                // If something went wrong with creating, well return null
+                if (tab == null) { return null; }
+            }
+
+            Order order = new Order()
+            {
+                TabId = tab.TabId,
+                Status = OrderStatus.Pending,
+                DateTime = DateTime.Now,
+                OrderItems = new List<OrderItem>()
+            };
+
+            foreach (PostOrderItem postOrderItem in postOrder.orderItems)
+            {
+                OrderItem orderItem = new OrderItem()
+                {
+                    MenuItemId = postOrderItem.MenuItemId,
+                    Notes = postOrderItem.Notes,
+                    Quantity = postOrderItem.Quantity
+                };
+                order.OrderItems.Add(orderItem);
+            }
+
             return await _orderRepo.CreateOrderAsync(order);
         }
 
-        public async Task<bool> AddItemToOrderAsync(OrderItem orderItem)
+        public async Task<OrderItem?> AddItemToOrderAsync(OrderItem orderItem)
         {
             return await _orderRepo.AddItemToOrderAsync(orderItem);
         }
 
-        public async Task<bool> UpdateOrderAsync(Order order)
+        public async Task<Order?> UpdateOrderAsync(Order order)
         {
             return await _orderRepo.UpdateOrderAsync(order);
         }
 
-        public async Task<bool> RemoveItemFromOrderAsync(int id)
+        public async Task<OrderItem?> UpdateItemFromOrderAsync(PatchOrderItem orderItem)
         {
-            return await _orderRepo.RemoveItemFromOrderAsync(id);
+            return await _orderRepo.UpdateItemFromOrderAsync(orderItem.OrderItemId, orderItem.Notes, orderItem.Quantity);
+        }
+
+        public async Task<OrderStatus?> UpdateOrderStateAsync(int id)
+        {
+            Order? order = await this.GetOrderByIdAsync(id);
+
+            if (order == null) return null;
+
+            // If its completed, cycle back to pending for the next state
+            if(order.Status == OrderStatus.Completed)
+            {
+                order.Status = OrderStatus.Pending;
+            } else
+            {
+                // Otherwise go to the next state
+                order.Status = (OrderStatus)((int)order.Status + 1);
+            }
+
+            order = await this.UpdateOrderAsync(order);
+
+            return order != null ? order.Status : null;
         }
 
         public async Task<bool> DeleteOrderAsync(int id)
         {
             return await _orderRepo.DeleteOrderAsync(id);
+        }
+
+        public async Task<bool> RemoveItemFromOrderAsync(int id)
+        {
+            return await _orderRepo.RemoveItemFromOrderAsync(id);
         }
     }
 }

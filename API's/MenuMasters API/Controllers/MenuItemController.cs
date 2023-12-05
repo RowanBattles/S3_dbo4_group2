@@ -32,15 +32,15 @@ public class MenuItemController : ControllerBase
     [HttpPost(Name = "PostMenuItem")]
     public async Task<IActionResult> Post(MenuItem menuItem)
     {
-        bool success = await _menuItemComponent.CreateMenuItemAsync(menuItem);
-        return success ? Ok() : BadRequest();
+        MenuItem? result = await _menuItemComponent.CreateMenuItemAsync(menuItem);
+        return result != null ? Ok(result) : BadRequest(result);
     }
 
     [HttpPatch(Name = "PatchMenuItem")]
     public async Task<IActionResult> Patch(MenuItem menuItem)
     {
-        bool success = await _menuItemComponent.UpdateMenuItemAsync(menuItem);
-        return success ? Ok() : BadRequest();
+        MenuItem? result = await _menuItemComponent.UpdateMenuItemAsync(menuItem);
+        return result != null ? Ok(result) : BadRequest(result);
     }
 
     [HttpDelete(Name = "DeleteMenuItem")]

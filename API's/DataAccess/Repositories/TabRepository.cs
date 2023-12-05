@@ -14,47 +14,52 @@ namespace DataAccess.Repositories
 			this.dbContext = _dbContext;
 		}
 
-		public async Task<IEnumerable<Tab>> GetAllTabsAsync()
+        public async Task<IEnumerable<Tab>> GetAllTabsAsync()
 		{
-			return await dbContext.Tabs.ToListAsync();
+			return await dbContext.Tabs.Include(x => x.Orders).ThenInclude(x => x.OrderItems).ThenInclude(x => x.MenuItem).ToListAsync();
 		}
 
         public async Task<Tab?> GetTabByIdAsync(int id)
         {
-            return await dbContext.Tabs.FindAsync(id);
+            return await dbContext.Tabs.Include(x => x.Orders).ThenInclude(x => x.OrderItems).ThenInclude(x => x.MenuItem).FirstOrDefaultAsync(x => x.TabId == id);
         }
 
-        public async Task<bool> CreateTabAsync(Tab tab)
+        public async Task<Tab?> GetOpenTabWithTableNumberAsync(int tableNumber)
+        {
+            return await dbContext.Tabs.Include(x => x.Orders).ThenInclude(x => x.OrderItems).ThenInclude(x => x.MenuItem).FirstOrDefaultAsync(x => x.TableNumber == tableNumber && !x.Paid);
+        }
+
+        public async Task<Tab?> CreateTabAsync(Tab tab)
         {
             try
             {
                 await dbContext.Tabs.AddAsync(tab);
                 await dbContext.SaveChangesAsync();
 
-                return true;
+                return tab;
             }
             catch
             {
-                return false;
+                return null;
             }
         }
 
-        public async Task<bool> UpdateTabAsync(Tab tab)
+        public async Task<Tab?> UpdateTabAsync(Tab tab)
         {
             try
             {
                 Tab? original = await GetTabByIdAsync(tab.TabId);
 
-                if (original == null) return false;
+                if (original == null) return null;
 
                 dbContext.Entry(original).CurrentValues.SetValues(tab);
                 await dbContext.SaveChangesAsync();
 
-                return true;
+                return tab;
             }
             catch
             {
-                return false;
+                return null;
             }
         }
 

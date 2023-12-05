@@ -9,9 +9,11 @@ namespace Contract_Data_Bussiness.Interfaces
 
         Task<Tab?> GetTabByIdAsync(int id);
 
-        Task<bool> CreateTabAsync(Tab tab);
+        Task<Tab?> GetOpenTabWithTableNumberAsync(int tableNumber);
 
-        Task<bool> UpdateTabAsync(Tab tab);
+        Task<Tab?> CreateTabAsync(Tab tab);
+
+        Task<Tab?> UpdateTabAsync(Tab tab);
 
         Task<bool> DeleteTabAsync(int id);
     }

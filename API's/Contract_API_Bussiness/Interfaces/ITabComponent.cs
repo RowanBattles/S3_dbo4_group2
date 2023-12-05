@@ -1,5 +1,6 @@
 ﻿using System;
 using Models;
+using Models.DTOs;
 
 namespace Contract_API_Bussiness.Interfaces
 {
@@ -7,11 +8,17 @@ namespace Contract_API_Bussiness.Interfaces
 	{
         Task<IEnumerable<Tab>> GetAllTabsAsync();
 
+        Task<IEnumerable<SalesTab>> GetAllSalesTabsAsync();
+
         Task<Tab?> GetTabByIdAsync(int id);
 
-        Task<bool> CreateTabAsync(Tab tab);
+        Task<SalesTab?> GetSalesTabByIdAsync(int id);
 
-        Task<bool> UpdateTabAsync(Tab tab);
+        Task<Tab?> CreateTabAsync(Tab tab);
+
+        Task<Tab?> UpdateTabAsync(Tab tab);
+
+        Task<SalesTab?> PayTab(PayTab payTab);
 
         Task<bool> DeleteTabAsync(int id);
     }

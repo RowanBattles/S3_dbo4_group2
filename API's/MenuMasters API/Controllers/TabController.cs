@@ -1,6 +1,7 @@
 ﻿using Contract_API_Bussiness.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Models;
+using Models.DTOs;
 
 namespace MenuMasters_API.Controllers;
 
@@ -23,24 +24,43 @@ public class TabController : ControllerBase
         return await _tabComponent.GetAllTabsAsync();
     }
 
+    [HttpGet("Sales", Name = "GetAllSalesTabs")]
+    public async Task<IEnumerable<SalesTab>> GetSales()
+    {
+        return await _tabComponent.GetAllSalesTabsAsync();
+    }
+
     [HttpGet("{id}", Name = "GetTabById")]
     public async Task<Tab?> Get(int id)
     {
         return await _tabComponent.GetTabByIdAsync(id);
     }
 
+    [HttpGet("Sales/{id}", Name = "GetSalesTabById")]
+    public async Task<SalesTab?> GetSales(int id)
+    {
+        return await _tabComponent.GetSalesTabByIdAsync(id);
+    }
+
     [HttpPost(Name = "PostTab")]
     public async Task<IActionResult> Post(Tab tab)
     {
-        bool success = await _tabComponent.CreateTabAsync(tab);
-        return success ? Ok() : BadRequest();
+        Tab? result = await _tabComponent.CreateTabAsync(tab);
+        return result != null ? Ok(result) : BadRequest(result);
     }
 
     [HttpPatch(Name = "PatchTab")]
     public async Task<IActionResult> Patch(Tab tab)
     {
-        bool success = await _tabComponent.UpdateTabAsync(tab);
-        return success ? Ok() : BadRequest();
+        Tab? result = await _tabComponent.UpdateTabAsync(tab);
+        return result != null ? Ok(result) : BadRequest(result);
+    }
+
+    [HttpPatch("Pay", Name = "PatchTabPaidCash")]
+    public async Task<IActionResult> PatchPay(PayTab payTab)
+    {
+        SalesTab? result = await _tabComponent.PayTab(payTab);
+        return result != null ? Ok(result) : BadRequest(result);
     }
 
     [HttpDelete(Name = "DeleteTab")]

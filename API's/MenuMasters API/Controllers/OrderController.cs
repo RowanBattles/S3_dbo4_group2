@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using Models.DTOs;
+using Models.Enums;
 
 namespace MenuMasters_API.Controllers;
 
@@ -36,12 +37,6 @@ public class OrderController : ControllerBase
         return await _orderComponent.GetAllBarOrdersAsync();
     }
 
-    [HttpGet("Sales", Name = "GetAllSalesOrders")]
-    public async Task<IEnumerable<SalesOrder>> GetSales()
-    {
-        return await _orderComponent.GetAllSalesOrdersAsync();
-    }
-
     [HttpGet("{id}", Name = "GetOrderById")]
     public async Task<Order?> Get(int id)
     {
@@ -51,42 +46,42 @@ public class OrderController : ControllerBase
     [HttpPost(Name = "PostOrder")]
     public async Task<IActionResult> Post(PostOrder postOrder)
     {
-
-        Order order = new Order()
-        {
-            TabId = postOrder.TabId,
-            Status = Models.Enums.OrderStatus.Pending,
-            DateTime = DateTime.Now,
-            OrderItems = new List<OrderItem>()
-        };
-
-        foreach (PostOrderItem postOrderItem in postOrder.orderItems)
-        {
-            OrderItem orderItem = new OrderItem()
-            {
-                MenuItemId = postOrderItem.MenuItemId,
-                Notes = postOrderItem.Notes,
-                Quantity = postOrderItem.Quantity
-            };
-            order.OrderItems.Add(orderItem);
-        }
-
-        bool success = await _orderComponent.CreateOrderAsync(order);
-
-        return success ? Ok() : BadRequest();
+        Order? result = await _orderComponent.CreateOrderAsync(postOrder);
+        return result != null ? Ok(result) : BadRequest(result);
     }
 
     [HttpPost("Item", Name = "PostOrderItem")]
     public async Task<IActionResult> PostOrderItem(OrderItem orderItem)
     {
-        bool success = await _orderComponent.AddItemToOrderAsync(orderItem);
-        return success ? Ok() : BadRequest();
+        OrderItem? result = await _orderComponent.AddItemToOrderAsync(orderItem);
+        return result != null ? Ok(result) : BadRequest(result);
     }
 
     [HttpPatch(Name = "PatchOrder")]
     public async Task<IActionResult> Patch(Order order)
     {
-        bool success = await _orderComponent.UpdateOrderAsync(order);
+        Order? result = await _orderComponent.UpdateOrderAsync(order);
+        return result != null ? Ok(result) : BadRequest(result);
+    }
+
+    [HttpPatch("Item", Name = "PatchOrderItem")]
+    public async Task<IActionResult> PatchOrderItem(PatchOrderItem orderItem)
+    {
+        OrderItem? result = await _orderComponent.UpdateItemFromOrderAsync(orderItem);
+        return result != null ? Ok(result) : BadRequest(result);
+    }
+
+    [HttpPatch("Status", Name = "PatchOrderStatus")]
+    public async Task<IActionResult> PatchOrderState(int id)
+    {
+        OrderStatus? result = await _orderComponent.UpdateOrderStateAsync(id);
+        return result != null ? Ok(result.ToString()) : BadRequest(result);
+    }
+
+    [HttpDelete(Name = "DeleteOrder")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        bool success = await _orderComponent.DeleteOrderAsync(id);
         return success ? Ok() : BadRequest();
     }
 
@@ -94,13 +89,6 @@ public class OrderController : ControllerBase
     public async Task<IActionResult> DeleteOrderItem(int id)
     {
         bool success = await _orderComponent.RemoveItemFromOrderAsync(id);
-        return success ? Ok() : BadRequest();
-    }
-
-    [HttpDelete(Name = "DeleteOrder")]
-    public async Task<IActionResult> Delete(int id)
-    {
-        bool success = await _orderComponent.DeleteOrderAsync(id);
         return success ? Ok() : BadRequest();
     }
 }
