@@ -1,6 +1,5 @@
 ﻿using System;
 using Bussiness_API_Contract;
-using DataLayer_Factory;
 using DateLayer_Bussiness_Contract;
 using MenuAPI_Models;
 
@@ -8,11 +7,11 @@ namespace Bussines_MenuAPI
 {
 	public class OrderComponent : IOrderComponent
     {
-        private readonly IOrdersDAL _repo;
+        private readonly IOrderDAL _repo;
 
-        public OrderComponent()
+        public OrderComponent(IOrderDAL repo)
         {
-            _repo = DateLayerFactory.GetOrdersDAL();
+            _repo = repo;
         }
 
         public async Task<Order?> GetOrderByIdAsync(int id)

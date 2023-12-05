@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataLayer_MenuAPI.Repos
 {
-	public class OrderRepository : IOrdersDAL
+	public class OrderDAL : IOrderDAL
 	{
-        private readonly MenuAPIDBContext dbContext;
+        private readonly MenuAPIDbContext dbContext;
 
-        public OrderRepository(MenuAPIDBContext _dbContext)
+        public OrderDAL(MenuAPIDbContext _dbContext)
         {
             this.dbContext = _dbContext;
         }

@@ -3,7 +3,7 @@ using MenuAPI_Models;
 
 namespace DateLayer_Bussiness_Contract
 {
-	public interface IOrdersDAL
+	public interface IOrderDAL
 	{
 
         Task<Order?> GetOrderByIdAsync(int id);

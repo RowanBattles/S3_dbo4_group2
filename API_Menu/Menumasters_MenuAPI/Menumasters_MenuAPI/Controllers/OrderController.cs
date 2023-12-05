@@ -1,23 +1,21 @@
 ﻿using System;
 using Bussiness_API_Contract;
-using Bussiness_API_Factory;
 using MenuAPI_Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Data.SqlClient;
 
 namespace Menumasters_MenuAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class OrderController : Controller
+    public class OrderController : ControllerBase
 	{
         private readonly ILogger<OrderController> _logger;
         private readonly IOrderComponent _orderComponent;
 
-        public OrderController(ILogger<OrderController> logger)
+        public OrderController(ILogger<OrderController> logger, IOrderComponent orderComponent)
         {
             _logger = logger;
-            _orderComponent = BussinessFactory.GetOrderComponent();
+            _orderComponent = orderComponent;
         }
 
         [HttpGet("{id}", Name = "GetOrderById")]

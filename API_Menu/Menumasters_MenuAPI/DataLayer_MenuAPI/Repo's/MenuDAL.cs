@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataLayer_MenuAPI.Repos
 {
-	public class MenuItemRepository : IMenuItemDAL
+	public class MenuDAL : IMenuDAL
 	{
-        private readonly MenuAPIDBContext dbContext;
+        private readonly MenuAPIDbContext dbContext;
 
-        public MenuItemRepository(MenuAPIDBContext _dbContext)
+        public MenuDAL(MenuAPIDbContext _dbContext)
         {
             this.dbContext = _dbContext;
         }

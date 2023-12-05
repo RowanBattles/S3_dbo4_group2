@@ -3,7 +3,7 @@ using MenuAPI_Models;
 
 namespace DateLayer_Bussiness_Contract
 {
-	public interface IMenuItemDAL
+	public interface IMenuDAL
 	{
         Task<IEnumerable<MenuItem>> GetAllMenuItemsAsync();
 

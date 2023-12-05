@@ -62,67 +62,6 @@
         }
       }
     },
-    "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussiness_API_Factory/Bussiness_API_Factory.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussiness_API_Factory/Bussiness_API_Factory.csproj",
-        "projectName": "Bussiness_API_Factory",
-        "projectPath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussiness_API_Factory/Bussiness_API_Factory.csproj",
-        "packagesPath": "/Users/nielsvanschaijk/.nuget/packages/",
-        "outputPath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussiness_API_Factory/obj/",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "/Users/nielsvanschaijk/.nuget/NuGet/NuGet.Config"
-        ],
-        "originalTargetFrameworks": [
-          "net6.0"
-        ],
-        "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {
-              "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussiness_API_Contract/Bussiness_API_Contract.csproj": {
-                "projectPath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussiness_API_Contract/Bussiness_API_Contract.csproj"
-              },
-              "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussines_MenuAPI/Bussines_MenuAPI.csproj": {
-                "projectPath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussines_MenuAPI/Bussines_MenuAPI.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.311/RuntimeIdentifierGraph.json"
-        }
-      }
-    },
     "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussines_MenuAPI/Bussines_MenuAPI.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -149,75 +88,8 @@
               "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussiness_API_Contract/Bussiness_API_Contract.csproj": {
                 "projectPath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussiness_API_Contract/Bussiness_API_Contract.csproj"
               },
-              "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DataLayer_Factory/DataLayer_Factory.csproj": {
-                "projectPath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DataLayer_Factory/DataLayer_Factory.csproj"
-              },
               "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/DateLayer_Bussiness_Contract.csproj": {
                 "projectPath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/DateLayer_Bussiness_Contract.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.311/RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DataLayer_Factory/DataLayer_Factory.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DataLayer_Factory/DataLayer_Factory.csproj",
-        "projectName": "DataLayer_Factory",
-        "projectPath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DataLayer_Factory/DataLayer_Factory.csproj",
-        "packagesPath": "/Users/nielsvanschaijk/.nuget/packages/",
-        "outputPath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DataLayer_Factory/obj/",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "/Users/nielsvanschaijk/.nuget/NuGet/NuGet.Config"
-        ],
-        "originalTargetFrameworks": [
-          "net6.0"
-        ],
-        "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {
-              "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DataLayer_MenuAPI/DataLayer_MenuAPI.csproj": {
-                "projectPath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DataLayer_MenuAPI/DataLayer_MenuAPI.csproj"
-              },
-              "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/DateLayer_Bussiness_Contract.csproj": {
-                "projectPath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/DateLayer_Bussiness_Contract.csproj"
-              },
-              "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/MenuAPI_Models.csproj": {
-                "projectPath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/MenuAPI_Models.csproj"
               }
             }
           }
@@ -467,8 +339,14 @@
               "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussiness_API_Contract/Bussiness_API_Contract.csproj": {
                 "projectPath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussiness_API_Contract/Bussiness_API_Contract.csproj"
               },
-              "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussiness_API_Factory/Bussiness_API_Factory.csproj": {
-                "projectPath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussiness_API_Factory/Bussiness_API_Factory.csproj"
+              "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussines_MenuAPI/Bussines_MenuAPI.csproj": {
+                "projectPath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussines_MenuAPI/Bussines_MenuAPI.csproj"
+              },
+              "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DataLayer_MenuAPI/DataLayer_MenuAPI.csproj": {
+                "projectPath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DataLayer_MenuAPI/DataLayer_MenuAPI.csproj"
+              },
+              "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/DateLayer_Bussiness_Contract.csproj": {
+                "projectPath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/DateLayer_Bussiness_Contract.csproj"
               },
               "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/MenuAPI_Models.csproj": {
                 "projectPath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/MenuAPI_Models.csproj"

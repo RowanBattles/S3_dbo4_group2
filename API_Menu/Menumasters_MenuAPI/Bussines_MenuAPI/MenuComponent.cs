@@ -1,19 +1,17 @@
 ﻿using System;
 using Bussiness_API_Contract;
-using DataLayer_Factory;
-using DataLayer_MenuAPI.Repos;
 using DateLayer_Bussiness_Contract;
 using MenuAPI_Models;
 
 namespace Bussines_MenuAPI
 {
-	public class MenuItemComponent : IMenuItemComponent
+	public class MenuComponent : IMenuComponent
     {
-        private readonly IMenuItemDAL _repo;
+        private readonly IMenuDAL _repo;
 
-        public MenuItemComponent()
+        public MenuComponent(IMenuDAL repo)
         {
-            _repo = DateLayerFactory.GetMenuItemDAL();
+            _repo = repo;
         }
         public async Task<IEnumerable<MenuItem>> GetAllMenuItemsAsync()
         {
@@ -24,7 +22,6 @@ namespace Bussines_MenuAPI
         {
             return await _repo.GetMenuItemByIdAsync(id);
         }
-
     }
 }
 
