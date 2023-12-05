@@ -35,7 +35,7 @@ namespace DataAccess.Repositories
 
         public async Task<Order?> GetOrderByIdAsync(int id)
         {
-            return await dbContext.Orders.FindAsync(id);
+            return await dbContext.Orders.Include(e => e.OrderItems).ThenInclude(e => e.MenuItem).FirstOrDefaultAsync(x => x.OrderId == id);
         }
 
         public async Task<Order?> CreateOrderAsync(Order order)
