@@ -35,48 +35,87 @@ namespace DataAccess.Repositories
 
         public async Task<Order?> GetOrderByIdAsync(int id)
         {
-            return await dbContext.Orders.FindAsync(id);
+            return await dbContext.Orders.Include(e => e.OrderItems).ThenInclude(e => e.MenuItem).FirstOrDefaultAsync(x => x.OrderId == id);
         }
 
-        public async Task<bool> CreateOrderAsync(Order order)
+        public async Task<Order?> CreateOrderAsync(Order order)
         {
             try
             {
                 await dbContext.Orders.AddAsync(order);
                 await dbContext.SaveChangesAsync();
 
-                return true;
+                return order;
             }
             catch
             {
-                return false;
+                return null;
             }
         }
 
-        public async Task<bool> AddItemToOrderAsync(OrderItem orderItem)
+        public async Task<OrderItem?> AddItemToOrderAsync(OrderItem orderItem)
         {
             try
             {
                 await dbContext.OrderItems.AddAsync(orderItem);
                 await dbContext.SaveChangesAsync();
 
-                return true;
+                return orderItem;
             }
             catch
             {
-                return false;
+                return null;
             }
         }
 
-        public async Task<bool> UpdateOrderAsync(Order order)
+        public async Task<Order?> UpdateOrderAsync(Order order)
         {
             try
             {
                 Order? original = await GetOrderByIdAsync(order.OrderId);
 
-                if (original == null) return false;
+                if (original == null) return null;
 
                 dbContext.Entry(original).CurrentValues.SetValues(order);
+                await dbContext.SaveChangesAsync();
+
+                return order;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<OrderItem?> UpdateItemFromOrderAsync(int orderItemId, string? notes, int quantity)
+        {
+            try
+            {
+                OrderItem? original = await dbContext.OrderItems.FindAsync(orderItemId);
+
+                if (original == null) return null;
+
+                original.Notes = notes;
+                original.Quantity = quantity;
+                await dbContext.SaveChangesAsync();
+
+                return original;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<bool> DeleteOrderAsync(int id)
+        {
+            try
+            {
+                Order? original = await GetOrderByIdAsync(id);
+
+                if (original == null) return false;
+
+                dbContext.Orders.Remove(original);
                 await dbContext.SaveChangesAsync();
 
                 return true;
@@ -96,25 +135,6 @@ namespace DataAccess.Repositories
                 if (original == null) return false;
 
                 dbContext.OrderItems.Remove(original);
-                await dbContext.SaveChangesAsync();
-
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        public async Task<bool> DeleteOrderAsync(int id)
-        {
-            try
-            {
-                Order? original = await GetOrderByIdAsync(id);
-
-                if (original == null) return false;
-
-                dbContext.Orders.Remove(original);
                 await dbContext.SaveChangesAsync();
 
                 return true;

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { OrderSales } from "../../../types/types";
+import { TabEntity } from "../../../types/types";
 import Select from "react-select";
 
 const options = [
@@ -32,7 +32,7 @@ const options = [
 ];
 
 interface PayModalProps {
-  tab: OrderSales;
+  tab: TabEntity;
   onClose: () => void;
 }
 
@@ -68,15 +68,12 @@ const PayModal: React.FC<PayModalProps> = ({ tab, onClose }) => {
   return (
     <>
       <div
-        className={`absolute left-1/4 top-[10%] w-1/2 z-50 bg-yellow-500 rounded-3xl p-5 ${
+        className={`absolute left-1/4 top-[10%] w-1/2 z-50 yellow rounded-3xl p-5 ${
           visible ? "animate-swoop-in" : "animate-swoop-out"
         }`}
       >
-        <div
-          className="flex justify-end text-white text-3xl font-bold cursor-pointer mb-5"
-          onClick={handleCloseClick}
-        >
-          x
+        <div className="flex justify-end text-white text-3xl font-bold mb-5">
+          <button onClick={handleCloseClick}>x</button>
         </div>
         <div className="flex justify-between items-center font-bold text-3xl mb-1">
           <div>Amount to pay</div>
@@ -92,7 +89,7 @@ const PayModal: React.FC<PayModalProps> = ({ tab, onClose }) => {
           isSearchable={false}
         />
         <div className="grid grid-cols-2 gap-2 text-xl">
-          <div className="">
+          <div>
             <p>Tendered</p>
             <input
               type="number"
@@ -113,7 +110,7 @@ const PayModal: React.FC<PayModalProps> = ({ tab, onClose }) => {
           </div>
         </div>
         <div className="flex py-4 font-bold text-6xl">
-          <div className="grid grid-cols-3 gap-2 bg-gray-700 p-2 w-2/3">
+          <div className="grid grid-cols-3 gap-2 bg-gray-700 p-2 w-2/3 rounded-l-lg">
             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((digit) => (
               <button
                 key={digit}
@@ -131,7 +128,7 @@ const PayModal: React.FC<PayModalProps> = ({ tab, onClose }) => {
             </button>
           </div>
           <div className="w-1/3">
-            <div className="h-full bg-gray-700 p-2">
+            <div className="h-full bg-gray-700 p-2 rounded-r-lg">
               <div className="h-1/2 pb-1">
                 <button
                   className="bg-white rounded-md flex items-center justify-center h-full w-full p-2"
@@ -145,7 +142,7 @@ const PayModal: React.FC<PayModalProps> = ({ tab, onClose }) => {
                 </button>
               </div>
               <div className="h-1/2 pt-1">
-                <button className="bg-lime-400 rounded-md flex items-center justify-center h-full w-full">
+                <button className="green rounded-md flex items-center justify-center h-full w-full">
                   PAY
                 </button>
               </div>

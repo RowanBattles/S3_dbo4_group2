@@ -167,8 +167,6 @@ namespace DataAccess
                 entity.Property(e => e.Notes)
                     .IsRequired()
                     .HasColumnName("notes");
-
-                
             });
 
             modelBuilder.Entity<Role>(entity =>
@@ -202,6 +200,19 @@ namespace DataAccess
 
                 entity.Property(e => e.TabTotal)
                     .HasColumnName("tab_total");
+
+                entity.Property(e => e.PaidCash)
+                    .HasColumnName("paid_cash");
+
+                entity.Property(e => e.PaidPIN)
+                    .HasColumnName("paid_pin");
+
+                entity.Property(e => e.Paid)
+                    .HasColumnName("paid");
+
+                entity.HasMany(e => e.Orders)
+                    .WithOne()
+                    .HasForeignKey(e => e.TabId);
             });
         }
     }

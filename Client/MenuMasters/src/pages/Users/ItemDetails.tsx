@@ -26,6 +26,7 @@ const ItemDetails = () => {
 
         if (isNaN(itemId)) {
           setError("Invalid item ID");
+          console.log(error);
           setLoading(false);
           return;
         }
@@ -34,6 +35,7 @@ const ItemDetails = () => {
         setItem(data);
         setLoading(false);
       } catch (e) {
+        showErrorToast("error");
         if (e instanceof Error) {
           setError(e.message);
         } else {

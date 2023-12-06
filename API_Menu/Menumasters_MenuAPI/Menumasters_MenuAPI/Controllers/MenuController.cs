@@ -1,6 +1,5 @@
 ﻿using System;
 using Bussiness_API_Contract;
-using Bussiness_API_Factory;
 using MenuAPI_Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,12 +10,12 @@ namespace Menumasters_MenuAPI.Controllers
     public class MenuController : ControllerBase
 	{
         private readonly ILogger<MenuController> _logger;
-        private readonly IMenuItemComponent _menuItemComponent;
+        private readonly IMenuComponent _menuItemComponent;
 
-        public MenuController(ILogger<MenuController> logger)
+        public MenuController(ILogger<MenuController> logger, IMenuComponent menuItemComponent)
         {
             _logger = logger;
-            _menuItemComponent = BussinessFactory.GetMenuItemComponent();
+            _menuItemComponent = menuItemComponent;
         }
 
         [HttpGet(Name = "GetAllMenuItems")]

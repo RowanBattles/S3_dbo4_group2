@@ -1,12 +1,20 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Plus_Min_Button from "../Plus_Min_Button";
 
-// ... (import statements)
+interface TransactionProps {
+  item: any;
+  onQuantityChange: any;
+  onRemove: any;
+}
 
-const Transaction = ({ item, onQuantityChange, onRemove }) => {
+const Transaction: React.FC<TransactionProps> = ({
+  item,
+  onQuantityChange,
+  onRemove,
+}) => {
   const [quantity, setQuantity] = useState(item.quantity);
 
-  const handleQuantityChange = (newQuantity) => {
+  const handleQuantityChange = (newQuantity: any) => {
     setQuantity(newQuantity);
     onQuantityChange(newQuantity);
   };

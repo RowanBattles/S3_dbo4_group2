@@ -9,9 +9,9 @@ namespace Contract_Data_Bussiness.Interfaces
 
         Task<MenuItem?> GetMenuItemByIdAsync(int id);
 
-        Task<bool> CreateMenuItemAsync(MenuItem menuItem);
+        Task<MenuItem?> CreateMenuItemAsync(MenuItem menuItem);
 
-        Task<bool> UpdateMenuItemAsync(MenuItem menuItem);
+        Task<MenuItem?> UpdateMenuItemAsync(MenuItem menuItem);
 
         Task<bool> DeleteMenuItemAsync(int id);
     }

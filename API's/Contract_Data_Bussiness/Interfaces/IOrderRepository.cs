@@ -12,15 +12,17 @@ namespace Contract_Data_Bussiness.Interfaces
 
         Task<Order?> GetOrderByIdAsync(int id);
 
-        Task<bool> CreateOrderAsync(Order order);
+        Task<Order?> CreateOrderAsync(Order order);
 
-        Task<bool> AddItemToOrderAsync(OrderItem orderItem);
+        Task<OrderItem?> AddItemToOrderAsync(OrderItem orderItem);
 
-        Task<bool> UpdateOrderAsync(Order order);
+        Task<Order?> UpdateOrderAsync(Order order);
 
-        Task<bool> RemoveItemFromOrderAsync(int id);
+        Task<OrderItem?> UpdateItemFromOrderAsync(int orderItemId, string? notes, int quantity);
 
         Task<bool> DeleteOrderAsync(int id);
+
+        Task<bool> RemoveItemFromOrderAsync(int id);
     }
 }
 

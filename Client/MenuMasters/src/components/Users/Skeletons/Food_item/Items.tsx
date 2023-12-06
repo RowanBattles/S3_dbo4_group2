@@ -5,13 +5,9 @@ import { getItems, getCategoryById } from "../../../../utils/api";
 import { MenuItem } from "../../../../types/types";
 import Item_Skeleton from "./Item_Skeleton";
 
-interface CategoryData {
-  [key: string]: string;
-}
-
 const Items = () => {
   const [items, setItems] = useState<MenuItem[]>([]);
-  const [categories, setCategories] = useState<CategoryData[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
   const [menuTab, setMenuTab] = useState<string>("Appetizers");
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -22,7 +18,7 @@ const Items = () => {
         setItems(itemsData as MenuItem[]);
 
         // Fetch categories for each item
-        const categoryPromises = itemsData.map(async (item) => {
+        const categoryPromises = itemsData.map(async (item: MenuItem) => {
           const categoryData = await getCategoryById(item.categoryId);
           setCategories((prevCategories) => ({
             ...prevCategories,

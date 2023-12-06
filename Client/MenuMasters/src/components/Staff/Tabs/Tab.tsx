@@ -1,11 +1,18 @@
-import { OrderSales } from "../../../types/types";
+import { TabEntity } from "../../../types/types";
 
 interface TabProps {
-  tab: OrderSales;
-  openModal: (tab: OrderSales) => void;
+  tab: TabEntity;
+  openPayModal: () => void;
+  openDeleteModal: () => void;
+  openAddModal: () => void;
 }
 
-const Tab: React.FC<TabProps> = ({ tab, openModal }) => {
+const Tab: React.FC<TabProps> = ({
+  tab,
+  openPayModal,
+  openDeleteModal,
+  openAddModal,
+}) => {
   return (
     <div className="select-none relative flex flex-col h-full">
       <div className="red rounded-t-3xl p-4 border-x border-t border-slate-300">
@@ -28,7 +35,7 @@ const Tab: React.FC<TabProps> = ({ tab, openModal }) => {
       <div className="white p-5 border-x border-slate-300 h-full">
         <ul>
           {tab.orderItems.map((item) => (
-            <li>
+            <li key={item.menuItemId}>
               <div className="flex justify-between items-center mb-2">
                 <p>
                   {item.quantity} x {item.itemName}
@@ -52,14 +59,23 @@ const Tab: React.FC<TabProps> = ({ tab, openModal }) => {
           </li>
         </ul>
       </div>
-      <div className="white rounded-b-3xl p-5 flex justify-end text-white gap-4 border-x border-b border-slate-300">
-        <button className="red px-5 py-1 rounded-full">Edit</button>
-        <button
-          className="red px-5 py-1 rounded-full"
-          onClick={() => openModal(tab)}
-        >
-          Pay
-        </button>
+      <div className="white rounded-b-3xl p-5 flex justify-between text-white border-x border-b border-slate-300">
+        <div className="gap-4 flex">
+          <button
+            className="red px-5 py-1 rounded-full"
+            onClick={openDeleteModal}
+          >
+            Delete
+          </button>
+          <button className="red px-5 py-1 rounded-full" onClick={openAddModal}>
+            Add
+          </button>
+        </div>
+        <div>
+          <button className="red px-5 py-1 rounded-full" onClick={openPayModal}>
+            Pay
+          </button>
+        </div>
       </div>
     </div>
   );

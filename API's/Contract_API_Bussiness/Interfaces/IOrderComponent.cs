@@ -1,6 +1,7 @@
 ﻿using System;
 using Models;
 using Models.DTOs;
+using Models.Enums;
 
 namespace Contract_API_Bussiness.Interfaces
 {
@@ -12,19 +13,21 @@ namespace Contract_API_Bussiness.Interfaces
 
         Task<IEnumerable<KitchenOrder>> GetAllBarOrdersAsync();
 
-        Task<IEnumerable<SalesOrder>> GetAllSalesOrdersAsync();
-
         Task<Order?> GetOrderByIdAsync(int id);
 
-        Task<bool> CreateOrderAsync(Order order);
+        Task<Order?> CreateOrderAsync(PostOrder order);
 
-        Task<bool> AddItemToOrderAsync(OrderItem orderItem);
+        Task<OrderItem?> AddItemToOrderAsync(OrderItem orderItem);
 
-        Task<bool> UpdateOrderAsync(Order order);
+        Task<Order?> UpdateOrderAsync(Order order);
 
-        Task<bool> RemoveItemFromOrderAsync(int id);
+        Task<OrderItem?> UpdateItemFromOrderAsync(PatchOrderItem orderItem);
+
+        Task<OrderStatus?> UpdateOrderStateAsync(int id);
 
         Task<bool> DeleteOrderAsync(int id);
+
+        Task<bool> RemoveItemFromOrderAsync(int id);
     }
 }
 
