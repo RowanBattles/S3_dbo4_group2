@@ -1,4 +1,4 @@
-const URL = "https://localhost:7244";
+const URL = "https://localhost:7266";
 
 const ENDPOINTS = {
   GetAllItems: `${URL}/api/menuitem`,

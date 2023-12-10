@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Item from "./Item";
-import { getItems, getCategoryById } from "../../../../utils/api";
+import { getItems, getCategoryById } from "../../../../utils/api.tsx";
 
 import { MenuItem } from "../../../../types/types";
 import Item_Skeleton from "./Item_Skeleton";
