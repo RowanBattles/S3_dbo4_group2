@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { TabEntity } from "../../../types/types";
 import Select from "react-select";
+import { PayTab } from "../../../utils/api";
 
 const options = [
   {
@@ -39,6 +40,9 @@ interface PayModalProps {
 const PayModal: React.FC<PayModalProps> = ({ tab, onClose }) => {
   const [visible, setVisible] = useState(true);
   const [inputValue, setInputValue] = useState("");
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(
+    options.find((option) => option.value === "cash")
+  );
 
   const handleCloseClick = () => {
     setVisible(false);
@@ -65,10 +69,24 @@ const PayModal: React.FC<PayModalProps> = ({ tab, onClose }) => {
     setInputValue("");
   };
 
+  const handlePayClick = async () => {
+    const paidCash =
+      selectedPaymentMethod?.value === "cash" ? parseFloat(inputValue) : 0;
+    const paidPIN =
+      selectedPaymentMethod?.value === "pin" ? parseFloat(inputValue) : 0;
+
+    try {
+      await PayTab(tab.tabId, paidCash, paidPIN);
+      console.log("Payment successful!");
+    } catch (error) {
+      console.error("Error processing payment:", error);
+    }
+  };
+
   return (
     <>
       <div
-        className={`absolute left-1/4 top-[10%] w-1/2 z-50 yellow rounded-3xl p-5 ${
+        className={`fixed left-1/4 top-[10%] w-1/2 z-50 yellow rounded-3xl p-5 ${
           visible ? "animate-swoop-in" : "animate-swoop-out"
         }`}
       >
@@ -84,7 +102,10 @@ const PayModal: React.FC<PayModalProps> = ({ tab, onClose }) => {
         <Select
           id="PaymentMethod"
           options={options}
-          defaultValue={options.find((option) => option.value === "cash")}
+          value={selectedPaymentMethod}
+          onChange={(selectedOption) =>
+            setSelectedPaymentMethod(selectedOption!)
+          }
           className="py-2 text-xl font-bold"
           isSearchable={false}
         />
@@ -142,7 +163,10 @@ const PayModal: React.FC<PayModalProps> = ({ tab, onClose }) => {
                 </button>
               </div>
               <div className="h-1/2 pt-1">
-                <button className="green rounded-md flex items-center justify-center h-full w-full">
+                <button
+                  onClick={handlePayClick}
+                  className="green rounded-md flex items-center justify-center h-full w-full"
+                >
                   PAY
                 </button>
               </div>

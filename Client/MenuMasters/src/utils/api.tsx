@@ -48,8 +48,18 @@ export async function getOrdersBar() {
   return response.data;
 }
 
+export async function PayTab(tabId: number, paidCash: number, paidPIN: number) {
+  const url = EndPoints.PayTab;
+  const response = await axios.patch(url, {
+    tabId,
+    paidCash,
+    paidPIN,
+  });
+  return response.data;
+}
+
 export async function createOrder(orderData: any) {
-  const url = EndPoints.CreateOrder; // Assuming you have a CreateOrder endpoint in your ENDPOINTS file
+  const url = EndPoints.CreateOrder;
   const response = await axios.post(url, orderData);
   return response.data;
 }
