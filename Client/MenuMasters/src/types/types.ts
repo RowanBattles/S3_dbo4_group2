@@ -38,8 +38,8 @@ interface CartItem {
   notes?: string; // Optional
 }
 
-// orderStaff
 interface OrderItemSales {
+  orderItemId: number;
   menuItemId: number;
   itemName: string;
   itemPrice: number;
@@ -64,23 +64,6 @@ interface OrderItemStaff {
   quantity: number;
 }
 
-// orderTypes.ts
-interface Order {
-  order_id: number;
-  tab_id: number;
-  status: string;
-  notes: string | null;
-  datetime: string; // You may want to use a Date type, but this depends on how your data is formatted.
-}
-
-// orderItemTypes.ts
-interface OrderItem {
-  orderitem_id: number;
-  order_id: number;
-  item_id: number;
-  quantity: number;
-}
-
 // roleTypes.ts
 interface Role {
   role_id: number;
@@ -93,7 +76,7 @@ interface TabEntity {
   tabId: number;
   tableNumber: number;
   tabTotal: number;
-  dateTime: string;
+  date: string;
   orderItems: OrderItemSales[];
 }
 
@@ -101,8 +84,7 @@ export type {
   Account,
   Category,
   MenuItem,
-  OrderItem,
-  Order,
+  OrderItemSales,
   OrderStaff,
   Role,
   TabEntity,

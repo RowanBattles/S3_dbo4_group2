@@ -14,19 +14,15 @@ function SalesPage() {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await getTabs();
-        setOrderData(data);
-      } catch (error) {
-        console.error("Error fetching orders:", error);
-        setErrorMessage("Error with server");
-      }
-    };
-
-    fetchData();
-  }, []);
+  const fetchTabs = async () => {
+    try {
+      const data = await getTabs();
+      setOrderData(data);
+    } catch (error) {
+      console.error("Error fetching orders:", error);
+      setErrorMessage("Error with server");
+    }
+  };
 
   const openPayModal = (tab: TabEntity) => {
     setSelectedTab(tab);
@@ -44,14 +40,19 @@ function SalesPage() {
   };
 
   const closeModal = () => {
+    fetchTabs();
     setSelectedTab(null);
     setIsPayModalOpen(false);
     setIsDeleteModalOpen(false);
     setIsAddModalOpen(false);
   };
 
+  useEffect(() => {
+    fetchTabs();
+  }, []);
+
   return (
-    <div className="gray min-h-screen p-10">
+    <div className="gray min-h-screen p-10 select-none">
       {errorMessage != "" ? (
         <>{errorMessage}</>
       ) : (
@@ -63,7 +64,10 @@ function SalesPage() {
             <DeleteModal tab={selectedTab} onClose={closeModal} />
           )}
           {isAddModalOpen && selectedTab && (
-            <AddModal tab={selectedTab} onClose={closeModal} />
+            <AddModal
+              tableNumber={selectedTab.tableNumber}
+              onClose={closeModal}
+            />
           )}
           {orderData.length == null ? (
             <div>No tabs</div>
