@@ -1,31 +1,58 @@
-import { Category, MenuItem, TabEntity } from "../../../types/types";
+import { Category, MenuItem } from "../../../types/types";
 import { useEffect, useState } from "react";
-import { getCategories, getItems } from "../../../utils/api";
+import { getCategories, getItems, createOrder } from "../../../utils/api";
 
 interface PayModalProps {
-  tab: TabEntity;
+  tableNumber: number;
   onClose: () => void;
 }
 
-const AddModal: React.FC<PayModalProps> = ({ onClose }) => {
+interface OrderItems {
+  itemName: string;
+  itemPrice: number;
+  menuItemId: number;
+  quantity: number;
+}
+
+const AddModal: React.FC<PayModalProps> = ({ onClose, tableNumber }) => {
   const [visible, setVisible] = useState(true);
   const [categories, setCategories] = useState<Category[]>([]);
   const [items, setItems] = useState<MenuItem[]>([]);
   const [activeCategory, setActiveCategory] = useState(1);
-  const [selectedItems, setSelectedItems] = useState<MenuItem[]>([]);
+  const [orderItems, setOrderItems] = useState<OrderItems[]>([]);
   const [Totalprice, setTotalPrice] = useState(0);
 
-  const handleItemClick = (item: MenuItem) => {
-    setSelectedItems((prevItems) => [...prevItems, item]);
+  const handleItemClick = (clickedItem: MenuItem) => {
+    const existingItemIndex = orderItems.findIndex(
+      (item) => item.menuItemId === clickedItem.menuItemId
+    );
+
+    if (existingItemIndex !== -1) {
+      const updatedOrderItems = [...orderItems];
+      updatedOrderItems[existingItemIndex].quantity += 1;
+      setOrderItems(updatedOrderItems);
+    } else {
+      setOrderItems((prevOrderItems) => [
+        ...prevOrderItems,
+        {
+          menuItemId: clickedItem.menuItemId,
+          quantity: 1,
+          itemName: clickedItem.itemName,
+          itemPrice: clickedItem.itemPrice,
+        },
+      ]);
+    }
   };
 
   useEffect(() => {
-    const totalPrice = selectedItems.reduce((accumulator, selectedItem) => {
-      return accumulator + (selectedItem.itemPrice || 0);
+    const totalPrice = orderItems.reduce((accumulator, selectedItem) => {
+      return (
+        accumulator + (selectedItem.itemPrice * selectedItem.quantity || 0)
+      );
     }, 0);
 
     setTotalPrice(totalPrice);
-  }, [selectedItems]);
+  }, [orderItems]);
 
   const handleCloseClick = () => {
     setVisible(false);
@@ -68,10 +95,22 @@ const AddModal: React.FC<PayModalProps> = ({ onClose }) => {
     ? items.filter((item) => item.categoryId === activeCategory)
     : items;
 
+  const CreateOrder = async () => {
+    try {
+      await createOrder({
+        tableNumber: tableNumber,
+        orderItems: orderItems,
+      });
+      handleCloseClick();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <div
-        className={`absolute left-[12.5%] top-[10%] w-3/4 z-50 green rounded-3xl p-5 h-3/4 min-w-[1130px] flex flex-col animate-swoop-in mb-10 pt-16 ${
+        className={`fixed left-[12.5%] top-[10%] w-3/4 z-50 green rounded-3xl p-5 h-3/4 min-w-[1130px] flex flex-col animate-swoop-in mb-10 pt-16 ${
           visible ? "animate-swoop-in" : "animate-swoop-out"
         }`}
       >
@@ -102,9 +141,7 @@ const AddModal: React.FC<PayModalProps> = ({ onClose }) => {
           </div>
           <div className="bg-gray-800 w-3/6 p-5">
             <ul
-              className={`h-full w-full grid grid-cols-4 gap-4 overflow-y-auto ${
-                filteredItems.length < 16 ? "grid-rows-4" : ""
-              }`}
+              className={`h-full w-full grid grid-cols-3 gap-4 overflow-y-auto grid-rows-3`}
             >
               {filteredItems.map((i) => (
                 <li key={i.menuItemId}>
@@ -130,10 +167,12 @@ const AddModal: React.FC<PayModalProps> = ({ onClose }) => {
           <div className="bg-gray-800 h-full w-2/6 p-5 rounded-r-2xl">
             <div className="bg-white h-5/6 w-full ">
               <ul className="h-5/6 p-5 text-xl">
-                {selectedItems.map((i) => (
-                  <li className="flex justify-between">
-                    <div>{i.itemName}</div>
-                    <div>{i.itemPrice.toFixed(2)}</div>
+                {orderItems.map((i) => (
+                  <li className="flex justify-between" key={i.menuItemId}>
+                    <div>
+                      {i.quantity} x {i.itemName}
+                    </div>
+                    <div>€{(i.itemPrice * i.quantity).toFixed(2)}</div>
                   </li>
                 ))}
               </ul>
@@ -151,7 +190,10 @@ const AddModal: React.FC<PayModalProps> = ({ onClose }) => {
               </div>
             </div>
             <div className="h-1/6 px-2 pt-2">
-              <button className="h-full w-full green rounded-full text-4xl font-bold flex justify-center items-center">
+              <button
+                className="h-full w-full green rounded-full text-4xl font-bold flex justify-center items-center"
+                onClick={CreateOrder}
+              >
                 <span>Add to cart</span>
                 <img
                   className="h-12"

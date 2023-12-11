@@ -24,7 +24,7 @@ const Tab: React.FC<TabProps> = ({
           <div className="flex items-center gap-3">
             <img src="/src/assets/Hourglass.png" className="h-8 invert" />
             <p>
-              {new Date(tab.dateTime).toLocaleTimeString([], {
+              {new Date(tab.date).toLocaleTimeString([], {
                 hour: "2-digit",
                 minute: "2-digit",
               })}
@@ -35,7 +35,7 @@ const Tab: React.FC<TabProps> = ({
       <div className="white p-5 border-x border-slate-300 h-full">
         <ul>
           {tab.orderItems.map((item) => (
-            <li key={item.menuItemId}>
+            <li key={item.orderItemId}>
               <div className="flex justify-between items-center mb-2">
                 <p>
                   {item.quantity} x {item.itemName}

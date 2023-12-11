@@ -1,35 +1,5 @@
 import { useState } from "react";
-import { TabEntity } from "../../../types/types";
-import Select from "react-select";
-
-const options = [
-  {
-    value: "cash",
-    label: (
-      <div className="flex items-center pl-5 w-20">
-        <img
-          className="w-10 mr-2"
-          src="https://cdn-icons-png.flaticon.com/512/4470/4470504.png"
-          alt="Cash"
-        />
-        <span>Cash</span>
-      </div>
-    ),
-  },
-  {
-    value: "pin",
-    label: (
-      <div className="flex items-center pl-5">
-        <img
-          className="w-10 mr-2"
-          src="https://static.thenounproject.com/png/2272416-200.png"
-          alt="Pin"
-        />
-        <span>Pin</span>
-      </div>
-    ),
-  },
-];
+import { OrderItemSales, TabEntity } from "../../../types/types";
 
 interface PayModalProps {
   tab: TabEntity;
@@ -38,7 +8,8 @@ interface PayModalProps {
 
 const PayModal: React.FC<PayModalProps> = ({ tab, onClose }) => {
   const [visible, setVisible] = useState(true);
-  const [inputValue, setInputValue] = useState("");
+  const [OrderedItems, setOrderedItems] = useState(tab.orderItems);
+  const [CorrectionItems, setCorrectionItems] = useState<OrderItemSales[]>([]);
 
   const handleCloseClick = () => {
     setVisible(false);
@@ -47,105 +18,89 @@ const PayModal: React.FC<PayModalProps> = ({ tab, onClose }) => {
     }, 350);
   };
 
-  const handleDigitClick = (digit: string) => {
-    setInputValue((prevValue) => prevValue + digit);
-  };
+  const handleOrderItemClick = (clickedItem: OrderItemSales) => {
+    const updatedOrderedItems = OrderedItems.map((item) =>
+      item.orderItemId === clickedItem.orderItemId
+        ? { ...item, quantity: Math.max(0, item.quantity - 1) }
+        : item
+    ).filter((item) => item.quantity > 0);
 
-  const handleDotClick = () => {
-    if (!inputValue.includes(".")) {
-      setInputValue((prevValue) => prevValue + ".");
+    const existingCorrectionItemIndex = CorrectionItems.findIndex(
+      (item) => item.orderItemId === clickedItem.orderItemId
+    );
+
+    if (existingCorrectionItemIndex !== -1) {
+      const updatedCorrectionItems = [...CorrectionItems];
+      updatedCorrectionItems[existingCorrectionItemIndex].quantity += 1;
+      setCorrectionItems(updatedCorrectionItems);
+    } else {
+      setCorrectionItems((prevCorrectionItems) => [
+        ...prevCorrectionItems,
+        { ...clickedItem, quantity: 1 },
+      ]);
     }
-  };
 
-  const handleBackClick = () => {
-    setInputValue((prevValue) => prevValue.slice(0, -1));
-  };
-
-  const handleClearClick = () => {
-    setInputValue("");
+    setOrderedItems(updatedOrderedItems);
   };
 
   return (
     <>
       <div
-        className={`absolute left-1/4 top-[10%] w-1/2 z-50 yellow rounded-3xl p-5 ${
+        className={`fixed left-[12.5%] top-[10%] w-3/4 z-50 red rounded-3xl p-5 h-3/4 min-w-[1130px] flex flex-col animate-swoop-in mb-10 pt-16 ${
           visible ? "animate-swoop-in" : "animate-swoop-out"
         }`}
       >
-        <div className="flex justify-end text-white text-3xl font-bold mb-5">
-          <button onClick={handleCloseClick}>x</button>
-        </div>
-        <div className="flex justify-between items-center font-bold text-3xl mb-1">
-          <div>Amount to pay</div>
-          <div>{tab.tabTotal.toFixed(2)}</div>
-        </div>
-        <hr />
-        <div className="mt-5 text-xl">payment method:</div>
-        <Select
-          id="PaymentMethod"
-          options={options}
-          defaultValue={options.find((option) => option.value === "cash")}
-          className="py-2 text-xl font-bold"
-          isSearchable={false}
-        />
-        <div className="grid grid-cols-2 gap-2 text-xl">
-          <div className="">
-            <p>Tendered</p>
-            <input
-              type="number"
-              className="w-full rounded-md p-2"
-              value={inputValue === "" ? "" : parseFloat(inputValue).toFixed(2)}
-              step="0.01"
-              pattern="\d+(\.\d{2})?"
-              readOnly
-            />
-          </div>
-          <div>
-            <p>Change</p>
-            <input
-              className="w-full rounded-md p-2 cursor-default outline:none"
-              readOnly
-              value={124.23}
-            />
-          </div>
-        </div>
-        <div className="flex py-4 font-bold text-6xl">
-          <div className="grid grid-cols-3 gap-2 bg-gray-700 p-2 w-2/3">
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((digit) => (
-              <button
-                key={digit}
-                onClick={() => handleDigitClick(digit.toString())}
-                className="py-5 font-bold bg-white rounded-md"
-              >
-                {digit}
-              </button>
-            ))}
-            <button className=" bg-white rounded-md" onClick={handleDotClick}>
-              .
-            </button>
-            <button onClick={handleClearClick} className="bg-white rounded-md">
-              C
-            </button>
-          </div>
-          <div className="w-1/3">
-            <div className="h-full bg-gray-700 p-2">
-              <div className="h-1/2 pb-1">
-                <button
-                  className="bg-white rounded-md flex items-center justify-center h-full w-full p-2"
-                  onClick={handleBackClick}
+        <button
+          className="absolute top-5 right-5 text-3xl text-white font-bold"
+          onClick={handleCloseClick}
+        >
+          X
+        </button>
+        <div className="flex h-full gap-5">
+          <div className="bg-gray-800 w-1/2 rounded-xl p-4">
+            <ul className="grid-cols-3 max-h-full overflow-y-auto grid gap-5">
+              {OrderedItems.map((item) => (
+                <li
+                  key={item.orderItemId}
+                  onClick={() => handleOrderItemClick(item)}
+                  className="yellow relative rounded-2xl text-2xl h-[200px] text-white cursor-pointer"
                 >
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/0/340.png"
-                    className="object-contain max-h-full"
-                    alt="Icon"
-                  />
-                </button>
-              </div>
-              <div className="h-1/2 pt-1">
-                <button className="bg-lime-400 rounded-md flex items-center justify-center h-full w-full">
-                  PAY
-                </button>
-              </div>
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-full px-2 -translate-y-1/2 text-center break-keep line-clamp-2">
+                    {item.itemName}
+                  </div>
+                  <div className="absolute bottom-5 left-1/2 -translate-x-1/2">
+                    {item.quantity}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="bg-gray-800 w-1/2 rounded-xl p-4">
+            <div className="h-5/6 pb-2">
+              <ul className="grid-cols-3 max-h-full overflow-y-auto grid gap-5">
+                {CorrectionItems.map((item) => (
+                  <li
+                    key={item.orderItemId}
+                    className="yellow relative rounded-2xl text-2xl h-[200px] text-white cursor-pointer"
+                  >
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-full px-2 -translate-y-1/2 text-center break-keep line-clamp-2">
+                      {item.itemName}
+                    </div>
+                    <div className="absolute bottom-5 left-1/2 -translate-x-1/2">
+                      {item.quantity}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="h-1/6 pt-2">
+              <button className="h-full w-full red rounded-full text-4xl font-bold flex justify-center items-center gap-5">
+                <span>Correction</span>
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/0/340.png"
+                  className="h-1/2"
+                />
+              </button>
             </div>
           </div>
         </div>

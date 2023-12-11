@@ -9,6 +9,7 @@ const ENDPOINTS = {
   GetItemById: (id: number) => `${URL}/api/Menu/${id}`,
   GetCategoryById: (id: number) => `${URL}/api/Category/${id}`,
   CreateOrder: `${URL}/api/Order`,
+  PayTab: `${URL}/api/Tab/Pay`,
 };
 
 export default ENDPOINTS;
