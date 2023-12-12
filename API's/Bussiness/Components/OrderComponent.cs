@@ -30,7 +30,7 @@ namespace Bussiness.Components
 
             foreach (Order order in orders)
             {
-                if (order.OrderItems.Count > 0)
+                if (order.OrderItems.Count > 0 && order.StatusKitchen != OrderStatus.Completed)
                 {
                     Tab? tab = await _tabRepo.GetTabByIdAsync(order.TabId);
 
@@ -51,7 +51,7 @@ namespace Bussiness.Components
 
             foreach (Order order in orders)
             {
-                if (order.OrderItems.Count > 0)
+                if (order.OrderItems.Count > 0 && order.StatusBar != OrderStatus.Completed)
                 {
                     Tab? tab = await _tabRepo.GetTabByIdAsync(order.TabId);
 
@@ -86,7 +86,8 @@ namespace Bussiness.Components
             Order order = new Order()
             {
                 TabId = tab.TabId,
-                Status = OrderStatus.Pending,
+                StatusKitchen = OrderStatus.Pending,
+                StatusBar = OrderStatus.Pending,
                 DateTime = DateTime.Now,
                 OrderItems = new List<OrderItem>()
             };
@@ -120,25 +121,47 @@ namespace Bussiness.Components
             return await _orderRepo.UpdateItemFromOrderAsync(orderItem.OrderItemId, orderItem.Quantity);
         }
 
-        public async Task<OrderStatus?> UpdateOrderStateAsync(int id)
+        public async Task<OrderStatus?> UpdateKitchenOrderStateAsync(int id)
         {
             Order? order = await this.GetOrderByIdAsync(id);
 
             if (order == null) return null;
 
             // If its completed, cycle back to pending for the next state
-            if(order.Status == OrderStatus.Completed)
+            if(order.StatusKitchen == OrderStatus.Completed)
             {
-                order.Status = OrderStatus.Pending;
+                order.StatusKitchen = OrderStatus.Pending;
             } else
             {
                 // Otherwise go to the next state
-                order.Status = (OrderStatus)((int)order.Status + 1);
+                order.StatusKitchen = (OrderStatus)((int)order.StatusKitchen + 1);
             }
 
             order = await this.UpdateOrderAsync(order);
 
-            return order != null ? order.Status : null;
+            return order != null ? order.StatusKitchen : null;
+        }
+
+        public async Task<OrderStatus?> UpdateBarOrderStateAsync(int id)
+        {
+            Order? order = await this.GetOrderByIdAsync(id);
+
+            if (order == null) return null;
+
+            // If its completed, cycle back to pending for the next state
+            if (order.StatusBar == OrderStatus.Completed)
+            {
+                order.StatusBar = OrderStatus.Pending;
+            }
+            else
+            {
+                // Otherwise go to the next state
+                order.StatusBar = (OrderStatus)((int)order.StatusBar + 1);
+            }
+
+            order = await this.UpdateOrderAsync(order);
+
+            return order != null ? order.StatusBar : null;
         }
 
         public async Task<bool> DeleteOrderAsync(int id)

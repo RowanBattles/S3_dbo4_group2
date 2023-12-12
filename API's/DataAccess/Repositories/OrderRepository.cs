@@ -27,7 +27,8 @@ namespace DataAccess.Repositories
                 {
                     OrderId = order.OrderId,
                     TabId = order.TabId,
-                    Status = order.Status,
+                    StatusKitchen = order.StatusKitchen,
+                    StatusBar = order.StatusBar,
                     DateTime = order.DateTime,
                     OrderItems = order.OrderItems.Where(orderItem => orderItem.MenuItem.Category.Type == type).ToList()
                 }).ToListAsync();

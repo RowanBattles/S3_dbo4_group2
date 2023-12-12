@@ -11,6 +11,7 @@ namespace Models.DTOs
             this.TabTotal = tab.TabTotal;
             this.PaidCash = tab.PaidCash;
             this.PaidPIN = tab.PaidPIN;
+            this.MoneyRemaining = tab.MoneyRemaining;
             this.Paid = tab.Paid;
         }
 
@@ -20,13 +21,13 @@ namespace Models.DTOs
 
         public DateTime Date { get; set; }
 
-        public decimal? TabTotal { get; set; }
+        public decimal TabTotal { get; set; }
 
-        public decimal? PaidCash { get; set; }
+        public decimal PaidCash { get; set; }
 
-        public decimal? PaidPIN { get; set; }
+        public decimal PaidPIN { get; set; }
 
-        public decimal? MoneyRemaining { get { return this.TabTotal - (this.PaidCash + this.PaidPIN); } }
+        public decimal MoneyRemaining { get; set; }
 
         public bool Paid { get; set; }
 

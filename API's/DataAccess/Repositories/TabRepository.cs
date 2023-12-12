@@ -26,7 +26,7 @@ namespace DataAccess.Repositories
 
         public async Task<Tab?> GetOpenTabWithTableNumberAsync(int tableNumber)
         {
-            return await dbContext.Tabs.Include(x => x.Orders).ThenInclude(x => x.OrderItems).ThenInclude(x => x.MenuItem).FirstOrDefaultAsync(x => x.TableNumber == tableNumber && !x.Paid);
+            return await dbContext.Tabs.Include(x => x.Orders).ThenInclude(x => x.OrderItems).ThenInclude(x => x.MenuItem).FirstOrDefaultAsync(x => x.TableNumber == tableNumber && (x.PaidCash + x.PaidPIN) < x.TabTotal);
         }
 
         public async Task<Tab?> CreateTabAsync(Tab tab)

@@ -87,10 +87,17 @@ public class OrderController : ControllerBase
         return Ok(results);
     }
 
-    [HttpPatch("Status", Name = "PatchOrderStatus")]
-    public async Task<IActionResult> PatchOrderState(int id)
+    [HttpPatch("Status/Kitchen", Name = "PatchKitchenOrderStatus")]
+    public async Task<IActionResult> PatchKitchenOrderState(int id)
     {
-        OrderStatus? result = await _orderComponent.UpdateOrderStateAsync(id);
+        OrderStatus? result = await _orderComponent.UpdateKitchenOrderStateAsync(id);
+        return result != null ? Ok(result.ToString()) : BadRequest(result);
+    }
+
+    [HttpPatch("Status/Bar", Name = "PatchBarOrderStatus")]
+    public async Task<IActionResult> PatchBarOrderState(int id)
+    {
+        OrderStatus? result = await _orderComponent.UpdateBarOrderStateAsync(id);
         return result != null ? Ok(result.ToString()) : BadRequest(result);
     }
 
