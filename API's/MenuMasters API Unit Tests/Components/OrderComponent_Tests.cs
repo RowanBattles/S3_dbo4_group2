@@ -1,9 +1,28 @@
 ﻿using System;
+using Bussiness.Components;
+using Contract_Data_Bussiness.Interfaces;
+using Moq;
 
 namespace MenuMasters_API_Unit_Tests.Components
 {
 	public class OrderComponent_Tests
 	{
+        private readonly OrderComponent _orderComponent;
+
+        private readonly Mock<IOrderRepository> _orderRepositoryMock;
+        private readonly Mock<ITabRepository> _tabRepositoryMock;
+
+        public OrderComponent_Tests()
+        {
+            _orderRepositoryMock = new Mock<IOrderRepository>();
+            _tabRepositoryMock = new Mock<ITabRepository>();
+
+            _orderComponent = new OrderComponent(
+                _orderRepositoryMock.Object,
+                _tabRepositoryMock.Object
+            );
+        }
+
         [Fact]
         public async Task GetAllOrdersAsync_Test()
         {
