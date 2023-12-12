@@ -45,6 +45,6 @@ jobs:
       - name: Build and analyze
         working-directory: "API's/Menumasters API"
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"MenuMastersAPI" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}"
+          dotnet sonarscanner begin /k:"MenuMastersAPI" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}"
           dotnet build --no-incremental
-          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          dotnet sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
