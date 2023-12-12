@@ -1,5 +1,6 @@
 ﻿using Models;
 using Microsoft.EntityFrameworkCore;
+using Models.Enums;
 
 namespace DataAccess
 {
@@ -127,10 +128,15 @@ namespace DataAccess
                     .IsRequired()
                     .HasColumnName("tab_id");
 
-                entity.Property(e => e.Status)
+                entity.Property(e => e.StatusKitchen)
                     .IsRequired()
-                    .HasColumnName("status")
-                    .HasMaxLength(255);
+                    .HasColumnName("status_kitchen")
+                    .HasDefaultValue(OrderStatus.Pending);
+
+                entity.Property(e => e.StatusBar)
+                    .IsRequired()
+                    .HasColumnName("status_bar")
+                    .HasDefaultValue(OrderStatus.Pending);
 
                 entity.Property(e => e.DateTime)
                     .IsRequired()
@@ -165,7 +171,6 @@ namespace DataAccess
                     .HasColumnName("quantity");
 
                 entity.Property(e => e.Notes)
-                    .IsRequired()
                     .HasColumnName("notes");
             });
 
@@ -199,16 +204,19 @@ namespace DataAccess
                     .HasColumnName("table_number");
 
                 entity.Property(e => e.TabTotal)
-                    .HasColumnName("tab_total");
+                    .HasColumnName("tab_total")
+                    .IsRequired()
+                    .HasDefaultValue(0.00m);
 
                 entity.Property(e => e.PaidCash)
-                    .HasColumnName("paid_cash");
+                    .HasColumnName("paid_cash")
+                    .IsRequired()
+                    .HasDefaultValue(0.00m);
 
                 entity.Property(e => e.PaidPIN)
-                    .HasColumnName("paid_pin");
-
-                entity.Property(e => e.Paid)
-                    .HasColumnName("paid");
+                    .HasColumnName("paid_pin")
+                    .IsRequired()
+                    .HasDefaultValue(0.00m);
 
                 entity.HasMany(e => e.Orders)
                     .WithOne()

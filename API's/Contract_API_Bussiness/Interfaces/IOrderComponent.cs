@@ -23,7 +23,9 @@ namespace Contract_API_Bussiness.Interfaces
 
         Task<OrderItem?> UpdateItemFromOrderAsync(PatchOrderItem orderItem);
 
-        Task<OrderStatus?> UpdateOrderStateAsync(int id);
+        Task<OrderStatus?> UpdateKitchenOrderStateAsync(int id);
+
+        Task<OrderStatus?> UpdateBarOrderStateAsync(int id);
 
         Task<bool> DeleteOrderAsync(int id);
 
