@@ -1,11 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pmBGCkln/fT8tfJmpE/kCH2pDjzn/4JnSy+mJ4IAKRo7+S33fNpP5O6WNHJQxiUIAHW6K/maDJvVusyA8RXoDA==",
+  "dgSpecHash": "dSHAnIAnsj9wTdcQ4AdswqF1b+Gsk5gbsrvyO5cXekmfOswpHpxBu7H8w0sIWZ9+iqPSvkJ+D4gCWsnxFJ6gvQ==",
   "success": true,
-  "projectFilePath": "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussines_MenuAPI/Bussines_MenuAPI.csproj",
-  "expectedPackageFiles": [
-    "/home/bas/.nuget/packages/microsoft.netcore.app.ref/6.0.25/microsoft.netcore.app.ref.6.0.25.nupkg.sha512",
-    "/home/bas/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.25/microsoft.aspnetcore.app.ref.6.0.25.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\rowan\\Desktop\\Tools\\School\\Semester 3\\Gp\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\Bussines_MenuAPI\\Bussines_MenuAPI.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

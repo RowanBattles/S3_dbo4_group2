@@ -64,35 +64,37 @@
     ]
   },
   "packageFolders": {
-    "/home/bas/.nuget/packages/": {}
+    "C:\\Users\\rowan\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussines_MenuAPI/Bussines_MenuAPI.csproj",
+      "projectUniqueName": "C:\\Users\\rowan\\Desktop\\Tools\\School\\Semester 3\\Gp\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\Bussines_MenuAPI\\Bussines_MenuAPI.csproj",
       "projectName": "Bussines_MenuAPI",
-      "projectPath": "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussines_MenuAPI/Bussines_MenuAPI.csproj",
-      "packagesPath": "/home/bas/.nuget/packages/",
-      "outputPath": "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussines_MenuAPI/obj/",
+      "projectPath": "C:\\Users\\rowan\\Desktop\\Tools\\School\\Semester 3\\Gp\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\Bussines_MenuAPI\\Bussines_MenuAPI.csproj",
+      "packagesPath": "C:\\Users\\rowan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\rowan\\Desktop\\Tools\\School\\Semester 3\\Gp\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\Bussines_MenuAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/bas/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\rowan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussiness_API_Contract/Bussiness_API_Contract.csproj": {
-              "projectPath": "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussiness_API_Contract/Bussiness_API_Contract.csproj"
+            "C:\\Users\\rowan\\Desktop\\Tools\\School\\Semester 3\\Gp\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\Bussiness_API_Contract\\Bussiness_API_Contract.csproj": {
+              "projectPath": "C:\\Users\\rowan\\Desktop\\Tools\\School\\Semester 3\\Gp\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\Bussiness_API_Contract\\Bussiness_API_Contract.csproj"
             },
-            "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/DateLayer_Bussiness_Contract.csproj": {
-              "projectPath": "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/DateLayer_Bussiness_Contract.csproj"
+            "C:\\Users\\rowan\\Desktop\\Tools\\School\\Semester 3\\Gp\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\DateLayer_Bussiness_Contract\\DateLayer_Bussiness_Contract.csproj": {
+              "projectPath": "C:\\Users\\rowan\\Desktop\\Tools\\School\\Semester 3\\Gp\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\DateLayer_Bussiness_Contract\\DateLayer_Bussiness_Contract.csproj"
             }
           }
         }
@@ -117,22 +119,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[6.0.25, 6.0.25]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[6.0.25, 6.0.25]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
