@@ -18,7 +18,7 @@ builder.Services.AddCors(options =>
         .AllowAnyOrigin()
         .AllowAnyMethod()
         .AllowAnyHeader()
-        .WithOrigins("http://localhost:5174");
+        .WithOrigins("http://localhost:5173");
     });
 });
 
@@ -41,6 +41,8 @@ builder.Services.AddScoped<IOrderComponent, OrderComponent>();
 builder.Services.AddScoped<ITabComponent, TabComponent>();
 
 var app = builder.Build();
+
+app.UseCors("CORSpolicy");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
