@@ -35,12 +35,8 @@ jobs:
           key: ${{ runner.os }}-sonar-scanner
           restore-keys: ${{ runner.os }}-sonar-scanner
 
-      - name: Install SonarQube scanner
-        if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
-        shell: powershell
-        run: |
-          New-Item -Path .\.sonar\scanner -ItemType Directory
-          dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
+      - name: Install SonarScanner
+        run: dotnet tool install --global dotnet-sonarscanner --version 5.14.0
 
       - name: Build and analyze
         working-directory: "API's/Menumasters API"
