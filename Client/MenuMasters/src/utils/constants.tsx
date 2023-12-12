@@ -1,5 +1,5 @@
 const URL_MENU = "https://localhost:7266";
-const URL_STAFF = "http://localhost:7244";
+const URL_STAFF = "https://localhost:7244";
 
 const ENDPOINTS = {
   GetAllItems: `${URL_MENU}/api/Menu`,
