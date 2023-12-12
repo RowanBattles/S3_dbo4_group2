@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Models;
 using Models.DTOs;
 using Models.Enums;
+using static NuGet.Packaging.PackagingConstants;
 
 namespace MenuMasters_API.Controllers;
 
@@ -64,11 +65,26 @@ public class OrderController : ControllerBase
         return result != null ? Ok(result) : BadRequest(result);
     }
 
-    [HttpPatch("Item", Name = "PatchOrderItem")]
-    public async Task<IActionResult> PatchOrderItem(PatchOrderItem orderItem)
+    [HttpPatch("Item", Name = "PatchOrderItems")]
+    public async Task<IActionResult> PatchOrderItem(IEnumerable<PatchOrderItem> orderItems)
     {
-        OrderItem? result = await _orderComponent.UpdateItemFromOrderAsync(orderItem);
-        return result != null ? Ok(result) : BadRequest(result);
+        List<OrderItem> results = new List<OrderItem>();
+
+        foreach (PatchOrderItem orderItem in orderItems)
+        {
+            OrderItem? result = await _orderComponent.UpdateItemFromOrderAsync(orderItem);
+
+            if (result == null)
+            {
+                return BadRequest(result);
+            }
+            else
+            {
+                results.Add(result);
+            }
+        }
+
+        return Ok(results);
     }
 
     [HttpPatch("Status", Name = "PatchOrderStatus")]

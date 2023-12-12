@@ -18,7 +18,7 @@ namespace Contract_Data_Bussiness.Interfaces
 
         Task<Order?> UpdateOrderAsync(Order order);
 
-        Task<OrderItem?> UpdateItemFromOrderAsync(int orderItemId, string? notes, int quantity);
+        Task<OrderItem?> UpdateItemFromOrderAsync(int orderItemId, int quantity);
 
         Task<bool> DeleteOrderAsync(int id);
 

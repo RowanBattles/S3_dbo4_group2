@@ -5,8 +5,6 @@ namespace Models.DTOs
 	{
         public int OrderItemId { get; set; }
 
-        public string? Notes { get; set; }
-
         public int Quantity { get; set; }
     }
 }

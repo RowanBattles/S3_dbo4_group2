@@ -87,7 +87,7 @@ namespace DataAccess.Repositories
             }
         }
 
-        public async Task<OrderItem?> UpdateItemFromOrderAsync(int orderItemId, string? notes, int quantity)
+        public async Task<OrderItem?> UpdateItemFromOrderAsync(int orderItemId, int quantity)
         {
             try
             {
@@ -95,7 +95,11 @@ namespace DataAccess.Repositories
 
                 if (original == null) return null;
 
-                original.Notes = notes;
+                if (quantity <= 0) {
+                    bool success = await RemoveItemFromOrderAsync(orderItemId);
+                    return success ? new OrderItem() : null;
+                }
+
                 original.Quantity = quantity;
                 await dbContext.SaveChangesAsync();
 

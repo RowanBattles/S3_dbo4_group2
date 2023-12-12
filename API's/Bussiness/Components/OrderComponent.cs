@@ -117,7 +117,7 @@ namespace Bussiness.Components
 
         public async Task<OrderItem?> UpdateItemFromOrderAsync(PatchOrderItem orderItem)
         {
-            return await _orderRepo.UpdateItemFromOrderAsync(orderItem.OrderItemId, orderItem.Notes, orderItem.Quantity);
+            return await _orderRepo.UpdateItemFromOrderAsync(orderItem.OrderItemId, orderItem.Quantity);
         }
 
         public async Task<OrderStatus?> UpdateOrderStateAsync(int id)
