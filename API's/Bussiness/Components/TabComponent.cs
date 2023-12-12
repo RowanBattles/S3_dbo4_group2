@@ -46,10 +46,7 @@ namespace Bussiness.Components
 
             foreach (Tab tab in tabs)
             {
-                if (!tab.Paid)
-                {
-                    salesTabs.Add(await ConvertToSalesTabAsync(tab));
-                }
+                salesTabs.Add(await ConvertToSalesTabAsync(tab));
             }
 
             return salesTabs;
@@ -95,7 +92,7 @@ namespace Bussiness.Components
                     tab.PaidCash = 0;
                 }
 
-                tab.PaidCash += payTab.PaidCash;
+                tab.PaidCash += (decimal)payTab.PaidCash;
             }
 
             if(payTab.PaidPIN != null)
@@ -105,7 +102,7 @@ namespace Bussiness.Components
                     tab.PaidPIN = 0;
                 }
 
-                tab.PaidPIN += payTab.PaidPIN;
+                tab.PaidPIN += (decimal)payTab.PaidPIN;
             }
 
             tab = await this.UpdateTabAsync(tab);

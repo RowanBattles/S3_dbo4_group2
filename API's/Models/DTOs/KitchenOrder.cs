@@ -23,7 +23,8 @@ namespace Models.DTOs
 
             this.OrderId = order.OrderId;
             this.TabId = order.TabId;
-            this.Status = order.Status;
+            this.StatusKitchen = order.StatusKitchen;
+            this.StatusBar = order.StatusBar;
             this.DateTime = order.DateTime;
             this.OrderItems = kitchenOrderItems;
         }
@@ -34,7 +35,9 @@ namespace Models.DTOs
 
         public int TableNumber { get; set; }
 
-        public OrderStatus Status { get; set; }
+        public OrderStatus StatusKitchen { get; set; }
+
+        public OrderStatus StatusBar { get; set; }
 
         public DateTime DateTime { get; set; }
 
