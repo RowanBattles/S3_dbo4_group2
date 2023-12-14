@@ -1,12 +1,28 @@
 import { useState } from "react";
 import { OrderStaff } from "../../../types/types";
+import { StatusBar } from "../../../utils/api";
 
-function BarTab({ order }: { order: OrderStaff }) {
+interface BarTabProps {
+  order: OrderStaff;
+  update: () => void;
+}
+
+const BarTab: React.FC<BarTabProps> = ({ order, update }) => {
   const [selectedItems, setSelectedItems] = useState<Array<string>>(
     new Array(order.orderItems.length).fill("red")
   );
+  const [stateIsActive, setStateActive] = useState(false);
 
-  const handleItemClick = (index: number) => {
+  const handleItemClick = async (index: number) => {
+    if (!stateIsActive) {
+      try {
+        await StatusBar(order.orderId);
+        setStateActive(true);
+      } catch (error) {
+        console.error("error: ", error);
+      }
+    }
+
     const updatedSelectedItems = [...selectedItems];
     updatedSelectedItems[index] = "green";
     setSelectedItems(updatedSelectedItems);
@@ -25,6 +41,16 @@ function BarTab({ order }: { order: OrderStaff }) {
       return "green";
     } else {
       return "yellow";
+    }
+  };
+
+  const handleConfirmClick = async () => {
+    try {
+      console.log("hit");
+      await StatusBar(order.orderId);
+      update();
+    } catch (error) {
+      console.log("error: ", error);
     }
   };
 
@@ -91,12 +117,17 @@ function BarTab({ order }: { order: OrderStaff }) {
         </div>
         {headerColor() === "green" && (
           <div className="absolute bottom-0 right-0 p-5 text-white">
-            <button className="green px-5 py-1 rounded-full">Confirm</button>
+            <button
+              onClick={handleConfirmClick}
+              className="green px-5 py-1 rounded-full"
+            >
+              Confirm
+            </button>
           </div>
         )}
       </div>
     </div>
   );
-}
+};
 
 export default BarTab;

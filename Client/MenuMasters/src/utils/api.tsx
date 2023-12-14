@@ -58,8 +58,29 @@ export async function PayTab(tabId: number, paidCash: number, paidPIN: number) {
   return response.data;
 }
 
+export async function DeleteProducts(
+  items: { orderItemId: number; quantity: number }[]
+) {
+  const url = EndPoints.DeleteProducts;
+  const response = await axios.patch(url, items);
+  console.log(response);
+  return response.data;
+}
+
 export async function createOrder(orderData: any) {
   const url = EndPoints.CreateOrder;
   const response = await axios.post(url, orderData);
+  return response.data;
+}
+
+export async function StatusKitchen(id: number) {
+  const url = EndPoints.StatusKitchen(id);
+  const response = await axios.patch(url);
+  return response.data;
+}
+
+export async function StatusBar(id: number) {
+  const url = EndPoints.StatusBar(id);
+  const response = await axios.patch(url);
   return response.data;
 }

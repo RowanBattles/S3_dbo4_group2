@@ -77,6 +77,8 @@ interface TabEntity {
   tableNumber: number;
   tabTotal: number;
   date: string;
+  moneyRemaining: number;
+  paid: boolean;
   orderItems: OrderItemSales[];
 }
 
