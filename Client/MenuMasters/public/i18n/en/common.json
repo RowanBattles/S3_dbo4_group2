@@ -1,0 +1,17 @@
+{
+  "translation": {
+    "Breakfast": "Breakfast",
+    "Dinner": "Dinner",
+    "Lunch": "Lunch",
+    "addKitchenInformation": "Add Information for the kitchen",
+    "addNotes": "Add Notes",
+    "category": "Category",
+    "dietaryInfo": "Dietary Information",
+    "ingredients": "Ingredients",
+    "name": "Name",
+    "order": "Order",
+    "orderNow": "Order Now",
+    "shoppingcart": "Shopping Cart",
+    "table": "Table"
+  }
+}
