@@ -56,7 +56,7 @@ public class TabController : ControllerBase
         return result != null ? Ok(result) : BadRequest(result);
     }
 
-    [HttpPatch("Pay", Name = "PatchTabPaidCash")]
+    [HttpPatch("Pay", Name = "PatchTabPay")]
     public async Task<IActionResult> PatchPay(PayTab payTab)
     {
         SalesTab? result = await _tabComponent.PayTab(payTab);
