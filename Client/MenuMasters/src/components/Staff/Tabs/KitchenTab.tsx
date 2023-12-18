@@ -1,12 +1,28 @@
 import { useState } from "react";
 import { OrderStaff } from "../../../types/types";
+import { StatusKitchen } from "../../../utils/api";
 
-function KitchenTab({ order }: { order: OrderStaff }) {
+interface KitchenTabProps {
+  order: OrderStaff;
+  update: () => void;
+}
+
+const KitchenTab: React.FC<KitchenTabProps> = ({ order, update }) => {
   const [selectedItems, setSelectedItems] = useState<Array<string>>(
     new Array(order.orderItems.length).fill("red")
   );
+  const [stateIsActive, setStateActive] = useState(false);
 
-  const handleItemClick = (index: number) => {
+  const handleItemClick = async (index: number) => {
+    if (!stateIsActive) {
+      try {
+        await StatusKitchen(order.orderId);
+        setStateActive(true);
+      } catch (error) {
+        console.error("error: ", error);
+      }
+    }
+
     const updatedSelectedItems = [...selectedItems];
     if (updatedSelectedItems[index] === "red") {
       updatedSelectedItems[index] = "yellow";
@@ -33,6 +49,16 @@ function KitchenTab({ order }: { order: OrderStaff }) {
       return "green";
     } else {
       return "yellow";
+    }
+  };
+
+  const handleConfirmClick = async () => {
+    try {
+      console.log("hit");
+      await StatusKitchen(order.orderId);
+      update();
+    } catch (error) {
+      console.log("error: ", error);
     }
   };
 
@@ -102,11 +128,16 @@ function KitchenTab({ order }: { order: OrderStaff }) {
       </div>
       {headerColor() === "green" && (
         <div className="absolute bottom-0 right-0 p-5 text-white">
-          <button className="green px-5 py-1 rounded-full">Confirm</button>
+          <button
+            onClick={handleConfirmClick}
+            className="green px-5 py-1 rounded-full"
+          >
+            Confirm
+          </button>
         </div>
       )}
     </div>
   );
-}
+};
 
 export default KitchenTab;

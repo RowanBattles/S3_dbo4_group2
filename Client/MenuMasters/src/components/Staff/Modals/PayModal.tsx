@@ -38,6 +38,7 @@ interface PayModalProps {
 }
 
 const PayModal: React.FC<PayModalProps> = ({ tab, onClose }) => {
+  const [changeValue, setChangeValue] = useState(tab.moneyRemaining);
   const [visible, setVisible] = useState(true);
   const [inputValue, setInputValue] = useState("");
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(
@@ -70,16 +71,22 @@ const PayModal: React.FC<PayModalProps> = ({ tab, onClose }) => {
   };
 
   const handlePayClick = async () => {
-    const paidCash =
-      selectedPaymentMethod?.value === "cash" ? parseFloat(inputValue) : 0;
-    const paidPIN =
-      selectedPaymentMethod?.value === "pin" ? parseFloat(inputValue) : 0;
+    if (inputValue != "") {
+      const paidCash =
+        selectedPaymentMethod?.value === "cash" ? parseFloat(inputValue) : 0;
+      const paidPIN =
+        selectedPaymentMethod?.value === "pin" ? parseFloat(inputValue) : 0;
 
-    try {
-      await PayTab(tab.tabId, paidCash, paidPIN);
-      console.log("Payment successful!");
-    } catch (error) {
-      console.error("Error processing payment:", error);
+      try {
+        await PayTab(tab.tabId, paidCash, paidPIN);
+        setChangeValue(
+          parseFloat((changeValue - parseFloat(inputValue)).toFixed(2))
+        );
+        setInputValue("");
+        console.log("Payment successful!");
+      } catch (error) {
+        console.error("Error processing payment:", error);
+      }
     }
   };
 
@@ -94,7 +101,7 @@ const PayModal: React.FC<PayModalProps> = ({ tab, onClose }) => {
           <button onClick={handleCloseClick}>x</button>
         </div>
         <div className="flex justify-between items-center font-bold text-3xl mb-1">
-          <div>Amount to pay</div>
+          <div>Total</div>
           <div>{tab.tabTotal.toFixed(2)}</div>
         </div>
         <hr />
@@ -126,7 +133,7 @@ const PayModal: React.FC<PayModalProps> = ({ tab, onClose }) => {
             <input
               className="w-full rounded-md p-2 cursor-default outline:none"
               readOnly
-              value={124.23}
+              value={changeValue}
             />
           </div>
         </div>

@@ -17,11 +17,16 @@ function SalesPage() {
   const fetchTabs = async () => {
     try {
       const data = await getTabs();
-      setOrderData(data);
+      filterTabsPaid(data);
     } catch (error) {
       console.error("Error fetching orders:", error);
       setErrorMessage("Error with server");
     }
+  };
+
+  const filterTabsPaid = (data: TabEntity[]) => {
+    const filteredTabs = data.filter((tab) => !tab.paid);
+    setOrderData(filteredTabs);
   };
 
   const openPayModal = (tab: TabEntity) => {
@@ -69,7 +74,7 @@ function SalesPage() {
               onClose={closeModal}
             />
           )}
-          {orderData.length == null ? (
+          {orderData.length == 0 ? (
             <div>No tabs</div>
           ) : (
             <div

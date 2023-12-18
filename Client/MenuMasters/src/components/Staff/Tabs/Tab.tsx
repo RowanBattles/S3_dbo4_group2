@@ -1,4 +1,5 @@
-import { TabEntity } from "../../../types/types";
+import { useEffect, useState } from "react";
+import { OrderItemSales, TabEntity } from "../../../types/types";
 
 interface TabProps {
   tab: TabEntity;
@@ -13,6 +14,32 @@ const Tab: React.FC<TabProps> = ({
   openDeleteModal,
   openAddModal,
 }) => {
+  const [items, setItems] = useState(tab.orderItems);
+
+  const mergeItemsByMenuItemId = (orderItems: OrderItemSales[]) => {
+    const reducedItems: OrderItemSales[] = [];
+
+    orderItems.forEach((currentItem) => {
+      const existingItemIndex = reducedItems.findIndex(
+        (item) => item.menuItemId === currentItem.menuItemId
+      );
+
+      if (existingItemIndex !== -1) {
+        reducedItems[existingItemIndex].quantity += currentItem.quantity;
+      } else {
+        reducedItems.push({ ...currentItem });
+      }
+    });
+
+    setItems(reducedItems);
+    console.log("items: ", reducedItems);
+  };
+
+  // Usage
+  useEffect(() => {
+    mergeItemsByMenuItemId(tab.orderItems);
+  }, [tab.orderItems]);
+
   return (
     <div className="select-none relative flex flex-col h-full">
       <div className="red rounded-t-3xl p-4 border-x border-t border-slate-300">
@@ -34,7 +61,7 @@ const Tab: React.FC<TabProps> = ({
       </div>
       <div className="white p-5 border-x border-slate-300 h-full">
         <ul>
-          {tab.orderItems.map((item) => (
+          {items.map((item) => (
             <li key={item.orderItemId}>
               <div className="flex justify-between items-center mb-2">
                 <p>
