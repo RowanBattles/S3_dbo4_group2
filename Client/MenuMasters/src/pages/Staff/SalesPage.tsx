@@ -26,7 +26,6 @@ function SalesPage() {
 
   const filterTabsPaid = (data: TabEntity[]) => {
     const filteredTabs = data.filter((tab) => !tab.paid);
-    console.log("Filtered Tabs:", filteredTabs);
     setOrderData(filteredTabs);
   };
 
