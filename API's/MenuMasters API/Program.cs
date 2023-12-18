@@ -43,6 +43,7 @@ builder.Services.AddScoped<ITabComponent, TabComponent>();
 
 var app = builder.Build();
 
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -50,9 +51,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("CORSpolicy")
+
 app.UseHttpsRedirection();
 
-app.UseCors("CORSpolicy");
+
 
 app.UseAuthorization();
 
