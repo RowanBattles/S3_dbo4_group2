@@ -118,8 +118,8 @@ const Items = () => {
               title={item.itemName}
               description={item.itemDescription_Short}
               price={item.itemPrice}
-              foodType={item.categoryId}
-              dietaryInfo="Vegan"
+              foodType={categories[item.categoryId]}
+              dietaryInfo={item.dietaryInfo}
             />
           ))
         )}

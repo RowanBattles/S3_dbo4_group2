@@ -23,6 +23,7 @@ interface MenuItem {
   itemPrice: number;
   itemStock: number;
   categoryId: number;
+  categoryName: string;
   imageURL: string;
   dietaryInfo: string;
   ingredients: string;

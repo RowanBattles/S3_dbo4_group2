@@ -5,7 +5,7 @@ interface ItemProps {
   title: string;
   description: string;
   price: number;
-  foodType: number;
+  foodType: string;
   id: number;
   dietaryInfo: string;
 }
