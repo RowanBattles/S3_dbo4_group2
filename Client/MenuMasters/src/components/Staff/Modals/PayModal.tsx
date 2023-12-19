@@ -93,11 +93,11 @@ const PayModal: React.FC<PayModalProps> = ({ tab, onClose }) => {
   return (
     <>
       <div
-        className={`fixed left-1/4 top-[10%] w-1/2 z-50 yellow rounded-3xl p-5 ${
+        className={`fixed left-1/4 top-[10%] w-1/2 z-50 white rounded-3xl p-5 animate-swoop-in border border-gray-300 shadow-md ${
           visible ? "animate-swoop-in" : "animate-swoop-out"
         }`}
       >
-        <div className="flex justify-end text-white text-3xl font-bold mb-5">
+        <div className="flex justify-end text-black text-3xl font-bold mb-5">
           <button onClick={handleCloseClick}>x</button>
         </div>
         <div className="flex justify-between items-center font-bold text-3xl mb-1">

@@ -21,7 +21,8 @@ namespace MenuAPI_Models.DTOs
 
             this.OrderId = order.OrderId;
             this.TabId = order.TabId;
-            this.Status = order.Status;
+            this.Status_Kitchen = order.Status_Kitchen;
+            this.Status_Bar = order.Status_Bar;
             this.DateTime = order.DateTime;
             this.OrderItems = kitchenOrderItems;
         }
@@ -32,7 +33,9 @@ namespace MenuAPI_Models.DTOs
 
         public int TableNumber { get; set; }
 
-        public enums.OrderStatus Status { get; set; }
+        public enums.OrderStatus Status_Kitchen { get; set; }
+
+        public enums.OrderStatus Status_Bar { get; set; }
 
         public DateTime DateTime { get; set; }
 

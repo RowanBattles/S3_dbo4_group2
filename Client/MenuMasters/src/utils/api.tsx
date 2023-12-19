@@ -1,55 +1,55 @@
 import axios from "axios";
-import EndPoints from "./constants";
+import { ENDPOINTS } from "./constants";
 
 export async function getItems() {
-  const url = EndPoints.GetAllItems;
+  const url = ENDPOINTS.GetAllItems;
 
   const response = await axios.get(url);
   return response.data;
 }
 
 export async function getCategories() {
-  const url = EndPoints.GetAllCategories;
+  const url = ENDPOINTS.GetAllCategories;
 
   const response = await axios.get(url);
   return response.data;
 }
 
 export async function getItembyId(id: number) {
-  const url = EndPoints.GetItemById(id);
+  const url = ENDPOINTS.GetItemById(id);
   const response = await axios.get(url);
   return response.data;
 }
 
 export async function getCategoryById(id: number) {
-  const url = EndPoints.GetCategoryById(id);
+  const url = ENDPOINTS.GetCategoryById(id);
   const response = await axios.get(url);
   return response.data;
 }
 
 export async function getTabs() {
-  const url = EndPoints.GetAllTabs;
+  const url = ENDPOINTS.GetAllTabs;
 
   const response = await axios.get(url);
   return response.data;
 }
 
 export async function getOrdersKitchen() {
-  const url = EndPoints.GetAllOrdersKitchen;
+  const url = ENDPOINTS.GetAllOrdersKitchen;
 
   const response = await axios.get(url);
   return response.data;
 }
 
 export async function getOrdersBar() {
-  const url = EndPoints.GetAllOrdersBar;
+  const url = ENDPOINTS.GetAllOrdersBar;
 
   const response = await axios.get(url);
   return response.data;
 }
 
 export async function PayTab(tabId: number, paidCash: number, paidPIN: number) {
-  const url = EndPoints.PayTab;
+  const url = ENDPOINTS.PayTab;
   const response = await axios.patch(url, {
     tabId,
     paidCash,
@@ -61,26 +61,26 @@ export async function PayTab(tabId: number, paidCash: number, paidPIN: number) {
 export async function DeleteProducts(
   items: { orderItemId: number; quantity: number }[]
 ) {
-  const url = EndPoints.DeleteProducts;
+  const url = ENDPOINTS.DeleteProducts;
   const response = await axios.patch(url, items);
   console.log(response);
   return response.data;
 }
 
 export async function createOrder(orderData: any) {
-  const url = EndPoints.CreateOrder;
+  const url = ENDPOINTS.CreateOrder;
   const response = await axios.post(url, orderData);
   return response.data;
 }
 
 export async function StatusKitchen(id: number) {
-  const url = EndPoints.StatusKitchen(id);
+  const url = ENDPOINTS.StatusKitchen(id);
   const response = await axios.patch(url);
   return response.data;
 }
 
 export async function StatusBar(id: number) {
-  const url = EndPoints.StatusBar(id);
+  const url = ENDPOINTS.StatusBar(id);
   const response = await axios.patch(url);
   return response.data;
 }
