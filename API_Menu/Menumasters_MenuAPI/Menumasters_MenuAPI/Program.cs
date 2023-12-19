@@ -42,6 +42,8 @@ builder.Services.AddScoped<ITabComponent, TabComponent>();
 
 var app = builder.Build();
 
+app.UseCors("CORSpolicy");
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

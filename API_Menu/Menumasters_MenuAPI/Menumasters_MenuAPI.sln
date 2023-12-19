@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateLayer_Bussiness_Contrac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bussiness_API_Contract", "Bussiness_API_Contract\Bussiness_API_Contract.csproj", "{783A6C18-D7F9-4826-997B-005956317151}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManuAPI_Test", "ManuAPI_Test\ManuAPI_Test.csproj", "{1B25A87A-955E-48A9-8044-2B611C9C7BD3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{783A6C18-D7F9-4826-997B-005956317151}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{783A6C18-D7F9-4826-997B-005956317151}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{783A6C18-D7F9-4826-997B-005956317151}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B25A87A-955E-48A9-8044-2B611C9C7BD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B25A87A-955E-48A9-8044-2B611C9C7BD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B25A87A-955E-48A9-8044-2B611C9C7BD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B25A87A-955E-48A9-8044-2B611C9C7BD3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
