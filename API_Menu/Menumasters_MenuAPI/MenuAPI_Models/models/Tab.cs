@@ -9,7 +9,9 @@ namespace MenuAPI_Models
 
         public decimal? TabTotal { get; set; }
 
-        public bool Paid { get; set; }
+        public decimal Paid_cash { get; set; }
+
+        public decimal Paid_pin { get; set; }
     }
 }
 
