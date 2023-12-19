@@ -9,7 +9,9 @@ namespace MenuAPI_Models
 
         public int TabId { get; set; }
 
-        public OrderStatus Status { get; set; }
+        public OrderStatus Status_Kitchen { get; set; }
+
+        public OrderStatus Status_Bar { get; set; }
 
         public DateTime DateTime { get; set; }
 

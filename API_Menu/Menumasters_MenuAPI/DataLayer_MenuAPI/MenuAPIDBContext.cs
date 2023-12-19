@@ -96,10 +96,13 @@ public class MenuAPIDbContext : DbContext
                 .IsRequired()
                 .HasColumnName("tab_id");
 
-            entity.Property(e => e.Status)
+            entity.Property(e => e.Status_Kitchen)
                 .IsRequired()
-                .HasColumnName("status")
-                .HasMaxLength(255);
+                .HasColumnName("status_kitchen");
+
+            entity.Property(e => e.Status_Bar)
+                .IsRequired()
+                .HasColumnName("status_bar");
 
             entity.Property(e => e.DateTime)
                 .IsRequired()
@@ -153,6 +156,12 @@ public class MenuAPIDbContext : DbContext
 
             entity.Property(e => e.TabTotal)
                 .HasColumnName("tab_total");
+
+            entity.Property(e => e.Paid_cash)
+                .HasColumnName("paid_cash");
+
+            entity.Property(e => e.Paid_pin)
+                .HasColumnName("paid_pin");
         });
     }
 }

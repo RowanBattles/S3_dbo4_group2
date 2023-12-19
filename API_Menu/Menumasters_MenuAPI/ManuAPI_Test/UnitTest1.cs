@@ -177,7 +177,23 @@ public class Tests
             }
         }
     }
-    public void Template()
+
+    public void GetCategoryByIdAsync_GetCategoryById2_GetsTheCorrectCategoryMock()
+    {
+        //arrange - variables, classes, mocks
+        Category categoryDTO = new Category
+        {
+            CategoryId = 2,
+            CategoryName = "beers",
+            Type = OrderType.Kitchen
+        };
+        var component = new CategoryComponent(_CategroyDAL);
+        //act
+        //assert
+        Assert.Pass();
+    }
+
+    public void Template_toTest_Passes()
     {
         //arrange - variables, classes, mocks
         //act
