@@ -5,6 +5,8 @@ import "./styles/index.css";
 import "./styles/tailwind.css";
 import { BrowserRouter } from "react-router-dom";
 
+import "./i18n";
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>

@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "2/OsqD0zfASsjPq+JynftUi6pwuTTngPi/g2QFpkq8HSJ23W5uaq2etlL9WSFzFnmNvctF5Ldzb4qsPWm0sUyA==",
+  "dgSpecHash": "gZVF1XKKI0EhjzNP4jvcjQ+Xz12gaZkJh9Sx4PUabLkVev1MHHsXWCuzLeQm1A4FM5e+QBuQR1tBVuFyKNFf8g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rowan\\Desktop\\Tools\\School\\Semester 3\\Gp\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\MenuAPI_Models\\MenuAPI_Models.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\MenuAPI_Models\\MenuAPI_Models.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\bassm\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.25\\microsoft.netcore.app.ref.6.0.25.nupkg.sha512",
+    "C:\\Users\\bassm\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.25\\microsoft.windowsdesktop.app.ref.6.0.25.nupkg.sha512",
+    "C:\\Users\\bassm\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.25\\microsoft.aspnetcore.app.ref.6.0.25.nupkg.sha512"
+  ],
   "logs": []
 }

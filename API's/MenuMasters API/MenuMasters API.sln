@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "..\Models\Models.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bussiness", "..\Bussiness\Bussiness.csproj", "{575660A0-C354-4C91-9949-EDD7FAF4A8FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuMasters API Unit Tests", "..\MenuMasters API Unit Tests\MenuMasters API Unit Tests.csproj", "{14464D48-E372-413B-A7DA-4B7A1EAEB402}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{575660A0-C354-4C91-9949-EDD7FAF4A8FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{575660A0-C354-4C91-9949-EDD7FAF4A8FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{575660A0-C354-4C91-9949-EDD7FAF4A8FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14464D48-E372-413B-A7DA-4B7A1EAEB402}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14464D48-E372-413B-A7DA-4B7A1EAEB402}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14464D48-E372-413B-A7DA-4B7A1EAEB402}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14464D48-E372-413B-A7DA-4B7A1EAEB402}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

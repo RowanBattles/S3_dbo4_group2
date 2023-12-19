@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Item from "./Item";
 import { getItems, getCategoryById } from "../../../../utils/api.tsx";
 
@@ -88,46 +88,16 @@ const Items = () => {
         >
           Desserts
         </p>
-        <p
-          className={
-            menuTab === "Cold drinks"
-              ? "active_menu_tab poppins bg-primary px-10"
-              : "menu_tab poppins border px-10 border-gray-100 rounded-full py-2"
-          }
-          onClick={() => handleMenuTabs("Cold drinks")}
+        <select
+          value={menuTab}
+          onChange={(e) => handleMenuTabs(e.target.value)}
+          className="poppins border px-10 border-gray-100 rounded-full py-2 outline-none"
         >
-          Cold drinks
-        </p>
-        <p
-          className={
-            menuTab === "Warm drinks"
-              ? "active_menu_tab poppins bg-primary px-10"
-              : "menu_tab poppins border px-10 border-gray-100 rounded-full py-2"
-          }
-          onClick={() => handleMenuTabs("Warm drinks")}
-        >
-          Warm drinks
-        </p>
-        <p
-          className={
-            menuTab === "Alcohol"
-              ? "active_menu_tab poppins bg-primary px-10"
-              : "menu_tab poppins border px-10 border-gray-100 rounded-full py-2"
-          }
-          onClick={() => handleMenuTabs("Alcohol")}
-        >
-          Alcohol
-        </p>
-        <p
-          className={
-            menuTab === "Cocktails"
-              ? "active_menu_tab poppins bg-primary px-10"
-              : "menu_tab poppins border px-10 border-gray-100 rounded-full py-2"
-          }
-          onClick={() => handleMenuTabs("Cocktails")}
-        >
-          Cocktails
-        </p>
+          <option value="Cold drinks">Cold drinks</option>
+          <option value="Warm drinks">Warm drinks</option>
+          <option value="Alcohol">Alcohol</option>
+          <option value="Cocktails">Cocktails</option>
+        </select>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12">
         {loading ? (

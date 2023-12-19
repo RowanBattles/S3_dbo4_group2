@@ -1,0 +1,13 @@
+{
+  "Appetizers": {},
+  "Main_courses": {},
+  "Desserts": {
+    "Churros": {
+      "itemDescription_Long": "Met kaneelsuiker, vanille-ijs en chocoladesaus en slagroom",
+      "itemDescription_Short": "Met kaneelsuiker, vanille-ijs en chocoladesaus en slagroom",
+      "dietaryInfo": "Vegetarisch",
+      "ingredients": "Deeg, Chocolade",
+      "name": "Churros"
+    }
+  }
+}

@@ -140,9 +140,7 @@ const AddModal: React.FC<PayModalProps> = ({ onClose, tableNumber }) => {
             </ul>
           </div>
           <div className="bg-gray-800 w-3/6 p-5">
-            <ul
-              className={`h-full w-full grid grid-cols-3 gap-4 overflow-y-auto grid-rows-3`}
-            >
+            <ul className="grid-cols-3 max-h-full overflow-y-auto grid gap-5">
               {filteredItems.map((i) => (
                 <li key={i.menuItemId}>
                   <div
