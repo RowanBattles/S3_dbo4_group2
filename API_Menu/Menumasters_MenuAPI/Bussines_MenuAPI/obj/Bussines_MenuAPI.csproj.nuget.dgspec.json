@@ -1,91 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\Bussines_MenuAPI\\Bussines_MenuAPI.csproj": {}
+    "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussines_MenuAPI/Bussines_MenuAPI.csproj": {}
   },
   "projects": {
-    "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\Bussiness_API_Contract\\Bussiness_API_Contract.csproj": {
+    "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussines_MenuAPI/Bussines_MenuAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\Bussiness_API_Contract\\Bussiness_API_Contract.csproj",
-        "projectName": "Bussiness_API_Contract",
-        "projectPath": "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\Bussiness_API_Contract\\Bussiness_API_Contract.csproj",
-        "packagesPath": "C:\\Users\\bassm\\.nuget\\packages\\",
-        "outputPath": "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\Bussiness_API_Contract\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\bassm\\AppData\\Roaming\\NuGet\\NuGet.Config"
-        ],
-        "originalTargetFrameworks": [
-          "net6.0"
-        ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {
-              "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\MenuAPI_Models\\MenuAPI_Models.csproj": {
-                "projectPath": "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\MenuAPI_Models\\MenuAPI_Models.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.25, 6.0.25]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.25, 6.0.25]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.25, 6.0.25]"
-            }
-          ],
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\Bussines_MenuAPI\\Bussines_MenuAPI.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\Bussines_MenuAPI\\Bussines_MenuAPI.csproj",
+        "projectUniqueName": "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussines_MenuAPI/Bussines_MenuAPI.csproj",
         "projectName": "Bussines_MenuAPI",
-        "projectPath": "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\Bussines_MenuAPI\\Bussines_MenuAPI.csproj",
-        "packagesPath": "C:\\Users\\bassm\\.nuget\\packages\\",
-        "outputPath": "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\Bussines_MenuAPI\\obj\\",
+        "projectPath": "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussines_MenuAPI/Bussines_MenuAPI.csproj",
+        "packagesPath": "/home/bas/.nuget/packages/",
+        "outputPath": "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussines_MenuAPI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\bassm\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/bas/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -97,11 +26,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\Bussiness_API_Contract\\Bussiness_API_Contract.csproj": {
-                "projectPath": "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\Bussiness_API_Contract\\Bussiness_API_Contract.csproj"
+              "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussiness_API_Contract/Bussiness_API_Contract.csproj": {
+                "projectPath": "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussiness_API_Contract/Bussiness_API_Contract.csproj"
               },
-              "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\DateLayer_Bussiness_Contract\\DateLayer_Bussiness_Contract.csproj": {
-                "projectPath": "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\DateLayer_Bussiness_Contract\\DateLayer_Bussiness_Contract.csproj"
+              "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/DateLayer_Bussiness_Contract.csproj": {
+                "projectPath": "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/DateLayer_Bussiness_Contract.csproj"
               }
             }
           }
@@ -134,10 +63,6 @@
             {
               "name": "Microsoft.NETCore.App.Ref",
               "version": "[6.0.25, 6.0.25]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.25, 6.0.25]"
             }
           ],
           "frameworkReferences": {
@@ -145,21 +70,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\DateLayer_Bussiness_Contract\\DateLayer_Bussiness_Contract.csproj": {
+    "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussiness_API_Contract/Bussiness_API_Contract.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\DateLayer_Bussiness_Contract\\DateLayer_Bussiness_Contract.csproj",
-        "projectName": "DateLayer_Bussiness_Contract",
-        "projectPath": "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\DateLayer_Bussiness_Contract\\DateLayer_Bussiness_Contract.csproj",
-        "packagesPath": "C:\\Users\\bassm\\.nuget\\packages\\",
-        "outputPath": "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\DateLayer_Bussiness_Contract\\obj\\",
+        "projectUniqueName": "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussiness_API_Contract/Bussiness_API_Contract.csproj",
+        "projectName": "Bussiness_API_Contract",
+        "projectPath": "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussiness_API_Contract/Bussiness_API_Contract.csproj",
+        "packagesPath": "/home/bas/.nuget/packages/",
+        "outputPath": "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussiness_API_Contract/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\bassm\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/bas/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -171,8 +96,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\MenuAPI_Models\\MenuAPI_Models.csproj": {
-                "projectPath": "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\MenuAPI_Models\\MenuAPI_Models.csproj"
+              "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/MenuAPI_Models.csproj": {
+                "projectPath": "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/MenuAPI_Models.csproj"
               }
             }
           }
@@ -205,9 +130,72 @@
             {
               "name": "Microsoft.NETCore.App.Ref",
               "version": "[6.0.25, 6.0.25]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/DateLayer_Bussiness_Contract.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/DateLayer_Bussiness_Contract.csproj",
+        "projectName": "DateLayer_Bussiness_Contract",
+        "projectPath": "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/DateLayer_Bussiness_Contract.csproj",
+        "packagesPath": "/home/bas/.nuget/packages/",
+        "outputPath": "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/bas/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/MenuAPI_Models.csproj": {
+                "projectPath": "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/MenuAPI_Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.25, 6.0.25]"
             },
             {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "name": "Microsoft.NETCore.App.Ref",
               "version": "[6.0.25, 6.0.25]"
             }
           ],
@@ -216,21 +204,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\MenuAPI_Models\\MenuAPI_Models.csproj": {
+    "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/MenuAPI_Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\MenuAPI_Models\\MenuAPI_Models.csproj",
+        "projectUniqueName": "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/MenuAPI_Models.csproj",
         "projectName": "MenuAPI_Models",
-        "projectPath": "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\MenuAPI_Models\\MenuAPI_Models.csproj",
-        "packagesPath": "C:\\Users\\bassm\\.nuget\\packages\\",
-        "outputPath": "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\MenuAPI_Models\\obj\\",
+        "projectPath": "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/MenuAPI_Models.csproj",
+        "packagesPath": "/home/bas/.nuget/packages/",
+        "outputPath": "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\bassm\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/bas/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -272,10 +260,6 @@
             {
               "name": "Microsoft.NETCore.App.Ref",
               "version": "[6.0.25, 6.0.25]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.25, 6.0.25]"
             }
           ],
           "frameworkReferences": {
@@ -283,7 +267,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
         }
       }
     }

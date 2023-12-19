@@ -159,7 +159,7 @@ const ItemDetails = () => {
                 </button>
               </div>
 
-              <Link to="/TransactionPage">
+              <Link to="/Menu">
                 <div className="mt-8 flex items-center justify-center md:justify-start lg:justify-start gap-x-4">
                   <button
                     onClick={addToCart}

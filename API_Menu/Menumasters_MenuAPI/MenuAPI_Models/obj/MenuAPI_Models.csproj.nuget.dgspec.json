@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\MenuAPI_Models\\MenuAPI_Models.csproj": {}
+    "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/MenuAPI_Models.csproj": {}
   },
   "projects": {
-    "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\MenuAPI_Models\\MenuAPI_Models.csproj": {
+    "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/MenuAPI_Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\MenuAPI_Models\\MenuAPI_Models.csproj",
+        "projectUniqueName": "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/MenuAPI_Models.csproj",
         "projectName": "MenuAPI_Models",
-        "projectPath": "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\MenuAPI_Models\\MenuAPI_Models.csproj",
-        "packagesPath": "C:\\Users\\bassm\\.nuget\\packages\\",
-        "outputPath": "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\MenuAPI_Models\\obj\\",
+        "projectPath": "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/MenuAPI_Models.csproj",
+        "packagesPath": "/home/bas/.nuget/packages/",
+        "outputPath": "/home/bas/Documents/GitHub/S3 Groep/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\bassm\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/bas/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -56,10 +56,6 @@
             {
               "name": "Microsoft.NETCore.App.Ref",
               "version": "[6.0.25, 6.0.25]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.25, 6.0.25]"
             }
           ],
           "frameworkReferences": {
@@ -67,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
         }
       }
     }

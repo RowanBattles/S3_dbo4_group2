@@ -438,3 +438,4 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+API_Menu/Menumasters_MenuAPI/Menumasters_MenuAPI/appsettings.json
