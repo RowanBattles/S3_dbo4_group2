@@ -86,7 +86,7 @@ const TransactionPage = () => {
         <h1 className="text-4xl font-medium uppercase">Order</h1>
         <hr className="w-28 h-1 bg-primary border-0 rounded mx-4"></hr>
       </div>
-      <section className="my-20 flex flex-col justify-center">
+      <section className="my-12 max-w-screen-xl mx-auto px-6">
         {cartItems.map((item, index) => (
           <Transaction
             key={index}
@@ -96,8 +96,8 @@ const TransactionPage = () => {
           />
         ))}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 text-center">
-          <div className="order-2 md:order-1 lg:order-1">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 ">
+          <div className="order-2 md:order-1 lg:order-1 text-center md:text-left lg:text-left">
             <button
               onClick={handleOrderNow}
               disabled={loading || cartItems.length === 0} // Disable if the cart is empty
@@ -111,7 +111,7 @@ const TransactionPage = () => {
             </button>
           </div>
 
-          <h2 className="text-gray-900 poppins text-4xl font-medium order-1 md:order-2 lg:order-2">
+          <h2 className="text-gray-900 poppins text-4xl font-medium order-1 md:order-2 lg:order-2 text-center md:text-right lg:text-right">
             Total: €{totalPrice.toFixed(2)}
           </h2>
         </div>
