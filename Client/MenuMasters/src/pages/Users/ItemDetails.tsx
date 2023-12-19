@@ -122,16 +122,16 @@ const ItemDetails = () => {
               <p className="text-center md:text-left lg:text-left text-sm poppins text-gray-500 leading-relaxed select-none">
                 {Item?.itemDescription_Long}
               </p>
-              {/* 
+
               {Item?.ingredients && Item.ingredients.length > 0 && (
                 <p className="text-center md:text-left lg:text-left text-sm poppins text-gray-500 leading-relaxed select-none mt-5">
                   <strong className="leading-relaxed select-none">
                     Ingredients:{" "}
                   </strong>
-                  {Item.ingredients.join(", ")}
+                  {Item.ingredients}
                 </p>
               )}
-              */}
+
               {showNotes && (
                 <textarea
                   id="message"
