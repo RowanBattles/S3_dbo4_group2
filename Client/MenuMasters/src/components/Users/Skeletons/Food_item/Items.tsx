@@ -91,7 +91,14 @@ const Items = () => {
         <select
           value={menuTab}
           onChange={(e) => handleMenuTabs(e.target.value)}
-          className="poppins border px-10 border-gray-100 rounded-full py-2 outline-none"
+          className={
+            menuTab === "Cold drinks" ||
+            menuTab === "Warm drinks" ||
+            menuTab === "Alcohol" ||
+            menuTab === "Cocktails"
+              ? "active_menu_tab poppins border px-10 border-primary rounded-full py-2 outline-none bg-red-500 text-white"
+              : "menu_tab poppins border px-10 border-gray-100 rounded-full py-2 bg-white"
+          }
         >
           <option value="Cold drinks">Cold drinks</option>
           <option value="Warm drinks">Warm drinks</option>
