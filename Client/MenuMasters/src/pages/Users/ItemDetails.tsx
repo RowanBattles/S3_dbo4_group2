@@ -6,7 +6,6 @@ import { getItembyId } from "../../utils/api";
 
 import { MenuItem } from "../../types/types";
 import useCustomToast from "../../utils/useToast";
-import { useTranslation } from "react-i18next";
 import ItemDetails_Skeleton from "../../components/Users/Skeletons/ItemDetails_Skeleton";
 
 const ItemDetails = () => {
@@ -19,7 +18,6 @@ const ItemDetails = () => {
   const [showNotes, setShowNotes] = useState(false);
   const [notes, setNotes] = useState<string>("");
   const { showSuccessToast, showErrorToast } = useCustomToast();
-  const { t } = useTranslation();
 
   useEffect(() => {
     const fetchFoodInfo = async () => {
@@ -48,7 +46,7 @@ const ItemDetails = () => {
     };
 
     fetchFoodInfo();
-  }, [id]);
+  }, [id, error, showErrorToast]);
 
   useEffect(() => {
     const calculateTotalPrice = () => {

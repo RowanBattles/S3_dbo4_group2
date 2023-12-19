@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Item from "./Item";
 import { getItems, getCategoryById } from "../../../../utils/api.tsx";
 
@@ -57,7 +57,7 @@ const Items = () => {
         <h1 className="text-4xl font-medium uppercase">Menu</h1>
         <hr className="w-28 h-1 bg-primary border-0 rounded mx-4"></hr>
       </div>
-      <div className="flex items-center justify-center space-x-6 mr-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-center">
         <p
           className={
             menuTab === "Appetizers"
@@ -96,8 +96,8 @@ const Items = () => {
             menuTab === "Warm drinks" ||
             menuTab === "Alcohol" ||
             menuTab === "Cocktails"
-              ? "active_menu_tab poppins border px-10 border-primary rounded-full py-2 outline-none bg-red-500 text-white"
-              : "menu_tab poppins border px-10 border-gray-100 rounded-full py-2 bg-white"
+              ? "active_menu_tab poppins border px-10 border-primary rounded-full py-2 outline-none bg-red-500 text-white text-center"
+              : "menu_tab poppins border px-10 border-gray-100 rounded-full py-2 bg-white text-center"
           }
         >
           <option value="Cold drinks">Cold drinks</option>

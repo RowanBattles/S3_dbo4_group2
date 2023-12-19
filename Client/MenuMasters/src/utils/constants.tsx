@@ -1,7 +1,7 @@
 const URL_MENU = "https://localhost:7266";
 const URL_STAFF = "https://localhost:7244";
 
-const ENDPOINTS = {
+export const ENDPOINTS = {
   GetAllItems: `${URL_MENU}/api/Menu`,
   GetAllTabs: `${URL_STAFF}/api/tab/sales`,
   GetAllOrdersKitchen: `${URL_STAFF}/api/order/kitchen`,
@@ -16,5 +16,3 @@ const ENDPOINTS = {
     `${URL_STAFF}/api/Order/Status/Kitchen?id=${id}`,
   StatusBar: (id: number) => `${URL_STAFF}/api/Order/Status/Bar?id=${id}`,
 };
-
-export default ENDPOINTS;
