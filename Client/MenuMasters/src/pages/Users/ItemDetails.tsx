@@ -142,7 +142,7 @@ const ItemDetails = () => {
               )}
               <div className="flex ml-10 md:ml-0 lg:ml-0 items-center justify-center md:justify-start lg:justify-start space-x-6 pt-8">
                 <h2 className="text-3xl w-20 font-medium text-black poppins select-none">
-                  ${totalPrice} {/* Display the calculated total price */}
+                  €{totalPrice} {/* Display the calculated total price */}
                 </h2>
                 <Plus_Min_Button
                   quantity={quantity}

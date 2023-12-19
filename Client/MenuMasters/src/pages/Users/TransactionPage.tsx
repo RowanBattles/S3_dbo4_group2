@@ -86,7 +86,7 @@ const TransactionPage = () => {
         <h1 className="text-4xl font-medium uppercase">Order</h1>
         <hr className="w-28 h-1 bg-primary border-0 rounded mx-4"></hr>
       </div>
-      <section className="my-20 max-w-screen-xl mx-auto px-6">
+      <section className="my-20 flex flex-col justify-center">
         {cartItems.map((item, index) => (
           <Transaction
             key={index}
@@ -96,20 +96,23 @@ const TransactionPage = () => {
           />
         ))}
 
-        <div className="flex flex-row justify-between items-center">
-          <button
-            onClick={handleOrderNow}
-            disabled={loading || cartItems.length === 0} // Disable if the cart is empty
-            className="bg-primary text-white px-9 py-3 text-xl focus:outline-none poppins rounded-full transform transition duration-300 hover:scale-105"
-          >
-            {loading ? (
-              <LoadingSpinner size={20} color="#ffffff" />
-            ) : (
-              "Order now"
-            )}
-          </button>
-          <h2 className="text-gray-900 poppins text-4xl font-medium">
-            Total: ${totalPrice.toFixed(2)}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 text-center">
+          <div className="order-2 md:order-1 lg:order-1">
+            <button
+              onClick={handleOrderNow}
+              disabled={loading || cartItems.length === 0} // Disable if the cart is empty
+              className="bg-primary text-white px-9 py-3 text-xl focus:outline-none poppins rounded-full transform transition duration-300 hover:scale-105"
+            >
+              {loading ? (
+                <LoadingSpinner size={20} color="#ffffff" />
+              ) : (
+                "Order now"
+              )}
+            </button>
+          </div>
+
+          <h2 className="text-gray-900 poppins text-4xl font-medium order-1 md:order-2 lg:order-2">
+            Total: €{totalPrice.toFixed(2)}
           </h2>
         </div>
       </section>

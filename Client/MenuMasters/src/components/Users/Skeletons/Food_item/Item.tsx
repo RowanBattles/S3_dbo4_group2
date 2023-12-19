@@ -44,7 +44,7 @@ const Item = ({
             {description}
           </p>
           <h2 className="text-gray-900 poppins text-2xl font-medium pt-5">
-            ${price}
+            €{price}
           </h2>
 
           <button className="bg-primary text-white px-8 py-2 focus:outline-none poppins rounded-full transform transition duration-300 hover:scale-105 mt-10">

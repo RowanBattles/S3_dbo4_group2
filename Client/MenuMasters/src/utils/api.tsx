@@ -67,7 +67,7 @@ export async function DeleteProducts(
   return response.data;
 }
 
-export async function createOrder(orderData: string) {
+export async function createOrder(orderData: any) {
   const url = ENDPOINTS.CreateOrder;
   const response = await axios.post(url, orderData);
   return response.data;

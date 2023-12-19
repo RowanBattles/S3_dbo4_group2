@@ -100,10 +100,18 @@ const Items = () => {
               : "menu_tab poppins border px-10 border-gray-100 rounded-full py-2 bg-white text-center"
           }
         >
-          <option value="Cold drinks">Cold drinks</option>
-          <option value="Warm drinks">Warm drinks</option>
-          <option value="Alcohol">Alcohol</option>
-          <option value="Cocktails">Cocktails</option>
+          <option value="Cold drinks" className="bg-white text-black text-left">
+            Cold drinks
+          </option>
+          <option value="Warm drinks" className="bg-white text-black text-left">
+            Warm drinks
+          </option>
+          <option value="Alcohol" className="bg-white text-black text-left">
+            Alcohol
+          </option>
+          <option value="Cocktails" className="bg-white text-black text-left">
+            Cocktails
+          </option>
         </select>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12">
