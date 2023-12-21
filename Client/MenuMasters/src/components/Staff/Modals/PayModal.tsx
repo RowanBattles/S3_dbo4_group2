@@ -93,17 +93,17 @@ const PayModal: React.FC<PayModalProps> = ({ tab, onClose }) => {
   return (
     <>
       <div
-        className={`fixed left-1/4 top-[10%] w-1/2 z-50 white rounded-3xl p-5 pt-16 animate-swoop-in border border-gray-300 shadow-md ${
+        className={`fixed left-1/4 top-[10%] w-1/2 z-50 white rounded-3xl p-5 pt-16 animate-swoop-in bg-black border border-gray-300 shadow-md ${
           visible ? "animate-swoop-in" : "animate-swoop-out"
         }`}
       >
         <button
-          className="absolute top-5 right-5 text-3xl text-black font-bold"
+          className="absolute top-5 right-5 text-3xl text-white font-bold"
           onClick={handleCloseClick}
         >
           X
         </button>
-        <div className="bg-gray-700 px-4 rounded-lg text-white py-2">
+        <div className="bg-white px-4 rounded-lg text-black py-2 pt-4">
           <div className="flex justify-between items-center font-bold text-3xl mb-1">
             <div>Total</div>
             <div>{tab.tabTotal.toFixed(2)}</div>
@@ -125,7 +125,7 @@ const PayModal: React.FC<PayModalProps> = ({ tab, onClose }) => {
               <p>Tendered</p>
               <input
                 type="number"
-                className="w-full rounded-md p-2 pt-4 text-black font-semibold text-right outline-none cursor-default text-3xl"
+                className="w-full rounded-md p-2 pt-4 text-black font-semibold text-right border outline-none border-gray-400 cursor-default text-3xl"
                 value={
                   inputValue === "" ? "" : parseFloat(inputValue).toFixed(2)
                 }
@@ -137,38 +137,41 @@ const PayModal: React.FC<PayModalProps> = ({ tab, onClose }) => {
             <div>
               <p>Change</p>
               <input
-                className="w-full text-3xl rounded-md p-2 pt-4 cursor-default outline-none text-black font-semibold text-right"
+                className="w-full text-3xl rounded-md p-2 pt-4 cursor-default outline-none text-black font-semibold text-right border border-gray-400"
                 readOnly
                 value={changeValue}
               />
             </div>
           </div>
           <div className="flex pt-4 pb-2 font-bold text-6xl text-black">
-            <div className="grid grid-cols-3 gap-2 pr-1 bg-gray-700 w-2/3 rounded-l-lg">
+            <div className="grid grid-cols-3 gap-1 pr-1 w-2/3 rounded-l-lg">
               {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((digit) => (
                 <button
                   key={digit}
                   onClick={() => handleDigitClick(digit.toString())}
-                  className="py-5 font-bold bg-white rounded-md"
+                  className="py-5 font-bold bg-white rounded-md border-gray-400 border"
                 >
                   {digit}
                 </button>
               ))}
-              <button className=" bg-white rounded-md" onClick={handleDotClick}>
+              <button
+                className=" bg-white rounded-md border border-gray-400"
+                onClick={handleDotClick}
+              >
                 .
               </button>
               <button
                 onClick={handleClearClick}
-                className="bg-white rounded-md"
+                className="bg-white rounded-md border border-gray-400"
               >
                 C
               </button>
             </div>
             <div className="w-1/3">
-              <div className="h-full bg-gray-700 pl-1 rounded-r-lg">
+              <div className="h-full pl-1 rounded-r-lg">
                 <div className="h-1/2 pb-1">
                   <button
-                    className="bg-white rounded-md flex items-center justify-center h-full w-full p-2"
+                    className="bg-white rounded-md flex items-center justify-center h-full w-full p-2 border border-gray-400"
                     onClick={handleBackClick}
                   >
                     <img
