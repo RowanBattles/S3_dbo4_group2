@@ -9,6 +9,16 @@
     "order": "Order",
     "orderNow": "Order Now",
     "shoppingcart": "Shopping Cart",
-    "table": "Table"
+    "table": "Table",
+    "total": "Total",
+    "categories": {
+      "Appetizers": "Appetizers",
+      "Main_courses": "Main course",
+      "Desserts": "Desserts",
+      "Cold_drinks": "Cold drinks",
+      "Warm_drinks": "Warm drinks",
+      "Alcohol": "Alcohol",
+      "Cocktails": "Cocktails"
+    }
   }
 }

@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import Transaction from "../../components/Users/Transaction";
 import Header from "../../components/Users/Header";
 import React from "react";
-
+import { useTranslation } from "react-i18next";
 import { CartItem } from "../../types/types";
 import { createOrder } from "../../utils/api";
 import useCustomToast from "../../utils/useToast";
@@ -12,6 +12,7 @@ const TransactionPage = () => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const { showSuccessToast, showErrorToast } = useCustomToast();
   const [loading, setLoading] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const storedCartItemsString = localStorage.getItem("cartItems");
@@ -106,13 +107,13 @@ const TransactionPage = () => {
               {loading ? (
                 <LoadingSpinner size={20} color="#ffffff" />
               ) : (
-                "Order now"
+                t("common:translation:orderNow")
               )}
             </button>
           </div>
 
           <h2 className="text-gray-900 poppins text-4xl font-medium order-1 md:order-2 lg:order-2 text-center md:text-right lg:text-right">
-            Total: €{totalPrice.toFixed(2)}
+            {t("common:translation:total")}: €{totalPrice.toFixed(2)}
           </h2>
         </div>
       </section>

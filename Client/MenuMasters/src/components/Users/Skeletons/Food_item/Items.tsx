@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Item from "./Item";
 import { getItems, getCategoryById } from "../../../../utils/api.tsx";
-
+import { useTranslation } from "react-i18next";
 import { MenuItem } from "../../../../types/types";
 import Item_Skeleton from "./Item_Skeleton";
 
@@ -10,6 +10,7 @@ const Items = () => {
   const [categories, setCategories] = useState<string[]>([]);
   const [menuTab, setMenuTab] = useState<string>("Appetizers");
   const [loading, setLoading] = useState<boolean>(true);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -66,7 +67,7 @@ const Items = () => {
           }
           onClick={() => handleMenuTabs("Appetizers")}
         >
-          Appetizers
+          {t("common:translation.categories:appetizers")}
         </p>
         <p
           className={
@@ -76,7 +77,7 @@ const Items = () => {
           }
           onClick={() => handleMenuTabs("Main courses")}
         >
-          Main courses
+          {t("common:translation.categories:main_courses")}
         </p>
         <p
           className={
@@ -86,7 +87,7 @@ const Items = () => {
           }
           onClick={() => handleMenuTabs("Desserts")}
         >
-          Desserts
+          {t("common:translation.categories:desserts")}
         </p>
         <select
           value={menuTab}
@@ -101,16 +102,16 @@ const Items = () => {
           }
         >
           <option value="Cold drinks" className="bg-white text-black text-left">
-            Cold drinks
+            {t("common:translation.categories:cold_drinks")}
           </option>
           <option value="Warm drinks" className="bg-white text-black text-left">
-            Warm drinks
+            {t("common:translation.categories:warm_drinks")}
           </option>
           <option value="Alcohol" className="bg-white text-black text-left">
-            Alcohol
+            {t("common:translation.categories:alcohol")}
           </option>
           <option value="Cocktails" className="bg-white text-black text-left">
-            Cocktails
+            {t("common:translation.categories:cocktails")}
           </option>
         </select>
       </div>

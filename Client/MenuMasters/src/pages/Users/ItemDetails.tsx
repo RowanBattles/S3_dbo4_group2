@@ -19,7 +19,7 @@ const ItemDetails = () => {
   const [showNotes, setShowNotes] = useState(false);
   const [notes, setNotes] = useState<string>("");
   const { showSuccessToast, showErrorToast } = useCustomToast();
-  const { i18n, t } = useTranslation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const fetchFoodInfo = async () => {
