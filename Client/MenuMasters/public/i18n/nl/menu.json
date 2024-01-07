@@ -1,13 +1,121 @@
 {
-  "Appetizers": {},
-  "Main_courses": {},
-  "Desserts": {
-    "Churros": {
-      "itemDescription_Long": "Met kaneelsuiker, vanille-ijs en chocoladesaus en slagroom",
-      "itemDescription_Short": "Met kaneelsuiker, vanille-ijs en chocoladesaus en slagroom",
-      "dietaryInfo": "Vegetarisch",
-      "ingredients": "Deeg, Chocolade",
-      "name": "Churros"
-    }
+  "Hot_Chocolate": {
+    "item_name": "Warme Chocolade",
+    "item_description_short": "Heerlijke warme chocolade",
+    "item_description_long": "Geniet van onze rijke en fluweelzachte warme chocolade, overgoten met slagroom. Een troostende traktatie om je zintuigen te verwarmen.",
+    "ingredients": "Premium chocolade, melk, suiker",
+    "dietary_info": "Veganistisch"
+  },
+  "Margarita": {
+    "item_name": "Margarita",
+    "item_description_short": "Klassieke margarita",
+    "item_description_long": "Geniet van de klassieke smaak van onze margarita, gemaakt met topkwaliteit tequila, triple sec en een vleugje limoen. Geserveerd 'on the rocks' voor een verfrissende ervaring.",
+    "ingredients": "Tequila, triple sec, limoensap, zout",
+    "dietary_info": "Vegetarisch"
+  },
+  "Iced_Coffee": {
+    "item_name": "Iced Koffie",
+    "item_description_short": "Verfrissende iced coffee",
+    "item_description_long": "Koel af met onze heerlijke iced coffee, gemaakt van premium bonen en geserveerd over ijs. De perfecte oppepper op een warme dag.",
+    "ingredients": "Koffie, ijs, melk, suiker",
+    "dietary_info": "Vegetarisch"
+  },
+  "Spinach_Artichoke_Dip": {
+    "item_name": "Spinazie Artisjok Dip",
+    "item_description_short": "Romige spinazie artisjok dip",
+    "item_description_long": "Een romige mix van spinazie, artisjokken en gesmolten kaas. Geserveerd met knapperige tortillachips voor een heerlijk begin van je maaltijd.",
+    "ingredients": "Spinazie, artisjokken, roomkaas, Parmezaanse kaas, tortillachips",
+    "dietary_info": "Vegetarisch"
+  },
+  "Chicken_Alfredo_Pasta": {
+    "item_name": "Kip Alfredo Pasta",
+    "item_description_short": "Romige kip Alfredo",
+    "item_description_long": "Geniet van de smaken van onze klassieke kip Alfredo pasta. Malse kipfilet in een rijke Alfredo saus, geserveerd over perfect gekookte pasta.",
+    "ingredients": "Kipfilet, fettuccine pasta, Alfredo saus, Parmezaanse kaas",
+    "dietary_info": "Bevat zuivel"
+  },
+  "Chocolate_Lava_Cake": {
+    "item_name": "Chocolade Lava Cake",
+    "item_description_short": "Decadente chocolade lava cake",
+    "item_description_long": "Geniet van de goddelijke smaak van onze chocolade lava cake. Een warme en plakkerige chocoladecentrum, omringd door een vochtige en rijke cakebuitenkant.",
+    "ingredients": "Chocolade, boter, suiker, eieren",
+    "dietary_info": "Vegetarisch"
+  },
+  "Chai_Latte": {
+    "item_name": "Chai Latte",
+    "item_description_short": "Gekruide chai latte",
+    "item_description_long": "Ervaar de warmte van onze gekruide chai latte, een perfecte mix van aromatische kruiden en gestoomde melk. Een troostende drank om je smaakpapillen te verwennen.",
+    "ingredients": "Chai thee, melk, honing",
+    "dietary_info": "Vegetarisch"
+  },
+  "Caprese_Salad": {
+    "item_name": "Caprese Salade",
+    "item_description_short": "Verse Caprese salade",
+    "item_description_long": "Een lichte en verfrissende salade met rijpe tomaten, mozzarella kaas en basilicumblaadjes, besprenkeld met balsamico glazuur.",
+    "ingredients": "Tomaten, mozzarella kaas, basilicum, balsamico glazuur",
+    "dietary_info": "Vegetarisch"
+  },
+  "Penne_Arrabiata": {
+    "item_name": "Pittige Penne Pasta",
+    "item_description_short": "Pittige penne pasta",
+    "item_description_long": "Spaghetti gegooid in een pittige tomatensaus met knoflook en rode pepervlokken, gegarneerd met verse peterselie en Parmezaanse kaas.",
+    "ingredients": "Penne pasta, tomatensaus, knoflook, rode pepervlokken, peterselie, Parmezaanse kaas",
+    "dietary_info": "Vegetarisch"
+  },
+  "Classic_Cheeseburger": {
+    "item_name": "Klassieke Cheeseburger",
+    "item_description_short": "Sappige cheeseburger",
+    "item_description_long": "Geniet van de klassieke smaak van onze sappige cheeseburger, gegarneerd met gesmolten kaas, sla, tomaat en onze speciale saus.",
+    "ingredients": "Rundvleespasteitje, kaas, sla, tomaat, saus, broodje",
+    "dietary_info": "Bevat zuivel"
+  },
+  "Margherita_Pizza": {
+    "item_name": "Margherita Pizza",
+    "item_description_short": "Klassieke Margherita pizza",
+    "item_description_long": "Geniet van de eenvoud van onze klassieke Margherita pizza, belegd met tomatensaus, verse mozzarella, basilicum en een scheutje olijfolie.",
+    "ingredients": "Pizzadeeg, tomatensaus, mozzarella kaas, basilicum, olijfolie",
+    "dietary_info": "Vegetarisch"
+  },
+  "Chicken_Caesar_Salad": {
+    "item_name": "Gegrilde Kip Caesar Salade",
+    "item_description_short": "Gegrilde kip Caesar salade",
+    "item_description_long": "Een stevige Caesar salade met gegrilde kipfilet, knapperige romaine sla, croutons, Parmezaanse kaas en Caesar dressing.",
+    "ingredients": "Kipfilet, romaine sla, croutons, Parmezaanse kaas, Caesar dressing",
+    "dietary_info": "Bevat zuivel"
+  },
+  "Turkey_Club_Sandwich": {
+    "item_name": "Club Sandwich met Kalkoen",
+    "item_description_short": "Klassieke club sandwich",
+    "item_description_long": "Lagen gesneden kalkoen, bacon, sla, tomaat en mayo op geroosterd brood. Geserveerd met een bijgerecht van knapperige friet.",
+    "ingredients": "Kalkoen, bacon, sla, tomaat, mayo, brood, friet",
+    "dietary_info": "Bevat zuivel"
+  },
+  "Filet_Mignon": {
+    "item_name": "Filet Mignon",
+    "item_description_short": "Malse filet mignon",
+    "item_description_long": "Geniet van de exquise smaak van onze malse filet mignon, perfect gegrild en geserveerd met een bijgerecht naar keuze.",
+    "ingredients": "Filet mignon, kruiden, bijgerecht naar keuze",
+    "dietary_info": "Geen dieetbeperkingen"
+  },
+  "Spicy_Tuna_Roll": {
+    "item_name": "Pittige Tuna Rol",
+    "item_description_short": "Pittige tonijn sushi rol",
+    "item_description_long": "Ervaar de gedurfde smaken van onze pittige tonijn rol, gemaakt met verse tonijn, pittige mayonaise en avocado, omwikkeld in zeewier en rijst.",
+    "ingredients": "Verse tonijn, pittige mayonaise, avocado, zeewier, rijst",
+    "dietary_info": "Geen dieetbeperkingen"
+  },
+  "Vegetable_Stir-Fry": {
+    "item_name": "Groente Roerbak",
+    "item_description_short": "Verse groente roerbak",
+    "item_description_long": "Een kleurrijke en voedzame roerbak met een verscheidenheid aan verse groenten geworpen in een smakelijke soja-gember saus.",
+    "ingredients": "Assortiment groenten, soja-gember saus",
+    "dietary_info": "Vegetarisch"
+  },
+  "Tomato_Basil_Soup": {
+    "item_name": "Tomaten Basilicum Soep",
+    "item_description_short": "Zelfgemaakte tomaten basilicum soep",
+    "item_description_long": "Warm op met onze zelfgemaakte tomaten basilicum soep, gemaakt met rijpe tomaten, verse basilicum en een vleugje room. Geserveerd met een bijgerecht van knapperig brood.",
+    "ingredients": "Tomaten, basilicum, room, brood",
+    "dietary_info": "Vegetarisch"
   }
 }

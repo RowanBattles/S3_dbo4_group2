@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import Header from "../../components/Users/Header";
 import { getItembyId } from "../../utils/api";
+import { useTranslation } from "react-i18next";
 
 import { MenuItem } from "../../types/types";
 import useCustomToast from "../../utils/useToast";
@@ -18,6 +19,7 @@ const ItemDetails = () => {
   const [showNotes, setShowNotes] = useState(false);
   const [notes, setNotes] = useState<string>("");
   const { showSuccessToast, showErrorToast } = useCustomToast();
+  const { i18n, t } = useTranslation();
 
   useEffect(() => {
     const fetchFoodInfo = async () => {
@@ -107,18 +109,27 @@ const ItemDetails = () => {
           >
             <div className="order-2 md:order-1 lg:order-1 flex flex-col justify-center">
               <h1 className="text-center md:text-left lg:text-left text-3xl lg:text-4xl font-semibold poppins pb-4 text-gray-700 select-none">
-                {Item?.itemName}
+                {t(
+                  `menu:${Item?.itemName.replace(/\s/g, "_")}.item_name`
+                ).replace(/_/g, " ")}
               </h1>
               <div className="flex justify-center md:justify-normal lg:justify-normal">
                 {Item?.dietaryInfo && ( // This line checks if dietaryInfo is not an empty string
                   <span className="bg-green-100 border border-[#18BD63] rounded-full text-[#18BD63] text-sm poppins px-4 py-1 inline-block mb-4 text-center md:text-left lg:text-left">
-                    {Item.dietaryInfo}
+                    {t(
+                      `menu:${Item?.itemName.replace(/\s/g, "_")}.dietary_info`
+                    ).replace(/_/g, " ")}
                   </span>
                 )}
               </div>
 
               <p className="text-center md:text-left lg:text-left text-sm poppins text-gray-500 leading-relaxed select-none">
-                {Item?.itemDescription_Long}
+                {t(
+                  `menu:${Item?.itemName.replace(
+                    /\s/g,
+                    "_"
+                  )}.item_description_long`
+                ).replace(/_/g, " ")}
               </p>
 
               {Item?.ingredients && Item.ingredients.length > 0 && (
@@ -126,7 +137,9 @@ const ItemDetails = () => {
                   <strong className="leading-relaxed select-none">
                     Ingredients:{" "}
                   </strong>
-                  {Item.ingredients}
+                  {t(
+                    `menu:${Item?.itemName.replace(/\s/g, "_")}.ingredients`
+                  ).replace(/_/g, " ")}
                 </p>
               )}
 
@@ -135,7 +148,7 @@ const ItemDetails = () => {
                   id="message"
                   rows={4}
                   className="block p-2.5 mt-6 w-full text-sm poppins text-gray-500 leading-relaxed  rounded-lg border border-gray-300 outline-none"
-                  placeholder="Add info for the kitchen"
+                  placeholder={t("common:translation:addKitchenInformation")}
                   value={notes} // Set the value of the textarea to the 'notes' state
                   onChange={(e) => setNotes(e.target.value)} // Update the 'notes' state on change
                 ></textarea>
@@ -153,7 +166,7 @@ const ItemDetails = () => {
                   onClick={() => setShowNotes(!showNotes)}
                   className="bg-primary text-white px-5 py-3 focus:outline-none poppins rounded-full transform transition duration-300 hover:scale-105 text-center"
                 >
-                  <h1>Add Notes</h1>
+                  <h1>{t("common:translation:addNotes")}</h1>
                 </button>
               </div>
 
@@ -174,7 +187,7 @@ const ItemDetails = () => {
                         <path d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
                       </svg>
                     </div>
-                    <h1>Order now</h1>
+                    <h1>{t("common:translation:orderNow")}</h1>
                   </button>
                 </div>
               </Link>

@@ -1,13 +1,121 @@
 {
-  "Appetizers": {},
-  "Main_courses": {},
-  "Desserts": {
-    "Churros": {
-      "itemDescription_Long": "With cinnamon sugar, vanilla ice cream and chocolate sauce and whipped cream",
-      "itemDescription_Short": "With cinnamon sugar, vanilla ice cream and chocolate sauce and whipped cream",
-      "dietaryInfo": "Vegetarian",
-      "ingredients": "Dough, chocolate",
-      "name": "Churros"
-    }
+  "Hot_Chocolate": {
+    "item_name": "Hot Chocolate",
+    "item_description_short": "Delicious hot chocolate",
+    "item_description_long": "Indulge in our rich and velvety hot chocolate, topped with whipped cream. A comforting treat to warm your senses.",
+    "ingredients": "Premium chocolate, milk, sugar",
+    "dietary_info": "Vegan"
+  },
+  "Margarita": {
+    "item_name": "Margarita",
+    "item_description_short": "Classic margarita",
+    "item_description_long": "Enjoy the classic taste of our margarita, made with top-shelf tequila, triple sec, and a hint of lime. Served on the rocks for a refreshing experience.",
+    "ingredients": "Tequila, triple sec, lime juice, salt",
+    "dietary_info": "Vegetarian"
+  },
+  "Iced_Coffee": {
+    "item_name": "Iced Coffee",
+    "item_description_short": "Refreshing iced coffee",
+    "item_description_long": "Cool down with our delightful iced coffee, made from premium beans and served over ice. The perfect pick-me-up on a warm day.",
+    "ingredients": "Coffee, ice, milk, sugar",
+    "dietary_info": "Vegetarian"
+  },
+  "Spinach_Artichoke_Dip": {
+    "item_name": "Spinach Artichoke Dip",
+    "item_description_short": "Creamy spinach artichoke dip",
+    "item_description_long": "A creamy blend of spinach, artichokes, and melted cheese. Served with crispy tortilla chips for a delicious start to your meal.",
+    "ingredients": "Spinach, artichokes, cream cheese, Parmesan, tortilla chips",
+    "dietary_info": "Vegetarian"
+  },
+  "Chicken_Alfredo_Pasta": {
+    "item_name": "Chicken Alfredo Pasta",
+    "item_description_short": "Creamy chicken Alfredo",
+    "item_description_long": "Savor the flavors of our classic chicken Alfredo pasta. Tender chicken breast in a rich Alfredo sauce, served over perfectly cooked pasta.",
+    "ingredients": "Chicken breast, fettuccine pasta, Alfredo sauce, Parmesan",
+    "dietary_info": "Contains dairy"
+  },
+  "Chocolate_Lava_Cake": {
+    "item_name": "Chocolate Lava Cake",
+    "item_description_short": "Decadent chocolate lava cake",
+    "item_description_long": "Indulge in the divine taste of our chocolate lava cake. A warm and gooey chocolate center, surrounded by a moist and rich cake exterior.",
+    "ingredients": "Chocolate, butter, sugar, eggs",
+    "dietary_info": "Vegetarian"
+  },
+  "Chai_Latte": {
+    "item_name": "Chai Latte",
+    "item_description_short": "Spiced chai latte",
+    "item_description_long": "Experience the warmth of our spiced chai latte, a perfect blend of aromatic spices and steamed milk. A comforting beverage to delight your taste buds.",
+    "ingredients": "Chai tea, milk, honey",
+    "dietary_info": "Vegetarian"
+  },
+  "Caprese_Salad": {
+    "item_name": "Caprese Salad",
+    "item_description_short": "Fresh Caprese salad",
+    "item_description_long": "A light and refreshing salad featuring ripe tomatoes, mozzarella cheese, and basil leaves drizzled with balsamic glaze.",
+    "ingredients": "Tomatoes, mozzarella cheese, basil, balsamic glaze",
+    "dietary_info": "Vegetarian"
+  },
+  "Penne_Arrabiata": {
+    "item_name": "Penne Arrabiata",
+    "item_description_short": "Spicy penne pasta",
+    "item_description_long": "Spaghetti tossed in a spicy tomato sauce with garlic and red chili flakes, topped with fresh parsley and Parmesan cheese.",
+    "ingredients": "Penne pasta, tomato sauce, garlic, red chili flakes, parsley, Parmesan cheese",
+    "dietary_info": "Vegetarian"
+  },
+  "Classic_Cheeseburger": {
+    "item_name": "Classic Cheeseburger",
+    "item_description_short": "Juicy cheeseburger",
+    "item_description_long": "Savor the classic flavor of our juicy cheeseburger, topped with melted cheese, lettuce, tomato, and our special sauce.",
+    "ingredients": "Beef patty, cheese, lettuce, tomato, sauce, bun",
+    "dietary_info": "Contains dairy"
+  },
+  "Margherita_Pizza": {
+    "item_name": "Margherita Pizza",
+    "item_description_short": "Classic Margherita pizza",
+    "item_description_long": "Enjoy the simplicity of our classic Margherita pizza, topped with tomato sauce, fresh mozzarella, basil, and a drizzle of olive oil.",
+    "ingredients": "Pizza dough, tomato sauce, mozzarella cheese, basil, olive oil",
+    "dietary_info": "Vegetarian"
+  },
+  "Chicken_Caesar_Salad": {
+    "item_name": "Chicken Caesar Salad",
+    "item_description_short": "Grilled chicken Caesar salad",
+    "item_description_long": "A hearty Caesar salad with grilled chicken breast, crisp romaine lettuce, croutons, Parmesan cheese, and Caesar dressing.",
+    "ingredients": "Chicken breast, romaine lettuce, croutons, Parmesan cheese, Caesar dressing",
+    "dietary_info": "Contains dairy"
+  },
+  "Turkey_Club_Sandwich": {
+    "item_name": "Turkey Club Sandwich",
+    "item_description_short": "Classic turkey club",
+    "item_description_long": "Layers of sliced turkey, bacon, lettuce, tomato, and mayo on toasted bread. Served with a side of crispy fries.",
+    "ingredients": "Turkey, bacon, lettuce, tomato, mayo, bread, fries",
+    "dietary_info": "Contains dairy"
+  },
+  "Filet_Mignon": {
+    "item_name": "Filet Mignon",
+    "item_description_short": "Tender filet mignon",
+    "item_description_long": "Indulge in the exquisite flavor of our tender filet mignon, grilled to perfection and served with your choice of side.",
+    "ingredients": "Filet mignon, seasoning, side of choice",
+    "dietary_info": "No dietary restrictions"
+  },
+  "Spicy_Tuna_Roll": {
+    "item_name": "Spicy Tuna Roll",
+    "item_description_short": "Spicy tuna sushi roll",
+    "item_description_long": "Experience the bold flavors of our spicy tuna roll, made with fresh tuna, spicy mayo, and avocado, wrapped in seaweed and rice.",
+    "ingredients": "Fresh tuna, spicy mayo, avocado, seaweed, rice",
+    "dietary_info": "No dietary restrictions"
+  },
+  "Vegetable_Stir-Fry": {
+    "item_name": "Vegetable Stir-Fry",
+    "item_description_short": "Fresh vegetable stir-fry",
+    "item_description_long": "A colorful and nutritious stir-fry featuring a variety of fresh vegetables tossed in a savory soy-ginger sauce.",
+    "ingredients": "Assorted vegetables, soy-ginger sauce",
+    "dietary_info": "Vegetarian"
+  },
+  "Tomato_Basil_Soup": {
+    "item_name": "Tomato Basil Soup",
+    "item_description_short": "Homemade tomato basil soup",
+    "item_description_long": "Warm up with our homemade tomato basil soup, made with ripe tomatoes, fresh basil, and a hint of cream. Served with a side of crusty bread.",
+    "ingredients": "Tomatoes, basil, cream, bread",
+    "dietary_info": "Vegetarian"
   }
 }
