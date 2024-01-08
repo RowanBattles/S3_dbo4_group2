@@ -12,13 +12,13 @@
     "table": "Table",
     "total": "Total",
     "categories": {
-      "Appetizers": "Appetizers",
-      "Main_courses": "Main course",
-      "Desserts": "Desserts",
-      "Cold_drinks": "Cold drinks",
-      "Warm_drinks": "Warm drinks",
-      "Alcohol": "Alcohol",
-      "Cocktails": "Cocktails"
+      "appetizers": "Appetizers",
+      "main_courses": "Main course",
+      "desserts": "Desserts",
+      "cold_drinks": "Cold drinks",
+      "warm_drinks": "Warm drinks",
+      "alcohol": "Alcohol",
+      "cocktails": "Cocktails"
     }
   }
 }
