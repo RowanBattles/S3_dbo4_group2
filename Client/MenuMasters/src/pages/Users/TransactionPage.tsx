@@ -9,6 +9,11 @@ import useCustomToast from "../../utils/useToast";
 import LoadingSpinner from "../../utils/useLoadingSpinner";
 
 const TransactionPage = () => {
+  useEffect(() => {
+    console.log("TransactionPage rendered");
+    // Other component logic
+  }, []);
+
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const { showSuccessToast, showErrorToast } = useCustomToast();
   const [loading, setLoading] = useState(false);
