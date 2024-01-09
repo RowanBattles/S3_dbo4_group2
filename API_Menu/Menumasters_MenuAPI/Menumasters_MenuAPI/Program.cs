@@ -6,6 +6,7 @@ using DateLayer_Bussiness_Contract;
 using MenuAPI_Models;
 using Microsoft.EntityFrameworkCore;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -39,6 +40,7 @@ builder.Services.AddScoped<ICategoryComponent, CategoryComponent>();
 builder.Services.AddScoped<IMenuComponent, MenuComponent>();
 builder.Services.AddScoped<IOrderComponent, OrderComponent>();
 builder.Services.AddScoped<ITabComponent, TabComponent>();
+
 
 var app = builder.Build();
 
