@@ -21,7 +21,7 @@ namespace MenuAPI_Models.DTOs
 
             this.OrderId = order.OrderId;
             this.TabId = order.TabId;
-            this.Status = order.Status;
+            this.Status = order.Status_Kitchen;
             this.DateTime = order.DateTime;
             this.OrderItems = kitchenOrderItems;
         }
