@@ -1,10 +1,12 @@
 ﻿using Bussines_MenuAPI;
+using Bussines_MenuAPI.YourNamespace.Services;
 using Bussiness_API_Contract;
 using DataLayer_MenuAPI;
 using DataLayer_MenuAPI.Repos;
 using DateLayer_Bussiness_Contract;
 using MenuAPI_Models;
 using Microsoft.EntityFrameworkCore;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,6 +41,10 @@ builder.Services.AddScoped<ICategoryComponent, CategoryComponent>();
 builder.Services.AddScoped<IMenuComponent, MenuComponent>();
 builder.Services.AddScoped<IOrderComponent, OrderComponent>();
 builder.Services.AddScoped<ITabComponent, TabComponent>();
+builder.Services.AddSingleton<AccessCodeService>();
+
+// Add services to the container
+builder.Services.AddSingleton<AccessCodeService>();
 
 var app = builder.Build();
 

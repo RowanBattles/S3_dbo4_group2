@@ -578,3 +578,6 @@ API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/obj/Debug/net6.0/DateL
 API_Menu/Menumasters_MenuAPI/DataLayer_MenuAPI/obj/Debug/net6.0/DataLayer_MenuAPI.csproj.AssemblyReference.cache
 API_Menu/Menumasters_MenuAPI/Bussiness_API_Contract/obj/Debug/net6.0/Bussiness_API_Contract.csproj.AssemblyReference.cache
 API_Menu/Menumasters_MenuAPI/Bussines_MenuAPI/obj/Debug/net6.0/Bussines_MenuAPI.csproj.AssemblyReference.cache
+*.cache
+API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/obj/Debug/net6.0/DateLayer_Bussiness_Contract.csproj.AssemblyReference.cache
+*.cache
