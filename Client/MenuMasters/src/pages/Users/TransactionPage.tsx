@@ -9,11 +9,6 @@ import useCustomToast from "../../utils/useToast";
 import LoadingSpinner from "../../utils/useLoadingSpinner";
 
 const TransactionPage = () => {
-  useEffect(() => {
-    console.log("TransactionPage rendered");
-    // Other component logic
-  }, []);
-
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const { showSuccessToast, showErrorToast } = useCustomToast();
   const [loading, setLoading] = useState(false);
@@ -27,7 +22,6 @@ const TransactionPage = () => {
         setCartItems(storedCartItems);
       } catch (error) {
         console.error("Error parsing cart items:", error);
-        // Handle the error gracefully, e.g. show an error message to the user or provide a fallback
       }
     }
   }, []);
@@ -49,16 +43,17 @@ const TransactionPage = () => {
       setLoading(true);
       const orderItems = cartItems.map((item: CartItem) => ({
         menuItemId: item.itemId,
-        notes: item.notes || "", // You might want to update this based on where notes are stored
+        notes: item.notes || "",
         quantity: item.quantity,
       }));
 
-      await createOrder({
-        tabId: 1,
+      const response = await createOrder({
         orderItems: orderItems,
       });
 
-      // Clear the cart after successfully placing the order
+      const tabId = response.tabId;
+      localStorage.setItem("TabId", tabId);
+
       setCartItems([]);
       localStorage.removeItem("cartItems");
       showSuccessToast("Order created successfully");

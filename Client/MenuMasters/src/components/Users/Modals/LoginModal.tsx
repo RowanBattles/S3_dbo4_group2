@@ -7,13 +7,9 @@ import useCustomToast from "../../../utils/useToast";
 
 interface LoginFormProps {
   handleCloseForm: () => void;
-  handleSuccessfulLogin: () => void;
 }
 
-const LoginForm: React.FC<LoginFormProps> = ({
-  handleCloseForm,
-  handleSuccessfulLogin,
-}) => {
+const LoginForm: React.FC<LoginFormProps> = ({ handleCloseForm }) => {
   const { showSuccessToast } = useCustomToast();
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [, setCookie] = useCookies(["isAuthenticated"]);
@@ -36,10 +32,13 @@ const LoginForm: React.FC<LoginFormProps> = ({
       );
 
       if (validateResponse.status === 200) {
-        console.log("hit");
+        const expirationDate = new Date();
+        expirationDate.setHours(expirationDate.getHours() + 6);
+        setCookie("isAuthenticated", "true", {
+          path: "/",
+          expires: expirationDate,
+        });
         setCookie("isAuthenticated", "true", { path: "/" });
-
-        handleSuccessfulLogin();
         handleCloseForm();
         showSuccessToast("Access granted");
         window.location.href = "/menu";

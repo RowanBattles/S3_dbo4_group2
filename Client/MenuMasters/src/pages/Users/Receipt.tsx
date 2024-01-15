@@ -1,0 +1,127 @@
+import { useEffect, useState } from "react";
+import { getTabById } from "../../utils/api";
+import { OrderItemSales } from "../../types/types";
+import useCustomToast from "../../utils/useToast";
+
+function Receipt() {
+  const { showErrorToast } = useCustomToast();
+  const [items, setItems] = useState<OrderItemSales[]>([]);
+  const [total, setTotal] = useState(0);
+  const [paid, setPaid] = useState(false);
+  const [tab, setTab] = useState(false);
+
+  const fetchTab = async () => {
+    try {
+      const response = await getTabById(localStorage.TabId);
+      mergeItemsByMenuItemId(response.orderItems);
+      setTotal(response.tabTotal);
+      setPaid(response.paid);
+    } catch (error) {
+      showErrorToast("error while retrieving tab");
+    }
+  };
+
+  const mergeItemsByMenuItemId = (orderItems: OrderItemSales[]) => {
+    const reducedItems: OrderItemSales[] = [];
+
+    orderItems.forEach((currentItem) => {
+      const existingItemIndex = reducedItems.findIndex(
+        (item) => item.menuItemId === currentItem.menuItemId
+      );
+
+      if (existingItemIndex !== -1) {
+        reducedItems[existingItemIndex].quantity += currentItem.quantity;
+      } else {
+        reducedItems.push({ ...currentItem });
+      }
+    });
+
+    setItems(reducedItems);
+    console.log("items: ", reducedItems);
+  };
+
+  useEffect(() => {
+    if (localStorage.TabId) {
+      setTab(true);
+      fetchTab();
+    } else {
+      setTab(false);
+      console.log("no tab");
+    }
+  }, []);
+
+  return (
+    <div className="bg-gray-100 h-screen p-10 min-w-[200px] min-h-[200px]">
+      <div className="select-none relative flex flex-col h-full">
+        <div className="white p-5 border rounded-3xl border-slate-300 h-full relative">
+          {tab ? (
+            <>
+              {paid ? (
+                <div className="h-full w-full flex flex-col items-center justify-center">
+                  <div className="w-1/2 h-1/2 flex justify-center">
+                    <img
+                      src="https://uxwing.com/wp-content/themes/uxwing/download/checkmark-cross/success-green-check-mark-icon.png"
+                      className="object-contain h-full mb-4"
+                      alt="Centered Image"
+                    />
+                  </div>
+                  <div className="mt-4 text-center">
+                    <p className="font-semibold text-green-500 text-xs min-[320px]:text-xl sm:text-2xl md:text-4xl">
+                      Betaald
+                    </p>
+                  </div>
+                </div>
+              ) : (
+                <>
+                  <ul className="h-[90%]">
+                    {items.map((item) => (
+                      <li key={item.orderItemId}>
+                        <div className="flex justify-between items-center mb-2 gap-5">
+                          <p>
+                            {item.quantity} x {item.itemName}
+                          </p>
+                          <p>
+                            {item.quantity > 1 && (
+                              <span className="mr-2">
+                                (€{item.itemPrice.toFixed(2)})
+                              </span>
+                            )}
+                            {(
+                              parseFloat(item.itemPrice.toFixed(2)) *
+                              item.quantity
+                            ).toFixed(2)}
+                          </p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="flex justify-between items-center border-t-2 border-black border-dashed pt-2">
+                    <p>Total</p>
+                    <p>{total}</p>
+                  </div>
+                </>
+              )}
+            </>
+          ) : (
+            <div className="h-full w-full flex flex-col items-center justify-center">
+              <div className="w-1/2 h-1/2 flex justify-center">
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/0/697.png"
+                  className="object-contain h-full mb-4"
+                  alt="Centered Image"
+                />
+              </div>
+              <div className="mt-4 text-center">
+                <p className="font-semibold text-xs min-[320px]:text-xl sm:text-2xl md:text-4xl">
+                  Nog geen bestelling
+                </p>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Receipt;

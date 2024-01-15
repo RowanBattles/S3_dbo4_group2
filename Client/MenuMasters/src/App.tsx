@@ -8,38 +8,27 @@ import ReservationPage from "./pages/Users/ReservationPage";
 import SalesPage from "./pages/Staff/SalesPage";
 import KitchenPage from "./pages/Staff/KitchenPage";
 import BarPage from "./pages/Staff/BarPage";
-import { Suspense, useEffect } from "react";
+import { Suspense } from "react";
 import { ToastContainer } from "react-toastify";
 import DashboardPage from "./pages/Staff/DashboardPage";
+import Receipt from "./pages/Users/Receipt";
 
 function App() {
-  const [cookies, setCookie] = useCookies(["isAuthenticated"]);
-
-  useEffect(() => {
-    console.log("Authenticated: ", cookies.isAuthenticated === "true");
-  }, [cookies.isAuthenticated]);
-
-  const handleSuccessfulLogin = () => {
-    const expirationDate = new Date();
-    expirationDate.setHours(expirationDate.getHours() + 6);
-    setCookie("isAuthenticated", "true", {
-      path: "/",
-      expires: expirationDate,
-    });
-  };
+  const [cookies] = useCookies(["isAuthenticated"]);
 
   return (
     <Suspense fallback="loading">
       <Routes>
-        <Route
-          path="/"
-          element={<FrontPage handleSuccessfulLogin={handleSuccessfulLogin} />}
-        />
+        <Route path="/" element={<FrontPage />} />
         <Route
           path="/details/:id"
           element={
             cookies.isAuthenticated ? <ItemDetails /> : <Navigate to="/" />
           }
+        />
+        <Route
+          path="/receipt"
+          element={cookies.isAuthenticated ? <Receipt /> : <Navigate to="/" />}
         />
         <Route
           path="/TransactionPage"
@@ -69,12 +58,7 @@ function App() {
           path="/BarPage"
           element={cookies.isAuthenticated ? <BarPage /> : <Navigate to="/" />}
         />
-        <Route
-          path="/Dashboard"
-          element={
-            cookies.isAuthenticated ? <DashboardPage /> : <Navigate to="/" />
-          }
-        />
+        <Route path="/Dashboard" element={<DashboardPage />} />
       </Routes>
 
       <ToastContainer />

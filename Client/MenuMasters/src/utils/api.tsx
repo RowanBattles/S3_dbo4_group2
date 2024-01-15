@@ -34,6 +34,12 @@ export async function getTabs() {
   return response.data;
 }
 
+export async function getTabById(id: number) {
+  const url = ENDPOINTS.GetTabById(id);
+  const response = await axios.get(url);
+  return response.data;
+}
+
 export async function getOrdersKitchen() {
   const url = ENDPOINTS.GetAllOrdersKitchen;
 
@@ -70,6 +76,7 @@ export async function DeleteProducts(
 export async function createOrder(orderData: any) {
   const url = ENDPOINTS.CreateOrder;
   const response = await axios.post(url, orderData);
+  console.log(response);
   return response.data;
 }
 

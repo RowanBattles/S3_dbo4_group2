@@ -2,16 +2,18 @@ import { useState } from "react";
 import "../../styles/frontpage.css";
 import About from "./About";
 import LoginForm from "../../components/Users/Modals/LoginModal";
+import { useCookies } from "react-cookie";
 
-interface FrontPageProps {
-  handleSuccessfulLogin: () => void;
-}
-
-const FrontPage: React.FC<FrontPageProps> = ({ handleSuccessfulLogin }) => {
+const FrontPage: React.FC = () => {
+  const [cookie] = useCookies(["isAuthenticated"]);
   const [showLoginForm, setShowLoginForm] = useState(false);
 
   const handleDiscoverMenuClick = () => {
-    setShowLoginForm(true);
+    if (cookie.isAuthenticated) {
+      window.location.assign("/menu");
+    } else {
+      setShowLoginForm(true);
+    }
   };
 
   const handleCloseForm = () => {
@@ -43,10 +45,7 @@ const FrontPage: React.FC<FrontPageProps> = ({ handleSuccessfulLogin }) => {
         </div>
         {showLoginForm && (
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-            <LoginForm
-              handleCloseForm={handleCloseForm}
-              handleSuccessfulLogin={handleSuccessfulLogin}
-            />
+            <LoginForm handleCloseForm={handleCloseForm} />
           </div>
         )}
       </div>

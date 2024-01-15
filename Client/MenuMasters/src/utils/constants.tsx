@@ -8,6 +8,7 @@ export const ENDPOINTS = {
   GetAllOrdersBar: `${URL_STAFF}/api/order/bar`,
   GetAllCategories: `${URL_MENU}/api/Category`,
   GetItemById: (id: number) => `${URL_MENU}/api/Menu/${id}`,
+  GetTabById: (id: number) => `${URL_STAFF}/api/Tab/Sales/${id}`,
   GetCategoryById: (id: number) => `${URL_MENU}/api/Category/${id}`,
   CreateOrder: `${URL_STAFF}/api/Order`,
   PayTab: `${URL_STAFF}/api/Tab/Pay`,
