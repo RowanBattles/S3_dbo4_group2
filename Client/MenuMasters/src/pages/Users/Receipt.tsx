@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getTabById } from "../../utils/api";
 import { OrderItemSales } from "../../types/types";
 import useCustomToast from "../../utils/useToast";
+import { Link } from "react-router-dom";
 
 function Receipt() {
   const { showErrorToast } = useCustomToast();
@@ -53,7 +54,13 @@ function Receipt() {
   return (
     <div className="bg-gray-100 h-screen p-10 min-w-[200px] min-h-[200px]">
       <div className="select-none relative flex flex-col h-full">
-        <div className="white p-5 border rounded-3xl border-slate-300 h-full relative">
+        <Link to="/menu">
+          <div className="absolute top-4 text-black right-6 z-50 font-semibold text-2xl cursor-pointer">
+            X
+          </div>
+        </Link>
+
+        <div className="white p-5 pt-16 border rounded-3xl border-slate-300 h-full relative">
           {tab ? (
             <>
               {paid ? (
