@@ -1,12 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gZVF1XKKI0EhjzNP4jvcjQ+Xz12gaZkJh9Sx4PUabLkVev1MHHsXWCuzLeQm1A4FM5e+QBuQR1tBVuFyKNFf8g==",
+  "dgSpecHash": "gAaI2t5R4pk1j3kFFpDfJBKpr1ECIGAu0tan9X2Vu6QOnpkcIvyBU4/1/2Wfnl160rcwLgvmfpaLuik+S9doSg==",
   "success": true,
-  "projectFilePath": "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\MenuAPI_Models\\MenuAPI_Models.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\bassm\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.25\\microsoft.netcore.app.ref.6.0.25.nupkg.sha512",
-    "C:\\Users\\bassm\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.25\\microsoft.windowsdesktop.app.ref.6.0.25.nupkg.sha512",
-    "C:\\Users\\bassm\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.25\\microsoft.aspnetcore.app.ref.6.0.25.nupkg.sha512"
-  ],
+  "projectFilePath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/MenuAPI_Models/MenuAPI_Models.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

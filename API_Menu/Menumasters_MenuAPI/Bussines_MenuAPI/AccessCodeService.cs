@@ -2,6 +2,8 @@
 namespace Bussines_MenuAPI
 {
     using System.Collections.Generic;
+    using System.Security.Cryptography;
+    using System.Text;
     using MenuAPI_Models.models;
 
     namespace YourNamespace.Services
@@ -10,6 +12,11 @@ namespace Bussines_MenuAPI
         public class AccessCodeService
         {
             private LoginRequest _currentAccessCode;
+
+            public string GetAccessCode()
+            {
+                return _currentAccessCode.AccessCode;
+            }
 
             public LoginRequest GenerateAccessCode()
             {
@@ -35,9 +42,26 @@ namespace Bussines_MenuAPI
 
             private string GenerateRandomCode()
             {
-                // Implement your logic to generate a random code
-                // This is a placeholder; replace it with your actual code generation logic
-                return "ABC123";
+                return GenerateRandomString(6); // You can adjust the length as needed
+            }
+
+            private string GenerateRandomString(int length)
+            {
+                const string characters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+                StringBuilder stringBuilder = new StringBuilder(length);
+
+                using (RandomNumberGenerator rng = new RNGCryptoServiceProvider())
+                {
+                    byte[] randomBytes = new byte[length];
+                    rng.GetBytes(randomBytes);
+
+                    foreach (byte b in randomBytes)
+                    {
+                        stringBuilder.Append(characters[b % (characters.Length)]);
+                    }
+                }
+
+                return stringBuilder.ToString();
             }
         }
     }

@@ -1,12 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KpxIPvYzDYIx/IFY0nGKymxSn2VWYk8jrc/BnCorPLryZlRPEANlr1+LCgunS8MK8a2mD9ay4OdxPfEF468j9A==",
+  "dgSpecHash": "GWSZUOl3rVyOPQ5wa4I5ypmMUP4n1zUIPEzS6b7AAPBUta/y8DPrE8H4XPbVDo3iP8nIrdkSjDydZ3Urnzy3bw==",
   "success": true,
-  "projectFilePath": "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\DateLayer_Bussiness_Contract\\DateLayer_Bussiness_Contract.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\bassm\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.25\\microsoft.netcore.app.ref.6.0.25.nupkg.sha512",
-    "C:\\Users\\bassm\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.25\\microsoft.windowsdesktop.app.ref.6.0.25.nupkg.sha512",
-    "C:\\Users\\bassm\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.25\\microsoft.aspnetcore.app.ref.6.0.25.nupkg.sha512"
-  ],
+  "projectFilePath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/DateLayer_Bussiness_Contract/DateLayer_Bussiness_Contract.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

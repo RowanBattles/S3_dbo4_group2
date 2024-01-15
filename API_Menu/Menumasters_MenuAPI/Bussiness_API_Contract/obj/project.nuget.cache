@@ -1,12 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bZeWkmmmIAN5uw0Pxn3O21bNAlz4XApNlbKpcdP54jWwlHE25XAr/l2uANe2a6CrKEgYCjSUyolHFNm5n83Xqw==",
+  "dgSpecHash": "ku6IeM0LCKUaSbw05ghvMOivqSMDGurfeh0QsU+19Xeqr8mbhKRP6meD1wICkSXgKZmgp/O4oNRCXVlYPBeVyg==",
   "success": true,
-  "projectFilePath": "C:\\Visual Studio Code Projects\\THREADS_YT\\S3_dbo4_group2\\API_Menu\\Menumasters_MenuAPI\\Bussiness_API_Contract\\Bussiness_API_Contract.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\bassm\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.25\\microsoft.netcore.app.ref.6.0.25.nupkg.sha512",
-    "C:\\Users\\bassm\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.25\\microsoft.windowsdesktop.app.ref.6.0.25.nupkg.sha512",
-    "C:\\Users\\bassm\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.25\\microsoft.aspnetcore.app.ref.6.0.25.nupkg.sha512"
-  ],
+  "projectFilePath": "/Users/nielsvanschaijk/Documents/GitHub/S3_dbo4_group2/API_Menu/Menumasters_MenuAPI/Bussiness_API_Contract/Bussiness_API_Contract.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }
