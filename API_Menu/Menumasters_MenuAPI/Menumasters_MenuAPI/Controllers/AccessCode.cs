@@ -21,14 +21,14 @@ namespace Menumasters_MenuAPI.Controllers
             _accessCodeService = accessCodeService;
         }
 
-        [HttpPost("GETAccesscode")]
+        [HttpGet("GETAccesscode")]
         public IActionResult GETAccesscode()
         {
             string AccessCode = _accessCodeService.GetAccessCode();
             return Ok(new { Code = AccessCode});
         }
 
-        [HttpPost("generate")]
+        [HttpGet("generate")]
         public IActionResult GenerateAccessCode()
         {
             var newAccessCode = _accessCodeService.GenerateAccessCode();
