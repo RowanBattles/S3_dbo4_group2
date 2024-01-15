@@ -47,7 +47,7 @@ namespace Bussines_MenuAPI
 
             private string GenerateRandomString(int length)
             {
-                const string characters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+                const string characters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
                 StringBuilder stringBuilder = new StringBuilder(length);
 
                 using (RandomNumberGenerator rng = new RNGCryptoServiceProvider())
