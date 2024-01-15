@@ -3,6 +3,7 @@ import axios from "axios";
 import { useCookies } from "react-cookie";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import useCustomToast from "../../../utils/useToast";
 
 interface LoginFormProps {
   handleCloseForm: () => void;
@@ -13,6 +14,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
   handleCloseForm,
   handleSuccessfulLogin,
 }) => {
+  const { showSuccessToast } = useCustomToast();
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [, setCookie] = useCookies(["isAuthenticated"]);
 
@@ -39,6 +41,8 @@ const LoginForm: React.FC<LoginFormProps> = ({
 
         handleSuccessfulLogin();
         handleCloseForm();
+        showSuccessToast("Access granted");
+        window.location.href = "/menu";
       } else {
         setErrorMessage("Invalid access code");
       }

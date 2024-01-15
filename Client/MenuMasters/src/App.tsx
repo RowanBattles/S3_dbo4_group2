@@ -8,8 +8,9 @@ import ReservationPage from "./pages/Users/ReservationPage";
 import SalesPage from "./pages/Staff/SalesPage";
 import KitchenPage from "./pages/Staff/KitchenPage";
 import BarPage from "./pages/Staff/BarPage";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect } from "react";
 import { ToastContainer } from "react-toastify";
+import DashboardPage from "./pages/Staff/DashboardPage";
 
 function App() {
   const [cookies, setCookie] = useCookies(["isAuthenticated"]);
@@ -19,14 +20,12 @@ function App() {
   }, [cookies.isAuthenticated]);
 
   const handleSuccessfulLogin = () => {
-    console.log("hit2");
     const expirationDate = new Date();
     expirationDate.setHours(expirationDate.getHours() + 6);
     setCookie("isAuthenticated", "true", {
       path: "/",
       expires: expirationDate,
     });
-    console.log(cookies.isAuthenticated);
   };
 
   return (
@@ -69,6 +68,12 @@ function App() {
         <Route
           path="/BarPage"
           element={cookies.isAuthenticated ? <BarPage /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/Dashboard"
+          element={
+            cookies.isAuthenticated ? <DashboardPage /> : <Navigate to="/" />
+          }
         />
       </Routes>
 

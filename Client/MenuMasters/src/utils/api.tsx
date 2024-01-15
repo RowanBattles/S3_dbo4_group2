@@ -84,3 +84,15 @@ export async function StatusBar(id: number) {
   const response = await axios.patch(url);
   return response.data;
 }
+
+export async function GetAccessCode() {
+  const url = ENDPOINTS.GetAccessCode;
+  const response = await axios.get(url);
+  return response.data;
+}
+
+export async function GenerateAccesCode() {
+  const url = ENDPOINTS.GenerateAccessCode;
+  const response = await axios.get(url);
+  return response.data;
+}

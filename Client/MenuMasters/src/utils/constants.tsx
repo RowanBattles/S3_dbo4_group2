@@ -15,4 +15,7 @@ export const ENDPOINTS = {
   StatusKitchen: (id: number) =>
     `${URL_STAFF}/api/Order/Status/Kitchen?id=${id}`,
   StatusBar: (id: number) => `${URL_STAFF}/api/Order/Status/Bar?id=${id}`,
+
+  GetAccessCode: `${URL_MENU}/api/GETAccesscode`,
+  GenerateAccessCode: `${URL_MENU}/api/generate`,
 };
