@@ -14,6 +14,7 @@ Make sure you have the following installed on your machine:
 - Node.js (v14.0.0 or higher)
 - npm (v7.0.0 or higher)
 - Any code editor (like Microsoft Visual Studio or Visual Studio Code)
+- SQL server management studio (19 or higher)
 
 ### Installation
 
