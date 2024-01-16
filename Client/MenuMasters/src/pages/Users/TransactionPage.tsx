@@ -49,6 +49,7 @@ const TransactionPage = () => {
 
       const response = await createOrder({
         orderItems: orderItems,
+        tableNumber: localStorage.getItem("tafelNummer"),
       });
 
       const tabId = response.tabId;

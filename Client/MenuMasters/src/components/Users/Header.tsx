@@ -30,7 +30,7 @@ const Header = () => {
         </Link>
 
         <div className="flex flex-row gap-x-5 px-6 items-center">
-          <h1>Tafel 1</h1>
+          <h1>Tafel {localStorage.getItem("tafelNummer")}</h1>
 
           <Link to="/Receipt">
             <div>{t("common:translation:receipt")}</div>

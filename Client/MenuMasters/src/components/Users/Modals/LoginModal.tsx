@@ -10,6 +10,7 @@ interface LoginFormProps {
 }
 
 const LoginForm: React.FC<LoginFormProps> = ({ handleCloseForm }) => {
+  const [number] = useState(localStorage.getItem("tafelNummer"));
   const { showSuccessToast } = useCustomToast();
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [, setCookie] = useCookies(["isAuthenticated"]);
@@ -24,6 +25,10 @@ const LoginForm: React.FC<LoginFormProps> = ({ handleCloseForm }) => {
 
   const handleSubmit = async (values: any) => {
     try {
+      if (!number) {
+        setErrorMessage("No valid tablenumber");
+        return;
+      }
       const validateResponse = await axios.post(
         "https://localhost:7266/api/validate",
         {
@@ -38,7 +43,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ handleCloseForm }) => {
           path: "/",
           expires: expirationDate,
         });
-        setCookie("isAuthenticated", "true", { path: "/" });
+
         handleCloseForm();
         showSuccessToast("Access granted");
         window.location.href = "/menu";
@@ -68,13 +73,30 @@ const LoginForm: React.FC<LoginFormProps> = ({ handleCloseForm }) => {
             className="text-red-500 font-bold text-2xl block mb-5"
             htmlFor="accessCode"
           >
+            Table number
+          </label>
+          <Field
+            className="mb-4 rounded-md border border-gray-400 w-full p-2 text-center cursor-default text-xl focus-visible:outline-none bg-gray-300 select-none"
+            type="text"
+            readonly="true"
+            id="tafelnummer"
+            name="tafelnummer"
+            value={number}
+          />
+          <label
+            className="text-red-500 font-bold text-2xl block mb-5"
+            htmlFor="accessCode"
+          >
             Access Code
           </label>
           <Field
-            className=" rounded-md border border-gray-400 w-full p-2"
+            className=" rounded-md border border-gray-400 w-full p-2 text-center font-mono tracking-widest text-xl"
             type="text"
             id="accessCode"
             name="accessCode"
+            onInput={(e: { target: { value: string } }) => {
+              e.target.value = e.target.value.toUpperCase();
+            }}
           />
           <ErrorMessage
             className="text-md text-red-500"

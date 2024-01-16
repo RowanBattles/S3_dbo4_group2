@@ -23,13 +23,13 @@ The application is structured into two distinct parts: "Guests" and "Staff," eac
 
 ### Guests
 
-The guest part of the application is divided into 2 mayor sections. The menu part and the transaction part. The menu part allows you to find and order different sets of food or drinks which will then be added to your transaction list. This list can be seen when clicking on the cart icon on the top right.
+The guest part of the application is divided into 2 mayor sections. The menu part and the transaction part. The menu part allows you to find and order different sets of food or drinks which will then be added to your transaction list. This list can be seen when clicking on the cart icon on the top right. The guests have to enter an access code to enter transactions.
 
 The Transaction part is where users can see their cart and increase/decrease the quantity of items in the cart and/or remove items. When all is set they can press Order now and the transaction will be complete. It will then be handled by the backend and appear on the staff side of the application
 
 ### Staff
 
-(Rowan)
+The styling in the staff section is slightly simpler, maintaining the same color pattern for consistency. Within this section, specific pages cater to different roles: the kitchen page is exclusively visible to kitchen staff, the barpage is dedicated to bar-related functions, and the sales page serves as the "cassa register system." The "cassa" system holds crucial responsibilities, including tasks like adding, deleting, and processing payments. The access code for this system is conveniently provided on the dashboard page.
 
 ## Using the application
 
