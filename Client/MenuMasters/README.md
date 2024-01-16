@@ -1,19 +1,14 @@
 # Frontend
 
-We build this application with React + TypeScript (explanation here)
+This application is built with React and Vite, providing a minimal setup for a fast and efficient development environment. Below are the instructions on how to use and run the application.
 
 ## Table of Contents
 
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
 - [Using the application](#using-the-application)
   - [Scripts](#scripts)
   - [Dependencies](#dependencies)
-  - [Development](#development)
   - [Build](#build)
   - [Testing](#testing)
-  - [Deployment](#deployment)
 
 ## Using the application
 
@@ -32,6 +27,12 @@ The following scripts are available for development, testing, and deployment:
 - test:open: Opens Cypress test runner for interactive testing.
 
 ### Dependencies
+
+Start with installing the dependancies with:
+   ```
+   npm install
+   ```
+
 
 Key dependencies used in this project:
 
