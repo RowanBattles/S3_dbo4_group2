@@ -1,14 +1,33 @@
 # Frontend
 
-This application is built with React and Vite, providing a minimal setup for a fast and efficient development environment. Below are the instructions on how to use and run the application.
+This application is constructed using React and Vite, offering a streamlined setup for a swift and effective development environment. The following instructions detail how to utilize and execute the application, now enhanced with TypeScript support.
 
 ## Table of Contents
 
+- [Application structure](#application-structure)
+  - [Guests](#guests)
+  - [Staff](#staff)
 - [Using the application](#using-the-application)
   - [Scripts](#scripts)
   - [Dependencies](#dependencies)
   - [Build](#build)
   - [Testing](#testing)
+
+## Application structure
+
+The application is structured into two distinct parts: "Guests" and "Staff," each catering to specific user roles and functionalities.
+
+- The application has some shared and divided components, styles, and utilities that are used by both guests and staff sections to maintain consistency in design and functionality.
+- Routing is likely implemented to direct users to the appropriate section based on their authentication status and role.
+- The division into "Guests" and "Staff" helps organize the codebase, making it more modular and easier to maintain. It also ensures a clear separation of concerns, improving security and access control.
+
+### Guests
+
+(Bas)
+
+### Staff
+
+(Rowan)
 
 ## Using the application
 
@@ -31,10 +50,10 @@ The following scripts are available for development, testing, and deployment:
 ### Dependencies
 
 Start with installing the dependancies with:
-   ```
-   npm install
-   ```
 
+```
+npm install
+```
 
 Key dependencies used in this project:
 
