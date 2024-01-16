@@ -42,15 +42,15 @@ Make sure you have the following installed on your machine:
 
 The following scripts are available for development, testing, and deployment:
 
-predeploy: Runs before deploying to build the application.
-deploy: Deploys the application to GitHub Pages using gh-pages.
-dev: Starts the development server with Vite.
-build: Compiles TypeScript and builds the application.
-scan:translations: Scans translations using i18next-scanner.
-lint: Lints the code using ESLint.
-preview: Previews the production build locally.
-test: Runs Cypress tests in headless mode.
-test:open: Opens Cypress test runner for interactive testing.
+1. predeploy: Runs before deploying to build the application.
+2. deploy: Deploys the application to GitHub Pages using gh-pages.
+3. dev: Starts the development server with Vite.
+4. build: Compiles TypeScript and builds the application.
+5. scan:translations: Scans translations using i18next-scanner.
+6. lint: Lints the code using ESLint.
+7. preview: Previews the production build locally.
+8. test: Runs Cypress tests in headless mode.
+9. test:open: Opens Cypress test runner for interactive testing.
 
 ### Dependencies
 
