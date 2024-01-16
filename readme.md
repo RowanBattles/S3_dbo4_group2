@@ -7,12 +7,13 @@ Welcome to Infosupport_Tortillias! This application is built with React and Vite
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
-- [Scripts](#scripts)
-- [Dependencies](#dependencies)
-- [Development](#development)
-- [Build](#build)
-- [Testing](#testing)
-- [Deployment](#deployment)
+- [Using the application](#using-the-application)
+  - [Scripts](#scripts)
+  - [Dependencies](#dependencies)
+  - [Development](#development)
+  - [Build](#build)
+  - [Testing](#testing)
+  - [Deployment](#deployment)
 
 ## Getting Started
 
