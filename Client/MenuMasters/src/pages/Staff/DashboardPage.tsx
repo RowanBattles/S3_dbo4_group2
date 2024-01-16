@@ -31,7 +31,7 @@ function DashboardPage() {
     <div className="flex">
       <div className="bg-red-400 h-screen w-1/6">
         <div className="px-20 py-5">
-          <img className="w-full" src="/src/assets/Menu_Masters_Logo.png" />
+          <img className="w-full" src="/src/assets/Menu_Masters_Logo3.png" />
         </div>
         <ul className="grid grid-flow-row gap-1 overflow-hidden">
           <li className="flex items-center p-5 border-y-2 gap-4 text-white red cursor-pointer">

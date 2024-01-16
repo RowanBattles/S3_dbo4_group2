@@ -11,6 +11,7 @@
     "shoppingcart": "Shopping Cart",
     "table": "Table",
     "total": "Total",
+    "receipt": "Receipt",
     "categories": {
       "appetizers": "Appetizers",
       "main_courses": "Main course",
