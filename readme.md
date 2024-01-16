@@ -42,28 +42,28 @@ Make sure you have the following installed on your machine:
 
 The following scripts are available for development, testing, and deployment:
 
-1. predeploy: Runs before deploying to build the application.
-2. deploy: Deploys the application to GitHub Pages using gh-pages.
-3. dev: Starts the development server with Vite.
-4. build: Compiles TypeScript and builds the application.
-5. scan:translations: Scans translations using i18next-scanner.
-6. lint: Lints the code using ESLint.
-7. preview: Previews the production build locally.
-8. test: Runs Cypress tests in headless mode.
-9. test:open: Opens Cypress test runner for interactive testing.
+- predeploy: Runs before deploying to build the application.
+- deploy: Deploys the application to GitHub Pages using gh-pages.
+- dev: Starts the development server with Vite.
+- build: Compiles TypeScript and builds the application.
+- scan:translations: Scans translations using i18next-scanner.
+- lint: Lints the code using ESLint.
+- preview: Previews the production build locally.
+- test: Runs Cypress tests in headless mode.
+- test:open: Opens Cypress test runner for interactive testing.
 
 ### Dependencies
 
 Key dependencies used in this project:
 
-React: A JavaScript library for building user interfaces.
-Vite: A fast and efficient development server and bundler.
-Chakra UI Icons: Provides a set of accessible icons.
-Axios: A promise-based HTTP client for making requests.
-i18next: An internationalization framework for JavaScript.
-Recoil: A state management library for React.
-Socket.IO-Client: Enables real-time, bidirectional, and event-based communication.
-For a complete list, refer to the package.json file.
+- React: A JavaScript library for building user interfaces.
+- Vite: A fast and efficient development server and bundler.
+- Chakra UI Icons: Provides a set of accessible icons.
+- Axios: A promise-based HTTP client for making requests.
+- i18next: An internationalization framework for JavaScript.
+- Recoil: A state management library for React.
+- Socket.IO-Client: Enables real-time, bidirectional, and event-based communication.
+  For a complete list, refer to the package.json file.
 
 ### Build
 
