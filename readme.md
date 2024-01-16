@@ -63,7 +63,8 @@ Key dependencies used in this project:
 - i18next: An internationalization framework for JavaScript.
 - Recoil: A state management library for React.
 - Socket.IO-Client: Enables real-time, bidirectional, and event-based communication.
-  For a complete list, refer to the package.json file.
+
+For a complete list, refer to the package.json file.
 
 ### Build
 
