@@ -23,7 +23,9 @@ The application is structured into two distinct parts: "Guests" and "Staff," eac
 
 ### Guests
 
-(Bas)
+The guest part of the application is divided into 2 mayor sections. The menu part and the transaction part. The menu part allows you to find and order different sets of food or drinks which will then be added to your transaction list. This list can be seen when clicking on the cart icon on the top right.
+
+The Transaction part is where users can see their cart and increase/decrease the quantity of items in the cart and/or remove items. When all is set they can press Order now and the transaction will be complete. It will then be handled by the backend and appear on the staff side of the application
 
 ### Staff
 
