@@ -3,8 +3,10 @@ import { getTabById } from "../../utils/api";
 import { OrderItemSales } from "../../types/types";
 import useCustomToast from "../../utils/useToast";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function Receipt() {
+  const { t } = useTranslation();
   const { showErrorToast } = useCustomToast();
   const [items, setItems] = useState<OrderItemSales[]>([]);
   const [total, setTotal] = useState(0);
@@ -52,15 +54,18 @@ function Receipt() {
   }, []);
 
   return (
-    <div className="bg-gray-100 h-screen p-10 min-w-[200px] min-h-[200px]">
+    <div className="bg-gray-100 h-screen p-10 min-w-[200px] min-h-screen">
       <div className="select-none relative flex flex-col h-full">
         <Link to="/menu">
           <div className="absolute top-4 text-black right-6 z-50 font-semibold text-2xl cursor-pointer">
             X
           </div>
         </Link>
+        <div className="red py-3 px-6 rounded-full absolute bottom-4 text-white right-4 z-50 font-semibold text-xl cursor-pointer">
+          Request bill
+        </div>
 
-        <div className="white p-5 pt-16 border rounded-3xl border-slate-300 h-full relative">
+        <div className="white p-5 py-16 border rounded-3xl border-slate-300 h-full relative">
           {tab ? (
             <>
               {paid ? (
@@ -74,7 +79,7 @@ function Receipt() {
                   </div>
                   <div className="mt-4 text-center">
                     <p className="font-semibold text-green-500 text-xs min-[320px]:text-xl sm:text-2xl md:text-4xl">
-                      Betaald
+                      {t("common:translation:payed")}
                     </p>
                   </div>
                 </div>
@@ -85,7 +90,13 @@ function Receipt() {
                       <li key={item.orderItemId}>
                         <div className="flex justify-between items-center mb-2 gap-5">
                           <p>
-                            {item.quantity} x {item.itemName}
+                            {item.quantity} x{" "}
+                            {t(
+                              `menu:${item.itemName.replace(
+                                /\s/g,
+                                "_"
+                              )}.item_name`
+                            ).replace(/_/g, " ")}
                           </p>
                           <p>
                             {item.quantity > 1 && (
@@ -103,7 +114,7 @@ function Receipt() {
                     ))}
                   </ul>
                   <div className="flex justify-between items-center border-t-2 border-black border-dashed pt-2">
-                    <p>Total</p>
+                    <p>{t("common:translation:total")}</p>
                     <p>{total}</p>
                   </div>
                 </>
@@ -120,7 +131,7 @@ function Receipt() {
               </div>
               <div className="mt-4 text-center">
                 <p className="font-semibold text-xs min-[320px]:text-xl sm:text-2xl md:text-4xl">
-                  Nog geen bestelling
+                  {t("common:translation:noOrderYet")}
                 </p>
               </div>
             </div>

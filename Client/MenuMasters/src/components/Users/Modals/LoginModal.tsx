@@ -10,10 +10,9 @@ interface LoginFormProps {
 }
 
 const LoginForm: React.FC<LoginFormProps> = ({ handleCloseForm }) => {
-  const [number] = useState(localStorage.getItem("tafelNummer"));
   const { showSuccessToast } = useCustomToast();
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [, setCookie] = useCookies(["isAuthenticated"]);
+  const [cookie, setCookie] = useCookies(["isAuthenticated", "tafelNummer"]);
 
   const initialValues = {
     accessCode: "",
@@ -25,7 +24,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ handleCloseForm }) => {
 
   const handleSubmit = async (values: any) => {
     try {
-      if (!number) {
+      if (!cookie.tafelNummer) {
         setErrorMessage("No valid tablenumber");
         return;
       }
@@ -78,10 +77,10 @@ const LoginForm: React.FC<LoginFormProps> = ({ handleCloseForm }) => {
           <Field
             className="mb-4 rounded-md border border-gray-400 w-full p-2 text-center cursor-default text-xl focus-visible:outline-none bg-gray-300 select-none"
             type="text"
-            readonly="true"
+            readOnly={true}
             id="tafelnummer"
             name="tafelnummer"
-            value={number}
+            value={cookie.tafelNummer}
           />
           <label
             className="text-red-500 font-bold text-2xl block mb-5"

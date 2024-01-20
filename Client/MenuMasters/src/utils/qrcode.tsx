@@ -1,27 +1,30 @@
 import React, { useEffect } from "react";
 import QRCode from "react-qr-code";
 
-const QRCodeComponent: React.FC = () => {
-  // Your secret variable (tafelnummer)
-  const secretTafelnummer = 15;
+interface QRCodeComponentProps {
+  secretTafelnummer: number;
+}
 
+const QRCodeComponent: React.FC<QRCodeComponentProps> = ({
+  secretTafelnummer,
+}) => {
   useEffect(() => {
-    // Set up the QR code link with the secretTafelnummer
-    const qrCodeLink = document.getElementById("qrCodeLink");
-
     const handleQRCodeClick = () => {
-      // Set the value in localStorage before redirecting
-      localStorage.setItem("tafelNummer", secretTafelnummer.toString());
+      const expirationTime = new Date();
+      expirationTime.setTime(expirationTime.getTime() + 6 * 60 * 60 * 1000); // 6 hours
 
-      // Redirect to the site
+      document.cookie = `tafelNummer=${secretTafelnummer}; expires=${expirationTime.toUTCString()}`;
       window.location.href = `http://localhost:5173/`;
     };
+
+    const qrCodeLink = document.getElementById(
+      `qrCodeLink-${secretTafelnummer}`
+    );
 
     if (qrCodeLink) {
       qrCodeLink.addEventListener("click", handleQRCodeClick);
     }
 
-    // Cleanup event listener on component unmount
     return () => {
       if (qrCodeLink) {
         qrCodeLink.removeEventListener("click", handleQRCodeClick);
@@ -31,8 +34,8 @@ const QRCodeComponent: React.FC = () => {
 
   return (
     <div className="p-80">
-      {/* Display the QR code with a link */}
-      <div id="qrCodeLink">
+      <div id={`qrCodeLink-${secretTafelnummer}`}>
+        <span>table: {secretTafelnummer}</span>
         <QRCode
           value={`http://localhost:5173/?tafelNummer=${secretTafelnummer}`}
         />
@@ -41,4 +44,12 @@ const QRCodeComponent: React.FC = () => {
   );
 };
 
-export default QRCodeComponent;
+// Create QRCode components for table 10 and table 15
+const QRCodeTable10: React.FC = () => (
+  <QRCodeComponent secretTafelnummer={10} />
+);
+const QRCodeTable15: React.FC = () => (
+  <QRCodeComponent secretTafelnummer={15} />
+);
+
+export { QRCodeTable10, QRCodeTable15 };
