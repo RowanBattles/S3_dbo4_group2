@@ -12,6 +12,8 @@
     "table": "Table",
     "total": "Total",
     "receipt": "Receipt",
+    "payed": "Payed",
+    "noOrderYet": "No placed order yet",
     "categories": {
       "appetizers": "Appetizers",
       "main_courses": "Main course",

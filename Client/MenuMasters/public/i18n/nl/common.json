@@ -12,6 +12,8 @@
     "table": "Tafel",
     "total": "Totaal",
     "receipt": "Rekening",
+    "payed": "Betaald",
+    "noOrderYet": "Nog geen geplaatste bestelling",
     "categories": {
       "appetizers": "Voorgerechten",
       "main_courses": "Hoofdgerecht",

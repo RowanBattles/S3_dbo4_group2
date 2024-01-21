@@ -7,8 +7,10 @@ import { CartItem } from "../../types/types";
 import { createOrder } from "../../utils/api";
 import useCustomToast from "../../utils/useToast";
 import LoadingSpinner from "../../utils/useLoadingSpinner";
+import { useCookies } from "react-cookie";
 
 const TransactionPage = () => {
+  const [cookie] = useCookies(["tafelNummer"]);
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const { showSuccessToast, showErrorToast } = useCustomToast();
   const [loading, setLoading] = useState(false);
@@ -49,6 +51,7 @@ const TransactionPage = () => {
 
       const response = await createOrder({
         orderItems: orderItems,
+        tableNumber: cookie.tafelNummer,
       });
 
       const tabId = response.tabId;
