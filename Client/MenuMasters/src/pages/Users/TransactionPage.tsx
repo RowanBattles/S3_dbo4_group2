@@ -17,6 +17,7 @@ const TransactionPage = () => {
   const { showSuccessToast, showErrorToast } = useCustomToast();
   const [loading, setLoading] = useState(false);
   const { t } = useTranslation();
+  const [rerenderHeader, setRerenderHeader] = useState(false);
 
   const cartItemCount = useRecoilValue(cartItemCountState);
 
@@ -78,6 +79,9 @@ const TransactionPage = () => {
     const updatedCartItems = cartItems.filter((item) => item !== itemToRemove);
     setCartItems(updatedCartItems);
     localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+
+    // Trigger the rerender of the Header component
+    setRerenderHeader((prev) => !prev);
   };
 
   const totalPrice = useMemo(() => {
@@ -88,13 +92,13 @@ const TransactionPage = () => {
 
   return (
     <>
-      <Header />
+      <Header key={rerenderHeader} />
       <div className="flex justify-center items-center my-10">
         <hr className="w-28 h-1 bg-primary border-0 rounded mx-4"></hr>
         <h1 className="text-4xl font-medium uppercase">Order</h1>
         <hr className="w-28 h-1 bg-primary border-0 rounded mx-4"></hr>
       </div>
-      <section className="my-12 max-w-screen-xl mx-auto px-6">
+      <section className="my-20 max-w-screen-lg mx-auto px-6">
         {cartItems.map((item, index) => (
           <Transaction
             key={index}
@@ -104,24 +108,21 @@ const TransactionPage = () => {
           />
         ))}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 ">
-          <div className="order-2 md:order-1 lg:order-1 text-center md:text-left lg:text-left">
-            <button
-              onClick={handleOrderNow}
-              disabled={loading || cartItems.length === 0} // Disable if the cart is empty
-              className="bg-primary text-white px-9 py-3 text-xl focus:outline-none poppins rounded-full transform transition duration-300 hover:scale-105"
-            >
-              {loading ? (
-                <LoadingSpinner size={20} color="#ffffff" />
-              ) : (
-                t("common:translation:orderNow")
-              )}
-            </button>
-          </div>
-
-          <h2 className="text-gray-900 poppins text-4xl font-medium order-1 md:order-2 lg:order-2 text-center md:text-right lg:text-right">
+        <div className="flex flex-col  my-8">
+          <h2 className="text-gray-900 poppins text-4xl font-medium mb-4 mx-auto">
             {t("common:translation:total")}: €{totalPrice.toFixed(2)}
           </h2>
+          <button
+            onClick={handleOrderNow}
+            disabled={loading || cartItems.length === 0} // Disable if the cart is empty
+            className="bg-primary text-white px-9 py-3 text-xl focus:outline-none poppins rounded-full transform transition duration-300 hover:scale-105"
+          >
+            {loading ? (
+              <LoadingSpinner size={20} color="#ffffff" />
+            ) : (
+              t("common:translation:orderNow")
+            )}
+          </button>
         </div>
       </section>
     </>

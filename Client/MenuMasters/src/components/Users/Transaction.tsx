@@ -19,34 +19,35 @@ const Transaction: React.FC<TransactionProps> = ({
     onQuantityChange(newQuantity);
   };
   return (
-    <div>
-      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 items-center mx-10">
+    <>
+      <div className="flex items-center border-b border-red-500 p-4">
         <img
           src={item.image}
-          className="col-span-1 h-auto w-full "
+          className="h-24 w-24 rounded"
           alt={item.itemName}
         />
-        <h1 className="col-span-1 text-3xl text-center">{item.itemName}</h1>
-        <div className="col-span-1 flex justify-center items-center ">
-          <Plus_Min_Button
-            quantity={quantity}
-            setQuantity={handleQuantityChange}
-          />
+        <div className="flex-grow ml-4">
+          <h1 className="text-lg font-bold mb-2">{item.itemName}</h1>
+          <div className="flex items-center">
+            <Plus_Min_Button
+              quantity={quantity}
+              setQuantity={handleQuantityChange}
+            />
+          </div>
         </div>
 
-        <h2 className="col-span-1 text-gray-900 poppins text-3xl font-medium text-center ">
+        <span className="text-black ml-2">
           €{(item.price * quantity).toFixed(2)}
-        </h2>
+        </span>
 
         <button
-          className="col-span-1 text-3xl font-medium transform transition duration-300 hover:scale-105 text-center"
+          className="text-xl font-medium text-red-500 ml-4"
           onClick={() => onRemove(item)}
         >
           X
         </button>
       </div>
-      <hr className="col-span-5 h-px bg-[#F3F4F6] border-0 my-8"></hr>
-    </div>
+    </>
   );
 };
 
