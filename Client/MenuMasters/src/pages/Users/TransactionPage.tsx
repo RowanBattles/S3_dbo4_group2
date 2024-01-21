@@ -1,4 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
+import { useRecoilValue } from "recoil";
+import { cartItemCountState } from "../../atoms/recoilAtoms.js";
 import Transaction from "../../components/Users/Transaction";
 import Header from "../../components/Users/Header";
 import React from "react";
@@ -15,6 +17,8 @@ const TransactionPage = () => {
   const { showSuccessToast, showErrorToast } = useCustomToast();
   const [loading, setLoading] = useState(false);
   const { t } = useTranslation();
+
+  const cartItemCount = useRecoilValue(cartItemCountState);
 
   useEffect(() => {
     const storedCartItemsString = localStorage.getItem("cartItems");

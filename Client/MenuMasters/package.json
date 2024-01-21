@@ -12,11 +12,13 @@
     "test:open": "cypress open"
   },
   "dependencies": {
+    "@ionic/react": "^7.6.3",
     "axios": "^1.6.0",
     "formik": "^2.4.5",
     "i18next": "^23.7.9",
     "i18next-browser-languagedetector": "^7.2.0",
     "i18next-http-backend": "^2.4.2",
+    "ionicons": "^7.2.2",
     "qrcode": "^1.5.3",
     "qrcode.react": "^3.1.0",
     "react": "^18.2.0",
@@ -29,6 +31,7 @@
     "react-select": "^5.8.0",
     "react-spinners": "^0.13.8",
     "react-toastify": "^9.1.3",
+    "recoil": "^0.7.7",
     "yup": "^1.3.3"
   },
   "devDependencies": {
