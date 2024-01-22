@@ -6,8 +6,6 @@ on:
       - main
 
 jobs:
-
-
   build-api1:
     runs-on: ubuntu-latest
 
@@ -20,12 +18,14 @@ jobs:
       with:
         dotnet-version: 3.1
 
+    - name: Log in to Docker Hub
+      run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+
     - name: Build and push API1 Docker image
       uses: docker/build-push-action@v2
       with:
         context: Server/API_Menu/Menumasters_MenuAPI
         push: true
-        tags: matthijs464/api1:latest
 
   build-api2:
     runs-on: ubuntu-latest
@@ -39,9 +39,11 @@ jobs:
       with:
         dotnet-version: 3.1
 
+    - name: Log in to Docker Hub
+      run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+
     - name: Build and push API2 Docker image
       uses: docker/build-push-action@v2
       with:
         context: Server/API's
         push: true
-        tags: matthijs464/api2:latest
