@@ -25,7 +25,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+string connectionString = builder.Configuration.GetConnectionString("RowanConnection");
 
 builder.Services.AddDbContext<MenuMastersDbContext>(o => o.UseSqlServer(connectionString));
 

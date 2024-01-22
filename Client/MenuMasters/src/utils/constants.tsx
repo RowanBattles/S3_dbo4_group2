@@ -13,6 +13,7 @@ export const ENDPOINTS = {
   CreateOrder: `${URL_STAFF}/api/Order`,
   PayTab: `${URL_STAFF}/api/Tab/Pay`,
   DeleteProducts: `${URL_STAFF}/api/Order/Item`,
+  RequestSales: `${URL_STAFF}/api/Tab/Request`,
   StatusKitchen: (id: number) =>
     `${URL_STAFF}/api/Order/Status/Kitchen?id=${id}`,
   StatusBar: (id: number) => `${URL_STAFF}/api/Order/Status/Bar?id=${id}`,

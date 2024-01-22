@@ -54,6 +54,9 @@ const TransactionPage = () => {
         quantity: item.quantity,
       }));
 
+      console.log(orderItems);
+      console.log(cookie.tafelNummer);
+
       const response = await createOrder({
         orderItems: orderItems,
         tableNumber: cookie.tafelNummer,

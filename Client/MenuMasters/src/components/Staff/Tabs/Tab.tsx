@@ -15,6 +15,7 @@ const Tab: React.FC<TabProps> = ({
   openAddModal,
 }) => {
   const [items, setItems] = useState(tab.orderItems);
+  const [headerColor, setHeaderColor] = useState("green");
 
   const mergeItemsByMenuItemId = (orderItems: OrderItemSales[]) => {
     const reducedItems: OrderItemSales[] = [];
@@ -32,17 +33,28 @@ const Tab: React.FC<TabProps> = ({
     });
 
     setItems(reducedItems);
-    console.log("items: ", reducedItems);
   };
 
-  // Usage
+  const checkHeaderColor = () => {
+    if (tab.request === 1) {
+      setHeaderColor("red");
+    } else if (tab.request === 2) {
+      setHeaderColor("yellow");
+    } else {
+      setHeaderColor("green");
+    }
+  };
+
   useEffect(() => {
+    checkHeaderColor();
     mergeItemsByMenuItemId(tab.orderItems);
-  }, [tab.orderItems]);
+  }, [tab.orderItems, headerColor]);
 
   return (
     <div className="select-none relative flex flex-col h-full">
-      <div className="red rounded-t-3xl p-4 border-x border-t border-slate-300">
+      <div
+        className={`rounded-t-3xl p-4 border-x border-t border-slate-300 ${headerColor}`}
+      >
         <div className="flex text-white justify-between">
           <div className="flex items-center gap-4">
             <img src="/src/assets/Table.png" className="h-8 invert" />
@@ -94,12 +106,18 @@ const Tab: React.FC<TabProps> = ({
           >
             Delete
           </button>
-          <button className="red px-5 py-1 rounded-full" onClick={openAddModal}>
+          <button
+            className="green px-5 py-1 rounded-full"
+            onClick={openAddModal}
+          >
             Add
           </button>
         </div>
         <div>
-          <button className="red px-5 py-1 rounded-full" onClick={openPayModal}>
+          <button
+            className="bg-black px-5 py-1 rounded-full"
+            onClick={openPayModal}
+          >
             Pay
           </button>
         </div>

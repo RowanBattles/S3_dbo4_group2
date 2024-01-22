@@ -13,6 +13,7 @@
     "total": "Total",
     "receipt": "Receipt",
     "payed": "Payed",
+    "requestBill": "Request  bill",
     "noOrderYet": "No placed order yet",
     "categories": {
       "appetizers": "Appetizers",

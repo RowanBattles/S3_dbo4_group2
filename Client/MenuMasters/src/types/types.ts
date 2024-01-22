@@ -81,6 +81,7 @@ interface TabEntity {
   moneyRemaining: number;
   paid: boolean;
   orderItems: OrderItemSales[];
+  request: number;
 }
 
 export type {
