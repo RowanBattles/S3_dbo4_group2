@@ -8,14 +8,16 @@ import { createOrder } from "../../utils/api";
 import useCustomToast from "../../utils/useToast";
 import LoadingSpinner from "../../utils/useLoadingSpinner";
 import { useCookies } from "react-cookie";
+import { RequestSales } from "../../utils/api";
 
 const TransactionPage = () => {
+  const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
   const [cookie] = useCookies(["tafelNummer"]);
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const { showSuccessToast, showErrorToast } = useCustomToast();
   const [loading, setLoading] = useState(false);
   const { t } = useTranslation();
-  const [rerenderHeader, setRerenderHeader] = useState(false);
+  const [, setRerenderHeader] = useState(false);
 
   useEffect(() => {
     const storedCartItemsString = localStorage.getItem("cartItems");
@@ -85,9 +87,28 @@ const TransactionPage = () => {
     }, 0);
   }, [cartItems]);
 
+  const handleWaiter = () => {
+    setIsConfirmationOpen(true);
+  };
+
+  const confirmRequestWaiter = async () => {
+    try {
+      await RequestSales(localStorage.TabId, 2);
+      setIsConfirmationOpen(false);
+      showSuccessToast("Waiter requested succesfully");
+    } catch (error) {
+      console.error(error);
+      showErrorToast("Something went wrong while requesting the waiter");
+    }
+  };
+
+  const cancelRequestWaiter = () => {
+    setIsConfirmationOpen(false);
+  };
+
   return (
     <>
-      <Header key={rerenderHeader} />
+      <Header onWaiterRequest={handleWaiter} />
       <div className="flex justify-center items-center my-10">
         <hr className="w-28 h-1 bg-primary border-0 rounded mx-4"></hr>
         <h1 className="text-4xl font-medium uppercase">Order</h1>
@@ -120,6 +141,28 @@ const TransactionPage = () => {
           </button>
         </div>
       </section>
+
+      {isConfirmationOpen && (
+        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white p-4 rounded shadow">
+            <p>Are you sure you want to request the waiter?</p>
+            <div className="flex justify-end mt-4">
+              <button
+                className="mr-2 font-semibold border-black border-2 rounded px-4 py-1"
+                onClick={cancelRequestWaiter}
+              >
+                Cancel
+              </button>
+              <button
+                className="ml-2 text-white bg-black rounded py-1 px-4"
+                onClick={confirmRequestWaiter}
+              >
+                Yes
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };
