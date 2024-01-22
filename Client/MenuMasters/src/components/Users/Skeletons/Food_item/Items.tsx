@@ -4,6 +4,7 @@ import { getItems, getCategoryById } from "../../../../utils/api.tsx";
 import { useTranslation } from "react-i18next";
 import { MenuItem } from "../../../../types/types";
 import Item_Skeleton from "./Item_Skeleton";
+import IngredientFilter from "./IngredientFilter";
 
 const Items = () => {
   const [items, setItems] = useState<MenuItem[]>([]);
@@ -11,6 +12,7 @@ const Items = () => {
   const [menuTab, setMenuTab] = useState<string>("Appetizers");
   const [loading, setLoading] = useState<boolean>(true);
   const { t } = useTranslation();
+  const [selectedIngredients, setSelectedIngredients] = useState<string[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
