@@ -54,6 +54,15 @@ export async function getOrdersBar() {
   return response.data;
 }
 
+export async function RequestSales(tabId: number, request: number) {
+  const url = ENDPOINTS.RequestSales;
+  const response = await axios.patch(url, {
+    tabId,
+    request,
+  });
+  return response.data;
+}
+
 export async function PayTab(tabId: number, paidCash: number, paidPIN: number) {
   const url = ENDPOINTS.PayTab;
   const response = await axios.patch(url, {

@@ -29,7 +29,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-string connectionString = builder.Configuration.GetConnectionString("DefaultConnectionBas");
+string connectionString = builder.Configuration.GetConnectionString("DefaultConnectionRowan");
 builder.Services.AddDbContext<MenuAPIDbContext>(o => o.UseSqlServer(connectionString));
 
 builder.Services.AddScoped<ICategoryDAL, CategoryDAL>();

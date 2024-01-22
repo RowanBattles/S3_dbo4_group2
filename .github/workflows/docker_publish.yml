@@ -47,3 +47,4 @@ jobs:
       with:
         context: Server/API's
         push: true
+

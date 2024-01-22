@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getTabById } from "../../utils/api";
+import { RequestSales, getTabById } from "../../utils/api";
 import { OrderItemSales } from "../../types/types";
 import useCustomToast from "../../utils/useToast";
 import { Link } from "react-router-dom";
@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 
 function Receipt() {
   const { t } = useTranslation();
-  const { showErrorToast } = useCustomToast();
+  const { showSuccessToast, showErrorToast } = useCustomToast();
   const [items, setItems] = useState<OrderItemSales[]>([]);
   const [total, setTotal] = useState(0);
   const [paid, setPaid] = useState(false);
@@ -40,7 +40,16 @@ function Receipt() {
     });
 
     setItems(reducedItems);
-    console.log("items: ", reducedItems);
+  };
+
+  const handleReceipt = async () => {
+    try {
+      await RequestSales(localStorage.TabId, 1);
+      showSuccessToast("Requested bill succesfully");
+    } catch (error) {
+      console.error(error);
+      showErrorToast("Error requesting the bill");
+    }
   };
 
   useEffect(() => {
@@ -49,7 +58,6 @@ function Receipt() {
       fetchTab();
     } else {
       setTab(false);
-      console.log("no tab");
     }
   }, []);
 
@@ -61,10 +69,14 @@ function Receipt() {
             X
           </div>
         </Link>
-        <div className="red py-3 px-6 rounded-full absolute bottom-4 text-white right-4 z-50 font-semibold text-xl cursor-pointer">
-          Request bill
-        </div>
-
+        {tab && !paid && (
+          <div
+            className="red py-3 px-6 rounded-full absolute bottom-4 text-white right-4 z-50 font-semibold text-xl cursor-pointer"
+            onClick={handleReceipt}
+          >
+            {t("common:translation:requestBill")}
+          </div>
+        )}
         <div className="white p-5 py-16 border rounded-3xl border-slate-300 h-full relative">
           {tab ? (
             <>
