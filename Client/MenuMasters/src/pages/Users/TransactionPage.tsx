@@ -43,6 +43,13 @@ const TransactionPage = () => {
     []
   );
 
+  const handleClearCart = () => {
+    setCartItems([]);
+    localStorage.removeItem("cartItems");
+    // Optionally, you can trigger a rerender of the Header component
+    setHeaderKey((prevKey) => prevKey + 1);
+  };
+
   const handleOrderNow = async () => {
     try {
       setLoading(true);
@@ -125,21 +132,30 @@ const TransactionPage = () => {
           />
         ))}
 
-        <div className="flex flex-col  my-8">
+        <div className="flex flex-col my-8">
           <h2 className="text-gray-900 poppins text-4xl font-medium mb-4 mx-auto">
             {t("common:translation:total")}: €{totalPrice.toFixed(2)}
           </h2>
-          <button
-            onClick={handleOrderNow}
-            disabled={loading || cartItems.length === 0} // Disable if the cart is empty
-            className="bg-primary text-white px-9 py-3 text-xl focus:outline-none poppins rounded-full transform transition duration-300 hover:scale-105"
-          >
-            {loading ? (
-              <LoadingSpinner size={20} color="#ffffff" />
-            ) : (
-              t("common:translation:orderNow")
-            )}
-          </button>
+          <div className="flex flex-row gap-x-6">
+            <button
+              onClick={handleClearCart}
+              disabled={cartItems.length === 0} // Disable if the cart is already empty
+              className="flex-grow bg-red-500 text-white px-4 py-2 text-xl focus:outline-none poppins rounded-full transform transition duration-300 hover:scale-105"
+            >
+              {t("common:translation:clearCart")}
+            </button>
+            <button
+              onClick={handleOrderNow}
+              disabled={loading || cartItems.length === 0} // Disable if the cart is empty
+              className="flex-grow bg-primary text-white px-9 py-3 text-xl focus:outline-none poppins rounded-full transform transition duration-300 hover:scale-105"
+            >
+              {loading ? (
+                <LoadingSpinner size={20} color="#ffffff" />
+              ) : (
+                t("common:translation:orderNow")
+              )}
+            </button>
+          </div>
         </div>
       </section>
 

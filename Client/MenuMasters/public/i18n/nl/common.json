@@ -15,6 +15,7 @@
     "payed": "Betaald",
     "requestBill": "Rekening",
     "noOrderYet": "Nog geen geplaatste bestelling",
+    "clearCart": "Verwijder alle items",
     "categories": {
       "appetizers": "Voorgerechten",
       "main_courses": "Hoofdgerecht",

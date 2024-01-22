@@ -15,6 +15,7 @@
     "payed": "Payed",
     "requestBill": "Request  bill",
     "noOrderYet": "No placed order yet",
+    "clearCart": "Clear cart",
     "categories": {
       "appetizers": "Appetizers",
       "main_courses": "Main course",
