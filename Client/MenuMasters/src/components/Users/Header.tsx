@@ -63,16 +63,17 @@ const Header: React.FC<HeaderProps> = ({ onWaiterRequest }) => {
   return (
     <>
       <nav className="max-w-screen-xl mx-auto">
-        <div
-          className="flex justify-between items-center cursor-pointer"
-          onClick={onWaiterRequest}
-        >
+        <div className="flex justify-between items-center">
           <Link to="/Menu">
             <img src={Logo} className="w-40 h-auto" />
           </Link>
 
           <div className="flex flex-row gap-x-5 pr-6 items-center">
-            <img src="/src/assets/waiter.png" className="w-7" />
+            <img
+              src="/src/assets/waiter.png"
+              className="w-7 cursor-pointer"
+              onClick={onWaiterRequest}
+            />
 
             <Link to="/Receipt">
               <svg
