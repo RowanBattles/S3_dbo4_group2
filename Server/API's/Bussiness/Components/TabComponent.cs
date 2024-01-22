@@ -2,6 +2,7 @@
 using Contract_Data_Bussiness.Interfaces;
 using Models;
 using Models.DTOs;
+using Models.Enums;
 
 namespace Bussiness.Components
 {
@@ -77,6 +78,28 @@ namespace Bussiness.Components
         public async Task<Tab?> UpdateTabAsync(Tab tab)
         {
             return await _tabRepo.UpdateTabAsync(tab);
+        }
+
+        public async Task<RequestType?> UpdateRequestTypeAsync(PatchRequestTab requestTab)
+        {
+            Tab? tab = await this.GetTabByIdAsync(requestTab.TabId);
+
+            if (tab == null) return null;
+
+            if ((int)requestTab.Request > 2 || (int)requestTab.Request < 0) return null;
+
+            tab.Request = requestTab.Request;
+
+            tab = await this.UpdateTabAsync(tab);
+
+            if (tab != null)
+            {
+                return tab.Request;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public async Task<SalesTab?> PayTab(PayTab payTab)

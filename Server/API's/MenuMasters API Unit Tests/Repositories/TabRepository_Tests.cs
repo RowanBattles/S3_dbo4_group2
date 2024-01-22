@@ -2,6 +2,7 @@
 using DataAccess.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Models;
+using Models.Enums;
 
 namespace MenuMasters_API_Unit_Tests.Repositories
 {
@@ -12,7 +13,7 @@ namespace MenuMasters_API_Unit_Tests.Repositories
         public TabRepository_Tests()
         {
             _options = new DbContextOptionsBuilder<MenuMastersDbContext>()
-                .UseInMemoryDatabase(databaseName: $"TestDatabase_{new Random().Next(0, 100)}")
+                .UseInMemoryDatabase(databaseName: $"TestDatabase_{new Random().Next(int.MinValue, int.MaxValue)}")
                 .Options;
         }
 
@@ -23,8 +24,8 @@ namespace MenuMasters_API_Unit_Tests.Repositories
             {
                 // Arrange
                 TabRepository tabRepository = new TabRepository(dbContext);
-                dbContext.Tabs.Add(new Tab { TableNumber = 12, TabTotal = 10, PaidCash = 5, PaidPIN = 5 });
-                dbContext.Tabs.Add(new Tab { TableNumber = 11, TabTotal = 15, PaidCash = 0, PaidPIN = -3 });
+                dbContext.Tabs.Add(new Tab { TableNumber = 12, TabTotal = 10, PaidCash = 5, PaidPIN = 5, Request = RequestType.None });
+                dbContext.Tabs.Add(new Tab { TableNumber = 11, TabTotal = 15, PaidCash = 0, PaidPIN = -3, Request = RequestType.None });
                 dbContext.SaveChanges();
 
                 // Act
@@ -33,8 +34,8 @@ namespace MenuMasters_API_Unit_Tests.Repositories
                 // Assert
                 Assert.NotNull(result);
                 Assert.Equal(2, result.Count());
-                Assert.Contains(result, x => x.TableNumber == 12 && x.TabTotal == 0 && x.MoneyRemaining == -10 && x.Paid);
-                Assert.Contains(result, x => x.TableNumber == 11 && x.TabTotal == 0 && x.MoneyRemaining == 3 && !x.Paid);
+                Assert.Contains(result, x => x.TableNumber == 12 && x.TabTotal == 0 && x.MoneyRemaining == -10 && x.Paid && x.Request == RequestType.None);
+                Assert.Contains(result, x => x.TableNumber == 11 && x.TabTotal == 0 && x.MoneyRemaining == 3 && !x.Paid && x.Request == RequestType.None);
             }
         }
 
@@ -45,7 +46,7 @@ namespace MenuMasters_API_Unit_Tests.Repositories
             {
                 // Arrange
                 TabRepository tabRepository = new TabRepository(dbContext);
-                dbContext.Tabs.Add(new Tab { TableNumber = 12, TabTotal = 0, PaidCash = 0, PaidPIN = -10 });
+                dbContext.Tabs.Add(new Tab { TableNumber = 12, TabTotal = 0, PaidCash = 0, PaidPIN = -10, Request = RequestType.None });
                 dbContext.SaveChanges();
 
                 // Act
@@ -56,6 +57,7 @@ namespace MenuMasters_API_Unit_Tests.Repositories
                 Assert.Equal(12, result.TableNumber);
                 Assert.Equal(0, result.TabTotal);
                 Assert.Equal(10, result.MoneyRemaining);
+                Assert.Equal(RequestType.None, result.Request);
                 Assert.False(result.Paid);
             }
         }
@@ -67,8 +69,8 @@ namespace MenuMasters_API_Unit_Tests.Repositories
             {
                 // Arrange
                 TabRepository tabRepository = new TabRepository(dbContext);
-                dbContext.Tabs.Add(new Tab { TableNumber = 12, TabTotal = 0, PaidCash = 5, PaidPIN = 5 });
-                dbContext.Tabs.Add(new Tab { TableNumber = 12, TabTotal = 0, PaidCash = -7, PaidPIN = -3 });
+                dbContext.Tabs.Add(new Tab { TableNumber = 12, TabTotal = 0, PaidCash = 5, PaidPIN = 5, Request = RequestType.None });
+                dbContext.Tabs.Add(new Tab { TableNumber = 12, TabTotal = 0, PaidCash = -7, PaidPIN = -3, Request = RequestType.None });
                 dbContext.SaveChanges();
 
                 // Act
@@ -79,6 +81,7 @@ namespace MenuMasters_API_Unit_Tests.Repositories
                 Assert.Equal(12, result.TableNumber);
                 Assert.Equal(0, result.TabTotal);
                 Assert.Equal(10, result.MoneyRemaining);
+                Assert.Equal(RequestType.None, result.Request);
                 Assert.False(result.Paid);
             }
         }
@@ -100,6 +103,7 @@ namespace MenuMasters_API_Unit_Tests.Repositories
                 Assert.Equal(12, result.TableNumber);
                 Assert.Equal(0, result.TabTotal);
                 Assert.Equal(0, result.MoneyRemaining);
+                Assert.Equal(RequestType.None, result.Request);
                 Assert.True(result.Paid);
             }
         }
@@ -111,9 +115,9 @@ namespace MenuMasters_API_Unit_Tests.Repositories
             {
                 // Arrange
                 TabRepository tabRepository = new TabRepository(dbContext);
-                dbContext.Tabs.Add(new Tab { TableNumber = 12, TabTotal = 0, PaidCash = 0, PaidPIN = 0 });
+                dbContext.Tabs.Add(new Tab { TableNumber = 12, TabTotal = 0, PaidCash = 0, PaidPIN = 0, Request = RequestType.None });
                 dbContext.SaveChanges();
-                Tab updated = new Tab { TabId = 1, TableNumber = 10, TabTotal = 0, PaidCash = -10, PaidPIN = -5 };
+                Tab updated = new Tab { TabId = 1, TableNumber = 10, TabTotal = 0, PaidCash = -10, PaidPIN = -5, Request = RequestType.Waiter };
 
                 // Act
                 Tab? result = await tabRepository.UpdateTabAsync(updated);
@@ -123,6 +127,7 @@ namespace MenuMasters_API_Unit_Tests.Repositories
                 Assert.Equal(10, result.TableNumber);
                 Assert.Equal(0, result.TabTotal);
                 Assert.Equal(15, result.MoneyRemaining);
+                Assert.Equal(RequestType.Waiter, result.Request);
                 Assert.False(result.Paid);
             }
         }
@@ -134,7 +139,7 @@ namespace MenuMasters_API_Unit_Tests.Repositories
             {
                 // Arrange
                 TabRepository tabRepository = new TabRepository(dbContext);
-                dbContext.Tabs.Add(new Tab { TableNumber = 12, TabTotal = 0, PaidCash = 0, PaidPIN = 0});
+                dbContext.Tabs.Add(new Tab { TableNumber = 12, TabTotal = 0, PaidCash = 0, PaidPIN = 0, Request = RequestType.None });
                 dbContext.SaveChanges();
 
                 // Act

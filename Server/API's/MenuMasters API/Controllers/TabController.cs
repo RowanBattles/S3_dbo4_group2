@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using Models.DTOs;
+using Models.Enums;
 
 namespace MenuMasters_API.Controllers;
 
@@ -53,6 +54,13 @@ public class TabController : ControllerBase
     public async Task<IActionResult> Patch(Tab tab)
     {
         Tab? result = await _tabComponent.UpdateTabAsync(tab);
+        return result != null ? Ok(result) : BadRequest(result);
+    }
+
+    [HttpPatch("Request", Name = "PatchTabRequest")]
+    public async Task<IActionResult> PatchRequest(PatchRequestTab requestTab)
+    {
+        RequestType? result = await _tabComponent.UpdateRequestTypeAsync(requestTab);
         return result != null ? Ok(result) : BadRequest(result);
     }
 

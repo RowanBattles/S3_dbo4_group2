@@ -60,6 +60,12 @@ namespace MenuMasters_API_Unit_Tests.Components
         }
 
         [Fact]
+        public async Task UpdateRequestTypeAsync_Test()
+        {
+
+        }
+
+        [Fact]
         public async Task PayTab_Test()
         {
 

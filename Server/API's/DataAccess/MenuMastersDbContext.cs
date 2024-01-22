@@ -23,12 +23,6 @@ namespace DataAccess
         public DbSet<Role> Roles { get; set; }
         public DbSet<Tab> Tabs { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            //optionsBuilder.UseSqlServer("Server=localhost; Database=menumasters; User=bas; Password=123; Encrypt=False");
-            optionsBuilder.UseSqlServer("Server=localhost; Database=menumasters; User=bas; Password=123; Encrypt=False");
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Account>(entity =>
@@ -218,6 +212,11 @@ namespace DataAccess
                     .HasColumnName("paid_pin")
                     .IsRequired()
                     .HasDefaultValue(0.00m);
+
+                entity.Property(e => e.Request)
+                    .HasColumnName("request")
+                    .IsRequired()
+                    .HasDefaultValue(RequestType.None);
 
                 entity.HasMany(e => e.Orders)
                     .WithOne()

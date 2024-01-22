@@ -1,4 +1,5 @@
 ﻿using System;
+using Models.Enums;
 
 namespace Models.DTOs
 {
@@ -13,6 +14,7 @@ namespace Models.DTOs
             this.PaidPIN = tab.PaidPIN;
             this.MoneyRemaining = tab.MoneyRemaining;
             this.Paid = tab.Paid;
+            this.Request = tab.Request;
         }
 
         public int TabId { get; set; }
@@ -30,6 +32,8 @@ namespace Models.DTOs
         public decimal MoneyRemaining { get; set; }
 
         public bool Paid { get; set; }
+
+        public RequestType Request { get; set; }
 
         public ICollection<SalesOrderItem> OrderItems { get; set; } = new List<SalesOrderItem>();
     }

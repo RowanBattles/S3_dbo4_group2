@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
+using Models.Enums;
 
 namespace Models
 {
@@ -17,6 +18,8 @@ namespace Models
 		public decimal PaidCash { get; set; }
 
 		public decimal PaidPIN { get; set; }
+
+		public RequestType Request { get; set; }
 
 		[NotMapped]
         public decimal MoneyRemaining { get { return this.TabTotal - (this.PaidCash + this.PaidPIN); } }

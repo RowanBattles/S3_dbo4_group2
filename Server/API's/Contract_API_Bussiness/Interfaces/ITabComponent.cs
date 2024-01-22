@@ -1,6 +1,7 @@
 ﻿using System;
 using Models;
 using Models.DTOs;
+using Models.Enums;
 
 namespace Contract_API_Bussiness.Interfaces
 {
@@ -17,6 +18,8 @@ namespace Contract_API_Bussiness.Interfaces
         Task<Tab?> CreateTabAsync(Tab tab);
 
         Task<Tab?> UpdateTabAsync(Tab tab);
+
+        Task<RequestType?> UpdateRequestTypeAsync(PatchRequestTab requestTab);
 
         Task<SalesTab?> PayTab(PayTab payTab);
 

@@ -12,7 +12,7 @@ namespace MenuMasters_API_Unit_Tests.Repositories
         public MenuItemRepository_Tests()
         {
             _options = new DbContextOptionsBuilder<MenuMastersDbContext>()
-                .UseInMemoryDatabase(databaseName: $"TestDatabase_{new Random().Next(0, 100)}")
+                .UseInMemoryDatabase(databaseName: $"TestDatabase_{new Random().Next(int.MinValue, int.MaxValue)}")
                 .Options;
         }
 
