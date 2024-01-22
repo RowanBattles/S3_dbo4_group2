@@ -11,7 +11,6 @@ import { cartItemCountState } from "../../atoms/recoilAtoms.ts";
 
 interface HeaderProps {
   onWaiterRequest: () => void;
-  key: string;
 }
 
 const Header: React.FC<HeaderProps> = ({ onWaiterRequest }) => {
