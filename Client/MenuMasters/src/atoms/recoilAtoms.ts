@@ -7,5 +7,5 @@ export interface CartItemCountState {
 
 export const cartItemCountState = atom<CartItemCountState>({
   key: "cartItemCountState",
-  default: { cartItemCount: 0 },
+  default: { cartItemCount: 1 },
 });

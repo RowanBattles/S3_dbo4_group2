@@ -52,7 +52,8 @@ const Header: React.FC<HeaderProps> = ({ onWaiterRequest }) => {
     if (storedCartItemsString) {
       try {
         const storedCartItems = JSON.parse(storedCartItemsString);
-        setCartItemCount(storedCartItems.length);
+        // Update the state with the length of the cart items array
+        setCartItemCount({ cartItemCount: storedCartItems.length });
       } catch (error) {
         console.error("Error parsing cart items:", error);
       }
