@@ -15,7 +15,6 @@ const TransactionPage = () => {
   const { showSuccessToast, showErrorToast } = useCustomToast();
   const [loading, setLoading] = useState(false);
   const { t } = useTranslation();
-  const [rerenderHeader, setRerenderHeader] = useState(false);
 
   useEffect(() => {
     const storedCartItemsString = localStorage.getItem("cartItems");
@@ -76,7 +75,6 @@ const TransactionPage = () => {
     localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
 
     // Trigger the rerender of the Header component
-    setRerenderHeader((prev) => !prev);
   };
 
   const totalPrice = useMemo(() => {
@@ -87,7 +85,7 @@ const TransactionPage = () => {
 
   return (
     <>
-      <Header key={rerenderHeader} />
+      <Header />
       <div className="flex justify-center items-center my-10">
         <hr className="w-28 h-1 bg-primary border-0 rounded mx-4"></hr>
         <h1 className="text-4xl font-medium uppercase">Order</h1>
