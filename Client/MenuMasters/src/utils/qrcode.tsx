@@ -33,13 +33,22 @@ const QRCodeComponent: React.FC<QRCodeComponentProps> = ({
   }, [secretTafelnummer]);
 
   return (
-    <div className="p-80">
-      <div id={`qrCodeLink-${secretTafelnummer}`}>
-        <span>table: {secretTafelnummer}</span>
-        <QRCode
-          value={`http://localhost:5173/?tafelNummer=${secretTafelnummer}`}
-        />
-      </div>
+    <div className="bg-light-gray text-center shadow-lg mx-4">
+      <section className="mx-auto my-10 rounded-3xl p-4 w-80 bg-white">
+        <div className="mb-6">
+          <QRCode
+            value={`http://localhost:5173/?tafelNummer=${secretTafelnummer}`}
+            className="rounded-xl mx-auto"
+          />
+        </div>
+        <h1 className="text-2xl text-center font-bold text-dark-blue mb-3">
+          table: {secretTafelnummer}
+        </h1>
+
+        <p className="text-grayish-blue mb-5 leading-5">
+          Scan the QR code to get your table number
+        </p>
+      </section>
     </div>
   );
 };
@@ -52,4 +61,13 @@ const QRCodeTable15: React.FC = () => (
   <QRCodeComponent secretTafelnummer={15} />
 );
 
-export { QRCodeTable10, QRCodeTable15 };
+// Display in a flex container with 3 items per row
+const QRCodeGrid: React.FC = () => (
+  <div className="flex flex-wrap justify-center">
+    <QRCodeTable10 />
+    <QRCodeTable15 />
+    {/* Add more QRCode components as needed */}
+  </div>
+);
+
+export { QRCodeGrid };

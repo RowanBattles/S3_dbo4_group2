@@ -12,7 +12,7 @@ import { Suspense } from "react";
 import { ToastContainer } from "react-toastify";
 import DashboardPage from "./pages/Staff/DashboardPage";
 import Receipt from "./pages/Users/Receipt";
-import { QRCodeTable10, QRCodeTable15 } from "./utils/qrcode";
+import { QRCodeGrid } from "./utils/qrcode";
 
 function App() {
   const [cookies] = useCookies(["isAuthenticated"]);
@@ -64,7 +64,7 @@ function App() {
           path="/qr"
           element={
             <>
-              <QRCodeTable10 /> <QRCodeTable15 />
+              <QRCodeGrid />
             </>
           }
         />
