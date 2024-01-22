@@ -7,6 +7,7 @@ on:
 
 jobs:
 
+
   build-api1:
     runs-on: ubuntu-latest
 
@@ -41,6 +42,6 @@ jobs:
     - name: Build and push API2 Docker image
       uses: docker/build-push-action@v2
       with:
-        context: Server/API's/MenuMasters API
+        context: "Server/API's/MenuMasters API"
         push: true
         tags: username/api2:latest
