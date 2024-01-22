@@ -1,0 +1,64 @@
+name: Docker Publish
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-react:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14
+
+    - name: Build and push frontend Docker image
+      uses: docker/build-push-action@v2
+      with:
+        context: Client/MenuMasters
+        push: true
+        tags: username/react-app:latest
+
+  build-api1:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1
+
+    - name: Build and push API1 Docker image
+      uses: docker/build-push-action@v2
+      with:
+        context: Server/API_Menu/Menumasters_MenuAPI/Menumasters_MenuAPI
+        push: true
+        tags: username/api1:latest
+
+  build-api2:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1
+
+    - name: Build and push API2 Docker image
+      uses: docker/build-push-action@v2
+      with:
+        context: Server/API's/MenuMasters API
+        push: true
+        tags: username/api2:latest
