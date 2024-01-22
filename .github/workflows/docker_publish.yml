@@ -25,7 +25,7 @@ jobs:
       with:
         context: Server/API_Menu/Menumasters_MenuAPI
         push: true
-        tags: username/api1:latest
+        tags: matthijs464/api1:latest
 
   build-api2:
     runs-on: ubuntu-latest
@@ -44,4 +44,4 @@ jobs:
       with:
         context: Server/API's
         push: true
-        tags: username/api2:latest
+        tags: matthijs464/api2:latest
