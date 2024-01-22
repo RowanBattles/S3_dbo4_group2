@@ -26,7 +26,9 @@ It also includes unit tests for the data layer and business layer.
 
 ### API_Menu
 
-TODO: Niels
+this API contains only the end points for the guest-side of the applications. 
+it containts a business layer a datalayer, some unitest have been writen in the API to 
+and the contracts with the interfaces between them. 
 
 ## Using the application
 
