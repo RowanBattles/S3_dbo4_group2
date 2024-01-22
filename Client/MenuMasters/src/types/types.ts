@@ -28,6 +28,8 @@ interface MenuItem {
   dietaryInfo: string;
   ingredients: string;
   price: number;
+  quantity: number;
+  image: string;
 }
 
 interface CartItem {
