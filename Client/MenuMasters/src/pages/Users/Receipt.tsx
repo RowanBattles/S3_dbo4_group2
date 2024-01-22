@@ -69,13 +69,14 @@ function Receipt() {
             X
           </div>
         </Link>
-        <div
-          className="red py-3 px-6 rounded-full absolute bottom-4 text-white right-4 z-50 font-semibold text-xl cursor-pointer"
-          onClick={handleReceipt}
-        >
-          {t("common:translation:requestBill")}
-        </div>
-
+        {tab && !paid && (
+          <div
+            className="red py-3 px-6 rounded-full absolute bottom-4 text-white right-4 z-50 font-semibold text-xl cursor-pointer"
+            onClick={handleReceipt}
+          >
+            {t("common:translation:requestBill")}
+          </div>
+        )}
         <div className="white p-5 py-16 border rounded-3xl border-slate-300 h-full relative">
           {tab ? (
             <>
