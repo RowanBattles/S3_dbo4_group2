@@ -9,7 +9,7 @@ import { cartOutline, cart } from "ionicons/icons";
 import { useEffect, useState } from "react";
 
 import { useRecoilState } from "recoil";
-import { cartItemCountState } from "../../atoms/recoilAtoms.js";
+import { cartItemCountState } from "../../atoms/recoilAtoms.ts";
 
 const Header = () => {
   const [cookie] = useCookies(["tafelNummer"]);
