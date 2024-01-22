@@ -11,6 +11,7 @@ import { cartItemCountState } from "../../atoms/recoilAtoms.ts";
 
 interface HeaderProps {
   onWaiterRequest: () => void;
+  key: string;
 }
 
 const Header: React.FC<HeaderProps> = ({ onWaiterRequest }) => {
@@ -99,9 +100,9 @@ const Header: React.FC<HeaderProps> = ({ onWaiterRequest }) => {
                   size="large"
                   style={{ fill: getCartIcon().fill }}
                 />
-                {cartItemCount > 0 && (
+                {cartItemCount.cartItemCount > 0 && (
                   <div className="bg-red-500 rounded-full w-5 h-5 text-white flex items-center justify-center absolute -top-4 -right-4">
-                    {cartItemCount}
+                    {cartItemCount.cartItemCount}
                   </div>
                 )}
               </div>

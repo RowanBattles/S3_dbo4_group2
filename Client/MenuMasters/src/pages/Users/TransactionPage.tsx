@@ -1,6 +1,4 @@
 import { useState, useEffect, useMemo } from "react";
-import { useRecoilValue } from "recoil";
-import { cartItemCountState } from "../../atoms/recoilAtoms.ts";
 import Transaction from "../../components/Users/Transaction";
 import Header from "../../components/Users/Header";
 import React from "react";
