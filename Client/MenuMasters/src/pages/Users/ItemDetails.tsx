@@ -4,12 +4,13 @@ import { useParams, Link } from "react-router-dom";
 import Header from "../../components/Users/Header";
 import { getItembyId } from "../../utils/api";
 import { useTranslation } from "react-i18next";
-
+import { RequestSales } from "../../utils/api";
 import { MenuItem } from "../../types/types";
 import useCustomToast from "../../utils/useToast";
 import ItemDetails_Skeleton from "../../components/Users/Skeletons/ItemDetails_Skeleton";
 
 const ItemDetails = () => {
+  const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
   const [Item, setItem] = useState<MenuItem | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -20,6 +21,25 @@ const ItemDetails = () => {
   const [notes, setNotes] = useState<string>("");
   const { showSuccessToast, showErrorToast } = useCustomToast();
   const { t } = useTranslation();
+
+  const handleWaiter = () => {
+    setIsConfirmationOpen(true);
+  };
+
+  const confirmRequestWaiter = async () => {
+    try {
+      await RequestSales(localStorage.TabId, 2);
+      setIsConfirmationOpen(false);
+      showSuccessToast("Waiter requested succesfully");
+    } catch (error) {
+      console.error(error);
+      showErrorToast("Something went wrong while requesting the waiter");
+    }
+  };
+
+  const cancelRequestWaiter = () => {
+    setIsConfirmationOpen(false);
+  };
 
   useEffect(() => {
     const fetchFoodInfo = async () => {
@@ -93,14 +113,36 @@ const ItemDetails = () => {
   if (loading) {
     return (
       <>
-        <Header />
+        <Header onWaiterRequest={handleWaiter} />
         <ItemDetails_Skeleton />
+
+        {isConfirmationOpen && (
+          <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
+            <div className="bg-white p-4 rounded shadow">
+              <p>Are you sure you want to request the waiter?</p>
+              <div className="flex justify-end mt-4">
+                <button
+                  className="mr-2 font-semibold border-black border-2 rounded px-4 py-1"
+                  onClick={cancelRequestWaiter}
+                >
+                  Cancel
+                </button>
+                <button
+                  className="ml-2 text-white bg-black rounded py-1 px-4"
+                  onClick={confirmRequestWaiter}
+                >
+                  Yes
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </>
     );
   }
   return (
     <>
-      <Header />
+      <Header onWaiterRequest={handleWaiter} />
       <section className="max-w-screen-xl mx-auto px-6">
         <div className="flex flex-col justify-center items-center h-screen">
           <div
@@ -202,6 +244,28 @@ const ItemDetails = () => {
           </div>
         </div>
       </section>
+
+      {isConfirmationOpen && (
+        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white p-4 rounded shadow">
+            <p>Are you sure you want to request the waiter?</p>
+            <div className="flex justify-end mt-4">
+              <button
+                className="mr-2 font-semibold border-black border-2 rounded px-4 py-1"
+                onClick={cancelRequestWaiter}
+              >
+                Cancel
+              </button>
+              <button
+                className="ml-2 text-white bg-black rounded py-1 px-4"
+                onClick={confirmRequestWaiter}
+              >
+                Yes
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };

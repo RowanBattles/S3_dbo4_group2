@@ -11,15 +11,7 @@ interface ItemProps {
   dietaryInfo: string;
 }
 
-const Item = ({
-  image,
-  title,
-  description,
-  price,
-  foodType,
-  id,
-  dietaryInfo,
-}: ItemProps) => {
+const Item = ({ image, title, price, id, dietaryInfo }: ItemProps) => {
   const { t } = useTranslation();
 
   return (

@@ -19,8 +19,6 @@ const TransactionPage = () => {
   const { t } = useTranslation();
   const [rerenderHeader, setRerenderHeader] = useState(false);
 
-  const cartItemCount = useRecoilValue(cartItemCountState);
-
   useEffect(() => {
     const storedCartItemsString = localStorage.getItem("cartItems");
     if (storedCartItemsString) {
@@ -54,9 +52,6 @@ const TransactionPage = () => {
         quantity: item.quantity,
       }));
 
-      console.log(orderItems);
-      console.log(cookie.tafelNummer);
-
       const response = await createOrder({
         orderItems: orderItems,
         tableNumber: cookie.tafelNummer,
@@ -72,7 +67,6 @@ const TransactionPage = () => {
       setLoading(false);
       console.error("Error creating order:", error);
       showErrorToast("Something went wrong while creating your order");
-      // Handle the error gracefully
     } finally {
       setLoading(false);
     }
