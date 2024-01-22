@@ -13,7 +13,15 @@ const Items = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const { t } = useTranslation();
   const [selectedIngredients, setSelectedIngredients] = useState<string[]>([]);
-
+  const allIngredients = [
+    ...new Set(
+      items
+        .flatMap((item) => item.ingredients || [])
+        .join(",")
+        .split(",")
+        .map((ingredient) => ingredient.trim())
+    ),
+  ].sort();
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -50,7 +58,12 @@ const Items = () => {
 
   const filteredItems = items.filter((item) => {
     const category = categories[item.categoryId];
-    return category === menuTab;
+    return (
+      category === menuTab &&
+      !selectedIngredients.some((ingredient) =>
+        item.ingredients.includes(ingredient)
+      )
+    );
   });
 
   return (
@@ -60,7 +73,7 @@ const Items = () => {
         <h1 className="text-4xl font-medium uppercase">Menu</h1>
         <hr className="w-28 h-1 bg-primary border-0 rounded mx-4"></hr>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 text-center">
         <p
           className={
             menuTab === "Appetizers"
@@ -116,6 +129,21 @@ const Items = () => {
             {t("common:translation.categories:cocktails")}
           </option>
         </select>
+        <IngredientFilter
+          allIngredients={allIngredients}
+          selectedIngredients={selectedIngredients}
+          onSelectIngredient={(ingredient) => {
+            // Implement logic to handle ingredient selection
+            // For example, update the selectedIngredients state
+            setSelectedIngredients((prevSelected) => {
+              if (prevSelected.includes(ingredient)) {
+                return prevSelected.filter((item) => item !== ingredient);
+              } else {
+                return [...prevSelected, ingredient];
+              }
+            });
+          }}
+        />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12">
         {loading ? (
